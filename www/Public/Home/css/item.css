@@ -1,0 +1,125 @@
+
+.item-content-box {
+    width: 232px;
+    height: 385px;
+    float: left;
+    margin-right: 10px;
+    box-sizing: border-box;
+    position: relative;
+    margin-bottom: 20px;
+    border: 1px solid #EEEEEE;
+}
+
+.item-content-box:hover {
+    border: 1px solid #FF420F;
+}
+
+.item-content-box .goods-img {
+    width: 230px;
+    height: 230px;
+    position: relative;
+    overflow: hidden;
+}
+
+.item-content-box .goods-img img {
+    width: 230px;
+    height: 230px;
+    vertical-align: middle;
+    transition: all 0.4s;
+}
+
+.item-content-box .goods-img img:hover {
+    transform: scale(1.2);
+}
+
+.item-content-box .goods-img .shop-type {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #FF420F;
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.item-content-box .goods-info {
+    position: relative;
+    margin: 13px 15px;
+    height: 126px;
+    word-wrap: initial;
+}
+
+.item-content-box .goods-info .goods-tit {
+    font-size: 12px;
+    color: #666666;
+    height: 14px;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.item-content-box .goods-info .goods-tit:hover {
+    color: #FF420F;
+}
+
+.item-content-box .goods-info .goods-slider {
+    height: 2px;
+    padding: 10px 0 17px 0;
+    margin: 2px 0 1px;
+    position: relative;
+    overflow: hidden;
+}
+
+.item-content-box .goods-info .slider {
+    height: 2px;
+    width: 100%;
+    display: block;
+    background: #EEEEEE;
+}
+
+.item-content-box .goods-info .slider em {
+    background: #ED777E;
+    width: 0;
+    display: block;
+    height: 2px;
+    transition: width 2s ease-out;
+}
+
+.item-content-box .goods-info .goods-price {
+    height: 40px;
+}
+
+.item-content-box .goods-info .goods-price p {
+    height: 20px;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666666;
+    text-align: center;
+}
+
+.item-content-box .goods-info .goods-price p b {
+    font-size: 18px;
+    color: #FF420F;
+}
+
+.item-content-box .goods-info .goods-sale {
+    display: block;
+    margin: 20px;
+    position: relative;
+    height: 16px;
+    line-height: 16px;
+}
+
+.item-content-box .goods-info .goods-sale p {
+    font-size: 12px;
+    color: #666666;
+}
+
+.item-content-box .goods-info .goods-sale p b {
+    margin-left: 5px;
+    color: #FF420F;
+}

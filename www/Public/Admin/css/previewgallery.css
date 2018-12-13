@@ -1,0 +1,478 @@
+.up-item {
+    font-size: 14px;
+    background: #f85959;
+    color: #FFF;
+    padding: 0 10px;
+    position: fixed;
+    left: 20px;
+    top: 20px;
+    border-radius: 6px;
+    text-decoration: none
+}
+
+.down-item {
+    font-size: 14px;
+    background: #f85959;
+    color: #FFF;
+    padding: 0 10px;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+    border-radius: 6px;
+    text-decoration: none
+}
+
+.update-item {
+    font-size: 14px;
+    background: #f85959;
+    color: #FFF;
+    padding: 0 10px;
+    position: fixed;
+    left: 20px;
+    top: 50px;
+    border-radius: 6px;
+    text-decoration: none
+}
+
+.del-item {
+    font-size: 14px;
+    background: #f85959;
+    color: #FFF;
+    padding: 0 10px;
+    position: fixed;
+    right: 20px;
+    top: 50px;
+    border-radius: 6px;
+    text-decoration: none
+}
+
+* {
+    padding: 0;
+    margin: 0
+}
+
+html {
+    font-family: STHeiti, 'Microsoft YaHei', Helvetica, Arial, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    background: #F0F3F4;
+    line-height: 1.42857143;
+    background-color: #EFEFEF
+}
+
+h1, .h1, h2, .h2, h3, .h3 {
+    margin-top: 20px;
+    margin-bottom: 10px
+}
+
+#simulator {
+    box-sizing: border-box;
+    width: 300px;
+    height: 620px;
+    margin: 0 auto;
+    padding: 80px 20px 75px;
+    overflow: hidden;
+    background-image: url(https://tms3.bytecdn.cn/dist/online/public/img/iphone_7_plus_a6f7b5c.png);
+    background-size: 100% 100%;
+    background-repeat: no-repeat
+}
+
+#main {
+    height: 100%;
+    position: relative;
+    background-color: #1b1b1b
+}
+
+#gallery {
+}
+
+.swipe {
+    overflow: hidden;
+    visibility: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%
+}
+
+.swipe-wrap {
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    font-size: 0
+}
+
+.swipe-wrap .swiper-slide {
+    display: inline-block;
+    vertical-align: top;
+    height: 100%;
+    position: relative;
+    z-index: 0
+}
+
+.swipe-wrap .swiper-slide .img-wrap img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-height: 100%
+}
+
+.btn-container span {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    margin-top: -25px;
+    width: 30px;
+    height: 50px;
+    background: rgba(0, 0, 0, .2);
+    cursor: pointer
+}
+
+.btn-container span:hover {
+    background: rgba(0, 0, 0, .5)
+}
+
+.btn-container span.nextBtn {
+    position: absolute;
+    left: auto;
+    right: 10px;
+    transform: rotateY(-180deg)
+}
+
+.btn-container span:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    left: 5px;
+    top: 17px;
+    background: #fff;
+    border-radius: 2px;
+    transform: rotate(-45deg)
+}
+
+.btn-container span:after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 2px;
+    left: 5px;
+    top: 31px;
+    background: #fff;
+    border-radius: 2px;
+    transform: rotate(45deg)
+}
+
+#gallery figure {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    z-index: 0
+}
+
+#gallery .img-wrap {
+    position: relative;
+    max-height: 100%;
+    max-width: 100%
+}
+
+#gallery .attach_commoditys {
+    position: absolute;
+    right: 0;
+    top: 75px;
+    width: 75px;
+    height: 170px;
+    background: rgba(0, 0, 0, .5)
+}
+
+#gallery .attach_comm_tit {
+    display: block;
+    width: 75px;
+    height: 20px;
+    font-size: 12px;
+    line-height: 20px;
+    text-align: center;
+    color: #fff;
+    font-weight: 200
+}
+
+#gallery .attach_commoditys .attach_comm_wrap {
+    width: 70px;
+    margin-left: 5px;
+    margin-bottom: 5px;
+    position: relative
+}
+
+#gallery .bottom-bar {
+    -webkit-transition: opacity .25s linear;
+    will-change: opacity;
+    background: rgba(27, 27, 27, .7);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    padding-bottom: 48px;
+    width: 100%
+}
+
+#gallery .bottom-bar h2 {
+    margin: 10px 15px 12px;
+    height: 32px;
+    line-height: 32px;
+    overflow: hidden;
+    color: #fff
+}
+
+#gallery h2 {
+    font-size: 16px;
+    padding-right: 120px;
+    position: relative
+}
+
+#gallery .direct-link, #gallery .direct-link:hover {
+    font-size: 14px;
+    background: #f85959;
+    color: #FFF;
+    padding: 0 10px;
+    float: right;
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-radius: 6px;
+    text-decoration: none
+}
+
+#gallery figcaption {
+    margin: 10px auto 0;
+    padding: 0 15px;
+    color: #cacaca;
+    font-size: 16px;
+    line-height: 22px;
+    max-height: 178px;
+    word-break: break-all;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow-x: hidden
+}
+
+#gallery figcaption strong {
+    margin-right: 5px
+}
+
+.pswp__price_tag {
+    box-sizing: border-box;
+    position: absolute;
+    height: 26px;
+    line-height: 24px;
+    border: 1px solid rgba(255, 255, 255, .85);
+    border-right: 0;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+    background: rgba(0, 0, 0, .7);
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 16px;
+    margin-top: -13px;
+    padding-left: 6px
+}
+
+.pswp__price_tag:after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: -1px;
+    width: 18px;
+    height: 26px;
+    background: url(https://tms3.bytecdn.cn/dist/online/public/img/price_tag_a68a5fe.png) 0 0 no-repeat;
+    background-size: contain
+}
+
+.pswp__price_tag.position_left {
+    border: 1px solid rgba(255, 255, 255, .85);
+    border-left: 0;
+    border-radius: 0;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    margin: -13px 0 0 16px;
+    padding: 0 6px 0 0
+}
+
+.pswp__price_tag.position_left:after {
+    left: -18px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1)
+}
+
+.pswp__price_tag.attach_comm_price {
+    background: 0 0;
+    border: 0
+}
+
+.pswp__price_tag.attach_comm_price:after {
+    background: 0 0
+}
+
+.pswp__price_tag .dot-con {
+    position: absolute;
+    left: 100%;
+    top: 7px;
+    margin-left: 10px
+}
+
+.pswp__price_tag .dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+    background-color: #fff;
+    border-radius: 5px
+}
+
+.pswp__price_tag .dot-animate {
+    position: absolute;
+    z-index: 9;
+    left: -4px;
+    top: -4px;
+    width: 18px;
+    height: 18px;
+    background-color: rgba(255, 255, 255, .5);
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+    -webkit-animation: scale_animate 2s linear 0s infinite normal forwards;
+    -moz-animation: scale_animate 2s linear 0s infinite normal forwards;
+    -o-animation: scale_animate 2s linear 0s infinite normal forwards;
+    -ms-animation: scale_animate 2s linear 0s infinite normal forwards;
+    animation: scale_animate 2s linear 0s infinite normal forwards;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    -o-animation-fill-mode: both;
+    -ms-animation-fill-mode: both;
+    animation-fill-mode: both
+}
+
+.pswp__price_tag.position_left .dot-con {
+    left: -20px;
+    margin: 0
+}
+
+@-moz-keyframes scale_animate {
+    0%, 21%, 30%, 51% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+        -ms-filter: none;
+        filter: none
+    }
+    15%, 45% {
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -o-transform: scale(2);
+        -ms-transform: scale(2);
+        transform: scale(2)
+    }
+    100%, 20%, 50% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+        -ms-filter: "alpha(Opacity=0)";
+        filter: alpha(opacity=0)
+    }
+}
+
+@-webkit-keyframes scale_animate {
+    0%, 21%, 30%, 51% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+        -ms-filter: none;
+        filter: none
+    }
+    15%, 45% {
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -o-transform: scale(2);
+        -ms-transform: scale(2);
+        transform: scale(2)
+    }
+    100%, 20%, 50% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+        -ms-filter: "alpha(Opacity=0)";
+        filter: alpha(opacity=0)
+    }
+}
+
+@-o-keyframes scale_animate {
+    0%, 21%, 30%, 51% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+        -ms-filter: none;
+        filter: none
+    }
+    15%, 45% {
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -o-transform: scale(2);
+        -ms-transform: scale(2);
+        transform: scale(2)
+    }
+    100%, 20%, 50% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+        -ms-filter: "alpha(Opacity=0)";
+        filter: alpha(opacity=0)
+    }
+}
+
+@keyframes scale_animate {
+    0%, 21%, 30%, 51% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 1;
+        -ms-filter: none;
+        filter: none
+    }
+    15%, 45% {
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -o-transform: scale(2);
+        -ms-transform: scale(2);
+        transform: scale(2)
+    }
+    100%, 20%, 50% {
+        -webkit-transform: scale(1);
+        -moz-transform: scale(1);
+        -o-transform: scale(1);
+        -ms-transform: scale(1);
+        transform: scale(1);
+        opacity: 0;
+        -ms-filter: "alpha(Opacity=0)";
+        filter: alpha(opacity=0)
+    }
+}

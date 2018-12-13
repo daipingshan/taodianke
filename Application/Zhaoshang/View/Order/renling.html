@@ -1,0 +1,28 @@
+<include file="Common:header" />
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <form role="form" id='check-form' method='post' action="{:U('Order/renling')}">
+                <div class="form-group">
+                    <label>商家名称</label>
+                    <input class="form-control" type="text" name='parter_name' value="{$data.parter_name}">
+                </div>
+                <div class="form-group">
+                    <label>商家QQ</label>
+                    <input class="form-control" type="text" name='parter_qq' value="{$data.parter_qq}">
+                </div>
+                <div class="form-group">
+                    <label>服务费</label>
+                    <input class="form-control" type="text" name='fuwufei' value="{$data.fuwufei}">
+
+                </div>
+                <div class="form-group">
+                    <input type='hidden' name='id' value='{$data.id}'/>
+                    <input type="button" onclick="return ajax_check_submit_from_layer(this);" check_url="{:U('Order/check_add_edit_data')}" id="btn-add-edit-goods"  class="btn btn-primary" value="提交"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />

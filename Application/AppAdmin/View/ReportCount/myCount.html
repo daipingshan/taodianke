@@ -1,0 +1,142 @@
+<include file="Public/header" title="CRM" keywords="报表统计" />
+<link rel="stylesheet" href="__JS__/daterangepicker/daterangepicker-bs3.css">
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">CRM</h1>
+                <p class="description">业绩统计</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"> CRM</li>
+                    <li class="active"><strong>业绩统计</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <form action="{:U('ReportCount/myCount')}">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-sm-12"><p style="color: red">默认显示当月业绩，如需统计其他请选择对应添加进行查询！</p></div>
+                                <if condition="session('position_level') eq 'manager'">
+                                    <div class="col-sm-2">
+                                        <select name="department_id" class="form-control" onchange="getAdminUser(this.value);">
+                                            <option value="">所属部门</option>
+                                            <foreach name="department" item="v" key="k">
+                                                <option value="{$k}"
+                                                <if condition="I('get.department_id') eq $k">selected</if>
+                                                >{$v}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="admin_id" class="form-control" id="admin-user">
+                                            <option value="">所属员工</option>
+                                        </select>
+                                    </div>
+                                </if>
+                                <if condition="session('position_level') eq 'middle'">
+                                    <div class="col-sm-2">
+                                        <select name="admin_id" class="form-control">
+                                            <option value="">所属员工</option>
+                                            <foreach name="admin_user" item="v" key="k">
+                                                <option value="{$k}"
+                                                <if condition="I('get.admin_id') eq $k">selected</if>
+                                                >{$v}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                </if>
+                                <div class="col-sm-4">
+                                    <input type="text" name="time" value="{$time}" id="field-1" class="form-control daterange" placeholder="请选择结算时间范围" />
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-secondary btn-single" type="submit" name="type" value="select" style="margin-bottom: 0">
+                                        <font><font>查询</font></font></button>
+                                    <if condition="(session('position_level') eq 'manager') OR (session('position_level') eq 'middle')">
+                                        <button class="btn btn-warning" type="submit" name="type" value="down" style="margin-bottom: 0">
+                                            <font><font>报表下载</font></font></button>
+                                    </if>
+                                </div>
+                                <div class="col-sm-2">
+                                    <h4>总业绩：<span style="color: red">{$all_total_money}</span></h4>
+                                    <h4>总上单数：<span style="color: red">{$all_total_deal_num}</span></h4>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th data-priority="2" style="text-align: center">所属部门</th>
+                                    <th data-priority="3" style="text-align: center">客户经理</th>
+                                    <th data-priority="4" style="text-align: center">业绩总额</th>
+                                    <th data-priority="4" style="text-align: center">上单总数</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="v">
+                                    <tr>
+                                        <td align="center">{$v['department_name']}</td>
+                                        <td align="center">{$v['name']}</td>
+                                        <td align="center">{$v['paid_total_money']}</td>
+                                        <td align="center">{$v['deal_ids_num']}</td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <if condition="$data[0] eq ''">
+                            <div style="text-align: center">
+                                没有找到相关内容
+                            </div>
+                        </if>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <!-- Bottom Scripts -->
+    <script src="__JS__/moment.min.js"></script>
+    <!-- Imported scripts on this page -->
+    <script src="__JS__/daterangepicker/daterangepicker.js"></script>
+    <script type="text/javascript">
+        var department_id = "{:I('get.department_id')}";
+        var admin_id = "{:I('get.admin_id')}";
+        if (department_id) {
+            getAdminUser(department_id, admin_id);
+        }
+        function getAdminUser(id, admin_id) {
+            if (!admin_id) {
+                admin_id = 0;
+            }
+            var url = "{:U('Common/ajaxAdminUser')}";
+            $.get(url, {department_id: id}, function (res) {
+                var data = res.data;
+                var html = "<option value=''>所属员工</option>";
+                for (var i = 0; i < data.length; i++) {
+                    if (admin_id == data[i].id) {
+                        html += "<option value='" + data[i].id + "' selected>" + data[i].name + "</option>"
+                    } else {
+                        html += "<option value='" + data[i].id + "'>" + data[i].name + "</option>"
+                    }
+                }
+                $('#admin-user').html(html);
+            });
+        }
+    </script>
+</div>
+<include file="Public/footer_Js" />

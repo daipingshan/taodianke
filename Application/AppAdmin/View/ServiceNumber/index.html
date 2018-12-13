@@ -1,0 +1,225 @@
+<include file="Public/header" title="百姓网服务号管理"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">百姓网服务号</h1>
+                <p class="description">显示所有服务号</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li> 百姓网服务号</li>
+                    <li class="active"><strong>服务号管理</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">百姓网服务号</h3>
+                        <div class="panel-options"><a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel"> <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a> <a href="#" data-toggle="reload">
+                                <i class="fa-rotate-right"></i> </a> <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">服务号名称</th>
+                                    <th width="15%">服务号账号</th>
+                                    <th width="10%">服务号微信号</th>
+                                    <th width="15%">服务号Token</th>
+                                    <th width="10%">关注数据</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td>{$vo.name}</td>
+                                        <td>{$vo.account}</td>
+                                        <td>{$vo.wechat_num}</td>
+                                        <td>{$vo.token}</td>
+                                        <td>关注：{$vo.num}<br>取消：{$vo.del_num}</td>
+                                        <td>
+                                            <a href="{:U('generalize',array('service_id'=>$vo['id']))}">
+                                                <button class="btn btn-warning"><font><font>推广管理</font></font>
+                                                </button>
+                                            </a>
+                                            <a href="{:U('keyword',array('service_id'=>$vo['id']))}">
+                                                <button class="btn btn-danger"><font><font>关键字回复</font></font>
+                                                </button>
+                                            </a>
+                                            <a href="javascript:;">
+                                                <button class="btn btn-info update-content" data-service-id="{$vo.id}"
+                                                        data-val="{$vo.content}" data-type="content"
+                                                        data-auto_reply='{$vo.auto_reply}'>
+                                                    <font><font>编辑关注提示语</font></font>
+                                                </button>
+                                            </a>
+                                            <a href="javascript:;">
+                                                <button class="btn btn-success update-content" data-val='{$vo.menu}'
+                                                        data-service-id="{$vo.id}" data-type="menu">
+                                                    <font><font>设置底部菜单</font></font>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+</div>
+<!-- 添加推广位 -->
+<div class="modal fade" id="set-menu">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title title-tip">设置底部菜单</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label text-tip">底部菜单</label>
+                            <textarea type="text" name="menu" id="menu" rows="10" class="form-control"
+                                      placeholder="请输入底部菜单"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label error-tip" style="color: red"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="id" id="menu_service_id"/>
+                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" id="update-menu-content">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_mix">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title title-tip">编辑关注提示语</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label text-tip">关注提示语</label>
+                            <textarea type="text" name="content" id="content" rows="5" class="form-control"
+                                      placeholder="请输入关注提示语"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label text-tip">自动回复语</label>
+                            <textarea type="text" name="auto_reply" id="auto_reply" rows="5" class="form-control"
+                                      placeholder="请输入自动回复语"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label error-tip" style="color: red"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <input type="hidden" name="id" id="service_id"/>
+                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" id="update-content">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer_Js"/>
+<script>
+    $('.update-content').click(function () {
+        var type = $(this).data('type');
+        if (type == 'menu') {
+            $('#menu_service_id').val($(this).data('service-id'));
+            $('#menu').val(JSON.stringify($(this).data('val')));
+            jQuery('#set-menu').modal('show', {backdrop: 'static'});
+        } else {
+            $('#service_id').val($(this).data('service-id'));
+            $('#content').val($(this).data('val'));
+            $('#auto_reply').val($(this).data('auto_reply'));
+            jQuery('#modal_mix').modal('show', {backdrop: 'static'});
+        }
+
+    })
+    $('#content,#auto_reply,#menu').focus(function () {
+        $('.error-tip').text('');
+    });
+
+    $('#update-menu-content').click(function () {
+        var id = $('#menu_service_id').val();
+        var content = $('#menu').val();
+        if (!content) {
+            $('.error-tip').text('请输入底部菜单！');
+            return false;
+        }
+        $.post("{:U('updateService')}", {id: id, content: content, type: 'menu'}, function (res) {
+            $('.error-tip').text(res.info);
+            if (res.status == 1) {
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            }
+        })
+    })
+
+    $('#update-content').click(function () {
+        var id = $('#service_id').val();
+        var content = $('#content').val();
+        var auto_reply = $('#auto_reply').val();
+        if (!content) {
+            $('.error-tip').text('请输入关注提示语！');
+            return false;
+        }
+        if (!auto_reply) {
+            $('.error-tip').text('请输入自动回复语！');
+            return false;
+        }
+        $.post("{:U('updateService')}", {
+            id: id,
+            content: content,
+            auto_reply: auto_reply,
+            type: 'content'
+        }, function (res) {
+            $('.error-tip').text(res.info);
+            if (res.status == 1) {
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            }
+        })
+    })
+
+
+</script>

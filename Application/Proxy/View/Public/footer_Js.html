@@ -1,0 +1,96 @@
+<script>
+    function edit() {
+        jQuery('#modal_6').modal('show', {backdrop: 'static'});
+    }
+
+    function editPassword() {
+        var password = $("#password").val();
+        var newpassword = $("#newpassword").val();
+        var repassword = $("#repassword").val();
+        if (!newpassword || !repassword) {
+            alert('密码或重复密码为空');
+            return false;
+        } else if (newpassword != repassword) {
+            alert('两次密码不一样，请确认密码！');
+            return false;
+        }
+        var get_url = "{:U('Auth/revisePassword')}";
+        $.get(get_url, {password: password, newpassword: newpassword, repassword: repassword}, function (res) {
+            if (res.code == 1) {
+                alert("恭喜您，您的密码修改成功！");
+                window.location.href = "{:U('Index/index')}";
+            } else if (res.code == 0) {
+                alert('密码修改失败，请联系管理员！');
+                window.location.href = "{:U('Index/index')}";
+            }
+
+        });
+
+    }
+</script>
+
+<div class="modal fade" id="modal_6">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="get" action="{:U('Auth/revisePassword')}">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">修改密码</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">原始密码</label>
+                                <input type="password" name="password" class="form-control" id="password" placeholder="请输入原始密码">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">新密码</label>
+                                <input type="password" name="newpassword" class="form-control" id="newpassword"
+                                       placeholder="请输入密码">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="field-1" class="control-label">确认密码</label>
+                                <input type="password" name="repassword" class="form-control" id="repassword"
+                                       placeholder="请输入用户确认密码">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info" onclick="editPassword()">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Bottom Scripts -->
+<script src="__JS__/bootstrap.min.js"></script>
+<script src="__JS__/TweenMax.min.js"></script>
+<script src="__JS__/resizeable.js"></script>
+<script src="__JS__/joinable.js"></script>
+<script src="__JS__/xenon-api.js"></script>
+<script src="__JS__/xenon-toggles.js"></script>
+
+
+<!-- JavaScripts initializations and stuff -->
+<script src="__JS__/xenon-custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,89 @@
+<include file="Public/header" title="{$title}" />
+<div class="page-container">
+<include file="Public/nav" />
+<div class="main-content"> 
+  
+  <!-- User Info, Notifications and Menu Bar --> 
+  <include file="Public/User_Nav" />
+  <div class="page-title">
+    <div class="title-env">
+      <h1 class="title">商品列表</h1>
+      <p class="description">显示所有商品订单列表</p>
+    </div>
+    <div class="breadcrumb-env">
+      <ol class="breadcrumb bc-1">
+        <li> <a href="dashboard-1.html"><i class="fa-home"></i>主页</a> </li>
+        <li class="active"> 商品管理 </li>
+        <li class="active"> <strong>订单列表</strong> </li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">商品列表 - {$count} 件商品</h3>
+          <div class="panel-options"> <a href="#"> <i class="linecons-cog"></i> </a> <a href="#" data-toggle="panel"> <span class="collapse-icon">&ndash;</span> <span class="expand-icon">+</span> </a> <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a> <a href="#" data-toggle="remove"> &times; </a> </div>
+        </div>
+        <div class="panel-body">
+          <div class="btn-toolbar">
+    
+            <div class="btn-group dropdown-btn-group pull-right">
+            
+              <a href="?Sment=3" class="btn btn-default <if condition="$Sment eq 3"> btn-primary </if>">全部申请</a> 
+              <a href="?Sment=2" class="btn btn-default <if condition="$Sment eq 2"> btn-primary </if>">未结算</a> 
+              <a href="?Sment=1" class="btn btn-default <if condition="$Sment eq 1"> btn-primary </if>">已结算</a>
+             
+            </div>
+          </div>
+          <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th data-priority="1">id</th>
+                  <th data-priority="3">图</th>
+                  <th data-priority="2">商品标题</th>
+                  <th data-priority="4">售价</th>
+                  <th data-priority="5">销量</th>
+                  <th data-priority="6">剩余优惠券</th>
+                  <th data-priority="7">已领优惠券</th>
+                  <th data-priority="8">排序</th>
+                  <th data-priority="9">操作</th>
+                </tr>
+              </thead>
+              <tbody>
+                <foreach name="list" item="vo" >
+                  <tr>
+                    <td>{$vo.id}</td>
+                    <td><img src="{$vo.pic_url}" width="50" hidden="50" /></td>
+                    <th>{$vo.title|msubstr=0,25}</th>
+                    <td>{$vo.price}</td>
+                    <td>{$vo.volume}</td>
+                    <td>{$vo.snum}</td>
+                    <td>{$vo.lnum}</td>
+                    <td>{$vo.ordid}</td>
+                    <td>{$vo.order_type}</td>
+                  </tr>
+                </foreach>
+              </tbody>
+            </table>
+            
+          </div>
+          <div class="page">{$page}</div>
+          <script type="text/javascript">
+							// This JavaScript Will Replace Checkboxes in dropdown toggles
+							jQuery(document).ready(function($)
+							{
+								setTimeout(function()
+								{
+									$(".checkbox-row input").addClass('cbr');
+									cbr_replace();
+								}, 0);
+							});
+							</script> 
+        </div>
+         </div>
+    </div>
+  </div>
+  <include file="Public/footer" /> </div>
+<include file="Public/footer_Js" />

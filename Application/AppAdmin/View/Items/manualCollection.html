@@ -1,0 +1,335 @@
+<include file="Public/header" title="商品采集" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content" id="content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">手工采集</h1>
+                <p class="description">商品采集功能，在更大推广群找到商品，采集到我们平台中。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active">商品管理</li>
+                    <li class="active"><strong>手工采集</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" id="success"
+                <empty name="success">style="display:none"</empty>
+                >
+                <strong>{$success}</strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" id="error"
+            <empty name="error">style="display:none"</empty>
+            >
+            <strong>{$error}</strong>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-default col-md-6"">
+            <div class="panel panel-default" style="padding: 0 20px">
+                <div class="panel-heading">
+                    <h3 class="panel-title">搜索商品</h3>
+                    <div class="panel-options">
+                        <a href="#"> <i class="linecons-cog"></i> </a>
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">&ndash;</span>
+                            <span class="expand-icon">+</span> </a>
+                        <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                        <a href="#" data-toggle="remove"> &times; </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <label class="control-label" style="line-height: 32px">商品id/链接/第三方软件</label>
+                        </div>
+                        <div class="col-sm-12">
+                            <textarea id="item_content"  class="form-control col-sm-12" rows="10" placeholder="商品id/链接/第三方软件">{:I('get.content')}</textarea>
+                        </div>
+                        <div class="col-sm-12" style="margin-top: 10px">
+                            <input id="search" type="button" class="btn btn-info btn-single pull-right" value='一键识别'>
+                        </div>
+                    </div>
+                    <notEmpty name="info">
+                        <hr>
+                        <div class="row">
+                            <label class="col-sm-5 control-label">商品图片</label>
+                            <div class="col-sm-7">
+                                <img src="{$info.pict_url}" height="100px">
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <label class="col-sm-5 control-label">商品地址</label>
+                            <div class="col-sm-7">
+                                <a href="{$info.item_url}" target="_blank" style="color: #00A0E9">{$info.item_url}</a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <label class="col-sm-5 control-label">商品标题</label>
+                            <div class="col-sm-7">
+                                {$info.title}
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <label class="col-sm-5 control-label">商品价格</label>
+                            <div class="col-sm-7">
+                                {$info.zk_final_price}
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <label class="col-sm-5 control-label" >卖家昵称</label>
+                            <div class="col-sm-7">
+                                {$info.nick}
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <label class="col-sm-5 control-label" >30天销量</label>
+                            <div class="col-sm-7">
+                                {$info.volume}
+                            </div>
+                        </div>
+                        <div class="row" style="margin-top: 5px">
+                            <label class="col-sm-5 control-label">分类名称</label>
+                            <div class="col-sm-7">
+                                {$info.cat_name}
+                            </div>
+                        </div>
+                    </notEmpty>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default col-md-6" style="padding: 20px">
+            <div class="panel-heading">
+                <h3 class="panel-title">商品基本信息</h3>
+                <div class="panel-options">
+                    <a href="#" data-toggle="panel">
+                        <span class="collapse-icon">–</span>
+                        <span class="expand-icon">+</span>
+                    </a>
+                    <a href="#" data-toggle="remove">
+                        ×
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form name="item">
+                    <div class="row">
+                        <label class="control-label col-sm-3" style="line-height: 32px">商品优惠券链接</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control col-sm-12" name="click_url" rows="3" id="click_url" placeholder="商品优惠券链接">{$item_content['click_url']}</textarea>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="control-label col-sm-3" style="line-height: 32px">优惠券结束时间</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control date-picker" name="coupon_end_time" id="time" value="{:date('Y-m-d')}" placeholder="优惠券结束时间">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-3 control-label" style="line-height: 32px">商品价格</label>
+                        <div class="col-sm-9">
+                            <input type="number" step="0.01" id="price" class="form-control" name="price" value="{$item_content['price'] ? $item_content['price'] : $info['zk_final_price']}" placeholder="商品价格">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-3 control-label" style="line-height: 32px">券后价格</label>
+                        <div class="col-sm-9">
+                            <input type="number" step="0.01" id="coupon_price" class="form-control" name="coupon_price" value="{$item_content['coupon_price']}" placeholder="券后价格">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-3 control-label" style="line-height: 32px">佣金比率</label>
+                        <div class="col-sm-5">
+                            <input type="number" step="0.1" class="form-control" id="rate" name="commission_rate" value="" placeholder="佣金比率">
+                        </div>
+                        <div class="col-sm-4" style="line-height: 32px;color: red">
+                            (例:10%,填写10)
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 15px">
+                        <label class="col-sm-3 control-label" style="line-height: 32px">商品分类</label>
+                        <div class="col-sm-9">
+                            <select name="cate_id" class="form-control" id="cate_id">
+                                <option value="0">请选择商品分类</option>
+                                <foreach name="cate" item="vo" key="k">
+                                    <option value="{$k}">{$vo}</option>
+                                </foreach>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="control-label col-sm-3" style="line-height: 32px">商品标题</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control col-sm-12" name="title" rows="3" id="title" placeholder="商品标题">{$item_content['title'] ? $item_content['title'] : $info.title}</textarea>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-3 control-label" style="line-height: 32px">推广文案</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control col-sm-12" name="intro" rows="3" id="intro" placeholder="推广文案">{$item_content['intro'] ? $item_content['intro'] : $info.title}</textarea>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-3 control-label" style="line-height: 32px">是否精选</label>
+                        <div class="col-sm-9">
+                                <label><input type="radio" name="is_set" checked="checked" value="1" />是 </label>
+                                <label><input type="radio" name="is_set" value="0" >否 </label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px">
+                        <label class="col-sm-3 control-label" style="line-height: 32px">是否推送</label>
+                        <div class="col-sm-9">
+                            <label><input type="radio" name="is_send"  value="1" />是 </label>
+                            <label><input type="radio" name="is_send" checked="checked" value="0" >否 </label>
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 10px;display: none" id="send_title">
+                        <label class="col-sm-3 control-label" style="line-height: 32px">推送标题</label>
+                        <div class="col-sm-9">
+                            <textarea class="form-control col-sm-12" name="send_title" rows="3" placeholder="推送标题"><notempty name="item_content.coupon_price">券后{$item_content['coupon_price']}元，</notempty>{$item_content['title'] ? $item_content['title'] : $info.title}</textarea>
+                        </div>
+                    </div>
+                    <input type="hidden" name="num_iid" id="num_iid" value="{$info.num_iid}" />
+                </form>
+            </div>
+        </div>
+    </div>
+    <notEmpty name="info">
+        <div class="row">
+            <div style="width: 200px;margin: 0 auto">
+                <button class="btn btn-info" style="width: 200px" id="add" type="button">一键添加</button>
+            </div>
+        </div>
+    </notEmpty>
+</div>
+<include file="Public/footer" /></div><!-- Modal 7 (Ajax Modal)-->
+<include file="Public/footer_Js" />
+<script src="__JS__/moment.min.js"></script>
+<script src="__JS__/datepicker/bootstrap-datepicker.js"></script><!-- Imported scripts on this page -->
+<script src="__JS__/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+<script>
+    $(function () {
+        var url = "{:U('Items/manualCollection')}";
+        $('.date-picker').datepicker({
+            language: 'zh-CN',
+            autoclose: true,
+            todayHighlight: true,
+        });
+        $('#search').click(function(){
+            var content = $('#item_content').val();
+            content = content.replace(/(^\s*)|(\s*$)/g, "");
+            if(!content){
+                errorInfo('请输入淘宝商品id/链接/第三方信息');
+                return false;
+            }
+            location.href = url+'?content='+encodeURIComponent(content);
+        });
+        $('input[name=is_send]').click(function(){
+            if($(this).val() == 1){
+                $('#send_title').show();
+            }else{
+                $('#send_title').hide();
+            }
+        });
+        $('#coupon_price,#title').blur(function(){
+            if($('input[name=is_send]:checked').val() == 1){
+                var coupon_price = $('#coupon_price').val();
+                var title        = $('#title').val();
+                var content      = "";
+                if(coupon_price){
+                    content+= "券后"+coupon_price+"元，"
+                }
+                if(title){
+                    content+= title;
+                }
+                if(content){
+                    $('#send_title textarea').val(content);
+                }
+            }
+        })
+        $('#add').click(function(){
+            var num_iid = $('#num_iid').val();
+            var click_url = $('#click_url').val();
+            var price = $('#price').val();
+            var coupon_price = $('#coupon_price').val();
+            var time = $('#time').val();
+            var rate = $('#rate').val();
+            var cate_id = $('#cate_id').val();
+            var title = $('#title').val();
+            var intro = $('#intro').val();
+            if(!num_iid){
+                errorInfo('商品信息不存在');
+                return false;
+            }
+            if(!click_url){
+                errorInfo('请输入优惠券链接');
+                return false;
+            }
+            if(!price){
+                errorInfo('请输入商品价格');
+                return false;
+            }
+            if(!coupon_price){
+                errorInfo('请输入券后价格');
+                return false;
+            }
+            if(!time){
+                errorInfo('请选择优惠券结束时间');
+                return false;
+            }
+            if(!rate){
+                errorInfo('请输入佣金比率');
+                return false;
+            }
+            if(!cate_id){
+                errorInfo('请选择商品分类');
+                return false;
+            }
+            if(!title){
+                errorInfo('请输入商品标题');
+                return false;
+            }
+            if(!intro){
+                errorInfo('请输入推广文案');
+                return false;
+            }
+            var _this = $(this);
+            _this.attr('disabled',true);
+            var url = "{:U('Items/manualCollection')}";
+            $.post(url,$('form[name=item]').serialize(),function(res){
+                if(res.status == 0){
+                    errorInfo(res.info);
+                    _this.removeAttr('disabled');
+                }else{
+                    successInfo(res.info,url);
+                }
+            })
+        });
+
+        //设置表单提醒与错误
+        function errorInfo(msg) {
+            $('#error').find('strong').text(msg);
+            $('#error').show();
+            setTimeout(function () {
+                $('#error').hide();
+            }, 3000)
+        }
+        //设置表单提醒与错误
+        function successInfo(msg,url) {
+            $('#success').find('strong').text(msg);
+            $('#success').show();
+            setTimeout(function () {
+                $('#success').hide();
+                location.href = url;
+            }, 3000)
+        }
+    });
+</script>

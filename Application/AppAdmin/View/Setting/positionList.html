@@ -1,0 +1,97 @@
+<include file="Public/header" title="角色管理" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">角色管理</h1>
+                <p class="description">设定后台角色管理信息。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active">站点设置</li>
+                    <li class="active"><strong>角色管理</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">快捷操作</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">
+                            ×
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row col-margin">
+                        <div class="col-xs-2">
+                            <a href="/AppAdmin/Setting/positionAdd" class="btn btn-secondary btn-single">添加角色</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">角色管理</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>名称</th>
+                                    <th>备注</th>
+                                    <th>状态</th>
+                                    <th>排序</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td>{$vo.name}</td>
+                                        <td>{$vo.remark}</td>
+                                        <td>{$vo.status}</td>
+                                        <td>{$vo.ordid}</td>
+                                        <td>
+                                            <a href="/AppAdmin/Setting/positionEdit/id/{$vo.id}" class="ibutton"><i class="fa-edit"></i></a>
+                                            |
+                                            <a href="/AppAdmin/Setting/positionDel/id/{$vo.id}" onclick="confirm('确定删除么？');" class="ibutton"><i class="fa-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <include file="Public/footer_Js" />

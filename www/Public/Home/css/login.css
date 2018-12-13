@@ -1,0 +1,224 @@
+#body-content{
+	margin: 0;
+	padding: 0;
+	margin-top: 20px;
+    width: 100%;
+}
+.wrap{
+    width: 1200px;
+    height: 650px;
+    margin: 0 auto;
+    position: relative;
+}
+.topbar{
+    width: 1200px;
+    height: 100px;
+    background: #fff;
+    margin: 0 auto;
+    position: relative;
+    font-family: '微软雅黑';
+}
+.topbar img{
+    margin-top: 30px;
+}
+.topbar .back_link{
+    font-size: 14px;
+    color: #ff420f; 
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    text-decoration: none;
+}
+.topbar .back_link:hover{
+    text-decoration: underline;
+}
+
+.main{
+    position: relative;
+    width: 100%;
+    height: 650px;
+    background: url(../img/bg.png) no-repeat;
+}
+.main .regBox{
+    width: 380px;
+    height: 428px;
+    background: rgba(255,255,255,.9);
+    position: absolute;
+    top: 140px;
+    right: 0;
+    text-align: center;
+}
+.main .regBox a{
+    font-size: 12px;
+    color: #ff420f;
+    text-decoration: none;
+    float: right;
+    margin-right: 40px;
+}
+.main .regBox>a:hover{
+    text-decoration: underline;
+}
+.main .loginBox{
+    width: 380px;
+    height: 280px;
+    background: rgba(255,255,255,.9);
+    position: absolute;
+    top: 140px;
+    right: 0;
+    text-align: center;
+}
+
+.main .loginBox p.info,.main .regBox p.info{
+    width: 180px;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 50px;
+    margin-top: 10px;
+    color: #ff420f;
+    font-size: 12px;
+    text-align: left;
+}
+.main .loginBox>a{
+    color: #666;
+    font-size: 12px;
+    text-decoration: none;
+    float: right;
+    margin-right: 40px;
+}
+
+.main .loginBox>a:hover{
+    text-decoration: underline;
+}
+.main .tit{
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff420f;
+    margin-top: 40px;
+    border-left: 3px solid #ff420f;
+    padding-left: 40px;
+    text-align: left;
+}
+.main .reg-code .input_l{
+	width: 180px;
+}
+.main .reg-code button{
+	width: 100px;
+	height: 30px;
+	line-height: 30px;
+	background-color: #ff420f;
+	color: #fff;
+	text-align: center;
+	cursor: pointer;
+}	
+.main .input_l{
+    width: 280px;
+    height: 30px;
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 0 10px;
+    font-size: 12px;
+    font-family: '微软雅黑';
+    color: #212121;
+    outline: none;
+    margin-top: 15px;
+}
+.main .input_s{
+    width: 158px;
+    height: 30px;
+    border: 0;
+    background: transparent;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+    padding: 0 10px;
+    font-size: 12px;
+    font-family: '微软雅黑';
+    color: #212121;
+    outline: none;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+.main img{
+    vertical-align: middle;
+    margin-top: -8px;
+}
+.main .msgcode_btn{
+    width: 100px;
+    height: 30px;
+    border: 1px solid #ff420f;
+    color: #ff420f;
+    text-align: center;
+    font-family: '微软雅黑';
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+}
+.main .regBox .reg_btn{
+    width: 300px;
+    height: 40px;
+    margin-top: 10px;
+    color: #ff420f;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    background: transparent;
+    outline: none;
+    border: 1px solid #ff420f;
+    border-radius: 30px;
+    cursor: pointer;
+    text-align: center;
+}
+.main .msgcode_btn:hover,.main .reg_btn:hover{
+    background: rgba(255,66,15,.9);
+    color: #fff;
+}
+.main .msgcode_btn:active,.main .reg_btn:active{
+    background: rgba(255,66,15,1);
+    color: #fff;
+}
+
+
+.main .loginBox .login_btn{
+    width: 130px;
+    height: 40px;
+    margin-top: 10px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    background: #ff420f;
+    outline: none;
+    border: 1px solid #ff420f;
+    border-radius: 30px;
+    cursor: pointer;
+    margin-right: 40px;
+    text-align: center;
+}
+.main .loginBox .reg_btn{
+    display: inline-block;
+    width: 130px;
+    height: 40px;
+    line-height: 40px;
+    margin-top: 10px;
+    color: #ff420f;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-family: '微软雅黑';
+    background: transparent;
+    outline: none;
+    border: 1px solid #ff420f;
+    border-radius: 30px;
+    cursor: pointer;
+}
+.main .loginBox .login_btn:hover{
+    background: rgba(255,66,15,.9);
+}
+.main .loginBox .login_btn:active{
+    background: rgba(255,66,15,.95);
+}
+.main .loginBox .reg_btn:hover{
+    background: rgba(255,66,15,.1);
+    color: #ff420f;
+}
+.main .loginBox .reg_btn:active{ 
+    background: rgba(255,66,15,.2);
+}

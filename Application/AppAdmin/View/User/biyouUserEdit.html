@@ -1,0 +1,111 @@
+<include file="Public/header" title="编辑用户资料" keywords="开源WEB开发框架" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">比优用户管理</h1>
+                <p class="description">显示所有用户信息</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>比优用户管理 </strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">用户信息修改</h3>
+                        <div class="panel-options">
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span>
+                            </a>
+                            <a href="#" data-toggle="remove">
+                                &times;
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" >用户昵称</label>
+                                <div class="col-sm-10">
+                                    {$userinfo['username']}
+                                </div>
+                            </div>
+                            <div class="form-group-separator"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="field-2">密码</label>
+                                <div class="col-sm-10">
+                                    <input type="password" name="password" class="form-control" id="field-2" placeholder="如需要修改密码，请输入新密码。">
+                                </div>
+                            </div>
+                            <div class="form-group-separator"></div>
+
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" >淘宝联盟PID</label>
+                                <div class="col-sm-10">{$userinfo['pid']}</div>
+                            </div>
+                            <div class="form-group-separator"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" >电话号码</label>
+                                <div class="col-sm-10">{$userinfo['mobile']}</div>
+                            </div>
+                            <div class="form-group-separator"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="field-1">账号状态</label>
+                                <div class="col-sm-10">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="status" value="1"
+                                            <if condition="$userinfo['status'] eq 1"> checked="checked"</if>
+                                            >
+                                            启用
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="status" value="0"
+                                            <if condition="$userinfo['status'] eq 0"> checked="checked"</if>
+                                            >
+                                            禁用
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group-separator"></div>
+                            <div class="form-group">
+                                <div class="col-sm-2 "></div>
+                                <div class="col-sm-10">
+                                    <input type="submit" class="btn btn-secondary  btn-single" value="修改">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <!-- Bottom Scripts -->
+    <script src="__JS__/moment.min.js"></script>
+    <script src="__JS__/datepicker/bootstrap-datepicker.js"></script>
+    <!-- Imported scripts on this page -->
+    <script src="__JS__/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+    <script>
+        $('.date-picker').datepicker({
+            language: 'zh-CN',
+            autoclose: true,
+            todayHighlight: true,
+        })
+    </script>
+    <include file="Public/footer_Js" />

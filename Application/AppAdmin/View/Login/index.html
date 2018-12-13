@@ -1,0 +1,137 @@
+<include file="Public/header" title="用户登陆" keywords="开源WEB开发框架" />
+<body class="page-body login-page">
+
+	
+	<div class="login-container">
+	
+		<div class="row">
+		
+			<div class="col-sm-6">
+			
+				<script type="text/javascript">
+					jQuery(document).ready(function($)
+					{
+						// Reveal Login form
+						setTimeout(function(){ $(".fade-in-effect").addClass('in'); }, 1);
+						
+						
+				
+
+						
+						// Set Form focus
+						$("form#login .form-group:has(.form-control):first .form-control").focus();
+					});
+				</script>
+				
+				<!-- Errors container -->
+				<div class="errors-container">
+				
+									
+				</div>
+				
+				<!-- Add class "fade-in-effect" for login form effect -->
+				<form method="post" role="form" id="login" class="login-form fade-in-effect">
+					
+					<div class="login-header">
+						<a href="/AppAdmin/" class="logo">
+							<img src="__CSSImg__/logo@2x.png" alt=""  />
+							<span>log in</span>
+						</a>
+						
+						<p>你好，欢迎登录淘店客后台管理系统!</p>
+					</div>
+	
+					
+					<div class="form-group">
+						<label class="control-label" for="username">Username</label>
+						<input type="text" class="form-control input-dark" name="username" id="username"  />
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label" for="passwd">Password</label>
+						<input type="password" class="form-control input-dark" name="passwd" id="passwd"/>
+					</div>
+
+					<div class="form-group">
+						<label class="control-label" for="code">验证码</label>
+						<input type="text" class="form-control input-dark "  name="code" id="code" />
+					</div>
+					<div class="form-group">
+						<img src="{:U('AppAdmin/Login/verify')}" onclick="$(this).attr('src',$(this).data('src'))" data-src="{:U('Login/verify',array('v'=>time()))}">
+					</div>
+
+					<div class="form-group">
+						<button id="submit" type="submit" class="btn btn-dark  btn-block text-left">
+							<i class="fa-lock"></i>
+							登录
+						</button>
+					</div>
+					
+					<div class="login-footer">
+						<a href="#">忘记密码？</a>
+						
+						<div class="info-links">
+							
+						</div>
+						
+					</div>
+					
+				</form>
+				<script>
+                	$(document).ready(function(e) {
+                        $("#login").submit(function(){
+							$('#submit').attr('disabled',true);
+							var username = $('#username').val();
+							var password = $('#passwd').val();
+							var code     = $('#code').val();
+							
+							$.post("/AppAdmin/Auth/login", { username:username, password:password,code:code},function(data){
+									//alert(data.status);
+									show_loading_bar(70); // Fill progress bar to 70% (just a given value)
+									if(data.status == true){
+										show_loading_bar(100);
+										window.location.href = '/AppAdmin/index';
+										return false;	
+									}else{
+                                        $('#submit').attr('disabled',false);
+										show_loading_bar(0);
+										alert(data.content);
+										return false;
+									}
+									
+								},"json");
+							return false;
+						});
+                    });
+                </script>
+				<!-- External login -->
+				<div class="external-login">
+                	<!-- 
+					<a href="#" class="facebook">
+						<i class="fa-facebook"></i>
+						Facebook Login
+					</a>
+					
+				
+					<a href="#" class="twitter">
+						<i class="fa-twitter"></i>
+						Login with Twitter
+					</a>
+					
+					<a href="#" class="gplus">
+						<i class="fa-google-plus"></i>
+						Login with Google Plus
+					</a>
+					 -->
+				</div>
+				
+			</div>
+			
+		</div>
+		
+	</div>
+
+
+<include file="Public/footer_Js" />
+
+</body>

@@ -1,0 +1,184 @@
+<include file="Public/header" title="员工添加" keywords="" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+
+    <!-- User Info, Notifications and Menu Bar -->
+    <include file="Public/user_nav" />
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">员工添加</h1>
+            <p class="description">后台管理员工添加</p>
+        </div>
+        <div class="breadcrumb-env">
+            <ol class="breadcrumb bc-1">
+                <li> <a href="{:U('Index/index')}"><i class="fa-home"></i>主页</a> </li>
+                <li> 站点设置 </li>
+                <li class="active"> <strong>员工添加 </strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">增加新的员工</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">&ndash;</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove"> &times; </a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <form role="form" method="post" class="form-horizontal" onsubmit="return check_zhe();"   enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="full_name">员工姓名</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="full_name" name="full_name" required placeholder="请输入员工姓名">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="sex">性别</label>
+                            <div class="col-sm-10">
+                                <input type="radio" value="0" name="sex" >男
+                                <input type="radio" value="1" name="sex" >女
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="birthday">生日</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control datepicker" id="birthday" value="" name="birthday" placeholder="生日">
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="mobile">手机号</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="mobile" value="" name="mobile" placeholder="手机号">
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="weixin">微信</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="weixin" value="" name="weixin" placeholder="微信">
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="qq">QQ</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="qq" name="qq" placeholder="QQ">
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label datepicker"  for="entry_time">入职时间 </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="entry_time" name="entry_time" placeholder="入职时间 ">
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="owner_department">所属部门 </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="owner_department" value="" name="owner_department" placeholder="所属部门 ">
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="position_owner">所属岗位 </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="position_owner" value="" name="position_owner" placeholder="所属岗位 ">
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="on_in">在职状态 </label>
+                            <div class="col-sm-10">
+                                <input type="radio" value="0" name="on_in" >在职
+                                <input type="radio" value="1" name="on_in" >离职
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="remark">关联后台账号 </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="remark" value="" name="remark" placeholder="关联后台账号 ">
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <div class="col-sm-2 "></div>
+                            <div class="col-sm-10">
+                                <input type="submit" class="btn btn-secondary  btn-single" value="添加新员工">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<include file="Public/footer" /> </div>
+<script src="__JS__/datepicker/bootstrap-datepicker.js"></script>
+<script type="text/javascript">
+
+function check_zhe(){
+    // 手机号正则匹配
+    var number = /^1[34578]\d{9}$/;
+
+    var full_name = $("#full_name").val();
+    var mobile = $("#mobile").val();
+    var entry_time = $("#entry_time").val();
+    var owner_department = $("#owner_department").val();
+    var position_owner = $("#position_owner").val();
+    var on_in = $("#on_in").val();
+
+
+    if (full_name == '') {
+        alert('请填写员工的姓名');
+        $('#full_name').focus();
+        return false;
+    } else if (!(number.test(mobile))) {
+        alert('请填写正确的手机号！');
+        $('#mobile').focus();
+        return false;
+    }  else if (entry_time == '') {
+        alert('请选择入职时间！');
+        $('#entry_time').focus();
+        return false;
+    } else if (owner_department == '') {
+        alert('请选择所属部门！');
+        $('#owner_department').focus();
+        return false;
+    } else if (position_owner == '') {
+        alert('请填写所属岗位');
+        $('#position_owner').focus();
+        return false;
+    } else if (on_in == '') {
+        alert('请选择在职状态');
+        $('#on_in').focus();
+        return false;
+
+    } else {
+        return true;
+    }
+}
+
+</script>
+<include file="Public/footer_Js" />

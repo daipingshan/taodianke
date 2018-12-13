@@ -1,0 +1,45 @@
+<include file="Public/header" title="商品管理" />
+<div class="page-container">
+<include file="Public/nav" />
+<div class="main-content">
+
+  <!-- User Info, Notifications and Menu Bar -->
+  <include file="Public/user_nav" />
+  <div class="page-title">
+    <div class="title-env">
+      <h1 class="title">商品列表</h1>
+      <p class="description">显示所有商品订单列表</p>
+    </div>
+    <div class="breadcrumb-env">
+      <ol class="breadcrumb bc-1">
+        <li> <a href="/AppAdmin/"><i class="fa-home"></i>主页</a> </li>
+        <li class="active"> 商品管理 </li>
+        <li class="active"> <strong>添加大淘客商品</strong> </li>
+      </ol>
+    </div>
+  </div>
+  <include file="Public/good_search_bar" />
+  <div class="row">
+    <form action="addGood" method="post"  id="goodid" class="">
+            	<div class="col-sm-12 panel ">
+                	<div class="panel panel-default">
+                    	<div class="panel-heading">
+                       	 <h3 class="panel-title">添加大淘客商品</h3>
+                        </div>
+                    </div>
+                    <div class="form-group">
+						<label class="col-sm-2 control-label" for="godids">商品编号</label>
+						<div class="col-sm-6">
+							<input name="godids"  class="form-control" id="godids" placeholder="产品ID或大淘客ID">
+					 	</div>
+                        <div class="col-sm-2"><input name="ordid" value="9999"  class="form-control" id="godids" placeholder="排序"></div>
+                        <div class="col-sm-2"> <button id="cj" class="btn btn-primary btn-block">采集商品</button></div>
+					</div>
+                </div>
+    </form>
+    </div>
+</div>
+</div>
+
+<include file="Public/footer" /> </div>
+<include file="Public/footer_Js" />

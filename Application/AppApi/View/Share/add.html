@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="description" content="Xenon Boostrap Admin Panel" />
+    <meta name="author" content="" />
+    <title>淘店客</title>
+    <!-- <link rel="stylesheet" href="http://fonts.useso.com/css?family=Arimo:400,700,400italic">-->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/fonts/linecons/css/linecons.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/fonts/fontawesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/bootstrap.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/xenon-core.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/xenon-forms.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/xenon-components.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/xenon-skins.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/custom.css">
+    <link rel="stylesheet" href="__PUBLIC__/Assets/css/style.css">
+    <link rel="stylesheet" href="__PUBLIC__/Bbs/css/style.css">
+    <script src="__PUBLIC__/Assets/js/jquery-1.11.1.min.js"></script>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        .mr {
+            margin-right: 0 !important;
+        }
+
+        .ml {
+            margin-left: 0 !important;
+        }
+    </style>
+</head>
+<body class="page-body">
+<div class="page-container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title">快速上单</div>
+        </div>
+        <div class="form-group">
+            <input type="text" name="id" id="godids" class="form-control" placeholder="输入商品ID号，点击提交。等待几秒！" />
+        </div>
+        <div class="form-group"><a class="btn btn-success" id="sumb">提交</a></div>
+    </div>
+    <script>
+        $(document).ready(function (e) {
+            $("#sumb").click(function () {
+                show_loading_bar(65);
+                sumbit_good();
+            });
+            $('#x').text(say(randx(99)));
+        });
+        function display_msg(status, imgsrc, goodtitle, message) {
+            var html = "<div class=\"col-sm-6\">";
+            if (status == 1) {
+                html += "<blockquote class=\"blockquote blockquote-success\">";
+            } else if (status == -1) {
+                html += "<blockquote class=\"blockquote blockquote-red\">";
+            } else if (status == -2) {
+                html += "<blockquote class=\"blockquote blockquote-warning\">";
+            }
+
+            html += "<p><strong>" + goodtitle + "</strong></p>";
+            html += "<p><img src=\"" + imgsrc + "\" class=\"img-responsive\">";
+            html += "<small>" + message + "</small>";
+            html += "</p></blockquote></div>";
+            return html;
+        }
+        function sumbit_good() {
+
+            var goods_id = $("#godids").val();
+            var rd = randx(10);
+            var message = $('#message');
+
+            if (!goods_id) {
+                alert('请输入正确商品ID');
+                return false;
+            }
+            var request = $.ajax({
+                url: "/Share/ajaxAddGoods",
+                method: "GET",
+                async: true,
+                data: {goods_id: goods_id, order_id: rd},
+                contentType: "application/json; charset=utf-8",
+                dataType: "json",
+
+            });
+            request.done(function (data) {
+
+                show_loading_bar(100);
+                if (data.code == -1) {
+                    if (!data.title) {
+                        data.title = 'error:发生错误';
+                    }
+                    if (!data.pic_url) {
+                        data.pic_url = '/Uploads/2017-06-30/1498807123_225825127.png';
+                    }
+
+                    var html = display_msg(data.code, data.pic_url, data.title, data.msg);
+                    message.html(html);
+                    return false;
+                }
+
+                var html = display_msg(data.status, data.pic_url, data.title, data.msg);
+                message.html(html);
+                return false;
+
+            });
+            request.fail(function (jqXHR, textStatus) {
+
+                show_loading_bar(100);
+                var html = display_msg(-1, '/Uploads/2017-06-30/1498807123_225825127.png', '通讯超时！', '通讯超时,请联系开发人员');
+                message.html(html);
+                return false;
+
+            });
+        }
+
+        function randx(n) {
+            return ( Math.floor(Math.random() * n + 1) );
+        }
+        function say(n) {
+
+            switch (n) {
+                case  1:
+                    var x = "阿里巴巴公司不承诺任何人加入阿里巴巴会升官发财，因为升官发财丶股票这些东西都是你自己努力的结果，但是我会承诺你在我们公司一定会很倒霉，很冤枉，干得很好领导还是不喜欢你，这些东西我都能承诺，但是你经历这些后出去一定满怀信心，可以自己创业，可以在任何一家公司做好，你会想:“因为我阿里巴巴都待过，还怕你这样的公司?”";
+                    break;
+                case  2:
+                    var x = "我们家保姆，我给她1200元，杭州市场价800元。她做得很开心，因为她觉得得到了尊重。而那些高层他们月薪四五万元，即使你给他加一万元丶两万元，他也不会感到什么。但是你对广大员工增加一些，那么士气会大增。";
+                    break;
+                case  3:
+                    var x = "自创业以来，阿里巴巴公司最初的18个创业者，现在一个都不少。别的公司出3倍薪水，员工也不动心。马云还说风凉话:“同志们，3倍我看算了，如果5倍还可以考虑一下。”对其中奥妙，马云是这样解释的:“在阿里巴巴工作3年就等于上了3年研究生，他将要带走的是脑袋而不是口袋。”";
+                    break;
+                case  4:
+                    var x = "在点评《赢在中国》一位选手的时候，马云说道:“你自己很善良，也很有激情，也很幽默，也会讲很多的故事，但你的团队离开你的时候，你要想到一点，我们需要雷锋，但不能让雷锋穿补丁的衣服上街去，让他们跟你分享成功是很重要的。”";
+                    break;
+                case  5:
+                    var x = "要是公司里的员工都像我这么能说，而且光说不干活，会非常可怕。我不懂电脑，销售也不在行，但是公司里有人懂就行了。";
+                    break;
+                case  6:
+                    var x = "收购雅虎中国之后，整合问题又摆在马云面前。这次马云非常果断，“什么都可以谈，只有价值观不能谈判”，这是马云收购雅虎中国时的核心原则。一家公司一旦扩张到500人以上，仅仅靠财务丶人事上的管理很难继续成长，必须借助统一的价值观聚集人心，马云深谙这样的道理。";
+                    break;
+                case  7:
+                    var x = "我们选择雅虎，是因为雅虎有世界最强大的技术，雅虎在中国7年的经验，无论犯的错误还是取得的进步，都是我们发展的资本。";
+                    break;
+                case  8:
+                    var x = "人家问我你喜欢能干的员工还是听话的员工，我说Yes，就是既要听话又要能干，因为我不相信能干和听话是矛盾的，能干的人一定不听话，听话的人一定不能干，这种人要来干什么，不听话本身就不能干，对不对?";
+                    break;
+                case  9:
+                    var x = "每一个人都很平凡，我马云也没什么了不起，这几年被媒体到处吹捧，其实自己很难为情。我一点儿也不聪明，也没有先见之明，只是一步一步走来，刚开始创业时被4家公司骗得晕头转向，但是那些骗人的公司今天都已经不复存在了。";
+                    break;
+                case  10:
+                    var x = "曾有人问马云，阿里巴巴最大的对手是谁，马云不假思索地表示:是沃尔玛。";
+                    break;
+                case  11:
+                    var x = "阿里巴巴从成立以来一直备受质疑，从8年前我做阿里巴巴的时候一路被骂过来，都说这个东西不可能。不过没关系，我不怕骂，在中国反正别人也骂不过我。我也不在乎别人怎么骂，因为我永远坚信这句话，你说的都是对的，别人都认同你了，那还轮得到你吗?你一定要坚信自己在做什么。";
+                    break;
+                case  12:
+                    var x = "蒙牛不是策划出来的，而是踏踏实实的产品服务和体系做出来的。";
+                    break;
+                case  13:
+                    var x = "这个世界不是因为你能做什么，而是你该做什么。";
+                    break;
+                case  14:
+                    var x = "你的项目感觉是一个生意，不是一个独特的企业。";
+                    break;
+                case  15:
+                    var x = "建一个公司的时候要考虑有好的价值才卖。如果一开始想到卖，你的路可能就走偏掉。";
+                    break;
+                case  16:
+                    var x = "人要有专注的东西，人一辈子走下去挑战会更多，你天天换，我就怕了你。";
+                    break;
+                case  17:
+                    var x = "要找风险投资的时候，必须跟风险投资共担风险，你拿到的可能性会更大。";
+                    break;
+                case  18:
+                    var x = "记住，关系特别不可靠，做生意不能凭关系，做生意也不能凭小聪明。";
+                    break;
+                case  19:
+                    var x = "天不怕，地不怕，就怕CFO当CEO。";
+                    break;
+                case  20:
+                    var x = "永远要相信边上的人比你聪明。";
+                    break;
+                case  21:
+                    var x = "五年以后还想创业，你再创业。";
+                    break;
+                case  22:
+                    var x = "上当不是别人太狡猾，而是自己太贪，是因为自己才会上当。";
+                    break;
+                case  23:
+                    var x = "不要贪多，做精做透很重要，碰到一个强大的对手或者榜样的时候，你应该做的不是去挑战它，而是去弥补它。";
+                    break;
+                case  24:
+                    var x = "这世界上没有优秀的理念，只有脚踏实地的结果。";
+                    break;
+                case  25:
+                    var x = "一个好的东西往往是说不清楚的，说得清楚的往往不是好东西。";
+                    break;
+                case  26:
+                    var x = "如果你看了很多书，千万别告诉别人，告诉别人别人就会不断考你。";
+                    break;
+                case  27:
+                    var x = "做战略最忌讳的是面面俱到，一定要记住重点突破，所有的资源在一点突破，才有可能赢。";
+                    break;
+                case  28:
+                    var x = "小企业有大的胸怀，大企业要讲细节的东西。";
+                    break;
+                case  29:
+                    var x = "有时候死扛下去总是会有机会的。";
+                    break;
+                case  30:
+                    var x = "诚信绝对不是一种销售，更不是一种高深空洞的理念，它是实实在在的言出必行点点滴滴的细节。";
+                    break;
+                case  30:
+                    var x = "公关是个副产品，由于你解决了以后会逐渐传出去，这才是最好的公关。";
+                    break;
+                case  31:
+                    var x = "短暂的激情是不值钱的，只有持久的激情才是赚钱的。";
+                    break;
+                case  32:
+                    var x = "聪明是智慧者的天敌，傻瓜用嘴讲话，聪明的人用脑袋讲话，智慧的人用心讲话。";
+                    break;
+                case  33:
+                    var x = "永远要把对手想得非常强大，哪怕非常弱小，你也要把他想得非常强大。";
+                    break;
+                case  34:
+                    var x = "我自己不愿意聘用一个经常在竞争者之间跳跃的人。";
+                    break;
+                case  35:
+                    var x = "多花点时间在你的其他员工身上。";
+                    break;
+                case  36:
+                    var x = "什么是团队呢?团队就是不要让另外一个人失败，不要让团队任何一个人失败。";
+                    break;
+                case  37:
+                    var x = "领导力在顺境的时候，每个人都能出来，只有在逆境的时候才是真正的领导力。";
+                    break;
+                case  38:
+                    var x = "碰到灾难第一个想到的是你的客户，第二想到你的员工，其他才是想对手。";
+                    break;
+                case  39:
+                    var x = "永远记住每次成功都可能导致你的失败，每次失败好好接受教训，也许就会走向成功。";
+                    break;
+                case  40:
+                    var x = "暴躁在某种程度上讲是因为有不安全感，或者是自己没有开放的心态。";
+                    break;
+                case  41:
+                    var x = "不想当将军的士兵不是好士兵，但是一个当不好士兵的将军一定不是好将。";
+                    break;
+                case  42:
+                    var x = "小公司的战略就是两个词：活下来，挣钱。";
+                    break;
+                case  43:
+                    var x = "创业时期千万不要找明星团队，千万不要找已经成功过的人。创业要找最适合的人，不要找最好的人。";
+                    break;
+                case  44:
+                    var x = "最大的挑战和突破在于用人，而用人最大的突破在于信任人。";
+                    break;
+                case  45:
+                    var x = "什么都想自己干，这个世界上你干不完。";
+                    break;
+                case  46:
+                    var x = "每一笔生意必须挣钱，免费不是一个好策略，它付出的代价会非常大。";
+                    break;
+                case  47:
+                    var x = "淘宝网的主业决不该放在与对手的竞争上，而是把眼睛盯在提升客户体验上。";
+                    break;
+                case  48:
+                    var x = "上世纪80年代挣钱靠勇气，90年代靠关系，现在必须靠知识能力！";
+                    break;
+                case  49:
+                    var x = "生存下来的第一个想法是做好，而不是做大。";
+                    break;
+                case  50:
+                    var x = "世界上最不可靠的就是关系。";
+                    break;
+                case  51:
+                    var x = "互联网像一杯啤酒，有沫的时候最好喝。";
+                    break;
+                case  52:
+                    var x = "听说过捕龙虾富的，没听说过捕鲸富的。";
+                    break;
+                case  53:
+                    var x = "我们不能企求于灵感。灵感说来就来，就像段誉的六脉神剑一样。";
+                    break;
+                case  54:
+                    var x = "把你太太当合作伙伴，不要把她当太太看。";
+                    break;
+                case  55:
+                    var x = "有时候学历很高不一定把自己沉得下来做事情。";
+                    break;
+                case  56:
+                    var x = "今天要在网上发财，概率并不是很大，但今天的网络，可以为大家省下很多成本。这个世界没有人能替你发财，只有你自己才能替你发财，你需要的是投资和投入，spendtime，investtime，ontheinternet，把自己的时间投资在网络上面，网络一定会给大家省钱，但不一定今天就能赚多少钱，赚钱是明天的事，省钱，你今天就看得到。";
+                    break;
+                case  57:
+                    var x = "电子商务最大的受益者应该是商人，我们该赚钱因为我们提供工具，但让我们做工具的人发了大财，而使用工具的人还糊里糊涂，这是不正常的。（经典语录  www.lz13.cn）所谓新经济，就是传统企业利用好网络这个工具，去创造出更大的经济效益，使其成几十倍地增长，这才是真的新经济的到来。今天新旧经济是两张皮。";
+                    break;
+                case  58:
+                    var x = "互联网上失败一定是自己造成的，要不就是脑子发热，要不就是脑子不热，太冷了。";
+                    break;
+                case  59:
+                    var x = "我觉得网络公司一定会犯错误，而且必须犯错误，网络公司最大的错误就是停在原地不动，最大的错误就是不犯错误。关键在于总结我们反思各种各样的错误，为明天跑的更好，错误还得犯，关键是不要犯同样的错误";
+                    break;
+                case  60:
+                    var x = "我们是教人钓鱼，而不是给人鱼。";
+                    break;
+                case  61:
+                    var x = "企业家是在现在的环境，改善这个环境，光投诉，光抱怨有什么用呢？国家现在要处理的事情太多了，失败只能怪你自己，要么大家都失败，现在有人成功了，而你失败了，就只能怪自己。就是一句话，哪怕你运气不好，也是你不对。";
+                    break;
+                case  62:
+                    var x = "中国电子商务的人必须要站起来走路，而不是老是手拉手，老是手拉着手要完蛋。";
+                    break;
+                case  63:
+                    var x = "我们知道当时可以敲几个锣，就可以围那么多人的时候，锣都敲得好，把戏还能不好？敲锣都敲出花来了。";
+                    break;
+                case  64:
+                    var x = "必须先去了解市场和客户的需求，然后再去找相关的技术解决方案，这样成功的可能性才会更大。";
+                    break;
+                case  65:
+                    var x = "最核心的问题是根据市场去制定你的产品，关键是要倾听客户的声音。";
+                    break;
+                case  66:
+                    var x = "免费是世界上最昂贵的东西。所以尽量不要免费。等你有了钱以后再考虑免费。";
+                    break;
+                case  67:
+                    var x = "“营销”这两个字强调既要追求结果，也要注重过程，既要“销”，更要“营”。";
+                    break;
+                case  68:
+                    var x = "互联网是影响人类未来生活30年的3000米长跑，你必须跑得像兔子一样快，又要像乌龟一样耐跑。";
+                    break;
+                case  69:
+                    var x = "我为什么能活下来？第一是由于我没有钱，第二是我对INTERNET一点不懂，第三是我想得像傻瓜一样。";
+                    break;
+                case  70:
+                    var x = "可能一个人说你不服气，两个人说你不服气，很多人在说的时候，你要反省，一定是自己出了一些问题。";
+                    break;
+                case  71:
+                    var x = "一个成功的创业者，三个因素，眼光胸怀和实力。";
+                    break;
+                case  72:
+                    var x = "别人可以拷贝我的模式，不能拷贝我的苦难，不能拷贝我不断往前的激情。";
+                    break;
+                case  73:
+                    var x = "80年代的人还需要摔打，不管做任何事，要检查主观原因。";
+                    break;
+                case  74:
+                    var x = "做小了，一定要做到独特。";
+                    break;
+                case  75:
+                    var x = "聪明是智慧者的天敌，傻瓜用嘴讲话，聪明的人用脑袋讲话，智慧的人用心讲话。所以永远记住，不要把自己当成最聪明的，最聪明的人相信总有别人比自己更聪明。";
+                    break;
+                case  76:
+                    var x = "人永远不要忘记自己第一天的梦想，你的梦想是世界上最伟大的事情，就是帮助别人成功。";
+                    break;
+                case  77:
+                    var x = "我认为，员工第一，客户第二。没有他们，就没有这个网站。也只有他们开心了，我们的客户才会开心。而客户们那些鼓励的言语，鼓励的话，又会让他们像发疯一样去工作，这也使得我们的网站不断地发展。";
+                    break;
+                case  78:
+                    var x = "看见10只兔子，你到底抓哪一只？有些人一会儿抓这个兔子，一会儿抓那个兔子，最后可能一只也抓不住。CEO的主要任务不是寻找机会而是对机会说NO。机会太多，只能抓一个。我只能抓一只兔子，抓多了，什么都会丢掉.";
+                    break;
+                case  79:
+                    var x = "我们公司是每半年一次评估，评下来，虽然你的工作很努力，也很出色，但你就是最后一个，非常对不起，你就得离开。在两个人和两百人之间，我只能选择对两个人残酷。";
+                    break;
+                case  80:
+                    var x = "您能用一句话概括您认为员工应该具备的基本素质吗？今天阿里巴巴的员工我们要求诚信，学习能力，乐观精神，和拥抱变化的态度！";
+                    break;
+                case  81:
+                    var x = "我们花了两年的时间打地基，我们要盖什么样的楼，图纸没有公布过，但有些人已经在评论我们的房子怎么不好。有些公司的房子很好看，但地基不稳，一有大风就倒了。";
+                    break;
+                case  82:
+                    var x = "我们与竞争对手最大的区别就是我们知道他们要做什么，而他们不知道我们想做什么。我们想做什么，没有必要让所有人知道。";
+                    break;
+                case  83:
+                    var x = "我是说阿里巴巴发现了金矿，那我们绝对不自己去挖，我们希望别人去挖，他挖了金矿给我一块就可以了。";
+                    break;
+                case  84:
+                    var x = "我深信不疑我们的模式会赚钱的，亚马逊是世界上最长的河，8848是世界上最高的山，阿里巴巴是世界上最富有的宝藏。一个好的企业靠输血是活不久的，关键是自己造血。";
+                    break;
+                case  85:
+                    var x = "我们说上市就像我们的加油站，不要到了加油站，就停下来不走，还得走，继续走。";
+                    break;
+                case  86:
+                    var x = "互联网是四乘一百米接力赛，你再厉害，只能跑一棒，应该把机会给年轻人。";
+                    break;
+                case  87:
+                    var x = "在前一百米的冲刺中，谁都不是对手，是因为跑的三千米的长跑。你跑着跑着，跑了四五百米后才能拉开距离的。";
+                    break;
+                case  88:
+                    var x = "战略不能落实到结果和目标上面，都是空话。";
+                    break;
+                case  89:
+                    var x = "绝大部分创业者从微观推向宏观，通过发现一部分人的需求，然后向一群人推起来。";
+                    break;
+                case  90:
+                    var x = "不管你拥有多少资源，永远把对手想得强大一点。";
+            }
+
+            return x;
+        }
+    </script>
+    <div class="main-content">
+        <div id="message" class="row">
+            <div class="col-sm-6">
+                <blockquote class="blockquote blockquote-success">
+                    <p>
+                        <small id="x"></small>
+                    </p>
+                    <p class="toolbar-r"><strong>-马云</strong></p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Bottom Scripts -->
+<script src="__PUBLIC__/Assets/js/bootstrap.min.js"></script>
+<script src="__PUBLIC__/Assets/js/TweenMax.min.js"></script>
+<script src="__PUBLIC__/Assets/js/resizeable.js"></script>
+<script src="__PUBLIC__/Assets/js/joinable.js"></script>
+<script src="__PUBLIC__/Assets/js/xenon-api.js"></script>
+<script src="__PUBLIC__/Assets/js/xenon-toggles.js"></script>
+<!-- JavaScripts initializations and stuff -->
+<script src="__PUBLIC__/Assets/js/xenon-custom.js"></script>
+</body>
+</html></body></html>

@@ -1,0 +1,39 @@
+<include file="Public/header" title="{$title}" describe="{$desc}" keywords="宅喵生活，您身边的购物返利神器"/>
+<style>
+    .pic {
+        margin: 0 auto;
+    }
+    .title {
+        position: absolute;
+        top: 45px;
+        text-align: center;
+        width: 100%;
+        font-size: 20px;
+    }
+    .content{
+        margin: 0 auto;
+        width: 260px;
+    }
+</style>
+<div id="containter" class="container">
+
+    <div class="pic">
+        <img src="http://pic.taodianke.com/static/Touch/images/share_bg.png"/>
+        <span class="title">
+            <p class="content">{$title}</p>
+        </span>
+    </div>
+
+    <div class="goods_list index_goodslist">
+        <section class="goods" id="pageCon">
+            <ul id="list_box" class="list_box">
+                <include file='Public:cateItemList'/>
+            </ul>
+        </section>
+    </div>
+
+</div>
+
+<include file="Public/footer_js"/>
+</body>
+</html>

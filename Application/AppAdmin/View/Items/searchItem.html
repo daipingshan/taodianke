@@ -1,0 +1,96 @@
+<include file="Public/header" title="商品采集" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content" id="content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">商品采集</h1>
+                <p class="description">商品采集功能，在大淘客中找到商品，采集到我们平台中。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active">商品管理</li>
+                    <li class="active"><strong>商品采集</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" id="success"
+                <empty name="success">style="display:none"</empty>
+                >
+                <strong>{$success}</strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" id="error"
+            <empty name="error">style="display:none"</empty>
+            >
+            <strong>{$error}</strong>
+        </div>
+    </div>
+    <div class="col-md-12">
+        <div class="panel panel-default col-md-5">
+            <div class="panel-heading">
+                <h3 class="panel-title">搜索大淘客商品</h3>
+                <div class="panel-options">
+                    <a href="#" data-toggle="panel">
+                        <span class="collapse-icon">–</span>
+                        <span class="expand-icon">+</span>
+                    </a>
+                    <a href="#" data-toggle="remove">
+                        ×
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form>
+                    <div class="form-group ">
+                        <label class="control-label">商品id</label>
+                        <input type="text" class="form-control" name="id" value="{:I('get.id')}" placeholder="大淘客商品ID或淘宝ID">
+                    </div>
+                    <div class="form-group ">
+                        <input id="search" type="submit" class="btn btn-info btn-single pull-right" value='采集'>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <notEmpty name="info">
+            <div class="panel panel-default col-md-5" style="margin-left: 30px">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">查询到的商品</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li><img src="{$info.Pic}" style="width: 100px" class="img-responsive" /></li>
+                            <li>商品标题：{$info.Title}</li>
+                            <li>大淘客链接：<a href="http://www.dataoke.com/item?id={$info.ID}" target="_blank">点击查看</a>
+                            </li>
+                            <li>商品地址:<a href="https://item.taobao.com/item.htm?id={$info.GoodsID}" target="_blank">点击查看</a>
+                            </li>
+                            <li>领券地址:<a href="{$info.Quan_link}" target="_blank">点击查看</a></li>
+                            <li>月销量：{$info.Sales_num}</li>
+                            <li>券后价：{$info.Price}元</li>
+                            <li>优惠券：{$info.Quan_price}元</li>
+                            <li>优惠券结束日期：{$info.Quan_time}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </notEmpty>
+    </div>
+</div>
+<include file="Public/footer" /></div><!-- Modal 7 (Ajax Modal)-->
+<include file="Public/footer_Js" />

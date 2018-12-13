@@ -1,0 +1,107 @@
+<include file="Public/header" title="APP站内地址" keywords="开源WEB开发框架" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">APP站内地址</h1>
+                <p class="description">配置信息</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"> 站点设置</li>
+                    <li class="active"><strong>APP站内地址</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" style="display: none;" id="fail">
+                    <button type="button" class="close" data-dismiss="alert">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <ul class="nav nav-tabs nav-tabs-justified">
+                    <li class="active">
+                        <a href="#home-3" data-toggle="tab">
+                            <span class="visible-xs"><i class="fa-home"></i></span>
+                            <span class="hidden-xs">APP站内地址</span>
+                        </a>
+                    </li>
+
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="home-3">
+                        <div class="save">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">今日收入</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control check" value="taodianke://Balance/getOrder" readonly>
+                                    </div>
+                                    <button class="btn" data-clipboard-text="taodianke://Balance/getOrder">复制URL</button>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">推广海报</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control check" value="taodianke://Proxy/getWxQrcode" readonly>
+                                    </div>
+                                    <button class="btn" data-clipboard-text="taodianke://Proxy/getWxQrcode">复制URL</button>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">投诉建议</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control check" value="taodianke://feedback/share" readonly>
+                                    </div>
+                                    <button class="btn" data-clipboard-text="taodianke://feedback/share">复制URL</button>
+                                </div>
+
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <include file="Public/footer_Js" />
+    <script src="__JS__/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        var btns = document.querySelectorAll('button');
+        var clipboard = new Clipboard(btns);
+        clipboard.on('success', function(e) {
+            $('.alert-success strong').text('恭喜您，复制成功！');
+            $('.alert-success').show();
+            setTimeout(function(){
+                $('.alert-success').hide();
+            },3000);
+        });
+
+        clipboard.on('error', function(e) {
+            $('.alert-danger strong').text('复制失败！');
+            $('.alert-danger').show();
+            setTimeout(function(){
+                $('.alert-danger').hide();
+            },3000);
+        });
+    </script>

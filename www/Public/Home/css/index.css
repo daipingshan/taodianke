@@ -1,0 +1,99 @@
+#body-content{
+	margin: 10px auto;
+}
+
+#body-content .advert{
+	width: 100%;
+	height: 300px;
+}
+
+#body-content .advert .cate{
+	width: 200px;
+	height: 300px;
+	overflow: hidden;
+	border: 1px solid #ff420f
+}
+
+
+#body-content .advert .cate ul li{
+	float: left;
+    width: 50%;
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    line-height: 50px;
+}
+
+#body-content .advert .cate ul li:hover{
+	background-color: #ff420f;
+	cursor: pointer;
+}
+
+#body-content .advert .cate ul li .icon{
+	position: absolute;
+	top:10px;
+	left:5px;
+	height: 30px
+}
+
+#body-content .advert .cate ul li .icon img{
+	width: 30px;
+	height: 30px;
+}
+
+#body-content .advert .cate ul li a{
+	margin-left: 40px;
+	font-size: 12px;
+	color: #000000;
+	font-weight:bold;
+}
+#body-content .advert .cate ul li a:hover,#body-content .advert .cate ul li:hover a{
+	color: #fff;
+}
+
+#body-content .advert .img{
+	width: 780px;
+	height: 300px;
+	position: relative;
+	overflow: hidden;
+	z-index: 0;
+}
+
+#body-content .advert .img ul li{
+	position: absolute;
+	left:0;
+	top:0;
+	z-index: 0;
+}
+#body-content .advert .img ul li img{
+	width: 780px;
+	height: 300px;
+}
+
+#body-content .advert .code{
+	width: 200px;
+	height: 300px;
+	border: 1px solid #ff420f;
+}
+
+#body-content .advert .wechat-code{
+	height: 150px;
+	text-align: center;
+}
+
+#body-content .advert .wechat-code img{
+	margin-top: 10px;
+	width: 80px;
+	height: 80px;
+}
+
+#body-content .advert .wechat-code p{
+	text-align: center;
+	font-size: 14px;
+	color: #666;
+}
+
+
+
+
+

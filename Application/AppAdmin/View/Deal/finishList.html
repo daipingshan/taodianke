@@ -1,0 +1,243 @@
+<include file="Public/header" title="我的推广商品" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">申请结算</h1>
+                <p class="description">显示已结束商品</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>菜单管理 </strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" id="error" style="display:none">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <form>
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <input type="text" name="tao_bao_id" value="{:I('get.tao_bao_id')}" class="form-control" placeholder="请输入淘宝商品ID搜索" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" name="keyword" value="{:I('get.keyword')}" class="form-control" placeholder="请输入商品关键字搜索" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <input type="text" name="merchant_info" value="{:I('get.merchant_info')}" class="form-control" placeholder="请输入商家联系方式搜索" />
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="submit" class="btn btn-secondary btn-single" value='查询'>
+                                </div>
+                            </div>
+                            <div class="panel-options"><a href="#"> <i class="linecons-cog"></i> </a>
+                                <a href="#" data-toggle="panel">
+                                    <span class="collapse-icon">&ndash;</span> <span class="expand-icon">+</span> </a>
+                                <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                                <a href="#" data-toggle="remove"> &times; </a>
+                            </div>
+                        </div>
+                    </form>
+                    <form action="{:U('Deal/applySettle')}" method="get" name="settle">
+                        <div class="row">
+                            <div class="panel-body" style="margin-left: 15px">
+                                <button type="submit" class="btn btn-primary" id="submit"><span>批量结算</span></button>
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="table-responsive">
+                                <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th width="5%">选择</th>
+                                        <th width="10%">商品配图</th>
+                                        <th width="12%">价格</th>
+                                       <!--  <th width="15%">文案</th> -->
+                                        <th width="15%">时间</th>
+                                        <th width="15%">商家</th>
+                                        <th>备注</th>
+                                        <th width="10%">操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <foreach name="data" item="vo">
+                                        <tr>
+                                            <td><input type="checkbox" name="deal_ids[]" value="{$vo.id}" /></td>
+                                            <td>
+                                                <img src="{$vo.img_url}" width="80" /><br/>
+                                                <a href="{$vo.dataoke_url}" target="_blank" style="color: #00A0E9">大淘客</a>
+                                                <br />
+                                                <a href="{$vo.taobao_url}" target="_blank" style="color: #00A0E9">淘宝</a>
+                                            </td>
+                                            <td>
+                                                商品id：{$vo['taobao_item_id']}<br />
+                                                <span style="color: red">券后价：￥{$vo['coupon_after_price']}元</span><br />
+                                                <span style="color: red">佣金比例：{$vo['commission_ratio']}%</span><br />
+                                                <span style="color: red">优惠券价：￥{$vo['coupon_money']}元</span><br/>
+                                                <span style="   color: #0b97c4">
+                                                    服务费：{$vo.service_fee}
+                                                    <eq name="vo.service_fee_type" value="ratio">%
+                                                        <else />
+                                                        元
+                                                    </eq>
+                                                </span>
+                                            </td>
+                                           <!--  <td>{$vo.copy_writer}</td> -->
+                                            <td>
+                                                提交时间：{$vo.add_time|date='Y-m-d H:i:s',###}<br />
+                                                <span style="color: red">开始时间：{$vo.online_time|date='Y-m-d H:i:s',###}</span><br/>
+                                                <span style="color: red">券结束时间：{$vo.end_time|date='Y-m-d H:i:s',###}</span><br/>
+                                                认领时间：{$vo.claim_time|date='Y-m-d H:i:s',###}
+                                            </td>
+                                            <td>
+                                                <span><a href="javascript:void(0);" style="color: #00A0E9" onclick="read({$vo['merchant_id']})">{$vo['merchant_name']}</a></span><br />
+                                                <notempty name="vo['mobile']">电话: {$vo['mobile']}<br>
+                                                </notempty>
+                                                <notempty name="vo['qq']">QQ: {$vo['qq']}<br>
+                                                </notempty>
+                                                <notempty name="vo['weixin']">微信: {$vo['weixin']}<br>
+                                                </notempty>
+                                                <notempty name="vo['wangwang']">旺旺: {$vo['wangwang']}</notempty>
+                                            </td>
+                                            <td>
+                                                <span><a href="javascript:void(0);" style="color: #00A0E9" onclick="read({$vo['merchant_id']})">查看商家</a></span><br />
+                                                <span>大淘客备注：{$vo.dataoke_remark}</span><br />
+                                                <span>管理员备注：{$vo.remark}</span>
+                                            </td>
+                                            <td>
+                                                <a href="{:U('Deal/applySettle',array('deal_ids'=>$vo['id']))}" class="btn btn-secondary">
+                                                    申请结算
+                                                </a>
+                                                <br />
+                                                <a class="btn btn-warning" style="margin-top: 10px" onclick="setDeal({$vo['id']});">
+                                                    <foant><font>设置异常</font></foant>
+                                                </a>
+                                                <br />
+                                                <a href="{:U('Deal/searchDeal',array('update_tao_bao_id'=>$vo['id']))}" class="btn btn-danger" style="margin-top: 10px">
+                                                    编辑商品
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </foreach>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </form>
+                    <if condition="$data[0] eq ''">
+                        <div style="text-align: center">
+                            没有找到相关内容
+                        </div>
+                    </if>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <include file="Public/footer_Js" />
+    <script type="text/javascript">
+        function setDeal(id) {
+            $('#deal_id').val(id);
+            jQuery('#content').css('display', 'block');
+            jQuery('#modal-6').modal('show', {backdrop: 'static'});
+        }
+        $(function () {
+            $('#modal-submit').click(function () {
+                var _this = $(this);
+                var remark = $('#remark').val();
+                if (!remark) {
+                    $('#error').find('strong').text('请输入异常原因');
+                    $('#error').show();
+                    setTimeout(function () {
+                        $('#error').hide();
+                    }, 3000)
+                    return false;
+                }
+                _this.attr('disabled', true);
+                $.post($('form[name=modal]').attr('action'), $('form[name=modal]').serialize(), function (res) {
+                    if (res.status == 0) {
+                        _this.removeAttr('disabled');
+                        $('#error').find('strong').text(res.info);
+                        $('#error').show();
+                        $('#submit_button').removeAttr('disabled');
+                        setTimeout(function () {
+                            $('#error').hide();
+                        }, 3000)
+                    } else {
+                        $('#success').find('strong').text(res.info);
+                        $('#success').show();
+                        setTimeout(function () {
+                            window.location.href = res.url;
+                        }, 3000)
+                    }
+                })
+                return false;
+            });
+            $("#submit").click(function () {
+                var num = $("input[type=checkbox]:checked").length;
+                if (num == 0) {
+                    $('#error').find('strong').text('请勾选相关商品！');
+                    $('#error').show();
+                    setTimeout(function () {
+                        $('#error').hide();
+                    }, 3000);
+                    return false;
+                }
+
+            });
+        })
+    </script>
+    <!-- Modal 6 (Long Modal)-->
+    <div class="modal fade" id="modal-6">
+        <form action="{:U('Deal/doStatusSetBad')}" method="post" name="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">设置商品异常操作</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-success" style="display: none" id="success">
+                                    <strong></strong>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="alert alert-danger" id="error" style="display: none">
+                                    <strong></strong>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group no-margin">
+                                    <label for="field-7" class="control-label">备注信息</label>
+                                    <textarea class="form-control" name="remark" placeholder="请输入异常原因" id="remark"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="id" id="deal_id" />
+                        <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                        <button type="button" class="btn btn-info" id="modal-submit">保存</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

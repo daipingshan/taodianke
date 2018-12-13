@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>报名系统</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="__CSS_PATH__/layui.css"  media="all">
+    <link rel="stylesheet" href="__CSS_PATH__/page.css"  media="all">
+    <script src="__JS_PATH__/jquery-2.1.4.js"></script>
+    <script src="__JS_PATH__/layui.js"></script>
+</head>
+<body>
+<div style="margin: 0 auto;">
+    <div>
+         <ul class="layui-nav" lay-filter="">
+          <li class="layui-nav-item <eq name='current' value='index'>layui-this</eq>"><a href="{:U('Index/index')}">报名列表</a></li>
+          <li class="layui-nav-item <eq name='current' value='pay_data'>layui-this</eq>"><a href="{:U('Index/payData')}">支付列表</a></li>
+          <li class="layui-nav-item <eq name='current' value='user'>layui-this</eq>"><a href="{:U('Index/user')}">用户管理</a></li>
+        </ul>
+    </div>
+    <div style="margin:20px 20px;">
+        <table class="layui-table">
+          <thead>
+            <tr>
+              <th>用户编号</th>
+              <th>用户姓名</th>
+            </tr> 
+          </thead>
+          <tbody>
+              <volist name="data" id="info">
+                <tr>
+                  <td>{$info.id}</td>
+                  <td>{$info.username}</td>
+                </tr>
+              </volist>  
+          </tbody>
+        </table>
+    </div>
+    <div id="page">
+        {$page}
+    </div>
+</div>
+</body>
+</html>

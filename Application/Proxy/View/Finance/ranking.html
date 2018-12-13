@@ -1,0 +1,106 @@
+<include file="Public/header" title="消费统计" keywords="开源WEB开发框架" />
+<div class="page-container">
+<include file="Public/nav" />
+<div class="main-content"> 
+  
+  <!-- User Info, Notifications and Menu Bar --> 
+<include file="Public/user_nav" />
+<div class="page-title">
+    <div class="title-env">
+        <h1 class="title">代理消费统计</h1>
+        <p class="description">查看我的代理消费统计信息</p>
+    </div>
+    <div class="breadcrumb-env">
+        <ol class="breadcrumb bc-1">
+            <li> <a href="/Proxy/Finance/ranking"><i class="fa-home"></i>主页</a> </li>
+            <li class="active"> 财务管理 </li>
+            <li class="active"> <strong>消费统计</strong> </li>
+        </ol>
+    </div>
+</div>
+
+<div class="row ">
+    <div class="col-xs-12 panel ">
+		<div class="xe-label">
+			<strong class="num">￥{$Settlement}元</strong>
+			<p>上月结算收入</p>
+		</div>
+    </div>			
+</div>
+
+<div class="row ">
+	<div class="col-xs-12 panel ">
+        <div class="col-xs-6">
+    		<div class="xe-label">
+    			<strong class="num">￥{$ordernum}元</strong>
+    			<p>本月结算收入</p>
+    		</div>
+        </div>
+        <div class="col-xs-6">
+			<div class="xe-label">
+				<strong class="num">￥{$turnover}元</strong>
+				<p>本月预估收入</p>
+			</div>
+        </div>
+      
+	</div>
+</div>
+  
+<div class="row">
+    <div class="col-md-12">
+        <div class="btn-toolbar">
+            <div class="btn-group dropdown-btn-group pull-right">            	
+                <a href="?status=0" class="btn btn-default <if condition="$status eq 0"> btn-primary </if>">本月</a> 
+                <a href="?status=1" class="btn btn-default <if condition="$status eq 1"> btn-primary </if>">今天</a> 
+                <a href="?status=2" class="btn btn-default <if condition="$status eq 2"> btn-primary </if>">昨日</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">代理消费信息</h3>    
+    </div>
+
+    <div class="panel-body">     
+        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+            <table id="example-1" cellspacing="0" class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th >用户</th>
+                        <th >真实姓名</th>
+                        <th >电话</th>
+                        <th >预估</th>
+                        <th >结算</th>
+                        <th >上月</th>
+                        <th >订单</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <foreach name="list" item="vo" >
+                        <tr>
+                            <td>{$vo.username}</td>
+                            <td>{$vo.realname}</td>
+                            <td>{$vo.mobile}</td>
+                            <td>{$vo.ygsr}</td>
+                            <td>{$vo.jssr}</td>
+                            <td>{$vo.syjssr}</td>
+                            <td><a href="/Proxy/order/index/pid/{$vo.pid}/payid/{$vo.id}" target="_blank">查看</a></td>
+                        </tr>
+                    </foreach>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<include file="Public/footer" /> </div>
+<include file="Public/footer_Js" />
+<!-- Imported styles on this page -->
+<link rel="stylesheet" href="__JS__/datatables/dataTables.bootstrap.css">
+<!-- Imported scripts on this page -->
+<script src="__JS__/datatables/dataTables.bootstrap.js"></script>
+<script src="__JS__/datatables/yadcf/jquery.dataTables.yadcf.js"></script>
+<script src="__JS__/datatables/tabletools/dataTables.tableTools.min.js"></script>
+

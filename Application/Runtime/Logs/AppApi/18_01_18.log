@@ -1,0 +1,42 @@
+[ 2018-01-18T09:29:34+08:00 ] 127.0.0.1 /Balance/getOrder?add_end_day=2018-01-18&payStatus=&add_start_day=2018-01-18&page=1&token=a9fc2709783acc328f888e5008aa7512&V=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003082s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001395s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001482s ]
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0878s ]
+SQL: SELECT id as uid,`pid`,`dwxk_adsense_id`,`store_type` FROM `ytt_user` WHERE `token` = 'a9fc2709783acc328f888e5008aa7512' LIMIT 1   [ RunTime:0.0872s ]
+SQL: SHOW COLUMNS FROM `ytt_order_commission` [ RunTime:0.0858s ]
+SQL: SELECT o_c.*,o.title,o.img,o.order_type as shop_type_view,o.shop_type,i.id as item_num_id FROM ytt_order_commission o_c left join ytt_order o ON o.order_id = o_c.order_id and o_c.item_id = o.item_id and o_c.order_num = o.order_num left join ytt_items i ON i.num_iid = o_c.item_id  WHERE o_c.user_id = '1969' AND UNIX_TIMESTAMP(o_c.create_time) BETWEEN 1516204800 AND 1516291199 ORDER BY o_c.create_time desc LIMIT 0,21   [ RunTime:0.1059s ]
+
+[ 2018-01-18T09:30:01+08:00 ] 127.0.0.1 /Balance/getOrder?add_end_day=2018-01-18&payStatus=&add_start_day=2018-01-18&page=1&token=a9fc2709783acc328f888e5008aa7512&V=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000576s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000703s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000771s ]
+SQL: SHOW COLUMNS FROM `ytt_order_commission` [ RunTime:0.0848s ]
+SQL: SELECT o_c.*,o.title,o.img,o.order_type as shop_type_view,o.shop_type,i.id as item_num_id FROM ytt_order_commission o_c left join ytt_order o ON o.order_id = o_c.order_id and o_c.item_id = o.item_id and o_c.order_num = o.order_num left join ytt_items i ON i.num_iid = o_c.item_id  WHERE o_c.user_id = '1969' AND UNIX_TIMESTAMP(o_c.create_time) BETWEEN 1516204800 AND 1516291199 ORDER BY o_c.create_time desc LIMIT 0,21   [ RunTime:0.1051s ]
+
+[ 2018-01-18T09:30:01+08:00 ] 127.0.0.1 /Balance/getOrder?add_end_day=2018-01-18&payStatus=&add_start_day=2018-01-18&page=1&token=a9fc2709783acc328f888e5008aa7512&V=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000796s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000940s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001018s ]
+SQL: SHOW COLUMNS FROM `ytt_order_commission` [ RunTime:0.0872s ]
+SQL: SELECT o_c.*,o.title,o.img,o.order_type as shop_type_view,o.shop_type,i.id as item_num_id FROM ytt_order_commission o_c left join ytt_order o ON o.order_id = o_c.order_id and o_c.item_id = o.item_id and o_c.order_num = o.order_num left join ytt_items i ON i.num_iid = o_c.item_id  WHERE o_c.user_id = '1969' AND UNIX_TIMESTAMP(o_c.create_time) BETWEEN 1516204800 AND 1516291199 ORDER BY o_c.create_time desc LIMIT 0,21   [ RunTime:0.1069s ]
+
+[ 2018-01-18T10:03:39+08:00 ] 127.0.0.1 /Balance/getOrder?add_end_day=2018-01-18&payStatus=&add_start_day=2018-01-18&page=1&token=a9fc2709783acc328f888e5008aa7512&V=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000668s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000790s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000843s ]
+SQL: SHOW COLUMNS FROM `ytt_order_commission` [ RunTime:0.0934s ]
+SQL: SELECT o_c.*,o.title,o.img,o.order_type as shop_type_view,o.shop_type,i.id as item_num_id FROM ytt_order_commission o_c left join ytt_order o ON o.order_id = o_c.order_id and o_c.item_id = o.item_id and o_c.order_num = o.order_num left join ytt_items i ON i.num_iid = o_c.item_id  WHERE o_c.user_id = '1969' AND UNIX_TIMESTAMP(o_c.create_time) BETWEEN 1516204800 AND 1516291199 ORDER BY o_c.create_time desc LIMIT 0,21   [ RunTime:0.1137s ]
+

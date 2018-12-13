@@ -1,0 +1,134 @@
+<include file="Public/header" title="淘店客后台管理系统" keywords="开源WEB开发框架"/>
+<body class="page-body">
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/User_Nav"/>
+
+
+        <div class="row">
+
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter-block xe-counter-block-orange">
+                    <div class="xe-upper">
+
+                        <div class="xe-icon">
+                            <i class="fa-life-ring"></i>
+                        </div>
+                        <div class="xe-label">
+                            <strong class="num">￥ {$total_money}</strong>
+                            <span>累计结算业务收入</span>
+                        </div>
+
+                    </div>
+                    <div class="xe-lower">
+                        <div class="border"></div>
+
+                        <span>累计收益</span>
+                        <strong data-count="this" data-from="0" data-to="14215" data-duration="2">￥ {$total_money}
+                            元</strong>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter-block" data-count=".num" data-from="0" data-to="99.9" data-suffix="%"
+                     data-duration="2">
+                    <div class="xe-upper">
+
+                        <div class="xe-icon">
+                            <i class="linecons-cloud"></i>
+                        </div>
+                        <div class="xe-label">
+                            <strong class="num">￥ {$settle_money}</strong>
+                            <span>本月代理结算业务收入</span>
+                        </div>
+
+                    </div>
+                    <div class="xe-lower">
+                        <div class="border"></div>
+
+                        <span>结算收益（本月）</span>
+                        <strong>￥ {$settle_money} 元</strong>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter-block xe-counter-block-purple" data-count=".num" data-from="0"
+                     data-to="512" data-duration="3">
+                    <div class="xe-upper">
+
+                        <div class="xe-icon">
+                            <i class="linecons-camera"></i>
+                        </div>
+                        <div class="xe-label">
+                            <strong class="num">￥{$paid_money}</strong>
+                            <span>本月代理预估业务收入</span>
+                        </div>
+
+                    </div>
+                    <div class="xe-lower">
+                        <div class="border"></div>
+
+                        <span>预估收益（本月）</span>
+                        <strong>￥{$paid_money}元</strong>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-sm-3">
+
+                <div class="xe-widget xe-counter-block xe-counter-block-blue" data-suffix="k" data-count=".num"
+                     data-from="0" data-to="310" data-duration="4" data-easing="false">
+                    <div class="xe-upper">
+
+                        <div class="xe-icon">
+                            <i class="linecons-user"></i>
+                        </div>
+                        <div class="xe-label">
+                            <strong class="num">{$num}人</strong>
+                            <span>我的代理</span>
+                        </div>
+
+                    </div>
+                    <div class="xe-lower">
+                        <div class="border"></div>
+
+                        <span>下线用户</span>
+                        <strong>下线用户总人数</strong>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-sm-3">
+                <div class="xe-widget xe-counter-block xe-counter-block-orange">
+                    <div class="xe-upper">
+                        <div class="xe-icon">
+                            <i class="linecons-user"></i>
+                        </div>
+                        <div class="xe-label">
+                            <span>我的微信推广二维码</span>
+                        </div>
+
+                    </div>
+                    <div class="xe-lower" style="text-align: center;">
+                        <div class="border"></div>
+                        <img src="{$qrcode}" width="150" height="150"/>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <include file="Public/footer"/>
+    </div>
+</div>
+<include file="Public/footer_Js"/>

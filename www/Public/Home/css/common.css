@@ -1,0 +1,491 @@
+/*初始化部分*/
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td, section, input, img, textarea, select {
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑", "华文细黑", "黑体";
+    border: none;
+    outline: none;
+    resize: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+i {
+    font-style: normal;
+}
+
+em {
+    font-style: normal;
+}
+
+.clear {
+    clear: both;
+}
+
+.ml10 {
+    margin-left: 10px
+}
+
+.ml20 {
+    margin-left: 20px
+}
+
+.ml30 {
+    margin-left: 30px
+}
+
+.ml40 {
+    margin-left: 40px
+}
+
+.ml50 {
+    margin-left: 50px
+}
+
+.mr10 {
+    margin-right: 10px
+}
+
+.mr20 {
+    margin-right: 20px
+}
+
+.mr30 {
+    margin-right: 30px
+}
+
+.mr40 {
+    margin-right: 40px
+}
+
+.mr50 {
+    margin-right: 50px
+}
+
+.mt10 {
+    margin-top: 10px
+}
+
+.mt20 {
+    margin-top: 20px
+}
+
+.mt30 {
+    margin-top: 30px
+}
+
+.mt40 {
+    margin-top: 40px
+}
+
+.mt50 {
+    margin-top: 50px
+}
+
+.mb10 {
+    margin-bottom: 10px
+}
+
+.mb20 {
+    margin-bottom: 20px
+}
+
+.mb30 {
+    margin-bottom: 30px
+}
+
+.mb40 {
+    margin-bottom: 40px
+}
+
+.mb50 {
+    margin-bottom: 50px
+}
+
+.no-mr {
+    margin-right: 0 !important;
+}
+
+.red {
+    color: red
+}
+
+.fl {
+    float: left
+}
+
+.fr {
+    float: right
+}
+
+.clear {
+    clear: both;
+}
+
+li {
+    display: inline;
+}
+
+input:not([type]), input[type="email" i
+
+]
+,
+input[type="number" i
+
+]
+,
+input[type="password" i
+
+]
+,
+input[type="tel" i
+
+]
+,
+input[type="url" i
+
+]
+,
+input[type="text" i
+
+]
+{
+    padding: 1px 0px
+;
+}
+input {
+    -webkit-appearance: textfield;
+    background-color: white;
+    -webkit-rtl-ordering: logical;
+    user-select: text;
+    cursor: auto;
+    padding: 1px;
+    border-width: 2px;
+    border-style: inset;
+    border-color: initial;
+    border-image: initial;
+}
+
+input, textarea, select, button {
+    text-rendering: auto;
+    color: initial;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    margin: 0em;
+    font: 13.3333px Arial;
+}
+
+input, textarea, select, button, meter, progress {
+    -webkit-writing-mode: horizontal-tb;
+}
+
+.content {
+    width: 1200px;
+    height: auto;
+    margin: 0 auto;
+    font-size: 0;
+}
+
+.tdk-color {
+    color: #FF420F;
+}
+
+.tdk-background-color {
+    background-color: #FF420F;
+}
+
+header .header {
+    height: 30px;
+    background-color: #F2F2F2;
+}
+
+header .header .content .top {
+    color: #666666;
+    font-family: '微软雅黑';
+    font-size: 12px;
+}
+
+header .header .content .top li {
+    margin-right: 20px;
+    line-height: 30px;
+}
+
+header .header .content .top > ul > li > a:visited {
+    color: #8A8A8A;
+}
+
+header .header .content .top ul > li > a {
+    color: #8A8A8A;
+}
+
+header .header .content .top > ul > li > a:hover {
+    color: rgba(255, 66, 15, 0.8);
+}
+
+header .content .twopart {
+    display: block;
+    position: relative;
+}
+
+header .content .twopart .logo {
+    width: 228px;
+    height: 42px;
+    margin-top: 26px;
+}
+
+header .content .twopart .searchDiv {
+    width: 450px;
+    margin: 0 auto;
+}
+
+header .content .twopart .search-form {
+    position: relative;
+    float: right;
+    margin-top: 35px;
+}
+
+header .content .twopart .search-keywords {
+    height: 16px;
+    margin-top: 12px;
+    margin-left: 2px;
+}
+
+header .content .twopart .search-keywords a {
+    display: inline-block;
+    font-size: 12px;
+    color: #686868;
+    margin-right: 15px;
+}
+
+header .content .twopart .search-inputbox {
+    float: left;
+    background-color: transparent;
+    height: 32px;
+    width: 390px;
+    font-family: '微软雅黑';
+    color: #444444;
+    font-size: 12px;
+    outline: none;
+    border: 2px solid #FF420F;
+    padding-left: 10px;
+    margin-right: -2px;
+    box-sizing: border-box;
+    border-right: 0px;
+}
+
+header .content .twopart .searchDiv button {
+    width: 60px;
+    height: 32px;
+    background: url(../img/icon.png) no-repeat -12px -29px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+header .main-nav {
+    width: 100%;
+    height: 40px;
+    background-color: #FFFFFF;
+    border-bottom: 2px solid #FF420F;
+    margin-top: 23px;
+}
+
+header .main-nav .content .first {
+    width: 100px;
+}
+
+header .main-nav .content a.nav-cur {
+    background: #FF420F;
+    color: #FFFFFF;
+}
+
+header .main-nav .content a {
+    display: block;
+    float: left;
+    line-height: 40px;
+    font-size: 16px;
+    color: #212121;
+    font-weight: bold;
+    text-align: center;
+    padding: 0 50px;
+}
+
+header .main-nav a:hover, header .main-nav a:active {
+    background-color: #FF420F;
+    color: #FFFFFF;
+}
+
+.page {
+    width: 1200px;
+    margin: 50px auto;
+}
+
+.page .pagination {
+    height: 40px;
+    text-align: center;
+}
+
+.page li {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    font-size: 14px;
+    margin-right: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    line-height: 40px;
+}
+
+.page li.active, .page li:hover {
+    border: none;
+    background-color: #FF420F;
+    color: #FFFFFF;
+}
+
+.page li a {
+    color: #686868;
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+}
+
+.page li.active a, .page li:hover a {
+    color: #FFFFFF;
+}
+
+.system-message {
+    width: 1200px;
+    border: 1px solid #EEEEEE;
+    height: 300px;
+    margin: 50px auto;
+}
+
+.system-message p {
+    width: 1000px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.system-message p.error {
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #FF420F;
+}
+
+.system-message p.success {
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #8AC007;
+}
+
+.system-message p.jump {
+    font-size: 16px;
+    color: black;
+}
+
+.system-message p.jump a {
+    color: #FF420F;
+}
+
+.system-message p.jump a:hover {
+    color: #FF420F;
+}
+
+footer .footer {
+    position: relative;
+    background: #FF420F;
+    height: 200px;
+    text-align: center;
+}
+
+footer .footer li {
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 182px;
+    margin-top: 30px;
+}
+
+.footer li:last-child {
+    margin-right: 0;
+}
+
+.footer li a i.i_abus {
+    background-position: -442px -110px;
+}
+
+.footer li a i.i_coopr {
+    background-position: -535px -110px;
+}
+
+.footer li a i.i_shopsafe {
+    background-position: -628px -110px;
+}
+
+.footer li a i.i_helpcnter {
+    background-position: -720px -110px;
+}
+
+.footer li a i {
+    display: block;
+    width: 61px;
+    height: 60px;
+    background: url(../img/icon.png) no-repeat;
+    margin-bottom: 10px;
+}
+
+footer .footer li a {
+    color: #FFFFFF;
+}
+
+footer .footer pre {
+    width: 800px;
+    font-family: 微软雅黑;
+    font-size: 12px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    color: rgb(255, 255, 255);
+    margin-left: -400px;
+}
+
+footer .footer pre a {
+    color: #FFFFFF;
+}
+
+.iton-top-index {
+    width: 42px;
+    height: 36px;
+    background-image: url('../img/icon.png');
+    background-position: -1529px -33px;
+    display: block;
+    position: fixed;
+    bottom: 200px;
+    right: 50%;
+    margin-right: -672px;
+}
+
+.iton-top-index:hover {
+    width: 42px;
+    height: 36px;
+    background-image: url('../img/icon.png');
+    background-position: -1604px -33px;
+    cursor: pointer;
+}

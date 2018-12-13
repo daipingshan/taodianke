@@ -1,0 +1,191 @@
+<include file="Public/header" title="广告管理"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">广告管理</h1>
+                <p class="description">设定后台广告管理信息。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="{:U('Index/index')}"><i class="fa-home"></i>主页</a></li>
+                    <li class="active">站点设置</li>
+                    <li class="active"><strong>广告管理</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" id="error" style="display:none">
+                    <strong></strong>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">快捷操作</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">×</a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row col-margin">
+                        <div class="col-xs-2">
+                            <a href="{:U('Advert/add')}" class="btn btn-secondary btn-single">
+                                添加广告
+                            </a>
+                        </div>
+                        <form method="get" action="{:U('Advert/index')}">
+                            <div class="row col-margin">
+                                <div class="col-xs-2">
+                                    <input type="text" name="ad_name" class="form-control" placeholder="请输入广告名称"
+                                    <if condition="$ad_name neq '' "> value="{$ad_name}"
+                                        <else/>
+                                        value=""
+                                    </if>
+                                    />
+                                </div>
+                                <div class="col-xs-3">
+                                    <select name="board_id" id="board_id" class="form-control" style="width: 100%;">
+                                        <option value="">请选择广告分类</option>
+                                        <foreach name="all_board" item="v" key="k">
+                                            <option value="{$k}"
+                                            <if condition="I('get.board_id') eq $k">selected</if>
+                                            >{$v}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <select name="is_online" id="is_online" class="form-control" style="width: 100%;">
+                                        <option value="0">请选择广告是否在线</option>
+                                        <option value="1"
+                                        <if condition="I('get.is_online') eq 1">selected</if>
+                                        >在线</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-1">
+                                    <input type="submit" class="btn btn-secondary btn-single" value="搜索"/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">广告管理</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span>
+                            </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>图片信息</th>
+                                    <th>所属分类 / 排序 / 状态</th>
+                                    <th>时间(添加时间 / 开始时间 / 结束时间)</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="vo">
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td>
+                                            <a href="{:getImgUrl($vo['content'])}" title="{$vo.name}" target="_blank">
+                                                <img src="{:getImgUrl($vo['content'])}" width="100" height="100"/><br>
+                                                {$vo.name}
+                                            </a>
+                                        </td>
+                                        <td>
+                                            所属分类：{$adboard[$vo['board_id']]['name']}<br>
+                                            排序：{$vo.ordid}<br>
+                                            当前状态：
+                                            <if condition="$vo.status eq 1 ">有效
+                                                <else/>
+                                                无效
+                                            </if>
+                                        </td>
+                                        <td>
+                                            添加时间：{$vo.add_time|date="Y-m-d H:i:s",###}<br>
+                                            开始时间：{$vo.start_time|date="Y-m-d",###}<br>
+                                            结束时间：{$vo.end_time|date="Y-m-d",###}
+                                        </td>
+                                        <td>
+                                            <a href="{:U('Advert/edit',array('id'=>$vo['id']))}" class="ibutton">
+                                                <i class="fa-edit"></i>
+                                            </a>
+                                            |
+                                            <a class="ibutton" onclick="del({$vo.id})">
+                                                <i class="fa-trash"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+</div>
+<script type="text/javascript">
+    function del(id) {
+        var status = confirm('确定删除该广告!');
+        if (status) {
+            var post_url = "{:U('Advert/del')}";
+            var index = "{:U('Advert/index')}";
+            $.post(post_url, {id: id}, function (res) {
+                if (res.code == 0) {
+                    $('.alert-success strong').text(res.msg);
+                    $('.alert-success').show();
+                    setTimeout(function () {
+                        window.location.href = index;
+                    }, 3000);
+
+                } else {
+                    $('.alert-danger strong').text(res.msg);
+                    $('.alert-danger').show();
+                    setTimeout(function () {
+                        $('.alert-danger').hide();
+                    }, 3000);
+                }
+            });
+            return true;
+        } else {
+            return false;
+        }
+    }
+</script>
+<include file="Public/footer_Js"/>

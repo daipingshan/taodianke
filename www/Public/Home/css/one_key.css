@@ -1,0 +1,54 @@
+.text{
+    width: 1200px;
+    height: 300px;
+    margin: 20px 0;
+}
+.text textarea{
+    width: 1200px;
+    height: 300px;
+    border: 1px solid #ccc;
+    padding: 20px 50px;
+}
+
+#tips{
+    margin: 10px 0;
+    color: #FF420F;
+    font-size: 14px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.text textarea:hover{
+    border: 1px solid #ff420f;
+}
+
+.button{
+    width: 600px;
+    margin-left: 300px;
+    margin-bottom: 20px;
+
+}
+
+.button button{
+    height: 50px;
+    line-height: 50px;
+    width: 200px;
+    border-radius: 50px;
+    color: #ff420f;
+    border: 2px solid #ff420f;
+    background-color: #fff;
+    text-align: center;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 18px;
+    display: inline-block;
+}
+
+.button button.copy {
+    margin-left: 200px;
+}
+button:hover{
+    background-color: #ff420f;
+    color: #fff;
+}

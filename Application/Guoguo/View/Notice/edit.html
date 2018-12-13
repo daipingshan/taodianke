@@ -1,0 +1,23 @@
+<include file="Common:header" />
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <form role="form" id='check-form' method='post' action="{:U('Notice/edit')}">
+                <div class="form-group">
+                    <label>标题</label>
+                    <input class="form-control" type="text" value='{$data.title}' name='notice[title]'>
+                </div>
+                <div class="form-group">
+                    <label>内容</label>
+                    <textarea rows="3" style="min-width:100%;max-width: 100%;min-height:140px;" name='notice[content]'> {$data.content}</textarea>
+                 </div>
+                <div class="form-group">
+                    <input type='hidden' name='nid' value='{$data.id}'>
+                    <input type="button" onclick="return ajax_check_submit_from_layer(this);" check_url="{:U('Notice/check_add_edit_data')}" id="btn-add-edit-goods"  class="btn btn-primary" value="提交"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />

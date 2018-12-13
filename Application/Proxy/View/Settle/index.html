@@ -1,0 +1,129 @@
+<include file="Public/header" title="财务管理" keywords="开源WEB开发框架" />
+<body class="page-body">
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+
+        <include file="Public/User_Nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">代理结算</h1>
+                <p class="description">查看用户结算申请</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li> <a href="/Proxy/Index/index"><i class="fa-home"></i>主页</a> </li>
+                    <li class="active"> 财务管理 </li>
+                    <li class="active"> <strong>代理结算</strong> </li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">申请结算列表</h3>
+                        <div class="panel-options"><a href="#"> <i class="linecons-cog"></i> </a> <a href="#"
+                                                                                                     data-toggle="panel">
+                            <span class="collapse-icon">&ndash;</span> <span class="expand-icon">+</span> </a> <a
+                                href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a> <a href="#"
+                                                                                                       data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="btn-toolbar" style="margin-bottom: 20px">
+                            <form>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <select name="status" class="form-control" id="admin-user">
+                                            <option value="">打款状态</option>
+                                            <option value="Y"
+                                            <if condition="I('get.status') eq 'Y'">selected</if>
+                                            >已打款</option>
+                                            <option value="N"
+                                            <if condition="I('get.status') eq 'N'">selected</if>
+                                            >未打款</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="submit" class="btn btn-secondary btn-single" value='查询'>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+
+                                <tr>
+                                    <th data-priority="7">操作</th>
+                                    <th data-priority="2">支付宝</th>
+                                    <th data-priority="3">真实姓名</th>
+                                    <th data-priority="4">申请金额</th>
+                                    <th data-priority="5">结算状态</th>
+                                    <th data-priority="6">申请时间</th>
+                                    <th data-priority="6">打款时间</th>
+                                    <th data-priority="8">用户订单</th>
+                                </tr>
+
+                                </thead>
+                                <tbody>
+
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td class="ix">
+                                            <if condition="$vo['status'] eq 'Y'">
+                                                <button class="btn btn-secondary btn-sm">
+                                                    <font><font>已打款</font></font></button>
+                                                <else/>
+                                                <button class="btn btn-blue btn-sm" onclick="pay($(this).data('url'),$(this).data('msg'));" data-url="{:U('doPayment',array('id'=>$vo['id']))}" data-msg="确定给用户【{$vo.real_name}】支付宝账户:【{$vo.bank_account}】打款￥【{$vo.amount}】元？">
+                                                    <font><font>立即打款</font></font></button>
+                                            </if>
+                                        </td>
+                                        <th class="bank_account">{$vo.bank_account}</th>
+                                        <td class="real_name">{$vo.real_name}</td>
+                                        <td class="amount">￥{$vo.amount}元</td>
+                                        <td>
+                                            <if condition="$vo.status eq 'Y'">已打款
+                                                <else/>
+                                                未打款
+                                            </if>
+                                        </td>
+                                        <td>{$vo.add_time}</td>
+                                        <td>{$vo.settlement_time}</td>
+                                        <td><a href="{:U('Order/index',array('withdraw_id'=>$vo['id']))}"
+                                               target="_blank">
+                                            <button class="btn btn-warning btn-sm"><font><font>查看订单</font></font>
+                                            </button>
+                                        </a></td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <script type="text/javascript">
+                        </script>
+                    </div>
+                    <div class="page">
+                        <ul class="pagination">{$page}</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <include file="Public/footer_Js" />
+    <script>
+        function pay(url, msg) {
+            if (confirm(msg)) {
+                window.location.href = url;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</div>
+</body>
+</html>

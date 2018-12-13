@@ -1,0 +1,121 @@
+<extend name="Common/common" />
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__CSS__/list.css?{:C('V')}" />
+</block>
+<block name="body">
+    <div class="goods-type-filter">
+        <div class="goods-type">
+            <span class="main-top-tit">商品分类：</span>
+            <div class="goods-type-main">
+                <span data-id="0" data-type="cate" <eq name="cate_id" value="0">class="search cur"<else />class="search"</eq>><a href="javascript:void(0)">全部<b> ({$count}) </b></a></span>
+                <volist name="cate" id="row">
+                    <span data-id="{$row.cate_id}" data-type="cate" <eq name="cate_id" value="$row['cate_id']">class="search cur"<else />class="search"</eq>><a href="javascript:void(0)">{$row.name}<b> ({$row.num}) </b></a></span>
+                </volist>
+            </div>
+        </div>
+        <div class="goods-filter">
+            <form id="search_goods_form">
+                <span class="main-top-tit">高级筛选：</span>
+                <div class="goods-filter-main">
+                    <div class="price-area">
+                        价格
+                        <input class="need_positive_float" id="start_price" type="number" step="0.01" min="0" placeholder="￥" value="{$start_price}">-<input class="need_positive_float" id="end_price" type="number" step="0.01" min="0" placeholder="￥" value="{$end_price}">
+                    </div>
+                    <div class="yj-area">
+                        佣金比例 ≥ <input class="need_positive_float" id="commission" type="number" min="0" placeholder="%" value="{$commission}">
+                    </div>
+                    <div class="sale-area">
+                        销量 ≥ <input class="need_positive_float" id="sale_num" type="number" value="{$sale_num}" min="0">
+                    </div>
+                    <button type="button" class="filter-submit search" data-type="num">筛选</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="goods-pages">
+        <span <if condition="$sort eq 0">class="pxclick search cur"<else />class="pxclick search"</if> data-id="0" data-type="sort"><a href="javascript:void(0);">综合</a></span>
+        <span <if condition="$sort eq 1">class="pxclick search cur"<else />class="pxclick search"</if> data-id="1" data-type="sort"><a href="javascript:void(0);">最新</a></span>
+        <span <if condition="$sort eq 3">class="pxclick search cur"<else />class="pxclick search"</if> data-id="3" data-type="sort"><a href="javascript:void(0);">销量</a></span>
+        <span <if condition="$sort eq 2">class="pxclick search cur"<else />class="pxclick search"</if> data-id="2" data-type="sort"><a href="javascript:void(0);">价格</a></span>
+    </div>
+    <div class="item-list content">
+        <empty name="data">
+            <div class="no-item">
+                <h2>没有找到符合条件商品！</h2>
+            </div>
+            <else />
+            <ul>
+                <volist name="data" id="row" mod="5">
+                    <li
+                    <eq name="mod" value="4">class="item-content-box no-mr"
+                        <else />
+                        class="item-content-box"
+                    </eq>
+                    >
+                    <div class="goods-img">
+                        <a href="{:U('Item/detail',array('num_iid'=>$row['num_iid'],'type'=>$row['goods_type']))}">
+                            <img src="{$row.pic_url}" alt="{$row.title}">
+                        </a>
+                        <div class="shop-type">
+                            {$row['type']}
+                        </div>
+                    </div>
+                    <div class="goods-info">
+                        <a class="goods-tit" href="{:U('Item/detail',array('num_iid'=>$row['num_iid'],'type'=>$row['goods_type']))}">
+                            {$row.title}
+                        </a>
+                        <div class="goods-slider">
+                            <span class="slider"><em data-width="0%" style="width: 0%;"></em></span>
+                        </div>
+                        <div class="goods-price" title="佣金：{$row.commission}元">
+                            <p>券后价</p>
+                            <p><b>￥{$row.coupon_price}</b></p>
+                        </div>
+                        <div class="goods-sale">
+                            <div class="goods-quan fl">
+                                <p>券<b>￥{$row.quan}</b></p>
+                            </div>
+                            <div class="goods-num fr">
+                                <p>销量<b>{$row.volume}</b></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    </li>
+                </volist>
+                <div class="clear"></div>
+            </ul>
+        </empty>
+
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(function () {
+            $('.search').click(function () {
+                var type = $(this).data('type');
+                var cate_id = sort = 0;
+                if(type == 'cate'){
+                    cate_id = $(this).data('id');
+                }else{
+                    cate_id = $('.goods-type-main span.cur').data('id');
+                }
+                if(type == 'sort'){
+                    sort = $(this).data('id');
+                }else{
+                    sort = $('.goods-pages span.cur').data('id');
+                }
+                var start_price = $('#start_price').val() ? $('#start_price').val() : 0;
+                var end_price = $('#end_price').val() ? $('#end_price').val() : 0;
+                var commission = $('#commission').val() ? $('#commission').val() : 0;
+                var sale_num = $('#sale_num').val() ? $('#sale_num').val() : 0;
+                var url = "{:U('Item/index')}";
+                url = url + '?cate_id=' + cate_id + '&sort=' + sort + '&search=' + start_price + '-' + end_price + '-' + commission + '-' + sale_num;
+                window.location.href = url;
+            })
+        });
+    </script>
+</block>

@@ -1,0 +1,1810 @@
+[ 2018-04-14T09:28:26+08:00 ] 127.0.0.1 /Admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003730s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001719s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001813s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+
+[ 2018-04-14T09:28:26+08:00 ] 127.0.0.1 /Admin/Public/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000839s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000972s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001053s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [2048] Declaration of Admin\Controller\PublicController::logout() should be compatible with Admin\Controller\CommonController::logOut($result) D:\www\online_team\www.taodianke.com\Application\Admin\Controller\PublicController.class.php 第 8 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+
+[ 2018-04-14T09:28:26+08:00 ] 127.0.0.1 /Admin/Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000690s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000998s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001080s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [2048] Declaration of Admin\Controller\PublicController::logout() should be compatible with Admin\Controller\CommonController::logOut($result) D:\www\online_team\www.taodianke.com\Application\Admin\Controller\PublicController.class.php 第 8 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001300s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001377s ]
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\f49cdd4d12a292a7a26acfc7109ea2ab.php 第 44 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\f49cdd4d12a292a7a26acfc7109ea2ab.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034985s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035035s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000841s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000875s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001128s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001173s ]
+
+[ 2018-04-14T09:28:33+08:00 ] 127.0.0.1 /Admin/Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000971s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000876s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000974s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [2048] Declaration of Admin\Controller\PublicController::logout() should be compatible with Admin\Controller\CommonController::logOut($result) D:\www\online_team\www.taodianke.com\Application\Admin\Controller\PublicController.class.php 第 8 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+NOTIC: [2] file_put_contents(/tmp/temai.log): failed to open stream: No such file or directory D:\www\online_team\www.taodianke.com\Application\Admin\Controller\PublicController.class.php 第 34 行.
+SQL: SHOW COLUMNS FROM `ytt_tmuser` [ RunTime:0.1035s ]
+SQL: SELECT `id`,`name`,`pid`,`sale_account_ids`,`top_line_account_ids`,`group_id` FROM `ytt_tmuser` WHERE `name` = 'daipingshan' AND `password` = 'a0df1932fb37930fb0ca5d9b82e7f58b' LIMIT 1   [ RunTime:0.0963s ]
+
+[ 2018-04-14T09:28:34+08:00 ] 127.0.0.1 /Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000630s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_illegal_article` [ RunTime:0.0960s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_illegal_article` LIMIT 1   [ RunTime:0.1008s ]
+SQL: SELECT * FROM `ytt_illegal_article` ORDER BY id desc LIMIT 0,50   [ RunTime:0.0963s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000325s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000464s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 87 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.047648s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.047792s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001078s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001161s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002048s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002166s ]
+
+[ 2018-04-14T09:28:42+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000559s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000650s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000701s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000183s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000242s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037764s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037833s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000658s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000695s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001210s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001337s ]
+
+[ 2018-04-14T09:28:45+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001050s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001053s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001138s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000201s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000265s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.018029s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.018096s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000684s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000735s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000787s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000835s ]
+
+[ 2018-04-14T09:29:56+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001090s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.002018s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002174s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000264s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000359s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015836s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015892s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000549s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000588s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000735s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000781s ]
+
+[ 2018-04-14T09:31:06+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001080s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001098s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001172s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000286s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000469s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.016171s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016230s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000561s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000595s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000712s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000752s ]
+
+[ 2018-04-14T09:31:18+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000727s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001007s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001094s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000180s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000225s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021384s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021454s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000709s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000750s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001113s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001207s ]
+
+[ 2018-04-14T09:31:20+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000850s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.003316s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.003430s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000184s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000239s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014928s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015047s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001121s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001191s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001202s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001488s ]
+
+[ 2018-04-14T09:31:39+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000533s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000620s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000683s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000235s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000294s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030299s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030379s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000860s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000910s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000858s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000926s ]
+
+[ 2018-04-14T09:31:41+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000918s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001386s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001492s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000291s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000394s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015406s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015479s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000613s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000666s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000700s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000745s ]
+
+[ 2018-04-14T09:32:34+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000540s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000676s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000729s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000222s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000277s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025619s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025697s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000765s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000810s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001191s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003679s ]
+
+[ 2018-04-14T09:32:36+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000601s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001172s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001281s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000295s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000401s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.026712s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026831s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001041s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001104s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001125s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001204s ]
+
+[ 2018-04-14T09:34:39+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000697s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000915s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001003s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000206s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000275s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.030431s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.030488s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000813s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000864s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001287s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001385s ]
+
+[ 2018-04-14T09:34:41+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000911s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001278s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001389s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000253s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000389s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.020162s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.020250s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000884s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000950s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000805s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000875s ]
+
+[ 2018-04-14T09:37:03+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000887s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001180s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001251s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+
+[ 2018-04-14T09:39:27+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001811s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001497s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001632s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+
+[ 2018-04-14T09:45:06+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001610s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000722s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000776s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000283s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000352s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.015544s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015594s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000543s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000576s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000716s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000754s ]
+
+[ 2018-04-14T09:45:29+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000682s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000731s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000804s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000295s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000368s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031480s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031545s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000604s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000642s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001265s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001381s ]
+
+[ 2018-04-14T09:45:30+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001076s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000672s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000727s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000270s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000384s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.021539s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.021624s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000618s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000660s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000848s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000915s ]
+
+[ 2018-04-14T09:45:51+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001020s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000971s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001051s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000201s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000259s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032785s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032853s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001651s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001748s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001042s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001131s ]
+
+[ 2018-04-14T09:45:54+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001076s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000947s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001025s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000182s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000233s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014322s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014373s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000453s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000486s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000622s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000660s ]
+
+[ 2018-04-14T09:46:12+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000678s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000838s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000910s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000256s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000324s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.024490s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.024572s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001476s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001536s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001201s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001295s ]
+
+[ 2018-04-14T09:46:14+08:00 ] 127.0.0.1 /Admin/Sale/cartList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001157s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000623s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000294s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000403s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.014474s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.014545s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000652s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000690s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000681s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000723s ]
+
+[ 2018-04-14T09:46:54+08:00 ] 127.0.0.1 /Admin/Sale/newsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000520s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000833s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000891s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.1013s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_sale_news` WHERE `user_id` = 29 LIMIT 1   [ RunTime:0.1201s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `user_id` = 29 ORDER BY id desc LIMIT 0,20   [ RunTime:0.1748s ]
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0950s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0939s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000221s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000282s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.036173s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036257s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000661s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000704s ]
+
+[ 2018-04-14T09:46:55+08:00 ] 127.0.0.1 /Admin/Sale/newsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000594s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000602s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000654s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0919s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_sale_news` WHERE `user_id` = 29 LIMIT 1   [ RunTime:0.0937s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `user_id` = 29 ORDER BY id desc LIMIT 0,20   [ RunTime:0.1614s ]
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0919s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0901s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000330s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000419s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035918s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.036036s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000840s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000890s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001059s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001119s ]
+
+[ 2018-04-14T09:46:58+08:00 ] 127.0.0.1 /Admin/Public/logout.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000549s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000826s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [2048] Declaration of Admin\Controller\PublicController::logout() should be compatible with Admin\Controller\CommonController::logOut($result) D:\www\online_team\www.taodianke.com\Application\Admin\Controller\PublicController.class.php 第 8 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+
+[ 2018-04-14T09:46:58+08:00 ] 127.0.0.1 /Admin/Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000039s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001123s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001036s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001124s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [2048] Declaration of Admin\Controller\PublicController::logout() should be compatible with Admin\Controller\CommonController::logOut($result) D:\www\online_team\www.taodianke.com\Application\Admin\Controller\PublicController.class.php 第 8 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000129s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000203s ]
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\f49cdd4d12a292a7a26acfc7109ea2ab.php 第 44 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\f49cdd4d12a292a7a26acfc7109ea2ab.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.010679s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010739s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000681s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000739s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000774s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000826s ]
+
+[ 2018-04-14T09:47:20+08:00 ] 127.0.0.1 /Admin/Public/login.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000808s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000695s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000759s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [2048] Declaration of Admin\Controller\PublicController::logout() should be compatible with Admin\Controller\CommonController::logOut($result) D:\www\online_team\www.taodianke.com\Application\Admin\Controller\PublicController.class.php 第 8 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+SQL: SHOW COLUMNS FROM `ytt_tmuser` [ RunTime:0.0987s ]
+SQL: SELECT `id`,`name`,`pid`,`sale_account_ids`,`top_line_account_ids`,`group_id` FROM `ytt_tmuser` WHERE `name` = 'admin' AND `password` = '863e4dd674868800c791c85391240439' LIMIT 1   [ RunTime:0.0852s ]
+
+[ 2018-04-14T09:47:21+08:00 ] 127.0.0.1 /Admin/Index/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000847s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000634s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000700s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_illegal_article` [ RunTime:0.0902s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_illegal_article` LIMIT 1   [ RunTime:0.0888s ]
+SQL: SELECT * FROM `ytt_illegal_article` ORDER BY id desc LIMIT 0,50   [ RunTime:0.0988s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000341s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000500s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 87 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.031377s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.031480s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001561s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001647s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003243s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003370s ]
+
+[ 2018-04-14T09:47:33+08:00 ] 127.0.0.1 /Admin/Sale/newsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000593s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000733s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000792s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_tmuser` [ RunTime:0.0864s ]
+SQL: SELECT * FROM `ytt_tmuser`  [ RunTime:0.0866s ]
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0882s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_sale_news` LIMIT 1   [ RunTime:0.4186s ]
+SQL: SELECT * FROM `ytt_sale_news` ORDER BY id desc LIMIT 0,20   [ RunTime:4.0935s ]
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.1178s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0877s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000412s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000527s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056563s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056668s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000742s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000781s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000899s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000964s ]
+
+[ 2018-04-14T09:47:35+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10928.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000707s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000766s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0905s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10928 LIMIT 1   [ RunTime:0.1916s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001354s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001596s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.033972s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034090s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001367s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001470s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001906s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002031s ]
+
+[ 2018-04-14T09:50:28+08:00 ] 127.0.0.1 /Admin/Sale/newsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000741s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000844s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000913s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0933s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_sale_news` LIMIT 1   [ RunTime:0.0956s ]
+SQL: SELECT * FROM `ytt_sale_news` ORDER BY id desc LIMIT 0,20   [ RunTime:0.9819s ]
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.1028s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0901s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000249s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000314s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.053389s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053526s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001202s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001275s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001171s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001237s ]
+
+[ 2018-04-14T09:50:30+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10929.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001008s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001161s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001265s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.1109s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10929 LIMIT 1   [ RunTime:0.1830s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000211s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000320s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025623s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.025714s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000846s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000918s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001108s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001171s ]
+
+[ 2018-04-14T09:50:41+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10927.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001144s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001154s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0877s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10927 LIMIT 1   [ RunTime:0.2267s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000231s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000360s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.025797s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.026033s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001297s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001405s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002880s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003061s ]
+
+[ 2018-04-14T09:50:45+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10918.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001041s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001110s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001198s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0916s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10918 LIMIT 1   [ RunTime:0.1930s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000304s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000494s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034353s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034505s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001877s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.003435s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001298s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001380s ]
+
+[ 2018-04-14T09:50:50+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10910.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000993s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001352s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001447s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0914s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10910 LIMIT 1   [ RunTime:0.2631s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000348s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000543s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045224s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.045349s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000977s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001055s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001249s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001323s ]
+
+[ 2018-04-14T09:50:57+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10911.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001075s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001121s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001213s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0906s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10911 LIMIT 1   [ RunTime:0.2402s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000298s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000451s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023845s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023989s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001203s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001302s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001594s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001694s ]
+
+[ 2018-04-14T09:51:08+08:00 ] 127.0.0.1 /Admin/Sale/newsList.html?p=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000623s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000679s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000732s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.1079s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_sale_news` LIMIT 1   [ RunTime:0.0884s ]
+SQL: SELECT * FROM `ytt_sale_news` ORDER BY id desc LIMIT 20,20   [ RunTime:1.3860s ]
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0856s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0898s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000216s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000272s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.069612s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.069708s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000724s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000762s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000972s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001033s ]
+
+[ 2018-04-14T09:51:11+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10896.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001042s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001005s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001083s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0860s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10896 LIMIT 1   [ RunTime:0.2655s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000172s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000280s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.040185s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040362s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001161s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001242s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001627s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001735s ]
+
+[ 2018-04-14T09:51:54+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10896.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000897s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001178s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001274s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0952s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10896 LIMIT 1   [ RunTime:0.2722s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000105s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000179s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023307s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023440s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000617s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000657s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000859s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000906s ]
+
+[ 2018-04-14T09:51:59+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10899.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000035s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001588s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001121s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001210s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0867s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10899 LIMIT 1   [ RunTime:0.1740s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000261s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000390s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034271s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034407s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001406s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001529s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001410s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001503s ]
+
+[ 2018-04-14T09:52:04+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10897.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000919s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001393s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001508s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.1208s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10897 LIMIT 1   [ RunTime:0.3490s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000269s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000398s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032559s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032670s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000907s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000981s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001346s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001431s ]
+
+[ 2018-04-14T10:10:02+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10892.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000806s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000831s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000900s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.1296s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10892 LIMIT 1   [ RunTime:0.3380s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000373s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000555s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044877s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.045035s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001818s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001938s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001871s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001972s ]
+
+[ 2018-04-14T10:57:09+08:00 ] 127.0.0.1 /Admin/Sale/newsInfo/id/10892.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002134s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001272s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001366s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0861s ]
+SQL: SELECT * FROM `ytt_sale_news` WHERE `id` = 10892 LIMIT 1   [ RunTime:0.2660s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000207s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000341s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035166s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035301s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001737s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001828s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001896s ]
+
+[ 2018-04-14T11:00:54+08:00 ] 127.0.0.1 /Admin/Sale/newsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000973s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000789s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000866s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_news` [ RunTime:0.0862s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_sale_news` LIMIT 1   [ RunTime:0.0937s ]
+SQL: SELECT * FROM `ytt_sale_news` ORDER BY id desc LIMIT 0,20   [ RunTime:0.8026s ]
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0859s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0887s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000709s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000894s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\36d34df151609813c84072d60081570e.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.099241s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.099378s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001641s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001725s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002441s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002581s ]
+
+[ 2018-04-14T14:09:29+08:00 ] 127.0.0.1 /Admin/Sale/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000672s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000734s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000786s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.1071s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0943s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000299s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000397s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.059765s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.059886s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001559s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001634s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001600s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001708s ]
+
+[ 2018-04-14T14:09:50+08:00 ] 127.0.0.1 /Admin/Sale/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000011s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000576s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000749s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000811s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0967s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0970s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000337s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000434s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.052933s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.053143s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001708s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001792s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001848s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001971s ]
+
+[ 2018-04-14T14:10:13+08:00 ] 127.0.0.1 /Admin/User/userList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000664s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000728s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000788s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_tmuser` [ RunTime:0.0990s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_tmuser` LIMIT 1   [ RunTime:0.0933s ]
+SQL: SELECT * FROM `ytt_tmuser` ORDER BY id desc LIMIT 0,20   [ RunTime:0.1175s ]
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0978s ]
+SQL: SELECT * FROM `ytt_sale_account` WHERE `id` <> 1  [ RunTime:0.3522s ]
+SQL: SHOW COLUMNS FROM `ytt_top_line_account` [ RunTime:0.0992s ]
+SQL: SELECT * FROM `ytt_top_line_account` WHERE `id` <> 1  [ RunTime:0.2716s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000432s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000523s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\4a3a0d97b66de237a21e9fddf4e2936f.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\4a3a0d97b66de237a21e9fddf4e2936f.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\4a3a0d97b66de237a21e9fddf4e2936f.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\4a3a0d97b66de237a21e9fddf4e2936f.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\4a3a0d97b66de237a21e9fddf4e2936f.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051502s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051693s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001545s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001631s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001387s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001474s ]
+
+[ 2018-04-14T14:10:42+08:00 ] 127.0.0.1 /Admin/News/searsch.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000592s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000738s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000790s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Admin\Controller\NewsController.class.php 第 167 行.
+SQL: SHOW COLUMNS FROM `ytt_news_item` [ RunTime:0.1046s ]
+SQL: SELECT COUNT(*) AS tp_count FROM ytt_news_item m INNER JOIN ytt_news g on m.news_id=g.id  LIMIT 1   [ RunTime:5.8497s ]
+SQL: SELECT * FROM ytt_news_item m INNER JOIN ytt_news g on m.news_id=g.id  ORDER BY m.id desc LIMIT 0,20   [ RunTime:0.1139s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000248s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000343s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a6f8a230b0c342c7445887969f7b375f.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a6f8a230b0c342c7445887969f7b375f.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a6f8a230b0c342c7445887969f7b375f.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a6f8a230b0c342c7445887969f7b375f.php 第 141 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a6f8a230b0c342c7445887969f7b375f.php 第 145 行.
+NOTIC: [8] Use of undefined constant newid - assumed 'newid' D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a6f8a230b0c342c7445887969f7b375f.php 第 186 行.
+NOTIC: [8] Use of undefined constant newid - assumed 'newid' D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a6f8a230b0c342c7445887969f7b375f.php 第 187 行.
+NOTIC: [8] Use of undefined constant newid - assumed 'newid' D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a6f8a230b0c342c7445887969f7b375f.php 第 188 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.037499s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.037641s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001620s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001703s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001815s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001929s ]
+
+[ 2018-04-14T14:11:12+08:00 ] 127.0.0.1 /Admin/Sale/highReadNewsList.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000688s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000665s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_high_read_article` [ RunTime:0.0989s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_high_read_article` LIMIT 1   [ RunTime:0.0964s ]
+SQL: SELECT * FROM `ytt_high_read_article` ORDER BY go_detail_count desc,id desc LIMIT 0,20   [ RunTime:0.1128s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 5686 LIMIT 1   [ RunTime:0.0973s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 963 LIMIT 1   [ RunTime:0.1026s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 5686 LIMIT 1   [ RunTime:0.0993s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 8014 LIMIT 1   [ RunTime:0.0963s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 8723 LIMIT 1   [ RunTime:0.0985s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 8024 LIMIT 1   [ RunTime:0.1032s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 5686 LIMIT 1   [ RunTime:0.0958s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 3227 LIMIT 1   [ RunTime:0.0971s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 4154 LIMIT 1   [ RunTime:0.0944s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 3925 LIMIT 1   [ RunTime:0.0969s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 2424 LIMIT 1   [ RunTime:0.0951s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 8014 LIMIT 1   [ RunTime:0.1079s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 8363 LIMIT 1   [ RunTime:0.1020s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 5686 LIMIT 1   [ RunTime:0.1011s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 2777 LIMIT 1   [ RunTime:0.0981s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 2940 LIMIT 1   [ RunTime:0.0959s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 2518 LIMIT 1   [ RunTime:0.0996s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 3337 LIMIT 1   [ RunTime:0.0957s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 1384 LIMIT 1   [ RunTime:0.0945s ]
+SQL: SELECT COUNT(id) AS tp_count FROM `ytt_high_read_article` WHERE `create_user_id` = 4589 LIMIT 1   [ RunTime:0.1141s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000188s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000260s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\1dd52e0a07bca30e17821122beee49bf.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\1dd52e0a07bca30e17821122beee49bf.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\1dd52e0a07bca30e17821122beee49bf.php 第 87 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056073s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056212s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001288s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001348s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001047s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001109s ]
+
+[ 2018-04-14T14:11:46+08:00 ] 127.0.0.1 /Admin/Sale/highReadItemsList.html?article_id=6510438143253021197
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000560s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000715s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000773s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_high_read_items` [ RunTime:0.0999s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_high_read_items` WHERE `status` = 1 AND `top_line_article_id` = '6510438143253021197' LIMIT 1   [ RunTime:1.9656s ]
+SQL: SELECT * FROM `ytt_high_read_items` WHERE `status` = 1 AND `top_line_article_id` = '6510438143253021197' ORDER BY top_line_article_behot_time desc,article_id desc LIMIT 0,100   [ RunTime:0.1668s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000451s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000577s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.082138s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.082288s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001019s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001078s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001290s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001365s ]
+
+[ 2018-04-14T14:11:51+08:00 ] 127.0.0.1 /Admin/Sale/highReadItemsList.html?article_id=6532962238691541508
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000499s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001201s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001315s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_high_read_items` [ RunTime:0.0857s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_high_read_items` WHERE `status` = 1 AND `top_line_article_id` = '6532962238691541508' LIMIT 1   [ RunTime:0.1237s ]
+SQL: SELECT * FROM `ytt_high_read_items` WHERE `status` = 1 AND `top_line_article_id` = '6532962238691541508' ORDER BY top_line_article_behot_time desc,article_id desc LIMIT 0,100   [ RunTime:0.1355s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000383s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000484s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\fbb3da1f5e0c5a413c3129f61cb962bb.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.056660s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.056781s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001289s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001373s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001635s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001832s ]
+
+[ 2018-04-14T14:12:31+08:00 ] 127.0.0.1 /Admin/Sale/newItems.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000630s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000708s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_product` [ RunTime:1.5874s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_product` LIMIT 1   [ RunTime:0.7645s ]
+SQL: SELECT * FROM `ytt_product` ORDER BY create_time desc,id desc LIMIT 0,40   [ RunTime:0.4076s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000685s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000859s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\7b54e7eba78ac404cc7fd961509435ed.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\7b54e7eba78ac404cc7fd961509435ed.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\7b54e7eba78ac404cc7fd961509435ed.php 第 87 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.083645s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.083849s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001336s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001426s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002898s ]
+
+[ 2018-04-14T14:12:57+08:00 ] 127.0.0.1 /Admin/Sale/ajaxCollectionItem.html?page=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000637s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000634s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000682s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0920s ]
+SQL: SELECT `cookie` FROM `ytt_sale_account` WHERE `id` = 1 LIMIT 1   [ RunTime:0.0906s ]
+SQL: SHOW COLUMNS FROM `ytt_product` [ RunTime:0.0936s ]
+SQL: SELECT `id`,`platform_sku_id` FROM `ytt_product` WHERE `platform_sku_id` IN ('6499239252079935757','6490914046156472589','6505144137795240205','6500869852754870542','6485616394137239822','6492954133958492430','6491628353055883533','6503416007707590925','6501825268171145486','6504960721040703758','6488550361530368270','6503802328544444686','6500494345756475661','6490312508098740494','6505728762225623310','6498312108390744333','6494793099343036686','6499264319065161998','6500821949738909966','6506666561204388110','6503434262174236942','6501903016348614925','6497011417919521038','6493729948564455694','6500829581765771533','6493543423813878029','6501150574111621389','6505744002120155399','6505215277175669005','6503368029580034318','6490033574853476622','6501498942163779853','6491905318753157389','6503373000081932558','6503523273282683149','6493857629008298254','6504785922075132174','6502186414476624142','6504772762970620173','6506607568494788877')  [ RunTime:0.3790s ]
+SQL: UPDATE `ytt_product` SET `id`='475167',`platform_sku_id`='6499264319065161998' WHERE `id` = 475167 [ RunTime:0.1500s ]
+SQL: UPDATE `ytt_product` SET `id`='475168',`platform_sku_id`='6503802328544444686' WHERE `id` = 475168 [ RunTime:0.4188s ]
+SQL: UPDATE `ytt_product` SET `id`='475184',`platform_sku_id`='6493729948564455694' WHERE `id` = 475184 [ RunTime:0.1549s ]
+SQL: UPDATE `ytt_product` SET `id`='475216',`platform_sku_id`='6490914046156472589' WHERE `id` = 475216 [ RunTime:0.1073s ]
+SQL: UPDATE `ytt_product` SET `id`='475247',`platform_sku_id`='6500494345756475661' WHERE `id` = 475247 [ RunTime:0.0902s ]
+SQL: UPDATE `ytt_product` SET `id`='475254',`platform_sku_id`='6501903016348614925' WHERE `id` = 475254 [ RunTime:0.0896s ]
+SQL: UPDATE `ytt_product` SET `id`='475256',`platform_sku_id`='6488550361530368270' WHERE `id` = 475256 [ RunTime:0.0899s ]
+SQL: UPDATE `ytt_product` SET `id`='475319',`platform_sku_id`='6504785922075132174' WHERE `id` = 475319 [ RunTime:0.1379s ]
+SQL: UPDATE `ytt_product` SET `id`='475564',`platform_sku_id`='6500821949738909966' WHERE `id` = 475564 [ RunTime:0.1297s ]
+SQL: UPDATE `ytt_product` SET `id`='475569',`platform_sku_id`='6505144137795240205' WHERE `id` = 475569 [ RunTime:0.2412s ]
+SQL: UPDATE `ytt_product` SET `id`='475570',`platform_sku_id`='6505744002120155399' WHERE `id` = 475570 [ RunTime:0.1387s ]
+SQL: UPDATE `ytt_product` SET `id`='475609',`platform_sku_id`='6490033574853476622' WHERE `id` = 475609 [ RunTime:0.1121s ]
+SQL: UPDATE `ytt_product` SET `id`='475612',`platform_sku_id`='6504960721040703758' WHERE `id` = 475612 [ RunTime:0.0964s ]
+SQL: UPDATE `ytt_product` SET `id`='475707',`platform_sku_id`='6506607568494788877' WHERE `id` = 475707 [ RunTime:0.1550s ]
+SQL: UPDATE `ytt_product` SET `id`='475773',`platform_sku_id`='6505728762225623310' WHERE `id` = 475773 [ RunTime:0.1194s ]
+SQL: UPDATE `ytt_product` SET `id`='475776',`platform_sku_id`='6500829581765771533' WHERE `id` = 475776 [ RunTime:0.2403s ]
+SQL: UPDATE `ytt_product` SET `id`='475788',`platform_sku_id`='6497011417919521038' WHERE `id` = 475788 [ RunTime:0.1036s ]
+SQL: UPDATE `ytt_product` SET `id`='475789',`platform_sku_id`='6494793099343036686' WHERE `id` = 475789 [ RunTime:0.0981s ]
+SQL: UPDATE `ytt_product` SET `id`='475932',`platform_sku_id`='6500869852754870542' WHERE `id` = 475932 [ RunTime:0.0903s ]
+SQL: UPDATE `ytt_product` SET `id`='476011',`platform_sku_id`='6501825268171145486' WHERE `id` = 476011 [ RunTime:0.0902s ]
+SQL: UPDATE `ytt_product` SET `id`='476013',`platform_sku_id`='6502186414476624142' WHERE `id` = 476013 [ RunTime:0.0913s ]
+SQL: UPDATE `ytt_product` SET `id`='476055',`platform_sku_id`='6485616394137239822' WHERE `id` = 476055 [ RunTime:0.0888s ]
+SQL: UPDATE `ytt_product` SET `id`='476136',`platform_sku_id`='6506666561204388110' WHERE `id` = 476136 [ RunTime:0.0904s ]
+SQL: UPDATE `ytt_product` SET `id`='476234',`platform_sku_id`='6504772762970620173' WHERE `id` = 476234 [ RunTime:0.0932s ]
+SQL: UPDATE `ytt_product` SET `id`='476288',`platform_sku_id`='6491628353055883533' WHERE `id` = 476288 [ RunTime:0.0907s ]
+SQL: UPDATE `ytt_product` SET `id`='476336',`platform_sku_id`='6498312108390744333' WHERE `id` = 476336 [ RunTime:0.1027s ]
+SQL: UPDATE `ytt_product` SET `id`='476542',`platform_sku_id`='6503434262174236942' WHERE `id` = 476542 [ RunTime:0.0930s ]
+SQL: UPDATE `ytt_product` SET `id`='476694',`platform_sku_id`='6501150574111621389' WHERE `id` = 476694 [ RunTime:0.1970s ]
+SQL: UPDATE `ytt_product` SET `id`='476747',`platform_sku_id`='6490312508098740494' WHERE `id` = 476747 [ RunTime:0.0894s ]
+SQL: UPDATE `ytt_product` SET `id`='477305',`platform_sku_id`='6501498942163779853' WHERE `id` = 477305 [ RunTime:0.0892s ]
+SQL: UPDATE `ytt_product` SET `id`='477510',`platform_sku_id`='6491905318753157389' WHERE `id` = 477510 [ RunTime:0.0895s ]
+SQL: UPDATE `ytt_product` SET `id`='477919',`platform_sku_id`='6493543423813878029' WHERE `id` = 477919 [ RunTime:0.0920s ]
+SQL: UPDATE `ytt_product` SET `id`='478154',`platform_sku_id`='6499239252079935757' WHERE `id` = 478154 [ RunTime:0.0887s ]
+SQL: UPDATE `ytt_product` SET `id`='478566',`platform_sku_id`='6503523273282683149' WHERE `id` = 478566 [ RunTime:0.1028s ]
+SQL: UPDATE `ytt_product` SET `id`='478575',`platform_sku_id`='6503373000081932558' WHERE `id` = 478575 [ RunTime:0.0930s ]
+SQL: UPDATE `ytt_product` SET `id`='478814',`platform_sku_id`='6503416007707590925' WHERE `id` = 478814 [ RunTime:0.0893s ]
+SQL: UPDATE `ytt_product` SET `id`='479203',`platform_sku_id`='6493857629008298254' WHERE `id` = 479203 [ RunTime:0.0889s ]
+SQL: UPDATE `ytt_product` SET `id`='480111',`platform_sku_id`='6492954133958492430' WHERE `id` = 480111 [ RunTime:0.0892s ]
+SQL: UPDATE `ytt_product` SET `id`='481736',`platform_sku_id`='6505215277175669005' WHERE `id` = 481736 [ RunTime:0.0893s ]
+SQL: UPDATE `ytt_product` SET `id`='481737',`platform_sku_id`='6503368029580034318' WHERE `id` = 481737 [ RunTime:0.0899s ]
+
+[ 2018-04-14T14:13:03+08:00 ] 127.0.0.1 /Admin/Sale/ajaxCollectionItem.html?page=2
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000801s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000615s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_product` [ RunTime:0.0872s ]
+SQL: SELECT `id`,`platform_sku_id` FROM `ytt_product` WHERE `platform_sku_id` IN ('6504236248930976013','6503080799368118542','6501565808416653581','6504806245659050253','6496347427790913805','6498557913412403470','6500032803684483341','6493030999570514189','6492250233773228301','6493732524550783246','6502349016649449742','6481558175525896461','6491188792773312782','6491074396713648397','6503090120101462286','6505238763214471438','6502562377853042957','6491169550283833613','6502293485859635470','6501931573707800845','6506385123762503944','6504244908444877070','6501869587192086798','6500864029437722893','6481958300895150349','6497033065120923918','6493797900374507789','6491167162080690445','6501179724159516942','6498526637267616013','6505179658365960461','6500047907851337998','6504884685519192334','6502557860352753933','6504809984709099789','6504879902146167053','6491170726681248014','6501630677874639117','6491121060098867469','6501524684863963405')  [ RunTime:0.3152s ]
+SQL: UPDATE `ytt_product` SET `id`='475165',`platform_sku_id`='6481958300895150349' WHERE `id` = 475165 [ RunTime:0.0921s ]
+SQL: UPDATE `ytt_product` SET `id`='475223',`platform_sku_id`='6505238763214471438' WHERE `id` = 475223 [ RunTime:0.0857s ]
+SQL: UPDATE `ytt_product` SET `id`='475272',`platform_sku_id`='6496347427790913805' WHERE `id` = 475272 [ RunTime:0.0861s ]
+SQL: UPDATE `ytt_product` SET `id`='475288',`platform_sku_id`='6491074396713648397' WHERE `id` = 475288 [ RunTime:0.0862s ]
+SQL: UPDATE `ytt_product` SET `id`='475292',`platform_sku_id`='6502562377853042957' WHERE `id` = 475292 [ RunTime:0.0865s ]
+SQL: UPDATE `ytt_product` SET `id`='475293',`platform_sku_id`='6491169550283833613' WHERE `id` = 475293 [ RunTime:0.0863s ]
+SQL: UPDATE `ytt_product` SET `id`='475295',`platform_sku_id`='6502293485859635470' WHERE `id` = 475295 [ RunTime:0.0867s ]
+SQL: UPDATE `ytt_product` SET `id`='475297',`platform_sku_id`='6501931573707800845' WHERE `id` = 475297 [ RunTime:0.0862s ]
+SQL: UPDATE `ytt_product` SET `id`='475299',`platform_sku_id`='6506385123762503944' WHERE `id` = 475299 [ RunTime:0.0869s ]
+SQL: UPDATE `ytt_product` SET `id`='475300',`platform_sku_id`='6501869587192086798' WHERE `id` = 475300 [ RunTime:0.0856s ]
+SQL: UPDATE `ytt_product` SET `id`='475301',`platform_sku_id`='6500864029437722893' WHERE `id` = 475301 [ RunTime:0.0858s ]
+SQL: UPDATE `ytt_product` SET `id`='475302',`platform_sku_id`='6493797900374507789' WHERE `id` = 475302 [ RunTime:0.0856s ]
+SQL: UPDATE `ytt_product` SET `id`='475303',`platform_sku_id`='6498526637267616013' WHERE `id` = 475303 [ RunTime:0.0857s ]
+SQL: UPDATE `ytt_product` SET `id`='475304',`platform_sku_id`='6501179724159516942' WHERE `id` = 475304 [ RunTime:0.0868s ]
+SQL: UPDATE `ytt_product` SET `id`='475307',`platform_sku_id`='6500047907851337998' WHERE `id` = 475307 [ RunTime:0.0889s ]
+SQL: UPDATE `ytt_product` SET `id`='475311',`platform_sku_id`='6504884685519192334' WHERE `id` = 475311 [ RunTime:0.0876s ]
+SQL: UPDATE `ytt_product` SET `id`='475312',`platform_sku_id`='6502557860352753933' WHERE `id` = 475312 [ RunTime:0.0891s ]
+SQL: UPDATE `ytt_product` SET `id`='475313',`platform_sku_id`='6504809984709099789' WHERE `id` = 475313 [ RunTime:0.1001s ]
+SQL: UPDATE `ytt_product` SET `id`='475314',`platform_sku_id`='6504879902146167053' WHERE `id` = 475314 [ RunTime:0.1806s ]
+SQL: UPDATE `ytt_product` SET `id`='475315',`platform_sku_id`='6501630677874639117' WHERE `id` = 475315 [ RunTime:0.0853s ]
+SQL: UPDATE `ytt_product` SET `id`='475316',`platform_sku_id`='6491170726681248014' WHERE `id` = 475316 [ RunTime:0.0858s ]
+SQL: UPDATE `ytt_product` SET `id`='475318',`platform_sku_id`='6501524684863963405' WHERE `id` = 475318 [ RunTime:0.0888s ]
+SQL: UPDATE `ytt_product` SET `id`='475437',`platform_sku_id`='6491121060098867469' WHERE `id` = 475437 [ RunTime:0.1769s ]
+SQL: UPDATE `ytt_product` SET `id`='475591',`platform_sku_id`='6493732524550783246' WHERE `id` = 475591 [ RunTime:0.1762s ]
+SQL: UPDATE `ytt_product` SET `id`='475774',`platform_sku_id`='6491167162080690445' WHERE `id` = 475774 [ RunTime:0.1747s ]
+SQL: UPDATE `ytt_product` SET `id`='475785',`platform_sku_id`='6497033065120923918' WHERE `id` = 475785 [ RunTime:0.7572s ]
+SQL: UPDATE `ytt_product` SET `id`='476018',`platform_sku_id`='6503090120101462286' WHERE `id` = 476018 [ RunTime:0.1420s ]
+SQL: UPDATE `ytt_product` SET `id`='476020',`platform_sku_id`='6492250233773228301' WHERE `id` = 476020 [ RunTime:0.1455s ]
+SQL: UPDATE `ytt_product` SET `id`='476021',`platform_sku_id`='6503080799368118542' WHERE `id` = 476021 [ RunTime:0.1270s ]
+SQL: UPDATE `ytt_product` SET `id`='476242',`platform_sku_id`='6500032803684483341' WHERE `id` = 476242 [ RunTime:0.1280s ]
+SQL: UPDATE `ytt_product` SET `id`='476702',`platform_sku_id`='6498557913412403470' WHERE `id` = 476702 [ RunTime:0.0902s ]
+SQL: UPDATE `ytt_product` SET `id`='476707',`platform_sku_id`='6493030999570514189' WHERE `id` = 476707 [ RunTime:0.0869s ]
+SQL: UPDATE `ytt_product` SET `id`='477100',`platform_sku_id`='6502349016649449742' WHERE `id` = 477100 [ RunTime:0.0884s ]
+SQL: UPDATE `ytt_product` SET `id`='477230',`platform_sku_id`='6505179658365960461' WHERE `id` = 477230 [ RunTime:0.0863s ]
+SQL: UPDATE `ytt_product` SET `id`='477268',`platform_sku_id`='6481558175525896461' WHERE `id` = 477268 [ RunTime:0.0867s ]
+SQL: UPDATE `ytt_product` SET `id`='477343',`platform_sku_id`='6504806245659050253' WHERE `id` = 477343 [ RunTime:0.0867s ]
+SQL: UPDATE `ytt_product` SET `id`='477440',`platform_sku_id`='6501565808416653581' WHERE `id` = 477440 [ RunTime:0.0864s ]
+SQL: UPDATE `ytt_product` SET `id`='478274',`platform_sku_id`='6504244908444877070' WHERE `id` = 478274 [ RunTime:0.0859s ]
+SQL: UPDATE `ytt_product` SET `id`='481211',`platform_sku_id`='6504236248930976013' WHERE `id` = 481211 [ RunTime:0.0866s ]
+SQL: UPDATE `ytt_product` SET `id`='481865',`platform_sku_id`='6491188792773312782' WHERE `id` = 481865 [ RunTime:0.0858s ]
+
+[ 2018-04-14T14:13:08+08:00 ] 127.0.0.1 /Admin/Sale/ajaxCollectionItem.html?page=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000877s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000629s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000676s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_product` [ RunTime:0.0910s ]
+SQL: SELECT `id`,`platform_sku_id` FROM `ytt_product` WHERE `platform_sku_id` IN ('6504799801031262477','6498466508610470158','6504798234244808973','6502239411806142733','6503014318135574798','6490405502382506253','6500822376987492622','6496271381955608845','6504785916245049613','6500810915338780942','6504105647439610126','6502561513788670222','6502563271369818382','6506350855472546051','6500819312058564877','6491166777148440845','6494872312305680653','6490686263052468494','6499710797369835789','6499610707309363469','6497381935931719949','6499715598195360014','6503130118267863310','6500764985960956173','6490750377342796045','6504461748098040077','6491170346975101198','6481127402129850638','6500048302740865293','6501825566541349133','6498870926690500877','6498536921646498062','6505674284856246531','6500701859391471886','6485536393442361614','6506359506266489095','6498482186528751886','6504794616686969101','6504797279210176782','6500584911483699470')  [ RunTime:0.3219s ]
+SQL: UPDATE `ytt_product` SET `id`='475317',`platform_sku_id`='6504799801031262477' WHERE `id` = 475317 [ RunTime:0.0895s ]
+SQL: UPDATE `ytt_product` SET `id`='475320',`platform_sku_id`='6503014318135574798' WHERE `id` = 475320 [ RunTime:0.0889s ]
+SQL: UPDATE `ytt_product` SET `id`='475321',`platform_sku_id`='6504798234244808973' WHERE `id` = 475321 [ RunTime:0.0891s ]
+SQL: UPDATE `ytt_product` SET `id`='475322',`platform_sku_id`='6500819312058564877' WHERE `id` = 475322 [ RunTime:0.0983s ]
+SQL: UPDATE `ytt_product` SET `id`='475323',`platform_sku_id`='6500822376987492622' WHERE `id` = 475323 [ RunTime:0.0888s ]
+SQL: UPDATE `ytt_product` SET `id`='475324',`platform_sku_id`='6490405502382506253' WHERE `id` = 475324 [ RunTime:0.0889s ]
+SQL: UPDATE `ytt_product` SET `id`='475325',`platform_sku_id`='6504785916245049613' WHERE `id` = 475325 [ RunTime:0.0892s ]
+SQL: UPDATE `ytt_product` SET `id`='475326',`platform_sku_id`='6496271381955608845' WHERE `id` = 475326 [ RunTime:0.0891s ]
+SQL: UPDATE `ytt_product` SET `id`='475327',`platform_sku_id`='6500810915338780942' WHERE `id` = 475327 [ RunTime:0.0901s ]
+SQL: UPDATE `ytt_product` SET `id`='475329',`platform_sku_id`='6506350855472546051' WHERE `id` = 475329 [ RunTime:0.0891s ]
+SQL: UPDATE `ytt_product` SET `id`='475330',`platform_sku_id`='6491166777148440845' WHERE `id` = 475330 [ RunTime:0.0902s ]
+SQL: UPDATE `ytt_product` SET `id`='475331',`platform_sku_id`='6504105647439610126' WHERE `id` = 475331 [ RunTime:0.0892s ]
+SQL: UPDATE `ytt_product` SET `id`='475332',`platform_sku_id`='6502563271369818382' WHERE `id` = 475332 [ RunTime:0.0946s ]
+SQL: UPDATE `ytt_product` SET `id`='475333',`platform_sku_id`='6502561513788670222' WHERE `id` = 475333 [ RunTime:0.0883s ]
+SQL: UPDATE `ytt_product` SET `id`='475334',`platform_sku_id`='6494872312305680653' WHERE `id` = 475334 [ RunTime:0.0968s ]
+SQL: UPDATE `ytt_product` SET `id`='475337',`platform_sku_id`='6490686263052468494' WHERE `id` = 475337 [ RunTime:0.0886s ]
+SQL: UPDATE `ytt_product` SET `id`='475339',`platform_sku_id`='6499710797369835789' WHERE `id` = 475339 [ RunTime:0.0907s ]
+SQL: UPDATE `ytt_product` SET `id`='475340',`platform_sku_id`='6499610707309363469' WHERE `id` = 475340 [ RunTime:0.1081s ]
+SQL: UPDATE `ytt_product` SET `id`='475341',`platform_sku_id`='6499715598195360014' WHERE `id` = 475341 [ RunTime:0.1099s ]
+SQL: UPDATE `ytt_product` SET `id`='475342',`platform_sku_id`='6497381935931719949' WHERE `id` = 475342 [ RunTime:0.0888s ]
+SQL: UPDATE `ytt_product` SET `id`='475343',`platform_sku_id`='6503130118267863310' WHERE `id` = 475343 [ RunTime:0.0932s ]
+SQL: UPDATE `ytt_product` SET `id`='475344',`platform_sku_id`='6504461748098040077' WHERE `id` = 475344 [ RunTime:0.1016s ]
+SQL: UPDATE `ytt_product` SET `id`='475345',`platform_sku_id`='6500764985960956173' WHERE `id` = 475345 [ RunTime:0.0881s ]
+SQL: UPDATE `ytt_product` SET `id`='475346',`platform_sku_id`='6490750377342796045' WHERE `id` = 475346 [ RunTime:0.1036s ]
+SQL: UPDATE `ytt_product` SET `id`='475347',`platform_sku_id`='6491170346975101198' WHERE `id` = 475347 [ RunTime:0.0935s ]
+SQL: UPDATE `ytt_product` SET `id`='475349',`platform_sku_id`='6481127402129850638' WHERE `id` = 475349 [ RunTime:0.0886s ]
+SQL: UPDATE `ytt_product` SET `id`='475350',`platform_sku_id`='6500048302740865293' WHERE `id` = 475350 [ RunTime:0.0924s ]
+SQL: UPDATE `ytt_product` SET `id`='475351',`platform_sku_id`='6506359506266489095' WHERE `id` = 475351 [ RunTime:0.0907s ]
+SQL: UPDATE `ytt_product` SET `id`='475355',`platform_sku_id`='6501825566541349133' WHERE `id` = 475355 [ RunTime:0.0881s ]
+SQL: UPDATE `ytt_product` SET `id`='475356',`platform_sku_id`='6498870926690500877' WHERE `id` = 475356 [ RunTime:0.0889s ]
+SQL: UPDATE `ytt_product` SET `id`='475357',`platform_sku_id`='6498536921646498062' WHERE `id` = 475357 [ RunTime:0.0905s ]
+SQL: UPDATE `ytt_product` SET `id`='475358',`platform_sku_id`='6498482186528751886' WHERE `id` = 475358 [ RunTime:0.0986s ]
+SQL: UPDATE `ytt_product` SET `id`='475359',`platform_sku_id`='6505674284856246531' WHERE `id` = 475359 [ RunTime:0.0915s ]
+SQL: UPDATE `ytt_product` SET `id`='475360',`platform_sku_id`='6485536393442361614' WHERE `id` = 475360 [ RunTime:0.0887s ]
+SQL: UPDATE `ytt_product` SET `id`='475361',`platform_sku_id`='6500701859391471886' WHERE `id` = 475361 [ RunTime:0.0909s ]
+SQL: UPDATE `ytt_product` SET `id`='475363',`platform_sku_id`='6504794616686969101' WHERE `id` = 475363 [ RunTime:0.0886s ]
+SQL: UPDATE `ytt_product` SET `id`='475366',`platform_sku_id`='6504797279210176782' WHERE `id` = 475366 [ RunTime:0.0915s ]
+SQL: UPDATE `ytt_product` SET `id`='475368',`platform_sku_id`='6500584911483699470' WHERE `id` = 475368 [ RunTime:0.0922s ]
+SQL: UPDATE `ytt_product` SET `id`='478578',`platform_sku_id`='6502239411806142733' WHERE `id` = 478578 [ RunTime:0.0887s ]
+SQL: UPDATE `ytt_product` SET `id`='478839',`platform_sku_id`='6498466508610470158' WHERE `id` = 478839 [ RunTime:0.0899s ]
+
+[ 2018-04-14T14:13:13+08:00 ] 127.0.0.1 /Admin/Sale/ajaxCollectionItem.html?page=4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000885s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000678s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000727s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_product` [ RunTime:0.0885s ]
+SQL: SELECT `id`,`platform_sku_id` FROM `ytt_product` WHERE `platform_sku_id` IN ('6484133170861048077','6492599062456434957','6504814903432315149','6492610110680989965','6504794622860984589','6503401226233708813','6501098601626730765','6504835471422521613','6498529273156993293','6500823389144350989','6503018923607195917','6491173123759538446','6490354931080364301','6484033284442439949','6506378880998179076','6504799852491178254','6506738889707749640','6500512090162200846','6506739462033113351','6506601991421034765','6504783222742728974','6504881714404262157','6484133771556684045','6504791439891759373','6492597143772070158','6484024249517342989','6501571114274128142','6503403798088646925','6504815059301040397','6484127927809081613','6504802913880113422','6504791431796752653','6504783189007925517','6496729244847046925','6503412175103590670','6503407385229394189','6504033007374958861','6500718208259981581','6501934706295046414','6497779747198599437')  [ RunTime:0.3112s ]
+SQL: UPDATE `ytt_product` SET `id`='475348',`platform_sku_id`='6504802913880113422' WHERE `id` = 475348 [ RunTime:0.0956s ]
+SQL: UPDATE `ytt_product` SET `id`='475353',`platform_sku_id`='6491173123759538446' WHERE `id` = 475353 [ RunTime:0.0863s ]
+SQL: UPDATE `ytt_product` SET `id`='475362',`platform_sku_id`='6503401226233708813' WHERE `id` = 475362 [ RunTime:0.0852s ]
+SQL: UPDATE `ytt_product` SET `id`='475364',`platform_sku_id`='6492599062456434957' WHERE `id` = 475364 [ RunTime:0.0860s ]
+SQL: UPDATE `ytt_product` SET `id`='475365',`platform_sku_id`='6504794622860984589' WHERE `id` = 475365 [ RunTime:0.0854s ]
+SQL: UPDATE `ytt_product` SET `id`='475367',`platform_sku_id`='6484133170861048077' WHERE `id` = 475367 [ RunTime:0.0855s ]
+SQL: UPDATE `ytt_product` SET `id`='475369',`platform_sku_id`='6501098601626730765' WHERE `id` = 475369 [ RunTime:0.0864s ]
+SQL: UPDATE `ytt_product` SET `id`='475370',`platform_sku_id`='6504814903432315149' WHERE `id` = 475370 [ RunTime:0.0844s ]
+SQL: UPDATE `ytt_product` SET `id`='475371',`platform_sku_id`='6492610110680989965' WHERE `id` = 475371 [ RunTime:0.0848s ]
+SQL: UPDATE `ytt_product` SET `id`='475372',`platform_sku_id`='6498529273156993293' WHERE `id` = 475372 [ RunTime:0.0848s ]
+SQL: UPDATE `ytt_product` SET `id`='475373',`platform_sku_id`='6503018923607195917' WHERE `id` = 475373 [ RunTime:0.0901s ]
+SQL: UPDATE `ytt_product` SET `id`='475374',`platform_sku_id`='6500823389144350989' WHERE `id` = 475374 [ RunTime:0.0886s ]
+SQL: UPDATE `ytt_product` SET `id`='475375',`platform_sku_id`='6506378880998179076' WHERE `id` = 475375 [ RunTime:0.0888s ]
+SQL: UPDATE `ytt_product` SET `id`='475376',`platform_sku_id`='6504835471422521613' WHERE `id` = 475376 [ RunTime:0.1796s ]
+SQL: UPDATE `ytt_product` SET `id`='475377',`platform_sku_id`='6484033284442439949' WHERE `id` = 475377 [ RunTime:0.1083s ]
+SQL: UPDATE `ytt_product` SET `id`='475378',`platform_sku_id`='6503403798088646925' WHERE `id` = 475378 [ RunTime:0.0851s ]
+SQL: UPDATE `ytt_product` SET `id`='475379',`platform_sku_id`='6490354931080364301' WHERE `id` = 475379 [ RunTime:0.0848s ]
+SQL: UPDATE `ytt_product` SET `id`='475380',`platform_sku_id`='6504799852491178254' WHERE `id` = 475380 [ RunTime:0.0886s ]
+SQL: UPDATE `ytt_product` SET `id`='475381',`platform_sku_id`='6506738889707749640' WHERE `id` = 475381 [ RunTime:0.0848s ]
+SQL: UPDATE `ytt_product` SET `id`='475382',`platform_sku_id`='6492597143772070158' WHERE `id` = 475382 [ RunTime:0.0856s ]
+SQL: UPDATE `ytt_product` SET `id`='475383',`platform_sku_id`='6484127927809081613' WHERE `id` = 475383 [ RunTime:0.1324s ]
+SQL: UPDATE `ytt_product` SET `id`='475385',`platform_sku_id`='6484133771556684045' WHERE `id` = 475385 [ RunTime:0.1107s ]
+SQL: UPDATE `ytt_product` SET `id`='475386',`platform_sku_id`='6500512090162200846' WHERE `id` = 475386 [ RunTime:0.0872s ]
+SQL: UPDATE `ytt_product` SET `id`='475387',`platform_sku_id`='6504783222742728974' WHERE `id` = 475387 [ RunTime:0.0850s ]
+SQL: UPDATE `ytt_product` SET `id`='475388',`platform_sku_id`='6506739462033113351' WHERE `id` = 475388 [ RunTime:0.0908s ]
+SQL: UPDATE `ytt_product` SET `id`='475389',`platform_sku_id`='6506601991421034765' WHERE `id` = 475389 [ RunTime:0.0959s ]
+SQL: UPDATE `ytt_product` SET `id`='475390',`platform_sku_id`='6504791439891759373' WHERE `id` = 475390 [ RunTime:0.0861s ]
+SQL: UPDATE `ytt_product` SET `id`='475391',`platform_sku_id`='6503407385229394189' WHERE `id` = 475391 [ RunTime:0.0854s ]
+SQL: UPDATE `ytt_product` SET `id`='475392',`platform_sku_id`='6504881714404262157' WHERE `id` = 475392 [ RunTime:0.0851s ]
+SQL: UPDATE `ytt_product` SET `id`='475393',`platform_sku_id`='6501934706295046414' WHERE `id` = 475393 [ RunTime:0.0854s ]
+SQL: UPDATE `ytt_product` SET `id`='475394',`platform_sku_id`='6504033007374958861' WHERE `id` = 475394 [ RunTime:0.0851s ]
+SQL: UPDATE `ytt_product` SET `id`='475395',`platform_sku_id`='6501571114274128142' WHERE `id` = 475395 [ RunTime:0.0849s ]
+SQL: UPDATE `ytt_product` SET `id`='475396',`platform_sku_id`='6504791431796752653' WHERE `id` = 475396 [ RunTime:0.0847s ]
+SQL: UPDATE `ytt_product` SET `id`='475397',`platform_sku_id`='6484024249517342989' WHERE `id` = 475397 [ RunTime:0.0908s ]
+SQL: UPDATE `ytt_product` SET `id`='475398',`platform_sku_id`='6504815059301040397' WHERE `id` = 475398 [ RunTime:0.0903s ]
+SQL: UPDATE `ytt_product` SET `id`='475400',`platform_sku_id`='6496729244847046925' WHERE `id` = 475400 [ RunTime:0.0865s ]
+SQL: UPDATE `ytt_product` SET `id`='475401',`platform_sku_id`='6504783189007925517' WHERE `id` = 475401 [ RunTime:0.0851s ]
+SQL: UPDATE `ytt_product` SET `id`='475402',`platform_sku_id`='6503412175103590670' WHERE `id` = 475402 [ RunTime:0.0860s ]
+SQL: UPDATE `ytt_product` SET `id`='475403',`platform_sku_id`='6500718208259981581' WHERE `id` = 475403 [ RunTime:0.0858s ]
+SQL: UPDATE `ytt_product` SET `id`='475406',`platform_sku_id`='6497779747198599437' WHERE `id` = 475406 [ RunTime:0.0848s ]
+
+[ 2018-04-14T14:13:21+08:00 ] 127.0.0.1 /Admin/Sale/ajaxCollectionItem.html?page=5
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000681s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000635s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000684s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_product` [ RunTime:0.2229s ]
+SQL: SELECT `id`,`platform_sku_id` FROM `ytt_product` WHERE `platform_sku_id` IN ('6500823924589199630','6498202966489563406','6500047336364835086','6494519806841061646','6484199023354839309','6502207454749655310','6500834903314137357','6501854790417383694','6481510062660518157','6501953406591041806','6502560123712438541','6489979018706682126','6504481941000028429','6498238650327761165','6504164714786849037','6490458534763823374','6503399587997286670','6505223544341790989','6491567809850507534','6500057551147630862','6500046590374314254','6504826250295509261','6486247210383048974','6491172616206811406','6491177530110771469','6483718285169787150','6500059646055678221','6491168150564897037','6503695292230009102','6500816071547683086','6504119297218969869','6499047809885405454','6500740808277229837','6505245827668115726','6496410530025046286','6492551663507734798','6499577162440376589','6491071448898076942','6505244997418221837','6500012376832606478')  [ RunTime:0.3527s ]
+SQL: UPDATE `ytt_product` SET `id`='475352',`platform_sku_id`='6500816071547683086' WHERE `id` = 475352 [ RunTime:0.1227s ]
+SQL: UPDATE `ytt_product` SET `id`='475399',`platform_sku_id`='6498202966489563406' WHERE `id` = 475399 [ RunTime:0.1925s ]
+SQL: UPDATE `ytt_product` SET `id`='475404',`platform_sku_id`='6500823924589199630' WHERE `id` = 475404 [ RunTime:0.1557s ]
+SQL: UPDATE `ytt_product` SET `id`='475405',`platform_sku_id`='6484199023354839309' WHERE `id` = 475405 [ RunTime:0.1152s ]
+SQL: UPDATE `ytt_product` SET `id`='475408',`platform_sku_id`='6502207454749655310' WHERE `id` = 475408 [ RunTime:0.0999s ]
+SQL: UPDATE `ytt_product` SET `id`='475409',`platform_sku_id`='6500047336364835086' WHERE `id` = 475409 [ RunTime:0.0862s ]
+SQL: UPDATE `ytt_product` SET `id`='475410',`platform_sku_id`='6500834903314137357' WHERE `id` = 475410 [ RunTime:0.0860s ]
+SQL: UPDATE `ytt_product` SET `id`='475411',`platform_sku_id`='6501854790417383694' WHERE `id` = 475411 [ RunTime:0.0863s ]
+SQL: UPDATE `ytt_product` SET `id`='475412',`platform_sku_id`='6494519806841061646' WHERE `id` = 475412 [ RunTime:0.0861s ]
+SQL: UPDATE `ytt_product` SET `id`='475413',`platform_sku_id`='6481510062660518157' WHERE `id` = 475413 [ RunTime:0.0862s ]
+SQL: UPDATE `ytt_product` SET `id`='475414',`platform_sku_id`='6503399587997286670' WHERE `id` = 475414 [ RunTime:0.0882s ]
+SQL: UPDATE `ytt_product` SET `id`='475415',`platform_sku_id`='6505223544341790989' WHERE `id` = 475415 [ RunTime:0.0984s ]
+SQL: UPDATE `ytt_product` SET `id`='475416',`platform_sku_id`='6504481941000028429' WHERE `id` = 475416 [ RunTime:0.0869s ]
+SQL: UPDATE `ytt_product` SET `id`='475417',`platform_sku_id`='6491168150564897037' WHERE `id` = 475417 [ RunTime:0.0861s ]
+SQL: UPDATE `ytt_product` SET `id`='475418',`platform_sku_id`='6500057551147630862' WHERE `id` = 475418 [ RunTime:0.0868s ]
+SQL: UPDATE `ytt_product` SET `id`='475419',`platform_sku_id`='6502560123712438541' WHERE `id` = 475419 [ RunTime:0.0867s ]
+SQL: UPDATE `ytt_product` SET `id`='475420',`platform_sku_id`='6489979018706682126' WHERE `id` = 475420 [ RunTime:0.0871s ]
+SQL: UPDATE `ytt_product` SET `id`='475421',`platform_sku_id`='6501953406591041806' WHERE `id` = 475421 [ RunTime:0.0922s ]
+SQL: UPDATE `ytt_product` SET `id`='475422',`platform_sku_id`='6498238650327761165' WHERE `id` = 475422 [ RunTime:0.0887s ]
+SQL: UPDATE `ytt_product` SET `id`='475423',`platform_sku_id`='6491567809850507534' WHERE `id` = 475423 [ RunTime:0.1167s ]
+SQL: UPDATE `ytt_product` SET `id`='475425',`platform_sku_id`='6490458534763823374' WHERE `id` = 475425 [ RunTime:0.0885s ]
+SQL: UPDATE `ytt_product` SET `id`='475426',`platform_sku_id`='6504164714786849037' WHERE `id` = 475426 [ RunTime:0.0857s ]
+SQL: UPDATE `ytt_product` SET `id`='475427',`platform_sku_id`='6504826250295509261' WHERE `id` = 475427 [ RunTime:0.0868s ]
+SQL: UPDATE `ytt_product` SET `id`='475428',`platform_sku_id`='6486247210383048974' WHERE `id` = 475428 [ RunTime:0.0878s ]
+SQL: UPDATE `ytt_product` SET `id`='475430',`platform_sku_id`='6500059646055678221' WHERE `id` = 475430 [ RunTime:0.0862s ]
+SQL: UPDATE `ytt_product` SET `id`='475431',`platform_sku_id`='6500046590374314254' WHERE `id` = 475431 [ RunTime:0.0865s ]
+SQL: UPDATE `ytt_product` SET `id`='475432',`platform_sku_id`='6491172616206811406' WHERE `id` = 475432 [ RunTime:0.0857s ]
+SQL: UPDATE `ytt_product` SET `id`='475434',`platform_sku_id`='6491177530110771469' WHERE `id` = 475434 [ RunTime:0.0878s ]
+SQL: UPDATE `ytt_product` SET `id`='475438',`platform_sku_id`='6503695292230009102' WHERE `id` = 475438 [ RunTime:0.0865s ]
+SQL: UPDATE `ytt_product` SET `id`='475439',`platform_sku_id`='6504119297218969869' WHERE `id` = 475439 [ RunTime:0.0863s ]
+SQL: UPDATE `ytt_product` SET `id`='475440',`platform_sku_id`='6499047809885405454' WHERE `id` = 475440 [ RunTime:0.0860s ]
+SQL: UPDATE `ytt_product` SET `id`='475443',`platform_sku_id`='6500740808277229837' WHERE `id` = 475443 [ RunTime:0.0862s ]
+SQL: UPDATE `ytt_product` SET `id`='475444',`platform_sku_id`='6505245827668115726' WHERE `id` = 475444 [ RunTime:0.0884s ]
+SQL: UPDATE `ytt_product` SET `id`='475445',`platform_sku_id`='6496410530025046286' WHERE `id` = 475445 [ RunTime:0.0908s ]
+SQL: UPDATE `ytt_product` SET `id`='475446',`platform_sku_id`='6492551663507734798' WHERE `id` = 475446 [ RunTime:0.1333s ]
+SQL: UPDATE `ytt_product` SET `id`='475447',`platform_sku_id`='6499577162440376589' WHERE `id` = 475447 [ RunTime:0.1050s ]
+SQL: UPDATE `ytt_product` SET `id`='475448',`platform_sku_id`='6505244997418221837' WHERE `id` = 475448 [ RunTime:0.2211s ]
+SQL: UPDATE `ytt_product` SET `id`='475449',`platform_sku_id`='6491071448898076942' WHERE `id` = 475449 [ RunTime:0.1942s ]
+SQL: UPDATE `ytt_product` SET `id`='475450',`platform_sku_id`='6500012376832606478' WHERE `id` = 475450 [ RunTime:0.1663s ]
+SQL: UPDATE `ytt_product` SET `id`='477278',`platform_sku_id`='6483718285169787150' WHERE `id` = 477278 [ RunTime:0.2239s ]
+
+[ 2018-04-14T14:13:26+08:00 ] 127.0.0.1 /Admin/Sale/ajaxCollectionItem.html?page=6
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000627s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000787s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000850s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_product` [ RunTime:0.0859s ]
+SQL: SELECT `id`,`platform_sku_id` FROM `ytt_product` WHERE `platform_sku_id` IN ('6506254710171762947','6503824218025623822','6500702792024326413','6503369416263074062','6500693824489128205','6501455922542412045','6502945207019897101','6499654450049712398','6484118138211270925','6491075283393724686','6506323864476188936','6504772709178671374','6498534635872452878','6506352954491011341','6493340470196830477','6504771906896396558','6491174123056660749','6492631051737760013','6501133437116612877','6504965033686991118','6504073123149644046','6493021689780125966','6501955886670414093','6504801598609293582','6498202410534568206','6498869780294926606','6491156933116952845','6497103073465336077','6499698174863606029','6502294758386303245','6498138749157769486','6499728535639294222','6494469735617397006','6497105318604964110','6501873967475720462','6502405756678045965','6500369126131761421','6501086739317129485','6505625926028493059','6481242935718314253')  [ RunTime:0.3210s ]
+SQL: UPDATE `ytt_product` SET `id`='475169',`platform_sku_id`='6493021689780125966' WHERE `id` = 475169 [ RunTime:0.0858s ]
+SQL: UPDATE `ytt_product` SET `id`='475264',`platform_sku_id`='6493340470196830477' WHERE `id` = 475264 [ RunTime:0.0853s ]
+SQL: UPDATE `ytt_product` SET `id`='475441',`platform_sku_id`='6506254710171762947' WHERE `id` = 475441 [ RunTime:0.0853s ]
+SQL: UPDATE `ytt_product` SET `id`='475442',`platform_sku_id`='6503369416263074062' WHERE `id` = 475442 [ RunTime:0.0846s ]
+SQL: UPDATE `ytt_product` SET `id`='475452',`platform_sku_id`='6500702792024326413' WHERE `id` = 475452 [ RunTime:0.0951s ]
+SQL: UPDATE `ytt_product` SET `id`='475453',`platform_sku_id`='6504801598609293582' WHERE `id` = 475453 [ RunTime:0.0852s ]
+SQL: UPDATE `ytt_product` SET `id`='475455',`platform_sku_id`='6500693824489128205' WHERE `id` = 475455 [ RunTime:0.0847s ]
+SQL: UPDATE `ytt_product` SET `id`='475456',`platform_sku_id`='6503824218025623822' WHERE `id` = 475456 [ RunTime:0.0869s ]
+SQL: UPDATE `ytt_product` SET `id`='475457',`platform_sku_id`='6501455922542412045' WHERE `id` = 475457 [ RunTime:0.0891s ]
+SQL: UPDATE `ytt_product` SET `id`='475458',`platform_sku_id`='6504965033686991118' WHERE `id` = 475458 [ RunTime:0.0990s ]
+SQL: UPDATE `ytt_product` SET `id`='475459',`platform_sku_id`='6506323864476188936' WHERE `id` = 475459 [ RunTime:0.0853s ]
+SQL: UPDATE `ytt_product` SET `id`='475460',`platform_sku_id`='6484118138211270925' WHERE `id` = 475460 [ RunTime:0.0871s ]
+SQL: UPDATE `ytt_product` SET `id`='475461',`platform_sku_id`='6498202410534568206' WHERE `id` = 475461 [ RunTime:0.0854s ]
+SQL: UPDATE `ytt_product` SET `id`='475462',`platform_sku_id`='6491075283393724686' WHERE `id` = 475462 [ RunTime:0.0866s ]
+SQL: UPDATE `ytt_product` SET `id`='475463',`platform_sku_id`='6502945207019897101' WHERE `id` = 475463 [ RunTime:0.0850s ]
+SQL: UPDATE `ytt_product` SET `id`='475464',`platform_sku_id`='6499654450049712398' WHERE `id` = 475464 [ RunTime:0.0850s ]
+SQL: UPDATE `ytt_product` SET `id`='475465',`platform_sku_id`='6504771906896396558' WHERE `id` = 475465 [ RunTime:0.0863s ]
+SQL: UPDATE `ytt_product` SET `id`='475466',`platform_sku_id`='6501133437116612877' WHERE `id` = 475466 [ RunTime:0.0857s ]
+SQL: UPDATE `ytt_product` SET `id`='475467',`platform_sku_id`='6504772709178671374' WHERE `id` = 475467 [ RunTime:0.0849s ]
+SQL: UPDATE `ytt_product` SET `id`='475468',`platform_sku_id`='6506352954491011341' WHERE `id` = 475468 [ RunTime:0.0857s ]
+SQL: UPDATE `ytt_product` SET `id`='475470',`platform_sku_id`='6498534635872452878' WHERE `id` = 475470 [ RunTime:0.0866s ]
+SQL: UPDATE `ytt_product` SET `id`='475471',`platform_sku_id`='6491174123056660749' WHERE `id` = 475471 [ RunTime:0.0987s ]
+SQL: UPDATE `ytt_product` SET `id`='475472',`platform_sku_id`='6492631051737760013' WHERE `id` = 475472 [ RunTime:0.0857s ]
+SQL: UPDATE `ytt_product` SET `id`='475473',`platform_sku_id`='6504073123149644046' WHERE `id` = 475473 [ RunTime:0.0896s ]
+SQL: UPDATE `ytt_product` SET `id`='475474',`platform_sku_id`='6498869780294926606' WHERE `id` = 475474 [ RunTime:0.0852s ]
+SQL: UPDATE `ytt_product` SET `id`='475475',`platform_sku_id`='6501955886670414093' WHERE `id` = 475475 [ RunTime:0.0849s ]
+SQL: UPDATE `ytt_product` SET `id`='475476',`platform_sku_id`='6491156933116952845' WHERE `id` = 475476 [ RunTime:0.0850s ]
+SQL: UPDATE `ytt_product` SET `id`='475477',`platform_sku_id`='6499698174863606029' WHERE `id` = 475477 [ RunTime:0.0848s ]
+SQL: UPDATE `ytt_product` SET `id`='475478',`platform_sku_id`='6497103073465336077' WHERE `id` = 475478 [ RunTime:0.0851s ]
+SQL: UPDATE `ytt_product` SET `id`='475479',`platform_sku_id`='6502294758386303245' WHERE `id` = 475479 [ RunTime:0.0848s ]
+SQL: UPDATE `ytt_product` SET `id`='475480',`platform_sku_id`='6498138749157769486' WHERE `id` = 475480 [ RunTime:0.0851s ]
+SQL: UPDATE `ytt_product` SET `id`='475481',`platform_sku_id`='6499728535639294222' WHERE `id` = 475481 [ RunTime:0.0853s ]
+SQL: UPDATE `ytt_product` SET `id`='475483',`platform_sku_id`='6494469735617397006' WHERE `id` = 475483 [ RunTime:0.0852s ]
+SQL: UPDATE `ytt_product` SET `id`='475484',`platform_sku_id`='6497105318604964110' WHERE `id` = 475484 [ RunTime:0.0874s ]
+SQL: UPDATE `ytt_product` SET `id`='475485',`platform_sku_id`='6501873967475720462' WHERE `id` = 475485 [ RunTime:0.0851s ]
+SQL: UPDATE `ytt_product` SET `id`='475486',`platform_sku_id`='6502405756678045965' WHERE `id` = 475486 [ RunTime:0.0858s ]
+SQL: UPDATE `ytt_product` SET `id`='475487',`platform_sku_id`='6500369126131761421' WHERE `id` = 475487 [ RunTime:0.0891s ]
+SQL: UPDATE `ytt_product` SET `id`='475488',`platform_sku_id`='6501086739317129485' WHERE `id` = 475488 [ RunTime:0.0862s ]
+SQL: UPDATE `ytt_product` SET `id`='475493',`platform_sku_id`='6481242935718314253' WHERE `id` = 475493 [ RunTime:0.0852s ]
+SQL: UPDATE `ytt_product` SET `id`='475494',`platform_sku_id`='6505625926028493059' WHERE `id` = 475494 [ RunTime:0.0852s ]
+
+[ 2018-04-14T14:14:07+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html?shop_goods_id=3271154509480605105
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000846s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001158s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001248s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000380s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000471s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.052748s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.052872s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001426s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001504s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001937s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002040s ]
+
+[ 2018-04-14T14:18:20+08:00 ] 127.0.0.1 /Admin/Sale/newItems.html?p=3
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000696s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000767s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000823s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_product` [ RunTime:0.1235s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_product` LIMIT 1   [ RunTime:0.1994s ]
+SQL: SELECT * FROM `ytt_product` ORDER BY create_time desc,id desc LIMIT 80,40   [ RunTime:0.3912s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000319s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000398s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\7b54e7eba78ac404cc7fd961509435ed.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\7b54e7eba78ac404cc7fd961509435ed.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\7b54e7eba78ac404cc7fd961509435ed.php 第 87 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050551s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050664s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001193s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001260s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002232s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002365s ]
+
+[ 2018-04-14T14:19:35+08:00 ] 127.0.0.1 /Admin/Sale/itemsList.html?shop_goods_id=3270402873023986927
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000026s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000904s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001022s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001112s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000264s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000323s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 119 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\a84dced89d5d71b09291dedb691d7c6d.php 第 123 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.032760s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.032876s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000960s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001011s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001126s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001191s ]
+
+[ 2018-04-14T14:23:56+08:00 ] 127.0.0.1 /Admin/Sale/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000992s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000963s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001028s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0877s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0924s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000399s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000512s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045111s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.045218s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001564s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001642s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001167s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001229s ]
+
+[ 2018-04-14T14:30:48+08:00 ] 127.0.0.1 /Admin/Sale/openInfo/id/16.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000694s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000700s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000747s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0947s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0915s ]
+
+[ 2018-04-14T14:30:54+08:00 ] 127.0.0.1 /Admin/Sale/openInfo/id/17.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000727s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000732s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000782s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0868s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0962s ]
+
+[ 2018-04-14T14:31:04+08:00 ] 127.0.0.1 /Admin/Sale/openInfo/id/19.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000694s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000728s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000781s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0914s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0943s ]
+
+[ 2018-04-14T14:32:48+08:00 ] 127.0.0.1 /Admin/Sale/index.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000521s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000623s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000673s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+SQL: SHOW COLUMNS FROM `ytt_sale_account` [ RunTime:0.0865s ]
+SQL: SELECT * FROM `ytt_sale_account`  [ RunTime:0.0868s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000336s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000431s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 53 行.
+NOTIC: [8] Undefined index: son_menu D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 87 行.
+NOTIC: [8] Undefined variable: error D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 109 行.
+NOTIC: [8] Undefined variable: success D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\965a390a989916e2be40332e2605dbde.php 第 113 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048890s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048992s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000830s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000863s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000736s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000772s ]
+

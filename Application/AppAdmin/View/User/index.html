@@ -1,0 +1,548 @@
+<include file="Public/header" title="用户管理"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">用户管理</h1>
+                <p class="description">显示所有用户信息</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>用户管理 </strong></li>
+
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" id="error" style="display:none">
+                    <strong></strong>
+                </div>
+            </div>
+        </div>
+        <include file="Public/user_search"/>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">用户管理</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="8%">id</th>
+                                    <th width="18%">个人基本信息</th>
+                                    <th width="18%">账号信息</th>
+                                    <th width="18%">我的推广位</th>
+                                    <th width="20%">代理信息</th>
+                                    <th width="12%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="list" item="vo">
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td>
+                                            姓名：{$vo.real_name} <br/>
+                                            电话：{$vo.mobile}<br/>
+                                            代理级别：
+                                            <if condition="$vo.proxy_type eq '0' ">普通代理
+                                                <elseif condition="$vo.proxy_type eq '1'"/>
+                                                企业级代理
+                                                <elseif condition="$vo.proxy_type eq '3'"/>
+                                                一级代理
+                                            </if>
+                                            <br/>
+                                            是否有微信营销：{$vo.is_wechat_marketing}
+                                            <br>
+                                            用户身份：
+                                            <if condition="$vo['store_type'] eq 0 ">非线下门店用户
+                                                <elseif condition="$vo['store_type'] eq 1"/>
+                                                线下门店店主
+                                                <elseif condition="$vo['store_type'] eq 2"/>
+                                                线下们店收银员
+                                            </if>
+                                        </td>
+                                        <td>
+                                            pid：{$vo.pid}<br/>
+                                            大微信客推广：{$vo.dwxk_adsense_id}<br/>
+                                            支付宝账号：{$vo.bank_account}
+                                        </td>
+                                        <td>
+                                            <foreach name="zone[$vo['id']]" item="zo">
+                                                <a href="javascript:;" title="PID:{$zo.pid} 大微信客 {$zo.dwxk_adsense_id}"
+                                                   onclick="edit_pid('{$zo.zone_name}', '{$zo.pid}', '{$zo.dwxk_adsense_id}', '{$zo.is_default}', '{$zo.id}', '{$vo.id}')">
+                                                    {$zo.zone_name}
+                                                    <if condition="$zo.is_default eq '1'">(默认)</if>
+                                                </a><br>
+                                            </foreach>
+                                        </td>
+                                        <td>
+                                            注册时间：{$vo.reg_time|date="Y-m-d H:i",###}<br/>
+                                            代理时间：
+                                            <if condition="$vo.join_agent_time gt 0">
+                                                {$vo.join_agent_time|date="Y-m-d",###}
+                                            </if>
+                                            <br/>
+                                            推荐人:
+                                            <if condition="$vo.parentid eq '0' ">暂无上级
+                                                <else/>
+                                                {$user[$vo['parentid']]['real_name']}
+                                            </if>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('User/edit',array('id'=>$vo['id']))}" class="ibutton">
+                                                <i class="fa-edit"></i>
+                                            </a> |
+                                            <a href="" class="ibutton">
+                                                <i class="fa-trash"></i>
+                                            </a><br>
+                                            <a href="javascript:;" onclick="qr_code_url({$vo.id})"
+                                               class="btn btn-primary btn-single btn-sm">查看二维码</a><br>
+                                            <if condition="$vo.proxy_type eq '3' ">
+                                                <a href="{:U('User/index',array('parent_id'=>$vo['id']))}"
+                                                   class="btn btn-primary btn-single btn-sm">查看下级代理</a><br>
+                                            </if>
+                                            <a href="javascript:;" onclick="add_more_pid({$vo.id})"
+                                               class="btn btn-primary btn-single btn-sm"
+                                               style="background-color: #1ab7ea">添加推广位</a>
+                                            <br>
+                                            <if condition="$vo['store_type'] eq 1">
+                                                <a href="javascript:;" class="btn btn-danger btn-sm del-store"
+                                                   data-id="{$vo.id}">取消店主</a>
+                                                <elseif condition="$vo['store_type'] eq 2"/>
+                                                <a href="javascript:;" class="btn btn-danger btn-sm">收银员</a>
+                                                <else/>
+                                                <a href="javascript:;" class="btn btn-danger btn-sm set-store"
+                                                   data-id="{$vo.id}" data-address="{$vo.address}"
+                                                   data-remark="{$vo.user_remark}" data-name="{$vo.real_name}">设置店主</a>
+                                            </if>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+
+    <!-- Modal 4 (Confirm)-->
+    <div class="modal fade" id="modal-4" data-backdrop="static">
+        <div class="modal-dialog" style="width: 400px;height: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">查看二维码</h4>
+                </div>
+                <div class="modal-body" id="images" style="height:400px;text-align:center">
+                    正在加载....
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加推广位 -->
+    <div class="modal fade" id="set-store">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">设置店主</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" id="user_id" value="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">真实姓名</label>
+                                <input type="text" name="realname" id="realname" class="form-control"
+                                       placeholder="请输入真实姓名">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">店铺名称</label>
+                                <input type="text" name="user_remark" id="user_remark" class="form-control"
+                                       placeholder="请输入店铺名称">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">店铺地址</label>
+                                <input type="text" name="address" id="address" class="form-control"
+                                       placeholder="请输入店铺地址">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label error-tip" style="color: red"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info" id="set-store-btn">确认</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加推广位 -->
+    <div class="modal fade" id="modal_mix">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">添加推广位</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" id="uid" value="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">推广位名称</label>
+                                <input type="text" name="zone_name" id="zone_name" class="form-control tuiguanwei"
+                                       placeholder="请输入推广位名称">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">推广位pid</label>
+                                <input type="text" name="zone_pid" id="zone_pid" class="form-control tuiguanwei"
+                                       placeholder="请输入推广位pid">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">大微信客推广位（选填）</label>
+                                <input type="text" name="dwxk_adsense_id" id="dwxk_adsense_id"
+                                       class="form-control tuiguanwei" placeholder="请输入大微信客推广位">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="control-label">是否默认</label>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="radio">
+                                        <label><input type="radio" name="is_default" value="1"/>是 </label>
+                                        <label><input type="radio" name="is_default" value="0" checked="checked"/>否
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info" onclick="do_add_more_pid()">确认</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- 编辑推广位 -->
+    <div class="modal fade" id="modal_edit">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">编辑推广位</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="update_id" value="">
+                    <input type="hidden" name="uid" id="update_uid" value="">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">推广位名称</label>
+                                <input type="text" name="zone_name" id="update_zone_name"
+                                       class="form-control tuiguanwei" placeholder="请输入推广位" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">推广位pid</label>
+                                <input type="text" name="zone_pid" id="update_zone_pid" class="form-control tuiguanwei"
+                                       placeholder="请输入推广位pid" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">大微信客推广位（选填）</label>
+                                <input type="text" name="dwxk_adsense_id" id="update_dwxk_adsense_id"
+                                       class="form-control tuiguanwei" placeholder="请输入大微信客推广位" value="">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="control-label">是否默认</label>
+                            </div>
+                            <div class="col-sm-10">
+                                <div class="radio">
+                                    <label><input type="radio" name="edit_is_default" value="1"/>是 </label>
+                                    <label><input type="radio" name="edit_is_default" value="0">否 </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" onclick="do_delete_pid()">删除</button>
+                    <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info" onclick="do_edit_pid()">确认</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <style>
+        .tuiguanwei {
+            width: 110% !important;
+        }
+    </style>
+    <script>
+        $('.set-store').click(function () {
+            $('#user_id').val($(this).data('id'));
+            $('#realname').val($(this).data('name'));
+            $('#address').val($(this).data('address'));
+            $('#user_remark').val($(this).data('remark'));
+            jQuery('#set-store').modal('show', {backdrop: 'static'});
+        });
+
+        $('#realname,#address,#user_remark').focus(function () {
+            $('.error-tip').text('');
+        });
+
+        $('#set-store-btn').click(function () {
+            var id = $('#user_id').val();
+            var realname = $('#realname').val();
+            var user_remark = $('#user_remark').val();
+            var address = $('#address').val();
+            if (!realname) {
+                $('.error-tip').text('请输入真实姓名！');
+                return false;
+            }
+            if (!user_remark) {
+                $('.error-tip').text('请输入店铺名称！');
+                return false;
+            }
+            if (!address) {
+                $('.error-tip').text('请输入店铺地址！');
+                return false;
+            }
+            $.post("{:U('setStore')}", {
+                id: id,
+                realname: realname,
+                user_remark: user_remark,
+                address: address
+            }, function (res) {
+                $('.error-tip').text(res.info);
+                if (res.status == 1) {
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000);
+                }
+            })
+        })
+
+        $('.del-store').click(function () {
+            var id = $(this).data('id');
+            var status = confirm('你确定要将该用户取消店主身份？');
+            if (status) {
+                $.post("{:U('delStore')}", {
+                    id: id,
+                }, function (res) {
+                    if (res.status == 1) {
+                        $('.alert-success strong').text(res.info);
+                        $('.alert-success').show();
+                        setTimeout(function () {
+                            location.reload();
+                        }, 2000);
+                    } else {
+                        $('.alert-danger strong').text(res.info);
+                        $('.alert-danger').show();
+                    }
+                })
+            }
+
+        })
+        function qr_code_url(id) {
+            jQuery('#modal-4').modal('show', {backdrop: 'static'});
+            var url = "{:U('User/getWechatQrcode')}";
+            $.get(url, {id: id}, function (res) {
+                var l = "";
+                if (res.code == 0) {
+                    l += "<img src='" + res.data + "' width='200' height='350'>";
+                    $('#images').html(l);
+                } else if (res.code == -1) {
+                    l += res.msg;
+                    $('#images').html(l);
+                }
+            })
+        }
+        function add_more_pid(id) {
+            jQuery('#modal_mix').modal('show', {backdrop: 'static'});
+            jQuery('#uid').val(id);
+        }
+        function do_add_more_pid() {
+            var zone_pid = $("#zone_pid").val();
+            var zone_name = $("#zone_name").val();
+            var dwxk_adsense_id = $("#dwxk_adsense_id").val();
+            var is_default = $("#modal_mix input[name='is_default']:checked").val();
+            var uid = $("#uid").val();
+            if (!zone_pid || !zone_name) {
+                alert('推广位名称或推广位pid不能为空');
+                return false;
+            }
+
+            var get_url = "{:U('User/addMorePid')}";
+            $.get(get_url, {
+                zone_pid: zone_pid,
+                zone_name: zone_name,
+                uid: uid,
+                dwxk_adsense_id: dwxk_adsense_id,
+                is_default: is_default
+            }, function (res) {
+                alert(res.msg);
+                if (res.code == 0) {
+                    window.location.href = window.location.href;
+                }
+            });
+        }
+
+        function edit_pid(zone_name, pid, dwxk_adsense_id, is_default, id, uid) {
+            jQuery('#update_zone_name').val(zone_name);
+            jQuery('#update_zone_pid').val(pid);
+            jQuery('#update_dwxk_adsense_id').val(dwxk_adsense_id);
+            jQuery('#update_id').val(id);
+            jQuery('#update_uid').val(uid);
+            $("#modal_edit input[name='edit_is_default']").prop("checked", false);
+            $("#modal_edit input[name='edit_is_default'][value=" + is_default + "]").prop("checked", "checked");
+            jQuery('#modal_edit').modal('show', {backdrop: 'static'});
+        }
+
+        function do_edit_pid() {
+            var id = $("#update_id").val();
+            var uid = $("#update_uid").val();
+            var zone_name = $("#update_zone_name").val();
+            var zone_pid = $("#update_zone_pid").val();
+            var dwxk_adsense_id = $("#update_dwxk_adsense_id").val();
+            var is_default = $("input[name='edit_is_default']:checked").val();
+
+            if (!zone_pid || !zone_name) {
+                alert('推广位名称或推广位pid不能为空');
+                return false;
+            }
+
+            var get_url = "{:U('User/editPid')}";
+            $.get(get_url, {
+                zone_pid: zone_pid,
+                zone_name: zone_name,
+                id: id,
+                dwxk_adsense_id: dwxk_adsense_id,
+                uid: uid,
+                is_default: is_default
+            }, function (res) {
+                alert(res.msg);
+                if (res.code == 0) {
+                    window.location.href = window.location.href;
+                }
+            });
+        }
+
+        function do_delete_pid() {
+            var id = $("#update_id").val();
+            var uid = $("#update_uid").val();
+
+            if (!confirm('是否删除该推广位')) {
+                return false;
+            }
+
+            var get_url = "{:U('User/deletePid')}";
+            $.get(get_url, {id: id, uid: uid}, function (res) {
+                alert(res.msg);
+                if (res.code == 0) {
+                    window.location.href = window.location.href;
+                }
+            });
+        }
+    </script>
+
+
+    <include file="Public/footer_Js"/>

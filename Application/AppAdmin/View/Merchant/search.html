@@ -1,0 +1,199 @@
+<include file="Public/header" title="商家管理"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">商家列表</h1>
+                <p class="description">搜索出来的商家结果</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"> 商家管理</li>
+                    <li class="active"><strong>搜索结果</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">搜索商家</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">
+                            ×
+                        </a>
+                    </div>
+                </div>
+                <form method="get" action="search">
+                    <div class="panel-body">
+                        <div class="row col-margin">
+                            <div class="col-xs-2">
+                                <input type="text" name="merchant_name" class="form-control" placeholder="请输入商家名称"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" name="mobile" class="form-control" placeholder="请输入商家电话"/>
+                            </div>
+                            <if condition="$position_level eq 'manager'">
+                                <div class="col-xs-2">
+                                    <select name="department_id" id="department" class="form-control"
+                                            style="width: 100%;">
+                                        <option value="0">--请选择部门--</option>
+                                        <foreach name="department['department']" item="v" key="k">
+                                            <option value="{$k}"
+                                            <if condition="I('get.department_id') eq $k">selected</if>
+                                            >{$v}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                                <div class="col-xs-2">
+                                    <select name="admin_id" id="admin_id" class="form-control" style="width: 100%;">
+                                        <option value="0" <if condition="I('get.admin_id') neq '' ">selected</if> ><if condition="I('get.admin_id') neq ''">{$name} <else/>--请选择员工-- </if></option>
+                                    </select>
+                                </div>
+                            </if>
+                            <if condition="$position_level eq 'middle'">
+                                <div class="col-xs-2">
+                                    <select name="admin_id" class="form-control" style="width: 100%;">
+                                        <option value="0">请选择员工</option>
+                                        <volist name="department['user']" id="vo">
+                                            <option value="{$vo.id}">{$vo.username}</option>
+                                        </volist>
+                                    </select>
+                                </div>
+                            </if>
+                            <div class="col-xs-1">
+                                <input type="submit" class="btn btn-secondary btn-single" value="搜索"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>商家名称</th>
+                                    <th>联系人</th>
+                                    <th>联系方式</th>
+                                    <th>店铺名称</th>
+                                    <th>客户经理</th>
+                                    <th>所属部门</th>
+                                    <th>备注</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name="list" id="vo">
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td>{$vo.merchant_name}</td>
+                                        <td>{$vo.contact}</td>
+                                        <if condition="$vo.mobile neq ''">
+                                            <td>{$vo.mobile}(手机号)</td>
+                                        <elseif condition="$vo.weixin neq ''"/>
+                                            <td>{$vo.weixin}(微信)</td>
+                                        <elseif condition="$vo.qq neq ''"/>
+                                            <td>{$vo.qq}(QQ)</td>
+                                        <else/>
+                                            <td>{$vo.wangwang}(旺旺)</td>
+                                        </if>
+                                        <td>{$vo.shop_name}</td>
+                                        <td>
+                                            {$admin['user'][$vo['admin_id']]['username']}
+                                        </td>
+                                        <td>
+                                            {$admin['department'][$vo['department_id']]['department_name']}
+                                        </td>
+                                        <td>{$vo.remark}</td>
+                                        <td>
+                                            <a href="{:U('Merchant/edit',array('id'=>$vo['id']))}" class="ibutton">
+                                                <i class="fa-edit"></i>
+                                            </a>
+
+                                            <if condition="$position_level eq 'basic'">
+                                                |<a href="javascript:void(0);" class="J_confirmurl"
+                                                    onclick="del({$vo['id']})">
+                                                <i class="fa-trash"></i>
+                                            </a>
+                                            </if>
+
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+    <script type="text/javascript">
+        $("#department").change(function () {
+            var id = $(this).val();
+            var get_url = "{:U('Merchant/getDepartmenPersonnel')}";
+
+            $.get(get_url, {id: id}, function (res) {
+                var l = "";
+                l += "<option value='0'>--请选择--</option>";
+                if (res.code == 0) {
+                    for (var i = 0; i < res.data.length; i++) {
+                        l += "<option value='" + res.data[i].id + "'>" + res.data[i].username + "</option>";
+                    }
+                }
+                $('#admin_id').html(l);
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+        function del(id) {
+            $res = confirm('确定删除该商家');
+            if ($res) {
+                var post_url = "{:U('Merchant/del')}";
+                var index = "{:U('Merchant/index')}";
+                $.post(post_url, {'id': id}, function (res) {
+                    if (res.status == 1) {
+                        $('.alert-success strong').text(res.info);
+                        $('.alert-success').show();
+                        setTimeout(function () {
+                            $('.alert-success').hide();
+                        }, 3000);
+                        window.location.href = index;
+                    } else {
+                        $('.alert-danger strong').text(res.info);
+                        $('.alert-danger').show();
+                        setTimeout(function () {
+                            $('.alert-danger').hide();
+                        }, 3000);
+                    }
+                })
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+
+    <include file="Public/footer_Js"/>
+</div>

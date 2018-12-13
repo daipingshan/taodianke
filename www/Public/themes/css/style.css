@@ -1,0 +1,121 @@
+@charset "UTF-8";
+
+/* ------------------------------------------
+  RESET
+--------------------------------------------- */
+div.clear{font: 0px Arial; line-height:0;
+            height:0; 
+            overflow:hidden;	
+            clear:both;	}
+
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+@-webkit-viewport { width: device-width; }
+@-moz-viewport { width: device-width; }
+@-ms-viewport { width: device-width; }
+@-o-viewport { width: device-width; }
+@viewport { width: device-width; }
+
+
+/* ------------------------------------------
+  BASE DEMO STYLES
+--------------------------------------------- */
+
+body {
+      -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+      color: #37302a;
+	  width:100%;
+	  max-width:560px;
+      background: #FFFFFF;
+}
+
+
+
+/*自定义样式*/
+a, .uk-link {color: #3591ac;text-decoration: none;cursor: pointer;}
+
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 20px 0;
+  
+    font-weight: 300;
+  
+    text-transform: none;
+}
+
+.min-logo{color: #333;}
+footer{ text-align:center;}
+
+#warpper{ }
+.main{width: 1000px; margin: 0 auto;}
+.f-right{ float: right;}
+
+article>.uk-grid{ margin-left: 0;}
+
+.project-text > h3{ color: #fff;}
+.project-text > p{ color: #f3f3f3;}
+.tm-about > .uk-switcher > li.icon-weibo:before {
+    content: "\f18a";
+}
+.tm-about > .uk-switcher > li.icon-weixin:before{
+	 content: "\f1d7";
+	}
+.cp-icon-big{ font-size:2.5em;}
+
+.mymap{  height: 360px;}
+
+.img-position-text{background: rgba(0, 0, 0, 0.2); padding: 2px 15px; font-size: 35px; line-height: 75px; color: #fff;}
+.project-img-text p,.project-img-text h3{ color: #fff;}
+
+#phoneFooterBar{ display: none;}
+#show-phone-case{ /*background: url(../../images/iPhone-6S.png);*/ margin-bottom: 20px;}
+#show-phone-case div.showme{overflow-y:scroll;height:640px;}
+
+@media screen and (max-device-width: 660px){
+    .uk-grid > * {padding-left: 0px;}
+    .uk-h1,h1{ font-size: 1.2em;line-height: 1.5;}
+    .uk-margin-large{ margin-bottom: 10px;}
+    .uk-article-lead{ font-size: 1em;}
+    h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 10px 0;
+    font-weight: 100;
+    text-transform: none;
+    }
+    #phoneFooterBar{ 
+         display:block;
+         width: 100%;
+         border-top: 1px solid rgba(0, 0, 0, 0.08);  padding: 0;
+         position: fixed; bottom: 0;
+         background-color: #fff;
+         margin: 0;
+         z-index: 9999;
+    }
+    #phoneFooterBar li{ float: left; width: 24.9999999%; text-align: center; list-style-type: none;    height: 36px;     line-height: 2.5;  }
+    #phoneFooterBar li a{color: #333;}
+    
+    
+}
+
+
+
+
+/* 工具页面 */
+.tool-se{ margin-bottom: 25px;}
+.tool-se h3{margin-bottom: 5px;}
+.tool-se hr{    margin: 15px 0;}
+.tool-list li { margin-bottom: 10px;}
+.tool-title{ margin-bottom:5px; }
+.tool-title a{ color: #333; text-decoration: none;}
+.tool-img{ height: 55px;}
+.tool-desc{ margin-top: 2px; color: #3e3e3e; font-size: 12px;}
+
+@media screen and (max-device-width: 640px){
+        .tool-list li { margin-bottom: 30px;}
+        .tool-title{margin-bottom: 5px; display: none;}
+}

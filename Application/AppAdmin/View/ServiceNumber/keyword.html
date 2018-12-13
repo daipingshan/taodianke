@@ -1,0 +1,146 @@
+<include file="Public/header" title="百姓网服务号-关键字列表"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">百姓网服务号->关键字列表</h1>
+                <p class="description">显示所有关键字列表</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li><a href="{:U('index')}">百姓网服务号</a></li>
+                    <li class="active"><strong>关键字列表</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">关键字列表</h3>
+                        <div class="panel-options">
+                            <a href="javascript:;" class="btn btn-secondary btn-single add-generalize"
+                               style="color: #fff">
+                                添加关键字
+                            </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="20%">关键字</th>
+                                    <th width="70%">回复内容</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td>{$vo.keyword}</td>
+                                        <td>{$vo.content}</td>
+                                        <td>
+                                            <a data-url="{:U('delKeyword',array('id'=>$vo['id']))}"
+                                               onclick="delKeyword($(this).data('url'));">
+                                                <button class="btn btn-danger"><font><font>删除</font></font>
+                                                </button>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+</div>
+<!-- 添加推广位 -->
+<div class="modal fade" id="modal_mix">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">添加关键字</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">关键字</label>
+                            <input type="text" name="keyword" id="keyword" class="form-control" placeholder="请输入关键字">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label">回复内容</label>
+                            <textarea name="content" id="content" class="form-control" rows="5"
+                                      placeholder="请输入回复内容"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label class="control-label error-tip" style="color: red"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" id="add-generalize">确认</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<include file="Public/footer_Js"/>
+<script>
+    $('.add-generalize').click(function () {
+        jQuery('#modal_mix').modal('show', {backdrop: 'static'});
+    })
+    $('#content,#keyword').focus(function () {
+        $('.error-tip').text('');
+    });
+    $('#add-generalize').click(function () {
+        var service_id = "{$service_id}";
+        var keyword = $('#keyword').val();
+        var content = $('#content').val();
+        if (!keyword) {
+            $('.error-tip').text('请输入关键字！');
+            return false;
+        }
+        if (!content) {
+            $('.error-tip').text('请输入回复内容！');
+            return false;
+        }
+        $.post("{:U('addKeyword')}", {service_id: service_id, keyword: keyword, content: content}, function (res) {
+            $('.error-tip').text(res.info);
+            if (res.status == 1) {
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            }
+        })
+    })
+
+    /**
+     * 删除
+     */
+    function delKeyword(url) {
+        var status = confirm('您确定要删除该关键字信息吗？');
+        if (status) {
+            location.href = url;
+        }
+    }
+
+
+</script>

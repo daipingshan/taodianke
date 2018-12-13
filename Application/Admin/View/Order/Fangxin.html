@@ -1,0 +1,210 @@
+<include file="Common:header" />
+<include file="Common:nav" />
+<link rel="stylesheet"  href="/Public/Char/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Public/Char/css/style.css">
+<style>@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");</style>
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/Public/Char/js/bootstrap.min.js"></script>
+<script src="/Public/Char/js/jquery.pin.min.js"></script>
+<script src="/Public/Char/js/raphael-min.js"></script>
+<script src="/Public/Char/js/morris.js"></script>
+<Script src="/Public/Char/js/moment.js"></Script>
+<script src="/Public/Char/js/daterangepicker.js"></script>
+<style>
+    ul, ol, dl, li {
+        list-style: outside none none;
+    }
+    .table-responsive li{
+        background: #fff none repeat scroll 0 0;
+        border: 1px solid #ccc;
+        float: left;
+        margin: 2px;
+        width: 240px;
+        height: 400;
+        max-height:400px;
+
+    }
+    .table-responsive div{
+        height: 140px;
+        overflow: hidden;
+    }
+    .pagination div:first-line{
+        line-height: 80px;
+        margin-right: 20px;
+    }
+</style>
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">放心购文章列表</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-7">
+            <form action="" method='post'>
+                <div style="float: left; margin-right: 20px;">
+                    <select class="form-control" name='newstype' >
+                        <option value=''>请选择</option>
+                        <option value="5569547953" <eq name="dataa" value="5569547953">selected</eq> >女装</option>
+
+                    </select>
+                </div>
+                <div style="float: left; margin-right: 20px;" id="tim">
+                    <input type="text" readonly style="width: 320px" name="time" id="reservationtime" class="form-control" value="{$time}" />
+                </div>
+                <div class="form-group input-group">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="submit"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+
+                </div>
+                </form>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                <tr>
+                                    <th>标题</th>
+                                    <th style='width:150px;'>阅读数量</th>
+                                    <th style='width:320px;'>时间</th>
+                                    <th style='width:100px;'><i class="fa fa-gear fa-fw"></i></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <volist name='list' id='vo'>
+                                    <tr>
+                                        <td><a href="{$vo.链接}" target="_blank">{$vo.标题}</a> </td>
+                                        <td>{$vo.阅读数}</td>
+                                        <td>{$vo.时间|date="Y-m-d H:i:s",###}</td>
+                                        <td>
+                                            <a href="http://tao.taodianke.com/Admin/Order/GetNews.html?url={$vo.链接}" target="_blank">查看商品</a>
+                                        </td>
+                                    </tr>
+                                </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <ul class="pagination">
+                            {$pages}
+                        </ul>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <!-- /.panel -->
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+</div>
+<include file="Common:footer" />
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //
+            $('#tim input').html(moment().subtract('hours', 2).format('YYYY-MM-DD HH:mm:ss') + ' - ' + moment().format('YYYY-MM-DD HH:mm:ss'));
+            //datetimepicker
+            //$('#reservation').daterangepicker(null, function(start, end, label) {
+            //    console.log(start.toISOString(), end.toISOString(), label);
+           // });
+            $('#reservationtime').daterangepicker({
+                        format: 'YYYY-MM-DD HH:mm:ss',
+                        maxDate : moment(), //最大时间
+                        dateLimit : {
+                            days : 30
+                        }, //起止时间的最大间隔
+                        showDropdowns : true,
+                        showWeekNumbers : false, //是否显示第几周
+                        timePicker : true, //是否显示小时和分钟
+                        timePickerIncrement : 60, //时间的增量，单位为分钟
+                        timePicker12Hour : false, //是否使用12小时制来显示时间
+                        ranges : {
+                            //'最近1小时': [moment().subtract('hours',1), moment()],
+                            '今日': [moment().startOf('day'), moment()],
+                            '昨日': [moment().subtract('days', 1).startOf('day'), moment().subtract('days', 1).endOf('day')],
+                            '最近3日': [moment().subtract('days', 3), moment()],
+                            '最近7日': [moment().subtract('days', 6), moment()]
+                        }
+                    },
+                    function(start, end, label) {
+                        console.log(start.toISOString(), end.toISOString(), label);
+                    });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function (){
+            //时间插件
+            $('#reportrange span').html(moment().subtract('hours', 2).format('YYYY-MM-DD HH:mm:ss') + ' - ' + moment().format('YYYY-MM-DD HH:mm:ss'));
+
+            $('#reportrange').daterangepicker(
+                    {
+                        // startDate: moment().startOf('day'),
+                        //endDate: moment(),
+                        //minDate: '01/01/2012',	//最小时间
+                        maxDate : moment(), //最大时间
+                        dateLimit : {
+                            days : 30
+                        }, //起止时间的最大间隔
+                        showDropdowns : true,
+                        showWeekNumbers : false, //是否显示第几周
+                        timePicker : true, //是否显示小时和分钟
+                        timePickerIncrement : 60, //时间的增量，单位为分钟
+                        timePicker12Hour : false, //是否使用12小时制来显示时间
+                        ranges : {
+                            //'最近1小时': [moment().subtract('hours',1), moment()],
+                            '今日': [moment().startOf('day'), moment()],
+                            '昨日': [moment().subtract('days', 1).startOf('day'), moment().subtract('days', 1).endOf('day')],
+                            '最近7日': [moment().subtract('days', 6), moment()],
+                        },
+                        opens : 'right', //日期选择框的弹出位置
+                        buttonClasses : [ 'btn btn-default' ],
+                        applyClass : 'btn-small btn-primary blue',
+                        cancelClass : 'btn-small',
+                        format : 'YYYY-MM-DD HH:mm:ss', //控件中from和to 显示的日期格式
+                        separator : ' to ',
+                        locale : {
+                            applyLabel : '确定',
+                            cancelLabel : '取消',
+                            fromLabel : '起始时间',
+                            toLabel : '结束时间',
+                            customRangeLabel : '自定义',
+                            daysOfWeek : [ '日', '一', '二', '三', '四', '五', '六' ],
+                            monthNames : [ '一月', '二月', '三月', '四月', '五月', '六月',
+                                '七月', '八月', '九月', '十月', '十一月', '十二月' ],
+                            firstDay : 1
+                        }
+                    });
+
+            //设置日期菜单被选项  --开始--
+            /*
+             var dateOption ;
+             if("${riqi}"=='day') {
+             dateOption = "今日";
+             }else if("${riqi}"=='yday') {
+             dateOption = "昨日";
+             }else if("${riqi}"=='week'){
+             dateOption ="最近7日";
+             }else if("${riqi}"=='month'){
+             dateOption ="最近30日";
+             }else if("${riqi}"=='year'){
+             dateOption ="最近一年";
+             }else{
+             dateOption = "自定义";
+             }
+             $(".daterangepicker").find("li").each(function (){
+             if($(this).hasClass("active")){
+             $(this).removeClass("active");
+             }
+             if(dateOption==$(this).html()){
+             $(this).addClass("active");
+             }
+             });*/
+            //设置日期菜单被选项  --结束--
+        })
+    </script>

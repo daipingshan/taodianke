@@ -1,0 +1,141 @@
+<include file="Common:header"/>
+<include file="Common:nav"/>
+<link rel="stylesheet" href="/Public/Char/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Public/Char/css/style.css">
+<style>@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");</style>
+<link rel="stylesheet" href="__CSS_PATH__/top_items.css?v={:time()}">
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/Public/Char/js/bootstrap.min.js"></script>
+<script src="/Public/Char/js/jquery.pin.min.js"></script>
+<script src="/Public/Char/js/raphael-min.js"></script>
+<script src="/Public/Char/js/morris.js"></script>
+<Script src="/Public/Char/js/moment.js"></Script>
+<script src="/Public/Char/js/daterangepicker.js"></script>
+<div id="page-wrapper">
+    <include file="Common:message_tip"/>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">微头条选品库</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form>
+                <div class="col-lg-4">
+                    <input type="text" class="form-control" name='keyword' value="{:I('get.keyword')}"
+                           placeholder="宝贝查询">
+                </div>
+                <div class="col-lg-4">
+                    <select name="sort" class="form-control">
+                        <option value="0">请选择排序方式</option>
+                        <option value="1"
+                        <if condition="I('get.sort') eq 1">selected</if>
+                        >按照价格从高到低</option>
+                        <option value="2"
+                        <if condition="I('get.sort') eq 2">selected</if>
+                        >按照价格从低到高</option>
+                        <option value="3"
+                        <if condition="I('get.sort') eq 3">selected</if>
+                        >按照佣金比率从高到低</option>
+                        <option value="4"
+                        <if condition="I('get.sort') eq 4">selected</if>
+                        >按照佣金比率从低到高</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-danger">宝贝查询</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <volist name="data" id="row">
+            <div class="col-lg-12" style="margin-top: 20px">
+                <volist name="row" id="vo">
+                    <div class="col-lg-3 box">
+                        <div class="img">
+                            <img class="lazy" data-original="{$vo.pic}">
+                            <div class="intro">
+                                {$vo.desc}
+                            </div>
+                        </div>
+                        <div class="content">
+                            <a href="{$vo.coupon_url}" target="_blank"><h5>{$vo.title}</h5></a>
+                            <a href="{$vo.coupon_url}" target="_blank"><p>{$vo.short_title}</p></a>
+                            <div class="col-lg-12 no-padding">
+                                <div class="col-lg-4 no-padding" style="font-size: 18px;color: #FF420F;">
+                                    <b>￥{$vo.coupon_price}</b>
+                                </div>
+                                <div class="col-lg-4 no-padding" style="font-size: 14px;color: #999;">
+                                    <i>￥{$vo.price}</i>
+                                </div>
+                                <div class="col-lg-4 no-padding" style="font-size: 14px;color: #FF420F;">
+                                    <b>{$vo.commission_rate}%</b>
+                                </div>
+                            </div>
+                            <div class="col-lg-12" style="margin: 20px 0">
+                                <eq name="vo['is_send']" value="Y">
+                                    <button class="btn btn-success" style="width: 100%">已发送</button>
+                                    <else/>
+                                    <button class="btn btn-danger sendItem" style="width: 100%"
+                                            data-id="{$vo.id}">一键发送
+                                    </button>
+                                </eq>
+                            </div>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+        </volist>
+    </div>
+</div>
+<div id="back-to-top" class="iton-top-index" style="position: fixed;bottom: 20px;right: 20px">
+    <a href="#"></a>
+</div>
+<include file="Common:footer"/>
+
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="__JS_PATH__/jquery.lazyload.js"></script>
+<script src="__JS_PATH__/jquery-ui.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var is_add = true
+        $("img.lazy").lazyload({effect: "fadeIn"});
+        $('.sendItem').click(function () {
+            if (is_add === false) {
+                layer.msg('正在请求中...，操作太频繁，请稍后再试！');
+                return false;
+            }
+            var _this = $(this);
+            var id = $(this).data('id');
+            var url = "{:U('sendGoods')}";
+            is_add = false;
+            $.post(url, {id: id}, function (res) {
+                if (res.status == 1) {
+                    _this.removeClass('sendItem btn-danger').addClass('btn-success').text('已发送');
+                } else {
+                    _this.text(res.info);
+                    setTimeout(function () {
+                        _this.text('一键发送');
+                    }, 3000)
+                }
+                is_add = true;
+            });
+        });
+        $("#back-to-top").hide();
+        $(function () {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 100) {
+                    $("#back-to-top").fadeIn(1500);
+                } else {
+                    $("#back-to-top").fadeOut(1500);
+                }
+            });
+            //当点击跳转链接后，回到页面顶部位置
+            $("#back-to-top").click(function () {
+                $('body,html').animate({scrollTop: 0}, 500);
+                return false;
+            });
+        });
+    });
+</script>

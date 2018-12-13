@@ -1,0 +1,462 @@
+#body-content {
+    margin: 20px auto;
+}
+
+#body-content .goods-detail {
+    width: 100%;
+    height: 396px;
+    padding: 15px;
+    border: 1px solid #EEEEEE;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+#body-content .goods-detail .posi {
+    height: 30px;
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 16px;
+    color: #212121;
+    line-height: 15px;
+    margin-bottom: 15px;
+}
+
+#body-content .goods-detail .posi a {
+    color: #FF420F;
+}
+
+#body-content .goods-detail img {
+    width: 300px;
+    height: 300px;
+}
+
+#body-content .goods-detail .goods-info {
+    display: inline-block;
+    float: right;
+    width: 760px;
+    height: 350px;
+    margin-left: 40px;
+}
+
+.goods-detail .goods-info .tit {
+    width: 740px;
+    height: 25px;
+    font-size: 20px;
+    color: #202020;
+    font-weight: bold;
+    margin-bottom: 10px;
+    word-break: keep-all;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.goods-detail .goods-info .intro {
+    width: 740px;
+    height: 56px;
+    font-size: 20px;
+    color: #686868;
+    line-height: 30px;
+    overflow: hidden;
+}
+
+.goods-detail .goods-info .data {
+    width: 450px;
+    height: 80px;
+    background: #EEEEEE;
+    margin-top: 20px;
+    cursor: default;
+}
+
+.goods-detail .goods-info .data .price {
+    line-height: 40px;
+    width: 230px;
+    height: 40px;
+    border-right: 1px solid #686868;
+    display: inline-block;
+    padding-left: 20px;
+    margin-top: 20px;
+}
+
+.goods-detail .goods-info .data .price .price_at {
+    font-size: 26px;
+    color: #FF420F;
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.goods-detail .goods-info .data .price .price_bf {
+    font-size: 16px;
+    color: #686868;
+    text-decoration: line-through;
+}
+
+.goods-detail .goods-info .data .num {
+    width: 180px;
+    display: inline-block;
+    font-size: 12px;
+    color: #686868;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.goods-detail .goods-info .data .num span {
+    display: inline-block;
+}
+
+.goods-detail .goods-info .data .num div {
+    font-size: 16px;
+    color: #FF420F;
+}
+
+.goods-detail .goods-info .quan {
+    width: 230px;
+    height: 60px;
+    font-size: 16px;
+    line-height: 60px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.goods-detail .goods-info .quan .quan_value {
+    width: 114px;
+    height: 56px;
+    border: 2px solid #FF420F;
+    color: #FF420F;
+    display: inline-block;
+    font-size: 20px;
+    line-height: 56px;
+    float: left;
+}
+
+.goods-detail .goods-info .quan .link {
+    display: inline-block;
+    width: 110px;
+    height: 56px;
+    border: 2px solid #FF420F;
+    background: #FF420F;
+    color: #FFFFFF;
+    float: left;
+}
+
+#body-content .goods-share {
+    width: 430px;
+    height: 550px;
+    border: 1px solid #EEEEEE;
+    float: left;
+    padding: 0 20px;
+    position: relative;
+}
+
+#body-content .goods-item {
+    padding: 0 15px;
+    width: 750px;
+    height: 550px;
+    border: 1px solid #EEEEEE;
+    float: right;
+}
+
+#body-content .promote-top {
+    height: 40px;
+    border-bottom: #EEEEEE 1px solid;
+    line-height: 40px;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+#body-content .promote-top .promote-tit {
+    color: #FF420F;
+    font-size: 15px;
+}
+
+#body-content .promote-top .promote-more {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 12px;
+}
+
+#body-content .promote-top .promote-more a {
+    color: #747474;
+}
+
+#body-content .goods-share .share {
+    position: absolute;
+    width: 350px;
+    margin-left: 20px;
+    height: 450px;
+    box-shadow: 0.5px 0.5px 7px 0.5px #C3C3C3;
+    overflow: hidden;
+    top: 60px;
+}
+
+#body-content .goods-share .share-mask {
+    position: absolute;
+    width: 350px;
+    margin-left: 20px;
+    height: 450px;
+    top: 60px;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 9;
+    text-align: center;
+    color: #fff;
+    font-size: 16px;
+    line-height: 450px;
+    display: none;
+}
+
+#body-content .goods-share .share .tui-content {
+    background: #E5F8FF;
+    border-radius: 8px;
+    line-height: 26px;
+    padding: 10px;
+    color: #555555;
+    font-size: 13px;
+    width: 290px;
+    height: 330px;
+    word-wrap: break-word;
+    margin-top: 20px;
+    margin-left: 30px;
+    overflow: auto;
+}
+
+#body-content .goods-share .share .tui-content img {
+    margin-bottom: 10px;
+    max-width: 232px;
+    max-height: 114px;
+}
+
+#body-content .goods-share .share .tui-content .share-mo-ban {
+    display: none;
+}
+
+#body-content .goods-share .share .tui-content .share-mo-ban.active {
+    display: block;
+}
+
+#body-content .goods-share .share .copy {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+    font-size: 15px;
+    background: #FF420F;
+    box-shadow: 0.5px 0.5px 7px 0.5px #FF420F;
+}
+
+#body-content .goods-share .share .zone-box {
+    position: absolute;
+    left: 0;
+    bottom: 50px;
+    width: 100%;
+    text-align: center;
+    z-index: 8;
+}
+
+#body-content .goods-share .share .zone-box.active {
+    display: block;
+}
+
+#body-content .goods-share .share .zone-box .zone {
+    width: 16%;
+    margin-left: 5%;
+    line-height: 20px;
+    height: 20px;
+    overflow: hidden;
+    font-size: 10px;
+    text-align: center;
+    color: #333;
+    background: #eeeeee;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 5px;
+}
+
+#body-content .goods-share .share .zone-box .zone:hover, #body-content .goods-share .share .zone-box .zone.active {
+    color: #FF420F;
+}
+
+#body-content .goods-share .share .zone-box .zone:first-child {
+    margin-left: 0;
+}
+
+.mo-ban-btn {
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #eeeeee;
+    cursor: pointer;
+}
+
+.mo-ban-btn:hover, .mo-ban-btn.active, .update-mo-ban:hover {
+    color: #FF420F;
+}
+
+.update-mo-ban {
+    margin-left: 10px;
+    padding: 5px 10px;
+    border: none;
+    background: #fff;
+    cursor: pointer
+}
+
+.default-color {
+    color: #FF420F;
+}
+
+#mask {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+}
+
+#mask .content {
+    width: 60%;
+    height: 500px;
+    margin: 100px 20%;
+    background: #fff;
+    position: relative;
+}
+
+#mask .content .close {
+    position: absolute;
+    top: -25px;
+    right: -25px;
+}
+
+#mask .mo-ban {
+    padding: 30px 30px;
+    background: #eeeeee;
+    width: 100%;
+    height: 100%;
+}
+
+#mask .mo-ban .mo-ban-left {
+    float: left;
+    width: 50%;
+    height: 100%;
+}
+
+#mask .mo-ban .mo-ban-left .header {
+    padding: 10px 20px;
+    background-color: #fff;
+    height: 100px;
+    color: #666;
+}
+
+#mask .mo-ban .mo-ban-left .header h3 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+#mask .mo-ban .mo-ban-left .header p {
+    font-size: 14px;
+    line-height: 25px;
+}
+
+#mask .mo-ban .mo-ban-left .tag {
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #fff;
+}
+
+#mask .mo-ban .mo-ban-left .tag h3 {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 30px;
+    margin-bottom: 20px;
+}
+
+#mask .mo-ban .mo-ban-left .tag .tag-left {
+    float: left;
+    width: 30%;
+}
+
+#mask .mo-ban .mo-ban-left .tag .tag-center {
+    float: left;
+    width: 50%;
+}
+
+#mask .mo-ban .mo-ban-left .tag .tag-right {
+    float: left;
+    width: 20%;
+}
+
+#mask .mo-ban .mo-ban-left .tag p {
+    font-size: 14px;
+    line-height: 28px;
+}
+
+#mask .mo-ban .mo-ban-left .tag .tag-left p {
+    color: #333;
+}
+
+#mask .mo-ban .mo-ban-left .tag .tag-center p {
+    color: #666;
+}
+
+#mask .mo-ban .mo-ban-left .tag .tag-right p {
+    color: #999;
+}
+
+#mask .mo-ban .mo-ban-right {
+    float: right;
+    width: 40%;
+}
+
+#mask .mo-ban .mo-ban-right .header {
+    background-color: #fff;
+    height: 50px;
+    border-bottom: 1px solid #eeeeee;
+    padding-top: 10px;
+}
+
+#mask .mo-ban .mo-ban-right .save-mo-ban {
+    background-color: #fff;
+    height: 320px;
+    position: relative;
+}
+
+#mask .mo-ban .mo-ban-right .save-mo-ban .textarea {
+    display: none;
+}
+
+#mask .mo-ban .mo-ban-right .save-mo-ban .show {
+    display: block;
+}
+
+#mask .mo-ban .mo-ban-right .save-mo-ban .text {
+    padding: 20px;
+    width: 100%;
+    height: 300px;
+}
+
+#mask .mo-ban .mo-ban-right .save-mo-ban .save-btn {
+    position: absolute;
+    bottom: -25px;
+    left: 43%;
+    width: 50px;
+    height: 50px;
+    color: #fff;
+    background: #FF420F;
+    font-size: 16px;
+    line-height: 50px;
+    border-radius: 50%;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+

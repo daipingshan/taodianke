@@ -1,0 +1,60 @@
+<style>
+    .col-xs-2{
+        width:14%;
+    }
+</style>
+<div class="row">
+    <div class="panel panel-default col-sm-12">
+        <div class="panel-heading">
+            <h3 class="panel-title">搜索用户</h3>
+            <div class="panel-options">
+                <a href="#" data-toggle="panel">
+                    <span class="collapse-icon">–</span>
+                    <span class="expand-icon">+</span>
+                </a>
+                <a href="#" data-toggle="remove">×</a>
+            </div>
+        </div>
+        <form method="get" action="{:U('User/biYou')}">
+            <div class="panel-body">
+                <div class="row col-margin">
+                    <div class="col-xs-2">
+                        <input type="text" name="pid" class="form-control" placeholder="用户pid"
+                        <if condition="I('get.pid') neq '' ">
+                            value='{$data['pid']}'
+                        </if>
+                        />
+                    </div>
+
+
+                    <div class="col-xs-2">
+                        <input type="text" name="username" class="form-control" placeholder="姓名"
+                        <if condition="I('get.username') neq '' ">
+                            value='{$data['username']}'
+                        </if>
+                        />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" name="mobile" class="form-control" placeholder="电话号码"
+                        <if condition="I('get.mobile') neq '' ">
+                            value='{$data['mobile']}'
+                        </if>
+                        />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control datepicker" name="reg_time" placeholder="请输入注册时间"
+                        <if condition="I('get.reg_time') neq '' ">
+                            value='{$data['reg_time']}'
+                        </if>
+                        >
+                    </div>
+
+                    <div class="col-xs-2">
+                        <input type="submit"  class="btn btn-secondary btn-single" value="搜索" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="__JS__/datepicker/bootstrap-datepicker.js"></script>

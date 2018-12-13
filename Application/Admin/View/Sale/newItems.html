@@ -1,0 +1,307 @@
+<include file="Common:header"/>
+<include file="Common:nav"/>
+<link rel="stylesheet" href="/Public/Char/css/style.css?v={:time()}">
+<link rel="stylesheet" href="__CSS_PATH__/top_items.css?v={:time()}">
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/Public/Char/js/morris.js"></script>
+<Script src="/Public/Char/js/moment.js"></Script>
+<script src="/Public/Char/js/daterangepicker.js"></script>
+<style>
+    body {
+        padding-bottom: 0;
+    }
+
+    .col-lg-3 {
+        width: 23%
+    }
+
+    #page div > span {
+        display: inline-block;
+        line-height: 70px;
+    }
+</style>
+<div id="page-wrapper">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">特卖商品库</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name='title' value="{:I('get.title')}"
+                           placeholder="商品关键字">
+                </div>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name='shop_name' value="{:I('get.shop_name')}"
+                           placeholder="商铺名称">
+                </div>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name='shop_goods_id' value="{:I('get.shop_goods_id')}"
+                           placeholder="商品id">
+                </div>
+                <div class="col-lg-3">
+                    <input type="text" readonly name="time" id="reservation" class="form-control" value="{$time}"
+                           placeholder="商品上线时间范围"/>
+                </div>
+                <div class="col-lg-3">
+                    <select name="sort" class="form-control">
+                        <option value="0">默认排序</option>
+                        <option value="1"
+                        <if condition="I('get.sort') eq 1">selected</if>
+                        >热度从高到低</option>
+                        <option value="2"
+                        <if condition="I('get.sort') eq 2">selected</if>
+                        >热度从低到高</option>
+                        <option value="3"
+                        <if condition="I('get.sort') eq 3">selected</if>
+                        >销量从高到低</option>
+                        <option value="4"
+                        <if condition="I('get.sort') eq 4">selected</if>
+                        >销量从低到高</option>
+                        <option value="5"
+                        <if condition="I('get.sort') eq 5">selected</if>
+                        >佣金从高到低</option>
+                        <option value="6"
+                        <if condition="I('get.sort') eq 6">selected</if>
+                        >佣金从低到高</option>
+                        <option value="7"
+                        <if condition="I('get.sort') eq 7">selected</if>
+                        >价格从高到低</option>
+                        <option value="8"
+                        <if condition="I('get.sort') eq 8">selected</if>
+                        >价格从低到高</option>
+                    </select>
+                </div>
+                <br>
+                <br>
+                <div class="col-lg-2" style="position: relative">
+                    <input type="number" name="cos_ratio_up" class="form-control" value="{:I('get.cos_ratio_up')}"
+                           placeholder="佣金起始值"><span
+                        style="position: absolute;top: 0;right: 0;line-height: 34px">%</span>
+                </div>
+                <div class="col-lg-2" style="position: relative">
+                    <input type="number" name="cos_ratio_down" class="form-control"
+                           value="{:I('get.cos_ratio_down')}" placeholder="佣金结束值"><span
+                        style="position: absolute;top: 0;right: 0;line-height: 34px">%</span>
+                </div>
+                <div class="col-lg-2" style="position: relative">
+                    <input type="number" name="sku_price_up" class="form-control" value="{:I('get.sku_price_up')}"
+                           placeholder="价格起始值"><span
+                        style="position: absolute;top: 0;right: 0;line-height: 34px">元</span>
+                </div>
+                <div class="col-lg-2" style="position: relative">
+                    <input type="number" name="sku_price_down" class="form-control"
+                           value="{:I('get.sku_price_down')}" placeholder="价格结束值"><span
+                        style="position: absolute;top: 0;right: 0;line-height: 34px">元</span>
+                </div>
+                <div class="col-lg-4" style="text-align: center">
+                    <button type="submit" class="btn btn-danger">宝贝查询</button>
+                    <if condition="$_SESSION['AdminInfo']['id'] eq 0">
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#add-modal">采集商品
+                        </button>
+                    </if>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div id="content">
+        <div class="row">
+            <volist name="data" id="row">
+                <div class="col-lg-12" style="margin-top: 20px">
+                    <volist name="row" id="vo">
+                        <div class="col-lg-3 box">
+                            <div class="img">
+                                <img src="{$vo.figure}" style="margin: 0 10%;width: 80%">
+                                <a href="{$vo.sku_url}" target="_blank">
+                                    <div class="intro">
+                                        {$vo.sku_title}
+                                    </div>
+                                </a>
+                                <eq name="vo.is_new" value="1">
+                                    <button class="btn btn-success"
+                                            style="position: absolute;top: 0;right: 0;border-radius: 0">
+                                        新品
+                                    </button>
+                                </eq>
+                            </div>
+                            <div class="content" style="margin: 0 5%">
+                                <h6 style="margin: 10px 0">{$vo['shop_name']}</h6>
+                                <div class="col-lg-12 no-padding type-time">
+                                    <div class="col-lg-5 no-padding" style="font-size: 16px;color: #FF420F;">
+                                        <b>￥{$vo.sku_price}</b>
+                                    </div>
+                                    <div class="col-lg-7 no-padding time" style="font-size: 12px; !important;">
+                                        热度：<b style="color: #FF420F">{$vo['hotrank']}</b>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 no-padding type-time">
+                                    <div class="col-lg-5 no-padding" style="font-size: 12px;">
+                                        佣金比率：<b style="color: #FF420F">{$vo['cos_ratio']*100}%</b>
+                                    </div>
+                                    <div class="col-lg-7 no-padding time" style="font-size: 12px; !important;">
+                                        预估：<b style="color: #FF420F">￥{$vo['cos_fee']}</b>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 no-padding type-time" style="font-size: 12px">
+                                    商品编号：<a href="{:U('Sale/itemsList')}?shop_goods_id={$vo['platform_sku_id']}"
+                                            target="_blank"
+                                            id="copy-{$vo.platform_sku_id}">{$vo.platform_sku_id}</a>
+                                </div>
+
+                                <div class="col-lg-12 add-btn" style="margin: 20px 0;position: relative">
+                                    <button class="btn btn-danger copy copy-{$vo.platform_sku_id}" style="width: 100%"
+                                            data-class=".copy-{$vo.platform_sku_id}"
+                                            data-id="copy-{$vo.platform_sku_id}">复制商品编号
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </volist>
+                </div>
+            </volist>
+        </div>
+        <div id="page">
+            <hr/>
+            <div style="width: 80%;margin: 0 auto">
+                <ul style="width: 100%;">
+                    {$page}
+                    <div style="clear: both"></div>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 模态框（Modal） -->
+    <div class="modal fade" id="add-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">商品采集器</h4>
+                </div>
+                <form class="bs-example bs-example-form" role="form">
+                    <div class="modal-body">
+                        <div style="width: 100%;height: 200px;border: 1px solid #ccc;padding: 10px 20px;overflow: auto"
+                             id="info">
+                            显示商品采集过程中的交互信息
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                        <button type="button" class="btn btn-primary" id="add">立即采集</button>
+                        <button type="button" class="btn btn-danger" id="stop">停止</button>
+                    </div>
+                </form>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+<include file="Common:footer"/>
+<script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js" type="text/javascript"
+        charset="utf-8"></script>
+<script>
+    $('#reservation').daterangepicker(null, function (start, end, label) {
+    });
+    // 定义一个新的复制对象
+    var ClipboardSupport = 0;
+    if (typeof Clipboard != "undefined") {
+        ClipboardSupport = 1;
+    } else {
+        ClipboardSupport = 0;
+    }
+    $('.copy').click(function (e) {
+        copyFunction($(this).data('class'), $(this));
+    });
+    var status = 0;
+    var num = 0;
+    var url = "{:U('ajaxCollectionItem')}";
+    var page = 1;
+    $('#add').click(function () {
+        status = 1;
+        $(this).attr('disabled', true).text('正在采集中……');
+        getItems();
+    });
+    function getItems() {
+        if (status == 1) {
+            $.get(url, {page: page}, function (res) {
+                if (page == 1 && num == 0) {
+                    $('#info').html("<p>" + res.info.info + "<p>");
+                } else {
+                    $('#info').append("<p>" + res.info.info + "<p>");
+                    $('#info').scrollTop($('#info')[0].scrollHeight);
+                }
+
+                if (res.info.code == 1) {
+                    page++;
+                    getItems();
+                } else {
+                    if (res.info.code == 0 && num < 3) {
+                        num++;
+                        getItems();
+                    } else {
+                        status = 0;
+                        $('#add').removeAttr('disabled').text('立即采集');
+                    }
+                }
+            });
+        } else {
+            $('#info').append("<br>已停止");
+            $('#info').scrollTop($('#info')[0].scrollHeight);
+        }
+    }
+    $('#stop').click(function () {
+        if (status == 1) {
+            status = 0;
+            $('#add').removeAttr('disabled').text('立即采集');
+        }
+    });
+    var copyFunction = function (copyBtn, obj) {
+        if (ClipboardSupport == 0) {
+            obj.css({
+                'background': '#999',
+                'font-size': '10px',
+            }).text('浏览器版本过低，请升级或更换浏览器后重新复制');
+            setTimeout(function () {
+                obj.css({
+                    'background': '#d9534f',
+                    'font-size': '15px',
+                }).text('复制商品编号');
+            }, 5000)
+        } else {
+            var clipboard = new Clipboard(copyBtn, {
+                target: function () {
+                    return document.getElementById(obj.data('id'));
+                }
+            });
+            clipboard.on('success', function (e) {
+                obj.css({
+                    'background': '#449d44',
+                }).text('复制成功');
+                setTimeout(function () {
+                    obj.css({
+                        'background': '#d9534f',
+                        'font-size': '15px',
+                    }).text('复制商品编号');
+                }, 5000)
+                e.clearSelection();
+            });
+            clipboard.on('error', function (e) {
+                obj.css({
+                    'background': '#999',
+                    'font-size': '10px',
+                }).text('复制失败，请升级或更换浏览器后重新复制');
+                setTimeout(function () {
+                    obj.css({
+                        'background': '#d9534f',
+                        'font-size': '15px',
+                    }).text('复制商品编号');
+                }, 5000)
+                e.clearSelection();
+            });
+        }
+    }
+
+
+</script>

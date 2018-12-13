@@ -1,0 +1,348 @@
+<include file="Public/header" title="我的推广商品" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">我的商品推广</h1>
+                <p class="description">显示所有我的已认领推广订单</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>菜单管理 </strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" id="error" style="display:none">
+                    <strong></strong>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-body">
+                    <div class="row col-margin">
+                        <div class="col-md-12">
+                            <form action="{:U('Deal/dealList',array('status'=>$status))}" method="get" role="form" class="form-inline">
+                                <div class="row">
+                                    <if condition="session('position_level') eq 'manager'">
+                                        <div class="col-sm-2">
+                                            <select name="department_id" class="form-control" onchange="getAdminUser(this.value);">
+                                                <option value="">所属部门</option>
+                                                <foreach name="department" item="v" key="k">
+                                                    <option value="{$k}"
+                                                    <if condition="I('get.department_id') eq $k">selected</if>
+                                                    >{$v}</option>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <select name="admin_id" class="form-control" id="admin-user">
+                                                <option value="">所属员工</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select name="claim_status" class="form-control">
+                                                <option value="">认领状态</option>
+                                                <option value="Y"
+                                                <if condition="I('get.claim_status') eq 'Y'">selected</if>
+                                                >已认领</option>
+                                                <option value="N"
+                                                <if condition="I('get.claim_status') eq 'N'">selected</if>
+                                                >未认领</option>
+                                            </select>
+                                        </div>
+                                    </if>
+                                    <if condition="session('position_level') eq 'middle'">
+                                        <div class="col-sm-2">
+                                            <select name="admin_id" class="form-control">
+                                                <option value="">所属员工</option>
+                                                <foreach name="admin_user" item="v" key="k">
+                                                    <option value="{$k}"
+                                                    <if condition="I('get.admin_id') eq $k">selected</if>
+                                                    >{$v}</option>
+                                                </foreach>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2">
+                                            <select name="claim_status" class="form-control">
+                                                <option value="">认领状态</option>
+                                                <option value="Y"
+                                                <if condition="I('get.claim_status') eq 'Y'">selected</if>
+                                                >已认领</option>
+                                                <option value="N"
+                                                <if condition="I('get.claim_status') eq 'N'">selected</if>
+                                                >未认领</option>
+                                            </select>
+                                        </div>
+                                    </if>
+                                </div>
+                                <div class="row" style="margin-top: 20px">
+                                    <div class="col-md-2">
+                                        <input type="text" name="tao_bao_id" value="{:I('get.tao_bao_id')}" class="form-control" placeholder="请输入淘宝商品ID搜索" />
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="text" name="keyword" value="{:I('get.keyword')}" class="form-control" placeholder="请输入商品关键字搜索" />
+                                    </div>
+                                    <div class="col-md-2">
+                                        <input type="submit" class="btn btn-secondary btn-single" value='查询'>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs nav-tabs-justified">
+                            <li
+                            <if condition="$status eq ing"> class="active"</if>
+                            >
+                            <a href="{:U('deal/dealList',array('status'=>'ing','department_id' => I('get.department_id'), 'admin_id' => I('get.admin_id'), 'claim_status' => I('get.claim_status'), 'tao_bao_id' => I('get.tao_bao_id'), 'keyword' =>I('get.keyword')))}">
+                                <span class="visible-xs"><i class="fa-home"></i></span>
+                                <span class="hidden-xs">进行中({$status_num['ing']})</span>
+                            </a>
+                            </li>
+                            <li
+                            <if condition="$status eq finished"> class="active"</if>
+                            >
+                            <a href="{:U('deal/dealList',array('status'=>'finished','department_id' => I('get.department_id'), 'admin_id' => I('get.admin_id'), 'claim_status' => I('get.claim_status'), 'tao_bao_id' => I('get.tao_bao_id'), 'keyword' =>I('get.keyword')))}">
+                                <span class="visible-xs"><i class="fa-user"></i></span>
+                                <span class="hidden-xs">已结束({$status_num['finished']})</span>
+                            </a>
+                            </li>
+                            <li
+                            <if condition="$status eq reject"> class="active"</if>
+                            >
+                            <a href="{:U('deal/dealList',array('status'=>'reject','department_id' => I('get.department_id'), 'admin_id' => I('get.admin_id'), 'claim_status' => I('get.claim_status'), 'tao_bao_id' => I('get.tao_bao_id'), 'keyword' =>I('get.keyword')))}">
+                                <span class="visible-xs"><i class="fa-envelope-o"></i></span>
+                                <span class="hidden-xs">拒绝上线({$status_num['reject']})</span>
+                            </a>
+                            </li>
+                            <li
+                            <if condition="$status eq bad"> class="active"</if>
+                            >
+                            <a href="{:U('deal/dealList',array('status'=>'bad','department_id' => I('get.department_id'), 'admin_id' => I('get.admin_id'), 'claim_status' => I('get.claim_status'), 'tao_bao_id' => I('get.tao_bao_id'), 'keyword' =>I('get.keyword')))}">
+                                <span class="visible-xs"><i class="fa-cog"></i></span>
+                                <span class="hidden-xs">异常订单({$status_num['bad']})</span>
+                            </a>
+                            </li>
+                            <li
+                            <if condition="$status eq apply_settle"> class="active"</if>
+                            >
+                            <a href="{:U('deal/dealList',array('status'=>'apply_settle','department_id' => I('get.department_id'), 'admin_id' => I('get.admin_id'), 'claim_status' => I('get.claim_status'), 'tao_bao_id' => I('get.tao_bao_id'), 'keyword' =>I('get.keyword')))}">
+                                <span class="visible-xs"><i class="fa-bell-o"></i></span>
+                                <span class="hidden-xs">已申请结算({$status_num['apply_settle']})</span>
+                            </a>
+                            </li>
+                            <li
+                            <if condition="$status eq pending_paid"> class="active"</if>
+                            >
+                            <a href="{:U('deal/dealList',array('status'=>'pending_paid','department_id' => I('get.department_id'), 'admin_id' => I('get.admin_id'), 'claim_status' => I('get.claim_status'), 'tao_bao_id' => I('get.tao_bao_id'), 'keyword' =>I('get.keyword')))}">
+                                <span class="visible-xs"><i class="fa-bell-o"></i></span>
+                                <span class="hidden-xs">待确认支付({$status_num['pending_paid']})</span>
+                            </a>
+                            </li>
+                            <li
+                            <if condition="$status eq confirmed_paid"> class="active"</if>
+                            >
+                            <a href="{:U('deal/dealList',array('status'=>'confirmed_paid','department_id' => I('get.department_id'), 'admin_id' => I('get.admin_id'), 'claim_status' => I('get.claim_status'), 'tao_bao_id' => I('get.tao_bao_id'), 'keyword' =>I('get.keyword')))}">
+                                <span class="visible-xs"><i class="fa-bell-o"></i></span>
+                                <span class="hidden-xs">已确认支付({$status_num['confirmed_paid']})</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">商品配图</th>
+                                    <th width="15%">价格</th>
+                                    <th width="15%">文案</th>
+                                    <th width="20%">时间</th>
+                                    <th width="12%">部门/用户/商家</th>
+                                    <th width="8%">状态</th>
+                                    <th>备注</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td>
+                                            <img src="{$vo.img_url}" width="80" />
+                                            <br/>
+                                            <a href="{$vo.dataoke_url}" target="_blank" style="color: #00A0E9">大淘客</a>
+                                            <br />
+                                            <a href="{$vo.taobao_url}" target="_blank" style="color: #00A0E9">淘宝</a>
+                                        </td>
+                                        <td>
+                                            商品id：{$vo['taobao_item_id']}<br />
+                                            <span style="color: red">券后价：￥{$vo['coupon_after_price']}元</span><br />
+                                            <span style="color: red">佣金比例：{$vo['commission_ratio']}%</span><br />
+                                            <span style="color: red">优惠券价：￥{$vo['coupon_money']}元</span><br />
+                                            <if condition="($vo['status'] eq 'apple_settle') OR ($vo['status'] eq 'pending_paid') OR ($vo['status'] eq 'confirmed_paid') ">
+                                                <span style="color: red">订单总数：{$vo['order_num']}</span><br />
+                                                <span style="color: red">订单总额：￥{$vo['order_total_money']}元</span><br />
+                                                <span style="color: red">结算金额：￥{$vo['real_settle_money']}元</span><br/>
+                                            </if>
+                                            服务费：<eq name="vo.claim_status" value="Y">
+                                                {$vo.service_fee}
+                                                <eq name="vo.service_fee_type" value="ratio">%
+                                                    <else />
+                                                    元
+                                                </eq>
+                                                <else />
+                                                未认领
+                                            </eq>
+                                        </td>
+                                        <td>{$vo.copy_writer}</td>
+                                        <td>
+                                            提交时间：{$vo.add_time|date='Y-m-d H:i:s',###}<br />
+                                            <span style="color: red">开始时间：{$vo.online_time|date='Y-m-d H:i:s',###}</span><br/>
+                                            <span style="color: red">券结束时间：{$vo.end_time|date='Y-m-d H:i:s',###}</span><br/>
+                                            认领时间：
+                                            <eq name='vo.claim_time' value='0'>未认领
+                                                <else />
+                                                {$vo.claim_time|date='Y-m-d H:i:s',###}
+                                            </eq>
+                                            <br />申请结算时间：
+                                            <eq name='vo.settle_time' value='0'>未申请
+                                                <else />
+                                                {$vo.settle_time|date='Y-m-d H:i:s',###}
+                                            </eq>
+                                            <br />申请支付时间：
+                                            <eq name='vo.paid_time' value='0'>未申请
+                                                <else />
+                                                {$vo.paid_time|date='Y-m-d H:i:s',###}
+                                            </eq>
+                                            <br />财务确认时间：
+                                            <eq name='vo.confirmed_settle_time' value='0'>未确认
+                                                <else />
+                                                {$vo.confirmed_settle_time|date='Y-m-d H:i:s',###}
+                                            </eq>
+                                        </td>
+                                        <td>
+                                            {$department[$vo['department_id']]}<br>
+                                            {$user[$vo['admin_id']]['full_name']}<br>
+                                            <a href="javascript:void(0);" style="color: #00A0E9" onclick="read({$vo['merchant_id']})">
+                                                {$merchant[$vo['merchant_id']]['merchant_name']}<br>
+                                            </a>
+                                            <notempty name="merchant[$vo['merchant_id']]['mobile']">电话: {$merchant[$vo['merchant_id']]['mobile']}<br>
+                                            </notempty>
+                                            <notempty name="merchant[$vo['merchant_id']]['qq']">QQ: {$merchant[$vo['merchant_id']]['qq']}<br>
+                                            </notempty>
+                                            <notempty name="merchant[$vo['merchant_id']]['weixin']">微信: {$merchant[$vo['merchant_id']]['weixin']}<br>
+                                            </notempty>
+                                            <notempty name="merchant[$vo['merchant_id']]['wangwang']">旺旺: {$merchant[$vo['merchant_id']]['wangwang']}</notempty>
+                                        </td>
+                                        <td>
+                                            <span style="color: #00A000" <eq name='vo.status' value='reject'>title="{$vo.status_update_reason}"</eq>><switch name="vo.status">
+                                                <case value="ing">进行中</case>
+                                                <case value="finished">已结束</case>
+                                                <case value="reject">拒绝推广</case>
+                                                <case value="bad">异常</case>
+                                                <case value="apply_settle">已申请结算</case>
+                                                <case value="pending_paid">待确认支付</case>
+                                                <case value="confirmed_paid">已确认支付</case>
+                                                <default />
+                                                未知状态
+                                            </switch></span>
+                                        </td>
+                                        <td>
+                                            <span>大淘客备注：{$vo.dataoke_remark}</span><br/>
+                                            <span>管理员备注：{$vo.remark}</span><br/>
+                                            <if condition="($vo['status'] eq 'bad')">
+                                                <a class="btn btn-warning" style="margin-top: 10px" onclick="cancelUnnormal({$vo['id']});">
+                                                <foant><font>取消异常</font></foant>
+                                            </a>
+                                                <br />
+                                            </if>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <if condition="$data[0] eq ''">
+                            <div style="text-align: center">
+                                没有找到相关内容
+                            </div>
+                        </if>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <include file="Public/footer_Js" />
+    <script>
+        var department_id = "{:I('get.department_id')}";
+        var admin_id = "{:I('get.admin_id')}";
+        if (department_id) {
+            getAdminUser(department_id, admin_id);
+        }
+        function getAdminUser(id, admin_id) {
+            if (!admin_id) {
+                admin_id = 0;
+            }
+            var url = "{:U('Common/ajaxAdminUser')}";
+            $.get(url, {department_id: id}, function (res) {
+                var data = res.data;
+                var html = "<option value=''>所属员工</option>";
+                for (var i = 0; i < data.length; i++) {
+                    if (admin_id == data[i].id) {
+                        html += "<option value='" + data[i].id + "' selected>" + data[i].name + "</option>"
+                    } else {
+                        html += "<option value='" + data[i].id + "'>" + data[i].name + "</option>"
+                    }
+                }
+                $('#admin-user').html(html);
+            });
+        }
+        function cancelUnnormal(id) {
+            var status = confirm('确定取消异常!');
+            if (status) {
+                var post_url = "{:U('Deal/cancelUnnormal')}";
+                var index = "{:U('Deal/dealList',array('status'=>'finished'))}";
+                $.post(post_url, {id: id}, function (res) {
+                    if (res.status == 1) {
+                        $('.alert-success strong').text(res.info);
+                        $('.alert-success').show();
+                        setTimeout(function () {
+                            window.location.href = index;
+                        }, 3000);
+
+                    } else {
+                        $('.alert-danger strong').text(res.info);
+                        $('.alert-danger').show();
+                        setTimeout(function () {
+                            $('.alert-danger').hide();
+                        }, 3000);
+                    }
+                });
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>

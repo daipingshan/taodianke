@@ -1,0 +1,194 @@
+<include file="Public/header" title="用户管理"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">宅猫生活线下店管理</h1>
+                <p class="description">显示所有线下门店</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>门店管理 </strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" id="error" style="display:none">
+                    <strong></strong>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">门店管理</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">id</th>
+                                    <th width="10%">真实姓名</th>
+                                    <th width="20%">门店名称</th>
+                                    <th width="30%">门店地址</th>
+                                    <th width="10%">抵扣总额</th>
+                                    <th width="20%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td>{$vo.real_name}</td>
+                                        <td>{$vo.user_remark}</td>
+                                        <td>{$vo.address}</td>
+                                        <td>{$vo.money}</td>
+                                        <td>
+                                            <a href="javascript:;" class="btn btn-info btn-sm set-store"
+                                               data-id="{$vo.id}" data-address="{$vo.address}"
+                                               data-remark="{$vo.user_remark}" data-name="{$vo.real_name}">编辑店主</a>
+                                            <a href="{:U('cashier',array('store_id'=>$vo['id']))}"
+                                               class="btn btn-danger btn-sm">查看收银员</a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+    <!-- 添加推广位 -->
+    <div class="modal fade" id="set-store">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">设置店主</h4>
+                </div>
+
+                <div class="modal-body">
+                    <input type="hidden" id="user_id" value="">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">真实姓名</label>
+                                <input type="text" name="realname" id="realname" class="form-control"
+                                       placeholder="请输入真实姓名">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">店铺名称</label>
+                                <input type="text" name="user_remark" id="user_remark" class="form-control"
+                                       placeholder="请输入店铺名称">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">店铺地址</label>
+                                <input type="text" name="address" id="address" class="form-control"
+                                       placeholder="请输入店铺地址">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label error-tip" style="color: red"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info" id="set-store-btn">确认</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('.set-store').click(function () {
+        $('#user_id').val($(this).data('id'));
+        $('#realname').val($(this).data('name'));
+        $('#address').val($(this).data('address'));
+        $('#user_remark').val($(this).data('remark'));
+        jQuery('#set-store').modal('show', {backdrop: 'static'});
+    });
+
+    $('#realname,#address,#user_remark').focus(function () {
+        $('.error-tip').text('');
+    });
+
+    $('#set-store-btn').click(function () {
+        var id = $('#user_id').val();
+        var realname = $('#realname').val();
+        var user_remark = $('#user_remark').val();
+        var address = $('#address').val();
+        if (!realname) {
+            $('.error-tip').text('请输入真实姓名！');
+            return false;
+        }
+        if (!user_remark) {
+            $('.error-tip').text('请输入店铺名称！');
+            return false;
+        }
+        if (!address) {
+            $('.error-tip').text('请输入店铺地址！');
+            return false;
+        }
+        $.post("{:U('setStore')}", {
+            id: id,
+            realname: realname,
+            user_remark: user_remark,
+            address: address
+        }, function (res) {
+            $('.error-tip').text(res.info);
+            if (res.status == 1) {
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+            }
+        })
+    })
+</script>
+<include file="Public/footer_Js"/>

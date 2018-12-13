@@ -1,0 +1,122 @@
+<include file="Public/header" title="订单管理" keywords="开源WEB开发框架" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">订单列表</h1>
+                <p class="description">搜索出来的订单结果</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li> <a href="/AppAdmin/"><i class="fa-home"></i>主页</a> </li>
+                    <li class="active"> 订单管理 </li>
+                    <li class="active"> <strong>搜索结果</strong> </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">搜索订单</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">
+                            ×
+                        </a>
+                    </div>
+                </div>
+                <form method="get" action="searchOrder">
+                    <div class="panel-body">
+                        <div class="row col-margin">
+                            <div class="col-xs-2">
+                                <input type="text" name="id"  class="form-control" placeholder="订单号"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" name="title"  class="form-control" placeholder="商品名称"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" name="itemid"  class="form-control" placeholder="商品ID"/>
+                            </div>
+                            <div class="col-xs-1">
+                                <input type="submit"  class="btn btn-secondary btn-single" value="搜索" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">订单:{$count}   订单总额：￥{$amount}元</h3>
+                        <div class="panel-options"> <a href="#"> <i class="linecons-cog"></i> </a> <a href="#" data-toggle="panel"> <span class="collapse-icon">&ndash;</span> <span class="expand-icon">+</span> </a> <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a> <a href="#" data-toggle="remove"> &times; </a> </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                             <thead>
+                <tr>
+                  <th data-priority="1">订单编号</th>
+                  <th data-priority="8">推广用户</th>
+                  <th data-priority="2">商品标题</th>
+                  <th data-priority="3">购买数量</th>
+                  <th data-priority="4">佣金比率</th>
+                  <th data-priority="4">实际收入</th>
+                  <th data-priority="6">创建时间</th>
+                  <th data-priority="7">结算时间</th>
+                  <th data-priority="8">支付状态</th>
+
+                  <th data-priority="9">订单类型</th>
+                </tr>
+              </thead>
+              <tbody>
+                <foreach name="list" item="vo" >
+                  <tr>
+                    <td>{$vo.order_id}</td>
+                    <td>{$vo.realname}</td>
+                    <th><a href="https://item.taobao.com/item.htm?id={$vo.item_id}" target="_blank">{$vo.title}</a></th>
+                    <td>{$vo.number}</td>
+                    <td>{$vo.commission_rate}%</td>
+                    <td>{$vo.fee}</td>
+                    <td>{$vo.create_time}</td>
+                    <td>{$vo.earning_time}</td>
+                    <td>
+                    	<switch name="vo.pay_status">
+                        	<case value="settle">订单结算</case>
+                            <case value="success">订单成功</case>
+                            <case value="paid">订单付款</case>
+                            <case value="fail">订单失效</case>
+    						<default />未知订单
+                        </switch >
+                   </td>
+
+                    <td>{$vo.order_type}</td>
+                  </tr>
+                </foreach>
+              </tbody>
+                            </table>
+
+                        </div>
+                        <div class="page"><ul class="pagination">{$page}</ul></div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+
+    <include file="Public/footer_Js" />
+</div>

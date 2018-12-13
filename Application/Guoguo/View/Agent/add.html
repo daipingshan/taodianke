@@ -1,0 +1,162 @@
+<include file="Common:header" />
+<include file="Common:nav" />
+
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">添加代理商</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li><a href="#">代理商管理</a></li>
+                <li class="active">添加代理商</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-10">
+                            <form role="form" id='check-form' method='post' action="{:U('Agent/add')}">
+                                <div class="form-group">
+                                    <label>登录名</label>
+                                    <input class="form-control" name='agent[username]' type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>登录密码</label>
+                                    <input class="form-control" name='agent[password]' type="text">
+                                </div>
+
+                                <div class="form-group">
+                                    <label>姓名</label>
+                                    <input class="form-control" name='agent[realname]'  type="text" >
+                                </div>
+                                <div class="form-group">
+                                    <label>手机号码</label>
+                                    <input class="form-control" name='agent[mobile]'  type="text" >
+                                </div>
+                                <div class="form-group">
+                                    <label>运营区域 &nbsp;&nbsp;&nbsp;<span id='agent-category-load-tip' class="label label-info"></span></label>
+                                    <div class="col-lg-12">
+                                        <div class="col-lg-3">
+                                            <select id="agent-province-id" load_select_id='#agent-city-id' class="form-control agent-category-op" name='agent[province_id]' load_href="{:U('Agent/get_c_cate_by_fid')}">
+                                                <option value=''>--请选择--</option>
+                                                <volist name="f_cate_list" id="fcl">
+                                                    <option value="{$fcl.id}" <if condition="$data.province_id eq $fcl['id']"> selected='selected' </if> >{$fcl.name}</option>
+                                                </volist>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <select id="agent-city-id" select_value='{$data.city_id}' load_select_id='#agent-area-id' class="form-control agent-category-op" name='agent[city_id]' load_href="{:U('Agent/get_c_cate_by_fid')}">
+                                                <option value=''>--请选择--</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <select id="agent-area-id" select_value='{$data.area_id}' load_select_id='#agent-c-id' class="form-control agent-category-op" name='agent[area_id]' load_href="{:U('Agent/get_c_cate_by_fid')}">
+                                                <option value=''>--请选择--</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- <div class="form-group">
+                                    <label>个人地址</label>
+                                    <input class="form-control" name='agent[address]'  type="text" >
+                                </div> -->
+                                <hr>
+                                <div class="form-group">
+                                    <label>开户行</label>
+                                    <input class="form-control" name='agent[bank_name]' value='' type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>开户名</label>
+                                    <input class="form-control" name='agent[bank_user]' value='' type="text">
+                                </div>
+                                <div class="form-group">
+                                    <label>银行账户</label>
+                                    <input class="form-control" name='agent[bank_no]' value='' type="text">
+                                </div>
+                                <div class="form-group">
+                                    <input type="button" onclick="return ajax_check_submit_from(this);" check_url="{:U('Agent/check_add_edit_data')}" id="btn-add-edit-goods"  class="btn btn-primary" value="提交"/>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-lg-1"></div>
+                    </div>
+                    <!-- /.row (nested) -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />
+<script>
+// 图片上传
+var UPLOAD_URL = "{:U('Goods/uploadImg',array('type'=>'DDHomeAgentImage'))}";
+
+$(function() {
+    // 代理商团单列表 根据选择的城市 返回代理商
+    $('select.agent-category-op').change(function() {
+        var $this = $(this);
+        var fid = $this.val();
+        var href = $this.attr('load_href');
+        var op_obj_id = $this.attr('load_select_id');
+        var $op_obj = $(op_obj_id);
+        var op_select_value = $op_obj.attr('select_value');
+        if (!fid) {
+            return false;
+        }
+        if (!href) {
+            return false;
+        }
+        if (!op_obj_id) {
+            return false;
+        }
+        if ($this.hasClass('disabled')) {
+            return false;
+        }
+        $this.addClass('disabled');
+        $this.attr('disabled', true);
+        $('#agent-category-load-tip').html('正在加载子分类,请稍后...');
+        $op_obj.html("<option value=''>--请选择--</option>");
+        $.post(href, {fid: fid}, function(res) {
+            $this.removeClass('disabled');
+            $this.attr('disabled', false);
+            $('#agent-category-load-tip').html('');
+            if (res.code == 0 && res.data) {
+                var option_arr = [];
+                option_arr.push("<option value=''>--请选择--</option>");
+                for (var i = 0; i < res.data.length; i++) {
+                    var option_str = "<option value='" + res.data[i].id + "'>" + res.data[i].name + "</option>";
+                    if (op_select_value && op_select_value == res.data[i].id) {
+                        option_str = "<option value='" + res.data[i].id + "' selected='selected'>" + res.data[i].name + "</option>";
+                    }
+                    option_arr.push(option_str);
+                }
+                $op_obj.html(option_arr.join(''));
+                $op_obj.change();
+                return false;
+            }
+            return false;
+        }, 'json');
+        return false;
+    });
+    //$('#agent-province-id').change();
+});
+
+    /**
+ * 清空地图坐标
+ */
+function clearMap() {
+    $("#agent-longlat").val('');
+    return false;
+}
+</script>

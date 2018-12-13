@@ -1,0 +1,76 @@
+<include file="Common:header" />
+<include file="Common:nav" />
+<div id="page-wrapper">
+     <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">用户管理</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="{:U('User/index')}" method='get'>
+            <div class="form-group input-group">
+                <input type="text" class="form-control" name='query' value='{$query}' placeholder="搜索用户、昵称、电话等">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="submit"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+                </form>
+        </div>
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>用户名</th>
+                                    <th>姓名</th>
+                                    <th>联系电话</th>
+                                    <th>地址</th>
+                                    <th>环信账号</th>
+                                    <th style='width:300px;'><i class="fa fa-gear fa-fw"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <volist name='list' id='vo'>
+                                     <tr>
+                                        <td>{$vo.id}</td>
+                                        <td>{$vo.nickname}（{$vo.mobile}）</td>
+                                        <td>{$vo.name}</td>
+                                        <td>{$vo.telphone}</td>
+                                        <td>{$vo.num}</td>
+                                        <td>{$vo.ease_mob_id}</td>
+                                        <td>
+                                            <a data-url="{:U('User/info_view',array('uid'=>$vo['id']))}" title='用户详情' data-w='500' data-h='400' href="javascript:void(0);" class='openifram'>详情</a>  
+                                     <if condition="$vo.ease_mob_id eq '' || $vo.ease_mob_id eq '0'">
+                                          &nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('User/open_ease_mob_username',array('uid'=>$vo['id']))}" confirm_tip='确定给该用户开启环信账户吗？' onclick='return ajax_operation(this);'>开启环信账户</a>
+                                     </if>
+                                        </td>
+                                    </tr>
+                                </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="pagination">
+                       {$pages}
+                    </ul>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+
+</div>
+<!-- /#page-wrapper -->
+<include file="Common:footer" />
+

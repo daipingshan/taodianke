@@ -1,0 +1,86 @@
+<extend name="Common/common" />
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__CSS__/one_key.css?{:C('V')}" />
+</block>
+<block name="body">
+    <div class="content">
+        <div class="text">
+            <textarea rows="3" cols="20" placeholder="请输入一键商品推广信息！！！" id="one-key-content"></textarea>
+        </div>
+        <p id="tips"></p>
+        <div class="button">
+            <button id="one-key">一键转链</button>
+            <button id="copy" class="copy">一键复制</button>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        $(function(){
+            var ClipboardSupport = 0;
+            if (typeof Clipboard != "undefined") {
+                ClipboardSupport = 1;
+            } else {
+                ClipboardSupport = 0;
+            }
+            $('.copy').click(function (e) {
+                var content = $('#one-key-content').val();
+                if(!content){
+                    $('#tips').text('请输入一键商品推广信息转链后再复制！！！');
+                    return false;
+                }
+                copyFunction('.copy', "复制成功");
+            });
+
+            var copyFunction = function (copyBtn, copyMsg) {
+                if (ClipboardSupport == 0) {
+                    $('.copy').css({'background':'#999','font-size':'10px','border':'2px solid #999','color':'#fff'}).text('浏览器版本过低，请升级或更换浏览器后重新复制');
+                    setTimeout(function () {
+                        $('.copy').css({'background':'#fff','font-size':'18px','border':'2px solid #FF420F','color':'#FF420F'}).text('一键复制');
+                    }, 5000)
+                } else {
+                    var clipboard = new Clipboard(copyBtn, {
+                        target: function () {
+                            return document.getElementById('one-key-content');
+                        }
+                    });
+                    clipboard.on('success', function (e) {
+                        $('.copy').css({'background':'#FF420F','font-size':'18px','border':'2px solid #FF420F','color':'#fff'}).text(copyMsg);
+                        setTimeout(function () {
+                            $('.copy').css({'background':'#fff','font-size':'18px','border':'2px solid #FF420F','color':'#FF420F'}).text('一键复制');
+                        }, 5000)
+                        e.clearSelection();
+                    });
+                    clipboard.on('error', function (e) {
+                        $('.copy').css({'background':'#999','font-size':'10px','border':'2px solid #999','color':'#fff'}).text('复制失败，请升级或更换浏览器后重新复制');
+                        setTimeout(function () {
+                            $('.copy').css({'background':'#fff','font-size':'18px','border':'2px solid #FF420F','color':'#FF420F'}).text('一键复制');
+                        }, 5000)
+                        e.clearSelection();
+                    });
+                }
+            };
+            $('#one-key').click(function(){
+                $('#tips').text('');
+                var content = $('#one-key-content').val();
+                if(!content){
+                    $('#tips').text('请输入一键商品推广信息！！！');
+                    return false;
+                }
+                var url = "{:U('Item/oneKeyTurnChain')}";
+                $.post(url,{content:content},function(res){
+                    if (res.code == 1) {
+                        $('#one-key-content').val(res.data.turn_chain_item_info);
+                        $('#tips').text(res.data.tips);
+                    } else {
+                        $('#tips').text(res.msg);
+                    }
+                });
+            });
+            $('#one-key-content').focus(function(){
+                $('#tips').text('');
+            });
+        });
+    </script>
+</block>

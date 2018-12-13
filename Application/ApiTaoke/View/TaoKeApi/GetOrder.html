@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+   <h2>{$sdate}前三甲</h2>
+   <p>状元：{$cout[0]['username']} 成绩：{$cout[0]['cout']}</p>
+   <p>榜眼：{$cout[1]['username']} 成绩：{$cout[1]['cout']}</p>
+   <p>探花：{$cout[2]['username']} 成绩：{$cout[2]['cout']}</p>
+    <div>未上榜的同学继续努力，相信下次就是你</div>
+   <p><a href="GetYsdOrder.html" target="_blank" style="color:red; ">查看昨天订单情况</a></p>
+   <h2>{$nwtime}订单</h2>
+   <h2>{$nwtime}实时前三甲 刷新哦说不定你就上榜了</h2>
+   <p>状元：{$tadaycou[0]['username']} 成绩：{$tadaycou[0]['cout']}</p>
+   <p>榜眼：{$tadaycou[1]['username']} 成绩：{$tadaycou[1]['cout']}</p>
+   <p>探花：{$tadaycou[2]['username']} 成绩：{$tadaycou[2]['cout']}</p>
+   <table>
+       <tr>
+           <td>创建时间</td>
+           <td>点击时间</td>
+           <td width="25%">商品信息</td>
+           <td>商品数</td>
+           <td>商品单价</td>
+           <td>订单状态</td>
+           <td>收入比率</td>
+           <td>付款金额</td>
+           <td>预估收入</td>
+           <td>订单来源</td>
+       </tr>
+       <volist name="data" id="dd">
+         <tr>
+             <td>{$dd.create_time}</td>
+             <td>{$dd.click_time}</td>
+             <td><a href="{$dd.auctionurl}" target="_blank">{$dd.title}</a></td>
+             <td>{$dd.number}</td>
+             <td>{$dd.price}</td>
+             <td>{$dd.paystatus}</td>
+             <td>{$dd.discount_rate}</td>
+
+             <td>{$dd.total_fee}</td>
+             <td style="color: red;">{$dd.fee}</td>
+             <td>{$dd.username}</td>
+         </tr>
+       </volist>
+   </table>
+</body>
+</html>

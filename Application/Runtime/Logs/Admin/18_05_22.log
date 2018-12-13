@@ -1,0 +1,33 @@
+[ 2018-05-22T13:55:50+08:00 ] 127.0.0.1 /Admin/TopItems/getNews
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001587s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001303s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001361s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.011741s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012206s ]
+
+[ 2018-05-22T13:56:13+08:00 ] 127.0.0.1 /Admin/TopItems/getNews
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000060s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001335s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001130s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+
+[ 2018-05-22T13:56:35+08:00 ] 127.0.0.1 /Admin/TopItems/getNews
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000574s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001353s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001427s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 11 行.
+NOTIC: [8] Undefined index:  D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 38 行.
+

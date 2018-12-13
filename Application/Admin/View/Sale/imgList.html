@@ -1,0 +1,377 @@
+<include file="Common:header"/>
+<include file="Common:nav"/>
+<link rel="stylesheet" href="__JS_PATH__/layui/css/layui.css" media="all">
+<link rel="stylesheet" href="/Public/Char/css/bootstrap.min.css">
+<link rel="stylesheet" href="/Public/Char/css/style.css">
+<style>@import url("//netdna.bootstrapcdn.com/bootstrap/3.0.0-rc2/css/bootstrap-glyphicons.css");</style>
+<link rel="stylesheet" href="__CSS_PATH__/top_items.css?v={:time()}">
+<script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="/Public/Char/js/bootstrap.min.js"></script>
+<script src="/Public/Char/js/jquery.pin.min.js"></script>
+<script src="/Public/Char/js/raphael-min.js"></script>
+<script src="/Public/Char/js/morris.js"></script>
+<Script src="/Public/Char/js/moment.js"></Script>
+<script src="/Public/Char/js/daterangepicker.js"></script>
+<style>
+    .covers-img {
+        float: left;
+    }
+
+    .layui-upload-drag {
+        float: right;
+    }
+
+    .covers-img img {
+        margin-left: 20px;
+        width: 135px;
+    }
+</style>
+<div id="page-wrapper">
+    <include file="Common:message_tip"/>
+    <div class="row">
+        <div class="col-lg-8">
+            <h1 class="page-header">非商品图集</h1>
+        </div>
+        <div class="col-lg-4" style="margin-top: 45px">
+            <button class="btn btn-danger" id="add-img-open">添加图集</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <form>
+                <div class="col-lg-2">
+                    <input type="text" class="form-control" name='keyword' value="{:I('get.keyword')}"
+                           placeholder="关键字查询">
+                </div>
+                <div class="col-lg-3">
+                    <select name="cate_id" class="form-control">
+                        <option value="">请选择分类</option>
+                        <foreach name="img_cate" item="row" key="k">
+                            <option value="{$k}"
+                            <if condition="I('get.cate_id') eq $k">selected</if>
+                            >{$row}</option>
+                        </foreach>
+                    </select>
+                </div>
+                <notEmpty name="user_data">
+                    <div class="col-lg-3">
+                        <select name="user_id" class="form-control">
+                            <option value="">请选择用户</option>
+                            <foreach name="user_data" item="row">
+                                <option value="{$row.id}"
+                                <if condition="I('get.user_id') eq $row['id']">selected</if>
+                                >{$row.name}</option>
+                            </foreach>
+                        </select>
+                    </div>
+                </notEmpty>
+                <div>
+                    <button type="submit" class="btn btn-danger">查询</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <volist name="data" id="row">
+            <div class="col-lg-12" style="margin-top: 20px">
+                <volist name="row" id="vo">
+                    <div class="col-lg-3 box">
+                        <div class="img" style="position: relative">
+                            <img class="lazy" data-original="{$vo.img}">
+                            <div class="intro">
+                                {$vo.description}
+                            </div>
+                            <notEmpty name="user_data">
+                                <button class="btn btn-danger btn-small" data-id="{$vo.id}" onclick="delImg($(this))"
+                                        style="top:20px;right: 20px;position: absolute">删除
+                                </button>
+                            </notEmpty>
+                        </div>
+                        <div class="content">
+                            <div class="col-lg-12 add-btn" style="margin: 20px 0;position: relative">
+                                <eq name="vo['is_add']" value="1">
+                                    <button class="btn btn-success" style="width: 100%">已添加至选品库</button>
+                                    <else/>
+                                    <div class="col-lg-6">
+                                        <button class="btn btn-danger addItemCache" style="width: 100%;font-size: 12px"
+                                                data-id="{$vo.id}" data-val='{$vo.post_data}' data-type="0">一键添加
+                                        </button>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <button class="btn btn-danger addItemCache" style="width: 100%;font-size: 12px"
+                                                data-id="{$vo.id}" data-val='{$vo.post_data}' data-type="1">伪原创
+                                        </button>
+                                    </div>
+                                </eq>
+                            </div>
+                        </div>
+                    </div>
+                </volist>
+            </div>
+        </volist>
+    </div>
+    <div class="row" style="margin: 20px 0 50px 0">
+        <ul class="pagination" style="width: 100%">
+            {$page}
+        </ul>
+    </div>
+    <div class="bottom-position">
+        <div class="col-lg-3">
+            <div class="cart" id="cart" onclick="openCart()">
+                <a href="javascript:;" class="cart-icon"></a>
+                <a href="javascript:;" class="cart-num">{$cart_count}</a>
+            </div>
+        </div>
+        <div class="col-lg-3">
+            <button class="btn btn-success" style="margin: 25px 30%;width: 40%" onclick="saveCart()">一键保存</button>
+        </div>
+        <div class="col-lg-3">
+            <button class="btn btn-danger" style="margin: 25px 30%;width: 40%" onclick="openCart()">一键预览</button>
+        </div>
+        <div class="col-lg-3">
+            <div id="back-to-top" class="iton-top-index" style="margin: 25px auto">
+                <a href="#"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="add-img" style="display: none">
+    <form class="bs-example bs-example-form" role="form">
+        <div class="modal-body">
+            <div class="input-group">
+                <span class="input-group-addon">图集分类</span>
+                <select name="cate_id" id="cate_id" class="form-control">
+                    <option value="">请选择分类</option>
+                    <foreach name="img_cate" item="row" key="k">
+                        <option value="{$k}">{$row}</option>
+                    </foreach>
+                </select>
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon">图集封面</span>
+                <div class="covers-img">
+                    <img id="covers-img"/>
+                </div>
+                <div class="layui-upload-drag" id="upload">
+                    <i class="layui-icon"></i>
+                    <p>点击上传，或将文件拖拽到此处</p>
+                </div>
+            </div>
+            <br>
+            <div class="input-group">
+                <span class="input-group-addon">图集文案</span>
+                        <textarea name="cookie" class="form-control" id="info" rows="5"
+                                  placeholder="请输入商品文案"></textarea>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input type="hidden" name="update_img" id="img"/>
+            <button type="button" class="btn btn-primary" id="add">添加</button>
+        </div>
+    </form>
+</div>
+
+<include file="Common:footer"/>
+<script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="__JS_PATH__/jquery.lazyload.js"></script>
+<script src="__JS_PATH__/jquery-ui.min.js"></script>
+<script src="__JS_PATH__/layui/layui.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var is_add = true
+        $("img.lazy").lazyload({effect: "fadeIn"});
+        $('#add-img-open').click(function () {
+            layer.open({
+                title: '添加图集',
+                type: 1,
+                area: ['600px', '500px'],
+                fix: true,
+                maxmin: true,
+                content: $('#add-img'),
+            })
+        });
+        var upload_url = "{:U('uploadSaleImg')}";
+        layui.use('upload', function () {
+            var $ = layui.jquery
+                    , layer = layui.layer
+                    , upload = layui.upload;
+            //拖拽上传
+            upload.render({
+                elem: '#upload'
+                , size: 5 * 1024 * 1024 //限制文件大小，单位 KB
+                , url: upload_url
+                , accept: 'file' //普通文件
+                , exts: 'jpg|png|jpeg|gif' //只允许上传压缩文件
+                , done: function (res) {
+                    if (res.status == 1) {
+                        $('#covers-img').attr('src', res.info.url);
+                        $('#img').val(res.info.url);
+                        layer.msg('上传成功！');
+                    } else {
+                        layer.msg(res.info);
+                    }
+                }
+            });
+        });
+        $('#add').click(function () {
+            var _this = $(this);
+            var cate_id = $('#cate_id option:selected').val();
+            var img = $('#img').val();
+            var info = $('#info').val();
+            if (!cate_id) {
+                layer.msg('请选择图集分类！');
+                return false;
+            }
+            if (!img) {
+                layer.msg('图集封面有误，请上传后添加！');
+                return false;
+            }
+            if (!info) {
+                layer.msg('请输入图集文案！');
+                return false;
+            }
+            _this.attr('disabled', true);
+            var url = "{:U('addImg')}";
+            $.post(url, {cate_id: cate_id, img: img, info: info}, function (res) {
+                layer.msg(res.info);
+                if (res.status == 1) {
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000)
+                }
+            })
+        });
+
+        $('.addItemCache').click(function () {
+            if (is_add === false) {
+                layer.msg('正在请求中...，操作太频繁，请稍后再试！');
+                return false;
+            }
+            var item_num = parseInt($('#cart .cart-num').text());
+            if (item_num >= 10) {
+                layer.msg('最多只能添加10件商品！');
+                return false;
+            }
+            var _this = $(this);
+            var text = _this.text();
+            var item_id = $(this).data('id');
+            var post_data = $(this).data('val');
+            var type = $(this).data('type');
+            var url = "{:U('addImgCache')}";
+            is_add = false;
+            $.post(url, {id: item_id, post_data: post_data, type: type}, function (res) {
+                if (res.status == 1) {
+                    var img = _this.parents('.box').find('.img img');
+                    flyCart(img);
+                    $('#cart .cart-num').text(item_num + 1);
+                    _this.removeClass('addItemCache btn-danger').addClass('btn-success').text('添加成功');
+                    _this.unbind();
+                } else {
+                    layer.msg(res.info);
+                    _this.text(res.info);
+                    setTimeout(function () {
+                        _this.text(text);
+                    }, 3000)
+                }
+                is_add = true;
+            });
+        });
+
+        function flyCart(imgtodrag) {
+            var cart = $('#cart');
+            if (imgtodrag) {
+                var imgclone = imgtodrag.clone()
+                        .offset({
+                            top: imgtodrag.offset().top,
+                            left: imgtodrag.offset().left
+                        })
+                        .css({
+                            'opacity': '0.5',
+                            'position': 'absolute',
+                            'height': '150px',
+                            'width': '150px',
+                            'z-index': '100'
+                        })
+                        .appendTo($('body'))
+                        .animate({
+                            'top': cart.offset().top + 10,
+                            'left': cart.offset().left + 10,
+                            'width': 75,
+                            'height': 75
+                        }, 1000, 'easeInOutExpo');
+
+                imgclone.animate({
+                    'width': 0,
+                    'height': 0
+                }, function () {
+                    $(this).detach()
+                });
+            }
+        }
+    });
+
+    function openCart() {
+        var num = parseInt($('#cart .cart-num').text());
+        if (num == 0) {
+            layer.msg('请先添加商品后再预览！');
+            return false;
+        }
+        layer.open({
+            title: '预览文章',
+            type: 2,
+            area: ['800px', '670px'],
+            fix: true,
+            maxmin: true,
+            content: "{:U('cartList')}",
+        })
+    }
+
+
+    function saveCart() {
+        var num = parseInt($('#cart .cart-num').text());
+        if (num == 0) {
+            layer.msg('请先添加商品后再保存！');
+            return false;
+        }
+        layer.open({
+            title: '保存文章',
+            type: 2,
+            area: ['1000px', '670px'],
+            fix: true,
+            maxmin: true,
+            content: "{:U('saveCart')}",
+        });
+    }
+
+    function delImg(obj) {
+        var id = obj.data('id');
+        $.get("{:U('delImg')}", {id: id}, function (res) {
+            layer.msg(res.info);
+            if (res.status == 1) {
+                setTimeout(function () {
+                    location.reload();
+                }, 2000)
+            }
+        })
+    }
+
+
+    $(function () {
+        $("#back-to-top").hide();
+        $(function () {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 100) {
+                    $("#back-to-top").fadeIn(1500);
+                } else {
+                    $("#back-to-top").fadeOut(1500);
+                }
+            });
+            //当点击跳转链接后，回到页面顶部位置
+            $("#back-to-top").click(function () {
+                $('body,html').animate({scrollTop: 0}, 500);
+                return false;
+            });
+        });
+    });
+</script>

@@ -1,0 +1,102 @@
+<include file="Public/header" title="商家管理"  />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">商家列表</h1>
+                <p class="description">搜索出来的商家结果</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li> <a href="/AppAdmin/"><i class="fa-home"></i>主页</a> </li>
+                    <li class="active"> 商家管理 </li>
+                    <li class="active"> <strong>搜索结果</strong> </li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">搜索商家</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">
+                            ×
+                        </a>
+                    </div>
+                </div>
+                <form method="get" action="search">
+                    <div class="panel-body">
+                        <div class="row col-margin">
+                            <div class="col-xs-2">
+                                <input type="text" name="merchant_name"  class="form-control" placeholder="请输入商家名称"/>
+                            </div>
+                            <div class="col-xs-1">
+                                <input type="submit"  class="btn btn-secondary btn-single" value="搜索" />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>商家名称</th>
+                                        <th>联系人</th>
+                                        <th>联系电话</th>
+                                        <th>店铺名称</th>
+                                        <th>店铺网址</th>
+                                        <th>关联客户经理</th>
+                                        <th>备注</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <volist name="list" id="vo">
+                                        <tr>
+                                            <th>{$vo.id}</th>
+                                            <td>{$vo.merchant_name}</td>
+                                            <td>{$vo.contact}</td>
+                                            <td>{$vo.mobile}</td>
+                                            <td>{$vo.shop_name}</td>
+                                            <td>{$vo.shop_url}</td>
+                                            <td>{$vo.admin_id}</td>
+                                            <td>{$vo.remark}</td>
+                                            <td>
+                                                <a href="{:U('Merchant/edit',array('id'=>$vo['id']))}" class="ibutton">
+                                                <i class="fa-edit"></i>
+                                                </a>|
+                                                <a href="{:U('Merchant/del',array('id'=>$vo['id']))}"  onclick="confirm('确定删除{$vo['name']}么？');" class="ibutton">
+                                                    <i class="fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page"><ul class="pagination">{$page}</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <include file="Public/footer" />
+</div>
+
+<include file="Public/footer_Js" />
+</div>

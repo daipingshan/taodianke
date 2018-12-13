@@ -1,0 +1,95 @@
+<include file="Common:header" />
+<include file="Common:nav" />
+
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">商户列表</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li><a href="#">商户管理</a></li>
+                <li class="active">商户列表</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="{:U('Merchant/index')}" method='get'>
+            <div class="form-group input-group">
+                <input type="text" class="form-control" name='query' value='{$query}' placeholder="搜索商户名称、电话等">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="submit"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+                </form>
+        </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>商户名称</th>
+                                    <th>手机号码</th>
+                                    <th>所属区域</th>
+                                    <th>营业状态</th>
+                                    <th>环信账号</th>
+                                    <th style='width:260px;'><i class="fa fa-gear fa-fw"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <volist name='list' id='vo'>
+                                <tr>
+                                    <td>{$vo.id}</td>
+                                    <td>{$vo.username}</td>
+                                    <td>{$vo.mobile}</td>
+                                    <td>{$vo.c_name}</td>
+                                    <td>
+                                <if condition="$vo.business_status eq 'N'">
+                                    <span class="label label-danger">未营业</span>
+                                    <else/>
+                                    <span class="label label-success">营业</span>
+                                </if>
+                                </td>
+                                <td>{$vo.ease_mob_id}</td>
+                                <td>
+                                    <a href="{:U('Merchant/edit',array('mid'=>$vo['id']))}">修改</a> 
+                                    <a href="{:U('Merchant/delete',array('mid'=>$vo['id']))}" confirm_tip='确定要删除该商户吗？' onclick='return ajax_operation(this);'>删除</a>
+                                    <if condition="$vo.ease_mob_id eq '' || $vo.ease_mob_id eq '0'">
+                                          &nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('Merchant/open_ease_mob_username',array('mid'=>$vo['id']))}" confirm_tip='确定给该商户开启环信账户吗？' onclick='return ajax_operation(this);'>开启环信账户</a>
+                                     </if>
+                                    <if condition="$vo.status eq '' || $vo.status eq '0'">
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('Merchant/shangxian',array('cid'=>$vo['cid']))}" confirm_tip='确定要上线此商家吗？' onclick='return ajax_operation(this);'>上线商家</a>
+                                       <else/>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;<a href="{:U('Merchant/xiaxian',array('cid'=>$vo['cid']))}" confirm_tip='确定要下线此商家吗？' onclick='return ajax_operation(this);'>下线商家</a>
+                                    </if>
+                                </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="pagination">
+                        {$pages}
+                    </ul>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+</div>
+<include file="Common:footer" />

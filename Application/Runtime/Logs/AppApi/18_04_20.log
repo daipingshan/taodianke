@@ -1,0 +1,195 @@
+[ 2018-04-20T09:24:24+08:00 ] 127.0.0.1 /AppApi/Item/detail/id/562670695960
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000564s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001070s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001121s ]
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0930s ]
+SQL: SELECT * FROM `ytt_items` WHERE `num_iid` = '562670695960' AND `shop_type` IN ('B','C') LIMIT 1   [ RunTime:0.0931s ]
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 528 行.
+SQL: SHOW COLUMNS FROM `ytt_proxy` [ RunTime:0.0898s ]
+SQL: SELECT `pid`,taobao_access_token as token,`qtk_cookie` FROM `ytt_proxy`  [ RunTime:0.0928s ]
+NOTIC: [8] Undefined offset: 3 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 529 行.
+NOTIC: [8] Undefined offset: 2 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 529 行.
+NOTIC: [8] Undefined index: result D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 534 行.
+NOTIC: [8] Undefined index: sub_msg D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 551 行.
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 564 行.
+SQL: SHOW COLUMNS FROM `ytt_items_like` [ RunTime:0.0898s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_items_like` WHERE `num_iid` = '562670695960' AND `uid` = 0 LIMIT 1   [ RunTime:0.0899s ]
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0933s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0893s ]
+
+[ 2018-04-20T09:24:55+08:00 ] 127.0.0.1 /AppApi/Item/detail/id/562670695960
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000671s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000867s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000938s ]
+
+[ 2018-04-20T09:25:12+08:00 ] 127.0.0.1 /AppApi/Item/detail/id/562670695960
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000510s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000610s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\online_team\www.taodianke.com\Application\Common\Org\OpenSearch.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0905s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0886s ]
+
+[ 2018-04-20T09:25:36+08:00 ] 127.0.0.1 /AppApi/Item/detail/id/562670695960
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000622s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000689s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000740s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\online_team\www.taodianke.com\Application\Common\Org\OpenSearch.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0875s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0847s ]
+NOTIC: [2] array_pop() expects parameter 1 to be array, null given D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 411 行.
+
+[ 2018-04-20T09:25:59+08:00 ] 127.0.0.1 /AppApi/Item/detail/id/562670695960
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000640s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000606s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000664s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\online_team\www.taodianke.com\Application\Common\Org\OpenSearch.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0882s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0905s ]
+
+[ 2018-04-20T09:26:22+08:00 ] 127.0.0.1 /AppApi/Item/detail/id/562670695960
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000583s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000640s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000686s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\online_team\www.taodianke.com\Application\Common\Org\OpenSearch.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0884s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0875s ]
+NOTIC: [8] Undefined index: last_query_dataoke_time D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 421 行.
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0915s ]
+SQL: SELECT `coupon_type` FROM `ytt_items` WHERE `dataoke_id` = 7524554 LIMIT 1   [ RunTime:0.0866s ]
+SQL: UPDATE `ytt_items` SET `coupon_rate`='0',`coupon_price`='25.8',`quan`='10.00',`price`='35.80',`commission`='7.74',`commission_rate`='3001',`last_query_dataoke_time`='1524187581' WHERE `dataoke_id` = 7524554 [ RunTime:0.0862s ]
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 528 行.
+NOTIC: [8] Undefined offset: 3 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 529 行.
+NOTIC: [8] Undefined offset: 2 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 529 行.
+NOTIC: [8] Undefined index: result D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 534 行.
+NOTIC: [8] Undefined index: sub_msg D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 551 行.
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 564 行.
+NOTIC: [8] Undefined index: sellerid D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 582 行.
+NOTIC: [8] Undefined index: quan_url D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 451 行.
+NOTIC: [8] Undefined offset: 2 D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 452 行.
+NOTIC: [8] Undefined offset: 3 D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 452 行.
+NOTIC: [8] Use of undefined constant TOP_SDK_WORK_DIR - assumed 'TOP_SDK_WORK_DIR' D:\www\online_team\www.taodianke.com\Application\Common\Org\Taobaotop\TopClient.php 第 336 行.
+NOTIC: [8] Undefined index: data D:\www\online_team\www.taodianke.com\Application\Common\Org\TaoBaoApi.class.php 第 295 行.
+
+[ 2018-04-20T09:26:27+08:00 ] 127.0.0.1 /AppApi/Item/detail/id/562670695960
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000941s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000885s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000956s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\online_team\www.taodianke.com\Application\Common\Org\OpenSearch.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0920s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0895s ]
+NOTIC: [8] Undefined index: last_query_dataoke_time D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 421 行.
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0917s ]
+SQL: SELECT `coupon_type` FROM `ytt_items` WHERE `dataoke_id` = 7524554 LIMIT 1   [ RunTime:0.0898s ]
+SQL: UPDATE `ytt_items` SET `coupon_rate`='0',`coupon_price`='25.8',`quan`='10.00',`price`='35.80',`commission`='7.74',`commission_rate`='3001',`last_query_dataoke_time`='1524187586' WHERE `dataoke_id` = 7524554 [ RunTime:0.0908s ]
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 528 行.
+NOTIC: [8] Undefined offset: 3 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 529 行.
+NOTIC: [8] Undefined offset: 2 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 529 行.
+NOTIC: [8] Undefined index: result D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 534 行.
+NOTIC: [8] Undefined index: sub_msg D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 551 行.
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 564 行.
+NOTIC: [8] Undefined index: sellerid D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 582 行.
+NOTIC: [8] Undefined index: quan_url D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 451 行.
+NOTIC: [8] Undefined offset: 2 D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 452 行.
+NOTIC: [8] Undefined offset: 3 D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 452 行.
+NOTIC: [8] Use of undefined constant TOP_SDK_WORK_DIR - assumed 'TOP_SDK_WORK_DIR' D:\www\online_team\www.taodianke.com\Application\Common\Org\Taobaotop\TopClient.php 第 336 行.
+NOTIC: [8] Undefined index: data D:\www\online_team\www.taodianke.com\Application\Common\Org\TaoBaoApi.class.php 第 295 行.
+
+[ 2018-04-20T09:35:59+08:00 ] 127.0.0.1 /AppApi/Item/detail/id/562670695960
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000652s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000691s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000747s ]
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\online_team\www.taodianke.com\Application\Common\Org\OpenSearch.class.php 第 92 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0920s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0876s ]
+NOTIC: [8] Undefined index: last_query_dataoke_time D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 421 行.
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0879s ]
+SQL: SELECT `coupon_type` FROM `ytt_items` WHERE `dataoke_id` = 7524554 LIMIT 1   [ RunTime:0.0894s ]
+SQL: UPDATE `ytt_items` SET `coupon_rate`='0',`coupon_price`='25.8',`quan`='10.00',`price`='35.80',`commission`='7.74',`commission_rate`='3001',`last_query_dataoke_time`='1524188158' WHERE `dataoke_id` = 7524554 [ RunTime:0.0885s ]
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 528 行.
+NOTIC: [8] Undefined offset: 3 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 529 行.
+NOTIC: [8] Undefined offset: 2 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 529 行.
+NOTIC: [8] Undefined index: result D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 534 行.
+NOTIC: [8] Undefined index: sub_msg D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 551 行.
+NOTIC: [8] Undefined offset: 1 D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 564 行.
+NOTIC: [8] Undefined index: sellerid D:\www\online_team\www.taodianke.com\Application\Common\Controller\CommonBusinessController.class.php 第 582 行.
+NOTIC: [8] Undefined index: quan_url D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 451 行.
+NOTIC: [8] Undefined offset: 2 D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 452 行.
+NOTIC: [8] Undefined offset: 3 D:\www\online_team\www.taodianke.com\Application\AppApi\Controller\ItemController.class.php 第 452 行.
+NOTIC: [8] Use of undefined constant TOP_SDK_WORK_DIR - assumed 'TOP_SDK_WORK_DIR' D:\www\online_team\www.taodianke.com\Application\Common\Org\Taobaotop\TopClient.php 第 336 行.
+NOTIC: [8] Undefined index: data D:\www\online_team\www.taodianke.com\Application\Common\Org\TaoBaoApi.class.php 第 295 行.
+
+[ 2018-04-20T14:54:06+08:00 ] 127.0.0.1 /AppApi/Index/getAdvert
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000015s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000577s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001601s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001682s ]
+SQL: SHOW COLUMNS FROM `ytt_ad` [ RunTime:0.0867s ]
+SQL: SELECT content as img,`url`,`desc`,`board_id` FROM `ytt_ad` WHERE `status` = 1 AND `start_time` <= 1524207245 AND `end_time` >= 1524207245 ORDER BY ordid asc,id desc  [ RunTime:0.0885s ]
+
+[ 2018-04-20T14:54:26+08:00 ] 127.0.0.1 /AppApi/Index/getAdvert
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000616s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000667s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000727s ]
+SQL: SHOW COLUMNS FROM `ytt_ad` [ RunTime:0.0871s ]
+SQL: SELECT content as img,`url`,`desc`,`board_id` FROM `ytt_ad` WHERE `status` = 1 AND `start_time` <= 1524207265 AND `end_time` >= 1524207265 ORDER BY ordid asc,id desc  [ RunTime:0.0893s ]
+
+[ 2018-04-20T14:54:41+08:00 ] 127.0.0.1 /AppApi/Index/getAdvert
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000539s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000860s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000949s ]
+SQL: SHOW COLUMNS FROM `ytt_ad` [ RunTime:0.0862s ]
+SQL: SELECT content as img,`url`,`desc`,`board_id` FROM `ytt_ad` WHERE `status` = 1 AND `start_time` <= 1524207280 AND `end_time` >= 1524207280 ORDER BY ordid asc,id desc  [ RunTime:0.0925s ]
+
+[ 2018-04-20T15:09:58+08:00 ] 127.0.0.1 /AppApi/Index/getAdvert
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000833s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000823s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000883s ]
+SQL: SHOW COLUMNS FROM `ytt_ad` [ RunTime:0.0855s ]
+SQL: SELECT content as img,`url`,`desc`,`board_id` FROM `ytt_ad` WHERE `status` = 1 AND `start_time` <= 1524208197 AND `end_time` >= 1524208197 ORDER BY ordid asc,id desc  [ RunTime:0.0853s ]
+
+[ 2018-04-20T16:40:10+08:00 ] 127.0.0.1 /AppApi/Index/getAdvert
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000013s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000651s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000753s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000806s ]
+SQL: SHOW COLUMNS FROM `ytt_ad` [ RunTime:0.1034s ]
+SQL: SELECT content as img,`url`,`desc`,`board_id` FROM `ytt_ad` WHERE `status` = 1 AND `start_time` <= 1524213609 AND `end_time` >= 1524213609 ORDER BY ordid asc,id desc  [ RunTime:0.0692s ]
+

@@ -1,0 +1,104 @@
+<include file="Public/header" title="角色管理" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">操作日志</h1>
+                <p class="description">查看后台管理员操作日志。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li> <a href="/AppAdmin/"><i class="fa-home"></i>主页</a> </li>
+                    <li class="active">站点设置</li>
+                    <li class="active"><strong>日志查看</strong></li>
+                </ol>
+            </div>
+        </div>
+     <div class="row">
+     <div class="panel panel-default col-sm-12">
+         <div class="panel-heading">
+            <h3 class="panel-title">搜索</h3>
+            <div class="panel-options">
+              <a href="#" data-toggle="panel">
+                <span class="collapse-icon">–</span>
+                <span class="expand-icon">+</span>
+              </a>
+              <a href="#" data-toggle="remove">
+                ×
+              </a>
+            </div>
+          </div>
+         <div class="panel-body">
+             <form action="" class="form-inline "  method="get">
+
+                 <div class="form-group col-xs-2">
+                     <input type="text" class="form-control "  name="user_name" value="{:I('get.user_name')}"  placeholder="操作人">
+                 </div>
+                 <div class="form-group col-xs-2">
+                     <input type="text" class="form-control "  name="controller" value="{:I('get.controller')}" placeholder="操作控制器">
+                 </div>
+                 <div class="form-group col-xs-2">
+                     <input type="text" class="form-control "  name="action" value="{:I('get.action')}" placeholder="操作方法">
+                 </div>
+
+                 <div class="form-group ">
+                     <input type="submit"  class="btn btn-secondary btn-single" value='查询'  >
+                 </div>
+             </form>
+          </div>
+      </div>
+     </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">角色管理</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>id</th>
+                                    <th>操作人</th>
+                                    <th>控制器</th>
+                                    <th>方法</th>
+                                    <th>参数值</th>
+                                    <th>IP</th>
+                                    <th>操作时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo" >
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td>{$vo.user_name}</td>
+                                        <td>{$vo.controller}</td>
+                                        <td>{$vo.action}</td>
+                                        <td>{$vo.log_info}</td>
+                                        <td>{$vo.ip}</td>
+                                        <td>{$vo.add_time|date="Y-m-d H:i:s",###}</td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="page"><ul class="pagination">{$page}</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" /> </div>
+    <include file="Public/footer_Js" />

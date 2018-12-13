@@ -1,0 +1,70 @@
+<include file="Common:header" />
+<include file="Common:nav" />
+
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">反馈列表</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
+            <form action="{:U('News/feedback')}" method='get'>
+            <div class="form-group input-group">
+                <input type="text" class="form-control" name='query' value='{$query}' placeholder="搜索反馈人名称">
+                <span class="input-group-btn">
+                    <button class="btn btn-info" type="submit"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+                </form>
+        </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th style='width:20px;'>#</th>
+                                    <th style='width:70px;'>反馈人</th>
+                                    <th style='width:80px;'>反映类型</th>
+                                    <th style='width:350px;'>主要内容</th>
+                                    <th style='width:50px;'>联系方式</th>
+                                    <th style='width:50px;'>反馈人地址</th>
+                                    
+                                    <th style='width:80px;'>反馈时间</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <volist name='list' id='vo'>
+                                <tr>
+                                    <td>{$vo.id}</td>
+                                    <td>{$vo.name}</td>
+                                    <td>{$vo.type}</td>
+                                    <td>{$vo.content}</td>
+                                    <td>{$vo.phone}</td>                                    
+                                    <td>{$vo.address}</td>                                    
+                                    <td>{$vo.create_time|date="Y-m-d",###}</td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="pagination">
+                        {$pages}
+                    </ul>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+</div>
+<include file="Common:footer" />

@@ -1,0 +1,136 @@
+<include file="Public/header" title="搜索词频分析"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">搜索词频</h1>
+                <p class="description">搜索词频分析</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"> 商品管理</li>
+                    <li class="active"><strong>搜索词频</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">搜索词频</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">
+                            ×
+                        </a>
+                    </div>
+                </div>
+                <form method="get">
+                    <div class="panel-body">
+                        <div class="row col-margin">
+                            <div class="col-sm-2">
+                                <select name="type" class="form-control">
+                                    <option value="tag"
+                                    <if condition="$type eq 'tag'">selected</if>
+                                    >分词词频</option>
+                                    <option value="content"
+                                    <if condition="$type eq 'content'">selected</if>
+                                    >原词搜索</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select name="day" class="form-control">
+                                    <option value="1"
+                                    <if condition="$day eq 1">selected</if>
+                                    >今天</option>
+                                    <option value="2"
+                                    <if condition="$day eq 2">selected</if>
+                                    >最近两天</option>
+                                    <option value="3"
+                                    <if condition="$day eq 3">selected</if>
+                                    >最近三天</option>
+                                    <option value="4"
+                                    <if condition="$day eq 4">selected</if>
+                                    >最近四天</option>
+                                    <option value="5"
+                                    <if condition="$day eq 5">selected</if>
+                                    >最近五天</option>
+                                    <option value="6"
+                                    <if condition="$day eq 6">selected</if>
+                                    >最近六天</option>
+                                    <option value="7"
+                                    <if condition="$day eq 7">selected</if>
+                                    >最近七天</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-1">
+                                <input type="submit" class="btn btn-secondary btn-single" value="搜索"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="alert alert-success" style="display: none">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">搜索词频列表</h3>
+                        <div class="panel-options"><a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel"> <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a> <a href="#" data-toggle="reload">
+                                <i class="fa-rotate-right"></i> </a> <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>数据</th>
+                                    <th width="20%">出现次数</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" key="key" item="vo">
+                                    <tr>
+                                        <td>{$key}</td>
+                                        <td>{$vo}</td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+    <include file="Public/footer_Js"/>

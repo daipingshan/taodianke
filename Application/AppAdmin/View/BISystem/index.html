@@ -1,0 +1,132 @@
+<include file="Public/header" title="CRM" keywords="报表统计"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">BI统计</h1>
+                <p class="description">公司概况</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"> BI统计</li>
+                    <li class="active"><strong>公司概况</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="panel panel-default col-sm-12">
+            <div class="panel-heading">
+                <h3 class="panel-title">淘客付款预估收入/结算预估收入</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="xe-widget xe-counter-block xe-counter-block-blue" data-suffix="k" data-count=".num"
+                             data-from="0" data-to="310" data-duration="4" data-easing="false">
+                            <div class="xe-upper">
+                                <div class="xe-icon">
+                                    <i class="fa-life-ring"></i>
+                                </div>
+                                <div class="xe-label">
+                                    <strong class="num">¥{$today_paid}</strong>
+                                    <span>今日付款总预估收入</span>
+                                </div>
+                            </div>
+                            <div class="xe-lower">
+                                <div class="border"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="xe-widget xe-counter-block xe-counter-block-red" data-suffix="k" data-count=".num"
+                             data-from="0" data-to="310" data-duration="4" data-easing="false">
+                            <div class="xe-upper">
+                                <div class="xe-icon">
+                                    <i class="fa-life-ring"></i>
+                                </div>
+                                <div class="xe-label">
+                                    <strong class="num">¥{$today_settle}</strong>
+                                    <span>今日结算总预估收入</span>
+                                </div>
+                            </div>
+                            <div class="xe-lower">
+                                <div class="border"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="xe-widget xe-counter-block xe-counter-block-blue" data-suffix="k" data-count=".num"
+                             data-from="0" data-to="310" data-duration="4" data-easing="false">
+                            <div class="xe-upper">
+                                <div class="xe-icon">
+                                    <i class="fa-life-ring"></i>
+                                </div>
+                                <div class="xe-label">
+                                    <strong class="num">¥{$yes_paid}</strong>
+                                    <span>昨日付款总预估收入</span>
+                                </div>
+                            </div>
+                            <div class="xe-lower">
+                                <div class="border"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-3">
+                        <div class="xe-widget xe-counter-block xe-counter-block-red" data-suffix="k" data-count=".num"
+                             data-from="0" data-to="310" data-duration="4" data-easing="false">
+                            <div class="xe-upper">
+                                <div class="xe-icon">
+                                    <i class="fa-life-ring"></i>
+                                </div>
+                                <div class="xe-label">
+                                    <strong class="num">¥{$yes_settle}</strong>
+                                    <span>昨日结算总预估收入</span>
+                                </div>
+                            </div>
+                            <div class="xe-lower">
+                                <div class="border"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default col-sm-12">
+            <div class="panel-heading">
+                <h3 class="panel-title">在线商品数</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <php>$item_cate = array('B'=>'淘宝','C'=>'天猫',J=>'楚楚街');</php>
+                    <volist name="item_list" id="row">
+                        <div class="col-sm-4">
+                            <div class="xe-widget xe-counter-block xe-counter-block-orange" data-suffix="k"
+                                 data-count=".num"
+                                 data-from="0" data-to="310" data-duration="4" data-easing="false">
+                                <div class="xe-upper">
+                                    <div class="xe-icon">
+                                        <i class="fa-life-ring"></i>
+                                    </div>
+                                    <div class="xe-label">
+                                        <strong class="num">{$row.num}</strong>
+                                        <span>{$item_cate[$row['shop_type']]}在线商品数</span>
+                                    </div>
+                                </div>
+                                <div class="xe-lower">
+                                    <div class="border"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </volist>
+
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+    <include file="Public/footer_Js"/>
+</div>
+</html>

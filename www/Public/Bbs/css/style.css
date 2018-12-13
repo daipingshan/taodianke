@@ -1,0 +1,72 @@
+/* CSS Document */
+body{ margin:0;   }
+.rb{     position: absolute;
+    left: 15px;
+    top: 12px;
+    color: #333;
+    font-size: 1.2em;
+    text-decoration: none;}
+.article{ padding:10px;}
+.mail-single-header h2{ font-weight:100; font-size:1.2em;}
+.meta ,.addtime{ font-size:0.8em; color:#616161;}
+.article .con{margin: 10px 0;
+    border-top: 1px solid #efefef;}
+
+.list{ padding:0px 2%; min-height: 560px;}
+
+.list .con .meta{    padding: 15px 0;
+    color: #929292;
+    font-size: 0.8em;
+    padding-top: 10px;
+    padding-right: 15px;
+    margin-top: 0px;
+    border-bottom: 1px solid #e6e6e6;}
+.list .con{ border-bottom:1px solid #e3e3e3; background:url(../../Assets/images/share.jpg) right center no-repeat;}
+.list .con h2,.list .con h2 a{    font-size: 1em;
+								color: #262626;
+								text-decoration: none;
+								font-weight: 200;
+								line-height: 1.5;
+								
+								display: block;
+}
+.list .con h2{margin: 5px 10px;}
+						
+.list .con .time{ font-size:0.6em; color:#c4c4c4;margin-top: 0; margin-bottom: 5px;}
+.list .con img{  max-height: 120px;
+					text-align: center;
+					min-width: 100%;}
+.list .con .readmore a{ color:#333; font-size:1em; font-weight:200; margin-top:10px; padding-bottom:10px; text-decoration:none;}
+.list .addtime{ text-align:right; color: #888585;}
+.list .panel-body{padding-bottom: 10px;}
+.list .addtime,.list .con .meta,.list .con .readmore,.list .con .time{padding-left:10px;}
+
+#topbar{
+		 background-color: #fff;
+		 padding: 10px 0;
+		 line-height: 2;
+		 box-shadow: 0 0 10px #bfbfbf;
+		 height: 35px;
+		 text-align: center;
+		 font-weight: 500;
+		 color:#404040;
+		}
+.img_list{    margin: 20px 0; padding: 0 20px; min-height: 540px;min-height: 560px;}
+.list_box_text{ border-bottom:1px solid #e4e4e4; padding:10px 0;float:left;width: 80%;}
+.list_box p{ margin:10px 0; font-size:0.8em; color:#ababab;}
+.list_box img{height: 3.5em; float:left;  margin-right:2%;    width: 18%; position: relative; top: 10px; }
+.list_box h3{ margin:0;font-size: 1em; color:#333; text-decoration:none;}
+.list_box a h3{  color:#333; text-decoration:none;}
+.list_box{ 	margin-bottom:10px; height: 90px;}
+
+.main-footer{ height: 60px;
+    font-size: 0.8em;
+    line-height: 1.5;
+    color: #333;
+    padding-top: 20px;
+    font-weight: 100;
+    padding-left: 15px;}
+.main-footer a{  color: #333; font-weight: 100;}
+button#get_more{ width:100%; text-align:center; padding:10px 0; margin:10px 0;    background-color: #ffffff;
+    color: #333333;
+    border: 1px solid #dddddd;}

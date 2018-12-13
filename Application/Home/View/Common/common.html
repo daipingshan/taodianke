@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>淘店客</title>
+    <link rel="stylesheet" type="text/css" href="__CSS__/common.css?{:C('V')}" />
+    <link rel="stylesheet" type="text/css" href="__CSS__/item.css?{:C('V')}" />
+    <script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <block name="style"></block>
+</head>
+<body>
+<header>
+    <div class="header">
+        <div class="content">
+            <div class="top fl">
+                <ul>
+                    <if condition="session('uid') gt 0">
+                        <li><a href="javascript:void(0)">欢迎您：
+                            <php>echo session('user')['mobile'];</php>
+                        </a></li>
+                        <li><a href="{:U('Public/logout')}">退出</a></li>
+                        <else />
+                        <li><a href="{:U('Public/login')}">登录</a></li>
+                        <li><a href="{:U('Public/register')}">注册</a></li>
+                    </if>
+                </ul>
+            </div>
+            <div class="top fr">
+                <ul>
+                    <li><a href="http://m.taodianke.com" target="_blank">手机站</a></li>
+                    <li>|</li>
+                    <li>
+                        <a href="tencent://message/?uin=125789730&Site=http://www.taodianke.com/&Menu=yes" target="_blank">联系客服</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="twopart">
+            <a title="淘店客" href="{:U('/')}">
+                <div class="logo fl">
+                    <img src="__IMG__/logo.jpg" width="244px" height="44px">
+                </div>
+            </a>
+            <div class="searchDiv">
+                <form class="search-form fl" name="search" action="{:U('Item/search')}" method="get">
+                    <input type="text" class="search-inputbox" name="keyword" id="keyword" placeholder="输入您要的商品" value="{$keyword}">
+                    <button id="search"></button>
+                </form>
+                <div class="clear"></div>
+                <div class="search-keywords">
+                    <ul>
+                        <li><a href="{:U('Item/search',array('keyword'=>'耳机'))}" target="_blank">
+                            <span class="tdk-color">耳机</span> </a></li>
+                        <li><a href="{:U('Item/search',array('keyword'=>'面膜'))}" target="_blank"> <span>面膜</span> </a>
+                        </li>
+                        <li><a href="{:U('Item/search',array('keyword'=>'女装'))}" target="_blank">
+                            <span class="tdk-color">女装</span> </a></li>
+                        <li><a href="{:U('Item/search',array('keyword'=>'行李箱'))}" target="_blank"> <span>行李箱</span>
+                        </a></li>
+                        <li><a href="{:U('Item/search',array('keyword'=>'口红'))}" target="_blank"> <span>口红</span> </a>
+                        </li>
+                        <li><a href="{:U('Item/search',array('keyword'=>'充电宝'))}" target="_blank"> <span>充电宝</span>
+                        </a></li>
+                        <li><a href="{:U('Item/search',array('keyword'=>'洗面奶'))}" target="_blank"> <span>洗面奶</span>
+                        </a></li>
+                        <li><a href="{:U('Item/search',array('keyword'=>'手机壳'))}" target="_blank">
+                            <span class="tdk-color">手机壳</span> </a></li>
+                        <li><a href="{:U('Item/search',array('keyword'=>'抽纸'))}" target="_blank"> <span>抽纸</span> </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <block name="menu">
+        <div class="main-nav">
+            <div class="content">
+                <volist name="menu" id="row" key="k">
+                    <a href="{$row.url}"
+                    <if condition="$act eq $row['act']">class="{$row.class} nav-cur"
+                        <else />
+                        class="{$row.class}"
+                    </if>
+                    >{$row.name}</a>
+                </volist>
+            </div>
+        </div>
+    </block>
+</header>
+<div class="content" id="body-content">
+    <block name="body"></block>
+</div>
+<footer>
+    <div class="footer">
+        <ul>
+            <li><a href="javascript:void(0)"><i class="i_abus"></i>关于我们</a></li>
+            <li><a href="javascript:void(0)"><i class="i_coopr"></i>商家合作</a></li>
+            <li><a href="javascript:void(0)"><i class="i_shopsafe"></i>联系我们</a></li>
+            <li><a href="javascript:void(0)"><i class="i_helpcnter"></i>常见问题</a></li>
+        </ul>
+        <pre><a href="javascript:void(0)" target="_blank">陕ICP备16008812号</a> Copyright © 2010 - 2017 http://www.taodianke.com/ All Rights Reserved  统计代码 版权所有：陕西三多网络科技有限公司 </pre>
+    </div>
+</footer>
+<div id="back-to-top" class="iton-top-index">
+    <a href="#"></a>
+</div>
+<script type="text/javascript">
+    $('#search').click(function () {
+        var keyword = $('#keyword').val();
+        if (!keyword) {
+            return false;
+        }
+    });
+
+    $(function () {
+        $("#back-to-top").hide();
+        $(function () {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() > 100) {
+                    $("#back-to-top").fadeIn(1500);
+                } else {
+                    $("#back-to-top").fadeOut(1500);
+                }
+            });
+            //当点击跳转链接后，回到页面顶部位置
+            $("#back-to-top").click(function () {
+                $('body,html').animate({scrollTop: 0}, 500);
+                return false;
+            });
+        });
+    });
+</script>
+<block name="script"></block>
+</body>
+</html>

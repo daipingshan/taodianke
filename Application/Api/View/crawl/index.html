@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>大淘客数据采集系统</title>
+<link rel="stylesheet" type="text/css" href="/themes/css/uikit.almost-flat.css">
+
+<link rel="stylesheet" type="text/css" href="/themes/css/style.css">
+<script src="/themes/js/jquery-2.1.3.min.js"></script>
+<script src="/themes/js/uikit.min.js"></script>
+</head>
+
+<body>
+<header>
+你好，欢迎使用罗文科技信息采集系统！
+</header>
+
+<form class="uk-from">
+	<div id="message">
+    </div>
+	<input id="start"  type="button" value="开始采集">
+
+</form>
+<footer >
+	@罗文网络科技有限公司版权所有
+</footer>
+<style>
+	#message{ width:100%; height:240px;    background-color: #f5f5f5;
+    border: 1px solid #dcdcdc;overflow: scroll;    font-size: 12px;}
+</style>
+<script>
+	$(document).ready(function(e) {
+        $("#start").click(function(){
+			$.get("DWTaokeDATA",Ajax_getTaoke(1));
+			$(this).attr("disabled","disabled");
+		});
+		
+	
+		function Ajax_getTaoke($page){
+				
+			 $.get("DWTaokeDATA",{page:$page}, function(data){
+			
+				 $('#message').prepend("<p>第"+data.page+"页  信息: " +data.msg+"</p>"); //  2pm
+				 	
+				 if(data.type == 10){
+					 
+					data.page++;
+					Ajax_getTaoke(data.page);
+					
+				}
+				
+				//如果重复
+			
+				if(data.type == 5){
+					
+				
+					$(this).removeAttr("disabled");
+					
+						
+				}
+				 
+			}, "json");
+					 
+			
+		}
+    });
+</script>
+</body>
+</html>

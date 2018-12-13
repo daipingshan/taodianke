@@ -1,0 +1,42 @@
+<extend name="Common/common" />
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__CSS__/login.css?{:C('V')}" />
+</block>
+<block name="menu"></block>
+<block name="body">
+    <div class="main"
+    <notEmpty name="img">style="background: url({$img}) no-repeat"</notEmpty>
+    >
+    <div class="wrap">
+        <div class="regBox">
+            <div class="tit">手机号注册</div>
+            <input type="text" class="input_l" name="mobile" placeholder="手机号码" id="mobile">
+            <div class="reg-code">
+                <input type="text" class="input_l" name="code" placeholder="短信验证码" id="code">
+                <button type="button">获取验证码</button>
+            </div>
+            <input type="password" class="input_l" name="password" placeholder="请输入密码" id="password">
+            <input type="password" class="input_l" name="repassword" placeholder="请输入密码" id="repassword">
+            <p class="info"></p>
+            <div>
+                <button class="reg_btn" id="reg_btn">注册</button>
+            </div>
+            <div><a href="{:U('Public/login')}">已有账号，返回登录&gt;</a></div>
+            <div></div>
+        </div>
+    </div>
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        (function () {
+            $('button').click(function () {
+                $('.info').text('正在开发！');
+                return false;
+            });
+            $('.input_l').focus(function () {
+                $('.info').text('');
+            })
+        })();
+    </script>
+</block>

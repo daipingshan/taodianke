@@ -1,0 +1,48 @@
+<div class="sidebar-menu toggle-others fixed">
+	<div class="sidebar-menu-inner">
+		<header class="logo-env">
+			<!-- logo -->
+			<div class="logo">
+				<a href="/AppAdmin/index" class="logo-expanded">
+					<img src="__CSSImg__/logo@2x.png" width="80" alt="" />
+				</a>
+				<a href="/AppAdmin/index" class="logo-collapsed">
+					<img src="__CSSImg__/logo-collapsed@2x.png" width="40" alt="" />
+				</a>
+			</div>
+		</header>
+
+		<ul id="main-menu" class="main-menu">
+			<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+			<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+			<volist name="nav_list_cache" id="vo">
+				<if condition="$vo['child_nav']">
+					<li <if condition="$menu_pid eq $vo['id']">class="has-sub expanded active"</if>>
+						<a href="/AppAdmin/{$vo.module_name}/{$vo.action_name}/{$vo.data}">
+							<i class="{$vo.ico}"></i>
+							<span class="title">{$vo.name}</span>
+						</a>
+						<if condition="$vo['child_nav']">
+							<ul <if condition="$menu_pid eq $vo['id']">style="display:block"</if>>
+								<foreach name="vo.child_nav" item="ve" >
+									<li <if condition="$ve.module_name eq CONTROLLER_NAME AND $ve.action_name eq ACTION_NAME">class="active"</if>>
+										<a href="/AppAdmin/{$ve.module_name}/{$ve.action_name}/{$ve.data}">
+											<span class="title">{$ve.name}</span>
+										</a>
+									</li>
+								</foreach>
+							</ul>
+						</if>
+					</li>
+				<else />
+					<li <if condition="$menu_pid eq $vo['id']">class="active"</if>>
+						<a href="/AppAdmin/{$vo.module_name}/{$vo.action_name}/{$vo.data}">
+							<i class="{$vo.ico}"></i>
+							<span class="title">{$vo.name}</span>
+						</a>
+					</li>
+				</if>
+			</volist>
+		</ul>
+	</div>
+</div>

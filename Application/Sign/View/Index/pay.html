@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title>报名系统</title>
+    <link rel="stylesheet" href="__CSS_PATH__/layui.css"  media="all">
+    <script src="__JS_PATH__/jquery-2.1.4.js"></script>
+    <script src="__JS_PATH__/layui.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+
+    //调用微信JS api 支付
+    function jsApiCall()
+    {
+        WeixinJSBridge.invoke(
+                'getBrandWCPayRequest',
+                {$data},
+                function(res){
+                    if(res.err_msg == "get_brand_wcpay_request:ok" ) {
+                        location.href = "{$success_url}";
+                    }else{
+                        location.href = "http://m.mei-hun.com/Pay/error/info/"+res.err_msg;
+                    }
+                }
+        );
+    }
+
+    function callpay()
+    {
+        if (typeof WeixinJSBridge == "undefined"){
+            if( document.addEventListener ){
+                document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+            }else if (document.attachEvent){
+                document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+                document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+            }
+        }else{
+            jsApiCall();
+        }
+    }
+
+    callpay();
+
+</script>
+</body>
+</html>

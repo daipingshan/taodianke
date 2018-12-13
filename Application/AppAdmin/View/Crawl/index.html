@@ -1,0 +1,328 @@
+<include file="Public/header" title="数据采集" />
+<body class="page-body">
+<div class="page-container">
+	<include file="Public/nav" />
+    
+    <div class="main-content"> 
+    <!-- User Info, Notifications and Menu Bar --> 
+    <include file="Public/user_nav" />
+  <div class="page-title">
+    <div class="title-env">
+      <h1 class="title">数据采集</h1>
+      <p class="description">商品库数据采集</p>
+    </div>
+    <div class="breadcrumb-env">
+      <ol class="breadcrumb bc-1">
+        <li> <a href="/AppAdmin/"><i class="fa-home"></i>主页</a> </li>
+        <li class="active"> 数据采集 </li>
+      
+      </ol>
+    </div>
+  </div>
+ <div class="row">
+  	 <div class="panel panel-default col-sm-12">
+     <div class="panel-heading">
+							<h3 class="panel-title">快捷操作</h3>
+							<div class="panel-options">
+								<a href="#" data-toggle="panel">
+									<span class="collapse-icon">–</span>
+									<span class="expand-icon">+</span>
+								</a>
+								<a href="#" data-toggle="remove">
+									×
+								</a>
+							</div>
+		</div>
+        <form method="get" action="search">
+      <div class="panel-body">
+      		<div class="row col-margin">
+            	<div class="col-xs-1">
+            		<a href="/AppAdmin/Crawl/top100" class="btn btn-secondary btn-single">更新TOP100</a>
+                </div>
+                <div class="col-xs-1">
+            		<a href="#" onClick="Ajax_SetItemDesc();" class="btn btn-secondary btn-single">仅更新详情</a>
+                </div>
+                <div class="col-xs-2">
+                    <a href="#" onClick="Ajax_check_items();" class="btn btn-secondary btn-single">检测大淘客产品</a>
+                </div>
+                <div class="col-xs-1">
+            		<a href="/AppAdmin/Crawl/del_dtk_items"  class="btn btn-secondary btn-single">删除大淘客订单</a>
+                </div>
+
+            </div>
+      </div>
+      </form>
+</div>
+  <div class="row">
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+         
+          <h3 class="panel-title">商品数量：<span id="itemcount">({$ItemCount})</span></h3>
+          <div id="cj" class="col-md-6"><i  ><span class="fa fa-spin fa-spinner"></span></i> 正在采集！</div>
+          <div id="time"></div>
+          <div class="panel-options"> 
+              <a href="#"> <i class="linecons-cog"></i> </a>
+              <a href="#" data-toggle="panel"> 
+                  <span class="collapse-icon">&ndash;</span> 
+                  <span class="expand-icon">+</span> </a> 
+              <a href="#" data-toggle="reload" class="reload"> <i class="fa-rotate-right"></i> </a> 
+              <a href="#" data-toggle="remove"> &times; </a> </div>
+        </div>
+        <div class="panel-body">
+          <form class="uk-from">
+            <div id="message" class="msg">
+               
+            </div>
+              <div class="row">
+                    <div class="col-md-3" > 
+                         <button id="start" class="btn btn-orange btn-icon btn-icon-standalone btn-sm">
+                            <i class="fa-download"></i>
+                                    <span>开始采集</span>
+                             </button>
+                        </div>
+                    <div class="col-md-6" ><input id="page" class="col-md-8" type="number" value="1" >页</div>
+                    <div class="col-md-3" ><input id="Reboot"  type="button" value="重启"></div>
+             </div>
+                
+          </form>
+        </div>
+      </div>
+     </div>
+      <div class="col-md-4">
+         <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">商品资料补充</h3>
+       
+          <div id="time" ></div>
+                 
+            
+             <div class="panel-options"> 
+                 <a class="reload" href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                
+            </div>
+        </div>
+        <div class="panel-body">
+          <form class="uk-from">
+            <div id="bc-message" class="msg">
+               
+            </div>
+    
+          </form>
+            
+        </div>
+      </div>
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">采集信息</h3>
+
+          
+
+            </div>
+            <div class="panel-body">
+              
+               <div>
+                <p>待上线商品：<span id="pass0"></span>件</p>
+                <p>已上线商品： </p>
+                <p>待更新商品：<span id="upd1"></span></p>
+                <p>已更新商品：<span id="upd2"></span></p>
+              </div>
+
+             
+            </div>
+          </div>
+      </div>
+   </div>
+        
+         
+   <include file="Public/footer" /> 
+
+</div>
+
+</div>
+
+<include file="Public/footer_Js" />
+
+
+<script>
+
+	$(document).ready(function(e) {
+        
+      
+        $("#Reboot").click(function(){
+            var page = $("#page").val();
+            //timedCount();
+			$.get("/AppAdmin/Crawl/DWTaokeDATA",Ajax_getTaoke(page));
+        });
+        
+        $("#start").click(function(){
+            //图标
+            $('#cj').show();
+            //计数器
+            //timedCount();
+			$.get("DWTaokeDATA",Ajax_getTaoke(1));
+            Ajax_SetItemDesc(1);
+			$(this).attr("disabled","disabled");
+		});
+		
+        
+        $(".reload").click(function(){
+            $(this).parents('.panel-heading').next('.panel-body').find(".msg").html(" ");
+            
+        });
+	   
+    });
+	
+//递归检查商品
+function Ajax_check_items(mark,num){
+	  var box = $('#bc-message');
+	  if(num == null){
+			var num = 0;  
+		}
+	  
+	  if(mark == null){
+			var mark = "Y";
+		}
+	  var request = $.ajax({
+                 url : "check_items",
+                 method : "GET",
+                  async : true,
+				  data : {check_mark:mark},
+                 dataType : "json"
+                 
+      });
+	request.done(function(data){
+       
+		 if(data.result == 1){
+			box.prepend("<p>更新成功："+data.msg+"</p>");
+         	Ajax_check_items(data.check_mark);
+			
+		 }
+		 if(data.result == -1){
+			 box.prepend("<p>更新完毕："+data.msg+"</p>");
+			 
+		}
+    });
+    request.fail(function(jqXHR, textStatus){
+         box.prepend( "<p>Request failed: " + textStatus + ",Try again later.</p>");
+        
+	});
+}
+function Ajax_SetItemDesc(num){
+     //alert(123);
+    var box = $('#bc-message');
+    var request = $.ajax({
+                 url : "/AppAdmin/Crawl/upd_item_desc",
+                 method : "GET",
+                  async : true,
+                 dataType : "json"
+                 
+             });
+    var num;
+    var page = $('#page');
+	var pass0 = $('#pass0');
+    request.done(function(data){
+         box.prepend("<p>"+num+"："+data.title+"</p>");
+		 pass0.text(data.pass0);
+         num = num+1;
+      
+            //重新开始采集
+            if(num >= 20 && page.val() ==0){
+                //随机从0 或者1 开始 1：采集新数据  0：随机页面采集
+                Ajax_getTaoke(rand(500));
+                num = 0;
+            }
+   
+         Ajax_SetItemDesc(num);
+    });
+    request.fail(function(jqXHR, textStatus){
+         box.prepend( "<p>Request failed: " + textStatus + ",Try again later.</p>");
+        
+         Ajax_SetItemDesc(num);
+    });
+ 
+}
+function Ajax_getTaoke(mypage){
+             var cjimg = $('#cj');
+             var itemcount = $("#itemcount");
+             var page = $("#page");
+             var t;
+             var box =  $('#message');
+            // t = setTimeout("timedCount("+data.page+")",1000);
+             var request = $.ajax({
+                 url : "/AppAdmin/Crawl/DWTaokeDATA",
+                 method : "GET",
+                  async : true,
+                 data : {page:mypage},
+                 dataType : "json"
+                 
+             });
+            request.done(function(data){
+                
+              box.prepend("<p>第"+data.page+"页  信息: " +data.msg+"</p> "); //  2pm
+                //商品数目
+                itemcount.text(data.ItemCount);
+                cjimg.show();
+                if(data.type == 10 ){
+               
+                    
+				    cjimg.show();
+					data.page++; 
+					t = setTimeout(Ajax_getTaoke(data.page),1000);
+                    page.val(data.page);
+                     //更新商品
+				}
+                //失败     
+                if(data.type == -1){
+                    
+                     cjimg.hide();
+                     $("#start").removeAttr("disabled");
+                     page.val(0);
+                }
+            });
+            request.fail(function(jqXHR, textStatus){
+                 cjimg.hide();
+                 box.prepend( "<p>error: " + textStatus + ",Try again later.</p>");
+                 cjimg.hide();
+                 var page = $("#page").val();
+                 setTimeout(Ajax_getTaoke(page),1000);
+            });
+					 	
+		}
+function timedCount(id){   
+           var num = parseInt($("#time"+id).text());
+           num = num+1;
+          //alert(num);
+           $("#t"+id).text(num);
+           setTimeout("timedCount("+id+")",1000);
+         }
+//随机数
+ function rand ( n ){
+         return ( Math.floor ( Math.random ( ) * n + 1 ) );
+   }
+//当前时间
+function getNowFormatDate() {
+    var date = new Date();
+    var seperator1 = "-";
+    var seperator2 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    if (month >= 1 && month <= 9) {
+        month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+        strDate = "0" + strDate;
+    }
+    var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+            + " " + date.getHours() + seperator2 + date.getMinutes()
+            + seperator2 + date.getSeconds();
+    return currentdate;
+}
+</script>
+<style>
+    #message{ height: 350px; overflow-y: scroll;}
+    #bc-message,#sp-message{ height: 125px; overflow-y:scroll;}
+    #cj{ display: none;}
+</style>
+</body>
+</html>

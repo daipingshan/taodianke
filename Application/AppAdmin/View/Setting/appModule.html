@@ -1,0 +1,137 @@
+<include file="Public/header" title="商品管理" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">App首页模块</h1>
+                <p class="description">显示App首页模块</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"> 站点设置</li>
+                    <li class="active"><strong>App首页模块</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-success" style="display: none">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="col-xs-2">
+                            <a href="{:U('Setting/addAppModule')}" class="btn btn-secondary btn-single">
+                                添加App首页模块
+                            </a>
+                        </div>
+                        <div class="panel-options"><a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel"> <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a> <a href="#" data-toggle="reload">
+                                <i class="fa-rotate-right"></i> </a> <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">ID</th>
+                                    <th width="10%">模块名称</th>
+                                    <th width="20%">模块图标</th>
+                                    <th width="20%">请求类型</th>
+                                    <th width="10%">上线平台</th>
+                                    <th width="10%">排序</th>
+                                    <th width="10%">状态</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td>{$vo['id']}</td>
+                                        <td>{$vo['module_name']}</td>
+                                        <td>
+                                            <img src="{:getImgUrl($vo['module_icon'])}" width="80">
+                                        </td>
+                                        <td>{$vo['type']}</td>
+                                        <td>
+                                            <switch name="vo.client">
+                                                <case value="android">安卓</case>
+                                                <case value="ios">苹果</case>
+                                                <case value="all">两者都上</case>
+                                                <default />
+                                                未知
+                                            </switch>
+                                        </td>
+                                        <td>{$vo['sort']}</td>
+                                        <td>
+                                            <switch name="vo.status">
+                                                <case value="1">启用</case>
+                                                <case value="0">禁用</case>
+                                                <default />
+                                                未知
+                                            </switch>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('Setting/updateAppModule',array('id'=>$vo['id']))}">
+                                                <button class="btn btn-secondary"><font><font>编辑修改</font></font></button>
+                                            </a>
+
+                                            <button class="btn" data-clipboard-text="taodianke://Item/special?type={$vo['type']}&app_title={$vo['module_name']}" ><font>复制URL</font></button>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <script src="__JS__/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        var btns = document.querySelectorAll('button');
+        var clipboard = new Clipboard(btns);
+
+        clipboard.on('success', function (e) {
+            $('.alert-success strong').text('恭喜您，复制成功！');
+            $('.alert-success').show();
+            setTimeout(function () {
+                $('.alert-success').hide();
+            }, 3000);
+        });
+
+        clipboard.on('error', function (e) {
+            $('.alert-danger strong').text('复制失败！');
+            $('.alert-danger').show();
+            setTimeout(function () {
+                $('.alert-danger').hide();
+            }, 3000);
+        });
+    </script>
+    <include file="Public/footer_Js" />

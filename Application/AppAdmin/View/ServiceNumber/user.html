@@ -1,0 +1,110 @@
+<include file="Public/header" title="微信用户管理"/>
+<link rel="stylesheet" href="__JS__/daterangepicker/daterangepicker-bs3.css">
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">百姓网服务号->关注用户列表</h1>
+                <p class="description">显示所有关注人员</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li><a href="{:U('index')}">百姓网服务号</a></li>
+                    <li><a href="{:U('generalize',array('service_id'=>$service_id))}">服务号推广列表</a></li>
+                    <li class="active"><strong>关注用户列表</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">关注用户列表</h3>
+                        <br>
+                        <br>
+                        <form>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <input type="text" name="time" value="{$time}" id="field-1"
+                                           class="form-control daterange" placeholder="请选择关注时间范围"/>
+                                </div>
+                                <div class="col-sm-2">
+                                    <input type="hidden" name="id" value="{$generalize_id}"/>
+                                    <button class="btn btn-secondary btn-single" type="submit" name="type"
+                                            value="select"
+                                            style="margin-bottom: 0">
+                                        <font><font>查询</font></font></button>
+                                    <button class="btn btn-warning" type="submit" name="type" value="down"
+                                            style="margin-bottom: 0">
+                                        <font><font>报表下载</font></font></button>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h4>已关注总数：<span style="color: red">{$all_num}</span></h4>
+                                </div>
+                                <div class="col-sm-3">
+                                    <h4>已取消总数：<span style="color: red">{$all_del_num}</span></h4>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="20%">微信昵称</th>
+                                    <th width="20%">微信图像</th>
+                                    <th width="10%">用户性别</th>
+                                    <th width="20%">用户地址</th>
+                                    <th width="20%">关注时间</th>
+                                    <th width="10%">关注类型</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td>{$vo.nickname}</td>
+                                        <td><img src="{$vo.head_img_url}" width="50"/></td>
+                                        <td>
+                                            <if condition="$vo['sex'] eq 1">
+                                                男
+                                                <elseif condition="$vo['sex'] eq 2"/>
+                                                女
+                                                <else/>
+                                                保密
+                                            </if>
+                                        </td>
+                                        <td>{$vo.address}</td>
+                                        <td>{$vo.add_time|date="Y-m-d H:i:s",###}</td>
+                                        <td>
+                                            <eq name="vo.status" value="1">
+                                                <button class="btn btn-success">已关注</button>
+                                                <else/>
+                                                <button class="btn btn-danger">已取消</button>
+                                            </eq>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+</div>
+<!-- 添加推广位 -->
+<include file="Public/footer_Js"/>
+<!-- Bottom Scripts -->
+<script src="__JS__/moment.min.js"></script>
+<!-- Imported scripts on this page -->
+<script src="__JS__/daterangepicker/daterangepicker.js"></script>

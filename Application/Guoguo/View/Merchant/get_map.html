@@ -1,0 +1,93 @@
+<include file="Common:header" />
+<include file="Common:message_tip" />
+<!-- /.row -->
+<style>
+    div.map-cont{
+        max-width: 700px;
+        margin: auto;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 0px;
+    }
+</style>
+<div class='map-cont'>
+    <div class="row" style=''>
+        <div class="col-lg-6">
+            <div class="form-group input-group">
+                <input type="text" id='input-search-go' class="form-control" value='' placeholder="请输入地址搜索">
+                <span class="input-group-btn">
+                    <button id='btn-search-go' class="btn btn-info" type="button"><i class="fa fa-search"></i>
+                    </button>
+                </span>
+            </div>
+        </div>
+        <div class="row">
+            <div id='all-map-con' style='min-height:420px;' class="col-lg-12">
+
+
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+    </div>
+
+    <include file="Common:footer" />
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=B3f7707c25da5b29a6ff69618788a296"></script>
+
+    <script>
+
+
+        $(function() {
+            var map = new BMap.Map("all-map-con");
+            var _init = function(longs, lat) {
+                var point = new BMap.Point(longs, lat);
+                map.enableScrollWheelZoom(true);
+                map.enableScrollWheelZoom(); //启用滚轮放大缩小，默认禁用
+                map.enableContinuousZoom(); //启用地图惯性拖拽，默认禁用
+                map.centerAndZoom(point, 15);
+                map.addControl(new BMap.NavigationControl()); //添加默认缩放平移控件
+                var marker = new BMap.Marker(point); // 创建标注
+                map.addOverlay(marker); // 将标注添加到地图中
+                marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+                marker.enableDragging(); // 可拖拽
+                marker.addEventListener("dragend", function(e) {
+                    $("#merchant-longlat", window.parent.document).val(e.point.lat + "," + e.point.lng);
+                });
+            };
+            var longs = {$data['long']};
+                    var lat = {$data['lat']};
+            _init(longs, lat);
+
+            var search = function(val) {
+                if (!val) {
+                    return false;
+                }
+                var myGeo = new BMap.Geocoder();
+                // 将地址解析结果显示在地图上,并调整地图视野
+                myGeo.getPoint(val, function(point) {
+                    if (point) {
+                        map.clearOverlays();
+                        map.centerAndZoom(point, 13);
+                        $("#merchant-longlat", window.parent.document).val(point.lat + "," + point.lng);
+                        var marker = new BMap.Marker(point)
+                        map.addOverlay(marker);
+                        marker.enableDragging();
+                        marker.addEventListener("dragend", function(e) {
+                            $("#merchant-longlat", window.parent.document).val(e.point.lat + "," + e.point.lng);
+                        })
+                    } else {
+                        show_message_tip({error: '没搜索到地址坐标'});
+                    }
+                }, "中国");
+            }
+
+            $('#btn-search-go').click(function() {
+                var $query = $('#input-search-go').val();
+                if (!$.trim($query)) {
+                    return false;
+                }
+                search($query);
+                return false;
+            });
+
+        });
+    </script>

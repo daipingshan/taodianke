@@ -1,0 +1,64 @@
+ <include file="Common:header" />    
+<div class="container">
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <include file="Common:message_tip" />
+                <div class="login-panel panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">请您登录</h3>
+                    </div>
+                    <div class="panel-body">
+                        <form role="form" id="form-login" method="post" action="">
+                            <fieldset>
+                                <div class="form-group">
+                                    <input class="form-control" id='username' placeholder="username" name="username" type="text" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" id='password' placeholder="Password" name="password" type="password" value="">
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        <input name="remember" type="checkbox" value="Remember Me">记住账号
+                                    </label>
+                                </div>
+                                <!-- 使用时删除 “a”标签 input 取消注释 -->
+                                <a href="javascript:void(0);" id="btn-login" class="btn btn-lg btn-success btn-block">登录</a>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  <include file="Common:footer" />
+<script>
+    $(function(){
+        // 点击登录按钮
+        $('#btn-login').click(function(){
+
+            var $this = $(this);
+            var $form = $this.parents('form#form-login');
+            var username = $form.find('input#username').val();
+            var password = $form.find('input#password').val();
+            if(!$.trim(username)){
+                show_message_tip({error:'请输入用户名'});
+                return false;
+            }
+            
+            if(!$.trim(password)){
+                show_message_tip({error:'请输入密码'});
+                return false;
+            }
+            
+            if($this.hasClass('disabled')){
+                return false;
+            }
+            $this.addClass('disabled');
+            $this.html('正在登录请稍后...');
+            window.setTimeout(function() {
+               $form.submit();
+            }, 1500);
+            return false;
+        });
+    })
+</script>

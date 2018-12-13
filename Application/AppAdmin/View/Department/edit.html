@@ -1,0 +1,119 @@
+<include file="Public/header" title="部门编辑" keywords="" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+
+    <!-- User Info, Notifications and Menu Bar -->
+    <include file="Public/user_nav" />
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">部门编辑</h1>
+            <p class="description">后台管理部门编辑</p>
+        </div>
+        <div class="breadcrumb-env">
+            <ol class="breadcrumb bc-1">
+                <li> <a href="{:U('Index/index')}"><i class="fa-home"></i>主页</a> </li>
+                <li> 站点设置 </li>
+                <li class="active"> <strong>部门编辑 </strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">编辑部门(<span style="font-size: 14px;color: red;">红色字体为必填项</span>)</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">&ndash;</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove"> &times; </a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <form role="form" method="post" class="form-horizontal"  enctype="multipart/form-data">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="remark">上级部门</label>
+                            <div class="col-sm-10">
+                                <select name="parent_id" id="department" class="form-control" style="width: 30%;">
+                                    <option value="0">请选择部门</option>
+                                    <foreach name="info" item="v" key="k">
+                                        <option value="{$v['id']}"
+                                        <if condition="$list['parent_id'] eq $v['id']">selected</if>
+                                        >{$v['department_name']}</option>
+                                    </foreach>
+
+
+
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="department_name" style="color: red">
+                                部门名称
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="department_name" name="department_name" value="{$list['department_name']}" required placeholder="设置部门的名称">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group account_info" <if condition="$list['parent_id'] eq '0'"> style="display: none" </if> >
+                            <label class="col-sm-2 control-label" for="remark" style="color: red">
+                                第三方平台账号信息
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="dataoke_account_info" value="{$list['dataoke_account_info']}" name="dataoke_account_info" placeholder="请设置第三方平台账号信息" style="width:40%">
+                            </div>
+                        </div>
+                        <div class="form-group-separator account_info_line" <if condition="$list['parent_id'] eq '0'"> style="display: none" </if>></div>
+                        <div class="form-group dtk_cookie" <if condition="$list['parent_id'] eq '0'"> style="display: none" </if>>
+                            <label class="col-sm-2 control-label" for="remark" style="color: red">
+                                COOKIE
+                            </label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" name="cookie" id="cookie" rows="5" placeholder="COOKIE">{$list['cookie']}</textarea>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="remark">备注信息</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="remark"  name="remark"
+                                value="{$list['remark']}" placeholder="备注信息">
+                            </div>
+                        </div>
+                        <input type="hidden"  name="id" value="{$list['id']}" placeholder="备注信息">
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <div class="col-sm-2 "></div>
+                            <div class="col-sm-10">
+                                <input type="submit" class="btn btn-secondary  btn-single" value="编辑部门">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<include file="Public/footer" /> </div>
+
+<include file="Public/footer_Js" />
+<script type="text/javascript">
+    $("#department").change(function(){
+        var id = $(this).val();
+        if (id == 1) {
+            $('.account_info').show();
+            $('.account_info_line').show();
+            $('.dtk_cookie').show();
+        } else {
+            $('.account_info').hide();
+            $('.account_info_line').hide();
+            $('.dtk_cookie').hide();
+        }
+    });
+</script>

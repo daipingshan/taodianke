@@ -1,0 +1,80 @@
+<style>
+    .col-xs-2{
+        width:14%;
+    }
+</style>
+<div class="row">
+    <div class="panel panel-default col-sm-12">
+        <div class="panel-heading">
+            <h3 class="panel-title">搜索用户</h3>
+            <div class="panel-options">
+                <a href="#" data-toggle="panel">
+                    <span class="collapse-icon">–</span>
+                    <span class="expand-icon">+</span>
+                </a>
+                <a href="#" data-toggle="remove">×</a>
+            </div>
+        </div>
+        <form method="get" action="{:U('User/index')}">
+            <div class="panel-body">
+                <div class="row col-margin">
+                    <div class="col-xs-2">
+                        <input type="text" name="pid" class="form-control" placeholder="用户pid"
+                        <if condition="I('get.pid') neq '' ">
+                            value='{$data['pid']}'
+                        </if>
+                        />
+                    </div>
+
+                    <div class="col-xs-2">
+                        <input type="text" name="bank_account" class="form-control" placeholder="支付宝账号"
+                        <if condition="I('get.bank_account') neq '' ">
+                            value='{$data['bank_account']}'
+                        </if>
+                        />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" name="real_name" class="form-control" placeholder="姓名"
+                        <if condition="I('get.real_name') neq '' ">
+                            value='{$data['real_name']}'
+                        </if>
+                        />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" name="tel" class="form-control" placeholder="电话号码"
+                        <if condition="I('get.tel') neq '' ">
+                            value='{$data['tel']}'
+                        </if>
+                        />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control datepicker" name="zhuce_time" placeholder="请输入注册时间"
+                        <if condition="I('get.zhuce_time') neq '' ">
+                            value='{$data['reg_time']}'
+                        </if>
+                        >
+                    </div>
+                    <div class="col-xs-2">
+                        <select name="proxy_type" id="board_id" class="form-control" style="width: 100%;">
+                            <option value="">请选择代理级别</option>
+                            <option value="0"
+                            <if condition="I('get.proxy_type') eq '0'">selected</if>
+                            >普通代理</option>
+                            <option value="1"
+                            <if condition="I('get.proxy_type') eq '1'">selected</if>
+                            >企业级代理</option>
+                            <option value="3"
+                            <if condition="I('get.proxy_type') eq '3'">selected</if>
+                            >一级代理</option>
+                        </select>
+                        <input type="hidden" id="parent_id" name="parent_id" value="{$data.parent_id}">
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="submit"  class="btn btn-secondary btn-single" value="搜索" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<script src="__JS__/datepicker/bootstrap-datepicker.js"></script>

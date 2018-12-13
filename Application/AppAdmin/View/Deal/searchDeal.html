@@ -1,0 +1,267 @@
+<include file="Public/header" title="认领商品" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content" id="content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">商品认领</h1>
+                <p class="description">商品认领功能，在商品库中认领您的商品。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active">CRM</li>
+                    <li class="active"><strong>商品认领</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" id="error"
+                <empty name="error">style="display:none"</empty>
+                >
+                <strong>{$error}</strong>
+            </div>
+        </div>
+        <div class="panel panel-default col-md-12">
+            <div class="panel-heading">
+                <h3 class="panel-title">搜索大淘客商品</h3>
+                <div class="panel-options">
+                    <a href="#" data-toggle="panel">
+                        <span class="collapse-icon">–</span>
+                        <span class="expand-icon">+</span>
+                    </a>
+                    <a href="#" data-toggle="remove">
+                        ×
+                    </a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <form action="{:U('searchDeal')}" method="get">
+                    <div class="form-group ">
+                        <label class="control-label">商品id</label>
+                        <input type="text" class="form-control" name="tao_bao_id" value="{:I('get.tao_bao_id')}" placeholder="淘宝商品ID">
+                    </div>
+                    <div class="form-group ">
+                        <input id="search" type="submit" class="btn btn-info btn-single pull-right" value='查询'>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <notEmpty name="deal_info">
+            <div class="panel panel-default col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">查询到的商品</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="col-sm-4">
+                            <li><img src="{$deal_info.img_url}" class="img-responsive" /></li>
+                            <li>状态：
+                                <switch name="deal_info.status">
+                                    <case value="ing">进行中</case>
+                                    <case value="finished">已结束</case>
+                                    <case value="reject">拒绝推广</case>
+                                    <default />
+                                    未知状态
+                                </switch>
+                            </li>
+                            <li>大淘客链接：<a href="{$deal_info.dataoke_url}" target="_blank">点击查看</a>
+                            </li>
+                            <li>商品地址:<a href="{$deal_info.taobao_url}" target="_blank">点击查看</a></li>
+                            <li>认领状态:
+                                <eq name="deal_info.claim_status" value="N">
+                                    <span style="color: red">未认领</span>
+                                    <else />
+                                    <span style="color:#00A300;">已认领</span>
+                                </eq>
+                            </li>
+                            <li>佣金计划:
+                                <switch name="deal_info.commission">
+                                    <case value="ying_xiao">营销</case>
+                                    <case value="que_qiao">鹊桥</case>
+                                    <case value="ding_xiang">定向</case>
+                                    <case value="tong_yong">通用</case>
+                                    <default />
+                                    未知状态
+                                </switch>
+                            </li>
+                            <li>佣金比例:{$deal_info.commission_ratio}</li>
+                            <li>优惠券数量:{$deal_info.coupon_num}</li>
+                            <li>导购文案:{$deal_info.copy_writer}</li>
+                            <li>提交时间:{$deal_info.add_time|date="Y-m-d H:i:s",###}</li>
+                            <li>开始时间:{$deal_info.online_time|date="Y-m-d H:i:s",###}</li>
+                            <li>备注信息:<span style="color: #00A0E9;font-weight: bold">{$deal_info.dataoke_remark}</span>
+                            </li>
+                        </ul>
+                        <empty name="admin_id">
+                            <div class="col-sm-8">
+                                <div class="form-group-separator"></div>
+                                <form action="{:U('claimDeal')}" id="deal" class="form-horizontal" method="post">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="admin_name">认领用户</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" readonly="readonly" class="form-control" name="" id="admin_name" value="{$username}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group-separator"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="merchant_id">所属商家</label>
+                                        <div class="col-sm-6">
+                                            <input type="text" class="form-control" name="merchant_name" id="merchant_name" value="{$deal_info['merchant_name']}" readonly>
+                                            <input type="hidden" class="form-control" name="merchant_id" id="merchant_id" value="{$deal_info['merchant_id']}">
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input type="button" class="btn btn-info btn-single pull-right" value='选择商家' onclick="getMerchant();">
+                                        </div>
+                                    </div>
+                                    <present name="deal_info.merchant_seller_nick">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="merchant_id">商家淘宝昵称</label>
+                                        <div class="col-sm-6">{$deal_info['merchant_seller_nick']}
+                                        </div>
+                                    </div>
+                                    </present>
+                                    <div class="form-group-separator"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="service_fee_type">服务费类型</label>
+                                        <div class="col-sm-9">
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="service_fee_type"
+                                                    <eq name="deal_info.service_fee_type" value="ratio">checked</eq>
+                                                    value="ratio">
+                                                    按比例
+                                                </label>
+                                            </div>
+                                            <div class="radio">
+                                                <label>
+                                                    <input type="radio" name="service_fee_type"
+                                                    <eq name="deal_info.service_fee_type" value="unit">checked</eq>
+                                                    value="unit">
+                                                    按单价
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group-separator"></div>
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label" for="service_fee">服务费</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" class="form-control" name="service_fee" id="service_fee" value="{$deal_info.service_fee}" placeholder="请输入服务费">
+                                            <span style="color: red">按比例：输入1-100之间的数字【8->8%比例】</span><br />
+                                            <span style="color: red">按单价：输入0.1-100之间的数值【0.8->每单8毛钱】</span><br />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="deal_id" name="deal_id" type="hidden" value="{$deal_info.id}" />
+                                        <if condition="$deal_info.service_fee gt 0">
+                                            <input type="hidden" name="button_type" value="update" />
+                                            <button id="submit_button" type="submit" class="btn btn-info btn-single pull-right">更新商品
+                                            </button>
+                                            <else />
+                                            <input type="hidden" name="button_type" value="add" />
+                                            <button id="submit_button" type="submit" class="btn btn-info btn-single pull-right">认领商品
+                                            </button>
+                                        </if>
+                                    </div>
+                                </form>
+                            </div>
+                        </empty>
+                    </div>
+                </div>
+            </div>
+        </notEmpty>
+    </div>
+    <script>
+        $(document).ready(function (e) {
+            $("#submit_button").click(function () {
+                $('#submit_button').attr('disabled', 'disabled');
+                $.post($('#deal').attr('action'), $('#deal').serialize(), function (res) {
+                    if (res.status == 0) {
+                        $('#error').find('strong').text(res.info);
+                        $('#error').show();
+                        $('#submit_button').removeAttr('disabled');
+                        setTimeout(function () {
+                            $('#error').hide();
+                        }, 3000)
+                    } else {
+                        $('#success').find('strong').text(res.info);
+                        $('#success').show();
+                        setTimeout(function () {
+                            window.location.href = res.url;
+                        }, 3000)
+                    }
+                });
+                return false;
+            });
+            $('#modal').on('click', '#search-merchant', function () {
+                var keyword = $('#modal input[name=keyword]').val();
+                var url = "{:U('selectMerchant')}";
+                if (keyword) {
+                    $.get(url, {keyword: keyword}, function (res) {
+                        jQuery('#modal .modal-body').html(res.html);
+                    })
+                }
+            });
+
+            $('#modal').on('click', 'button.select-merchant', function () {
+                var merchant_id = $(this).data('id');
+                var merchant_name = $(this).data('name');
+                $('#merchant_id').val(merchant_id);
+                $('#merchant_name').val(merchant_name);
+                $('#modal button.close').click();
+            });
+
+            $('#modal').on('click', '.page a', function () {
+                var url = $(this).attr('href');
+                $.get(url, {}, function (res) {
+                    jQuery('#modal .modal-body').html(res.html);
+                })
+                return false;
+            });
+        });
+
+        /**
+         * 异步获取商家
+         */
+        function getMerchant() {
+            jQuery('#content').css('display', 'block');
+            jQuery('#modal').modal('show', {backdrop: 'static'});
+            var url = "{:U('selectMerchant')}";
+            $.get(url, {}, function (res) {
+                jQuery('#modal .modal-body').html(res.html);
+            })
+        }
+    </script>
+    <include file="Public/footer" />
+</div><!-- Modal 7 (Ajax Modal)-->
+<div class="modal fade" id="modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">我的商家</h4>
+            </div>
+            <div class="modal-body">
+                正在加载...
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Public/footer_Js" />

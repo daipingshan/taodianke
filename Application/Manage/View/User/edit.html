@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:header"/>
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <form class="form-horizontal" action="{:U('User/update')}" data-checkurl="{:U('User/editCheck')}" method="post" id="user-form">
+                	<div class="form-group">
+                        <label class="col-sm-2 control-label">上级编号：</label>
+                        <div class="col-sm-4">
+                            <input type="text" autocomplete="off"  name="pid" class="form-control" required placeholder="" value="{$vo.pid}">
+                            <span class="help-block m-b-none text-warning err err-pid"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">登陆账号：</label>
+                        <div class="col-sm-4">
+                            <input type="text" autocomplete="off"  name="username" class="form-control" required placeholder="0~9,a~z,_,长度:6-16,不支持中文" value="{$vo.username}">
+                            <span class="help-block m-b-none text-warning err err-username"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">登陆密码：</label>
+                        <div class="col-sm-4">
+                            <input type="text" autocomplete="off"  name="password" class="form-control" placeholder="留空不修改">
+                            <span class="help-block m-b-none text-warning err err-password"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">姓名：</label>
+                        <div class="col-sm-4">
+                            <input type="text" autocomplete="off"  name="realname" class="form-control" required placeholder="真实姓名" value="{$vo.realname}">
+                            <span class="help-block m-b-none text-warning err err-realname"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">手机号：</label>
+                        <div class="col-sm-3">
+                            <input type="text" autocomplete="off"  name="phone" class="form-control" required placeholder="" value="{$vo.phone}">
+                            <span class="help-block m-b-none text-warning err err-phone"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">地址：</label>
+                        <div class="col-sm-4">
+                            <input type="text" autocomplete="off"  name="address" class="form-control" required placeholder="详细地址" value="{$vo.address}">
+                            <span class="help-block m-b-none text-warning err err-address"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">提成比例：</label>
+                        <div class="col-sm-2">
+                            <input type="text" autocomplete="off"  name="ratio" class="form-control" required placeholder="" value="{$vo.ratio}">
+                            <span class="help-block m-b-none text-warning err err-ratio"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label">状态：</label>
+                        <div class="col-sm-10">
+                            <label class="radio-inline i-checks">
+                                <input type="radio" value="e" name="status" <if condition="$vo['status'] eq 'e'">checked</if>>启用</label>
+                            <label class="radio-inline i-checks">
+                                <input type="radio" value="d" name="status" <if condition="$vo['status'] eq 'd'">checked</if>>禁用</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-4 col-sm-offset-2">
+                            <input type="hidden" name="sign" value="">
+                            <input type="hidden" name="id" value="{$vo.id}">
+                            <button class="btn btn-primary" type="submit">保存</button>
+                            <button class="btn btn-white" type="submit">取消</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <include file="Common:footer"/>
+    <script>
+        $(function(){
+            $('#user-form').on('submit',function(){
+                var go = false;
+                $('.err').html('');
+                $.ajax({async:false, type:'post', url:$(this).data('checkurl'), data:$(this).serialize(), success:function(data) {
+                        if (data.code > 0) {
+                            $.each(data.error,function(k,v) {
+                                $('.err-'+k).html(v);
+                            });
+                        } else {
+                            if (data.code == 0) {
+                                $('[name="sign"]').val(data.sign);
+                                go = true;
+                            }
+                        }
+                    }
+                });
+                return go;
+            });
+        });
+    </script>
+    </body>
+</html>

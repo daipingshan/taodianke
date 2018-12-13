@@ -1,0 +1,26 @@
+[ 2017-12-19T09:48:36+08:00 ] 127.0.0.1 /Admin
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002229s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001059s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001133s ]
+NOTIC: [2048] Declaration of Admin\Controller\CommonController::_arraySort() should be compatible with Common\Controller\CommonBaseController::_arraySort($arr, $keys, $type = 'asc') D:\www\online_team\www.taodianke.com\Application\Admin\Controller\CommonController.class.php 第 10 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.001685s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001773s ]
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 52 行.
+NOTIC: [8] Undefined variable: user D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 53 行.
+NOTIC: [8] Undefined index: AdminInfo D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 86 行.
+NOTIC: [8] Undefined index: AdminInfo D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 132 行.
+NOTIC: [8] Undefined index: AdminInfo D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Admin\09262a5e25a9c944119ad09ddf7fbe92.php 第 157 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.045943s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.046002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000937s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000980s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001010s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001062s ]
+

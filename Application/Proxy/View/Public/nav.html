@@ -1,0 +1,95 @@
+<div class="sidebar-menu toggle-others fixed">
+			
+			<div class="sidebar-menu-inner">	
+				
+				<header class="logo-env">
+					
+					<!-- logo -->
+					<div class="logo">
+						<a href="/AppAdmin/index" class="logo-expanded">
+							<img src="__CSSImg__/logo@2x.png" width="80" alt="" />
+						</a>
+						
+						<a href="/AppAdmin/index" class="logo-collapsed">
+							<img src="__CSSImg__/logo-collapsed@2x.png" width="40" alt="" />
+						</a>
+					</div>
+					
+					<!-- This will toggle the mobile menu and will be visible only on mobile devices -->
+					<div class="mobile-menu-toggle visible-xs">
+						<a href="#" data-toggle="user-info-menu">
+							<i class="fa-bell-o"></i>
+							<span class="badge badge-success">7</span>
+						</a>
+						
+						<a href="#" data-toggle="mobile-menu">
+							<i class="fa-bars"></i>
+						</a>
+					</div>
+					
+					<!-- This will open the popup with user profile settings, you can use for any purpose, just be creative -->
+					<div class="settings-icon">
+						<a href="#" data-toggle="settings-pane" data-animate="true">
+							<i class="linecons-cog"></i>
+						</a>
+					</div>
+					
+								
+				</header>
+						
+				
+						
+				<ul id="main-menu" class="main-menu">
+					<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+					<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+					<!--<li>
+						<a href="/Proxy/Finance/ranking">
+							<i class="linecons-cog"></i>
+							<span class="title">财务信息</span>
+						</a>
+					</li>-->
+					<li>
+						<a href="/Proxy/index/index">
+							<i class="linecons-cog"></i>
+							<span class="title">管理首页</span>
+						</a>
+					</li>
+					<if condition="session('proxy_type')">
+						<li>
+							<a href="/Proxy/Settle/index">
+								<i class="linecons-cog"></i>
+								<span class="title">结算申请</span>
+							</a>
+						</li>
+					</if>
+				   <li>
+						<a href="/Proxy/order/index">
+							<i class="linecons-truck"></i>
+							<span class="title">我的订单</span>
+						</a>
+					</li>
+                    <li>
+						<a href="/Proxy/User/index">
+							<i class="linecons-user"></i>
+							<span class="title">我的代理</span>
+						</a>
+					</li>
+					<li>
+						<a href="/Proxy/User/customer">
+							<i class="linecons-user"></i>
+							<span class="title">我的顾客</span>
+						</a>
+					</li>
+					<li>
+						<a href="/Proxy/Auth/logout">
+							<i class="linecons-star"></i>
+							<span class="title">退出登录</span>
+						</a>
+					</li>
+                   
+					
+				</ul>
+						
+			</div>
+			
+		</div>

@@ -1,0 +1,77 @@
+<include file="Public/header" title="个人资料" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">修改个人资料</h1>
+                <p class="description">显示所有用户信息</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li> <a href="/Proxy/Index/index"><i class="fa-home"></i>主页</a> </li>
+                    <li class="active"> <strong>设置分成比率 </strong></li>
+
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">设置分成比率</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+
+                        <form role="form" method="post" action="{:U('User/saveRatio')}" class="form-horizontal">
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="field-1">分成比率</label>
+
+                                <div class="col-sm-1">
+                                    <input type="text" class="form-control" id="field-1" value="{$info['dip']}" name="dip">
+                                </div>
+                                <div class="col-sm-1">%</div>
+                            </div>
+
+                            <div class="form-group-separator"></div>
+
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="field-2">操作备注（选填）</label>
+
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="field-2" value="{$info['remarks']}" name="remarks">
+                                </div>
+                            </div>
+
+                            <div class="form-group-separator"></div>
+                            <div class="form-group">
+                                <div class="col-sm-2 "></div>
+                                <div class="col-sm-10">
+                                    <input type="hidden" name="user_id" value="{:I('get.user_id')}">
+                                    <input type="submit" class="btn btn-secondary  btn-single" value="修改">
+                                </div>
+                            </div>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <include file="Public/footer" />
+    </div>
+    <include file="Public/footer_Js" />

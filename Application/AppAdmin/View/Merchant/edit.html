@@ -1,0 +1,311 @@
+<include file="Public/header" title="商家编辑" keywords="" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+
+    <!-- User Info, Notifications and Menu Bar -->
+    <include file="Public/user_nav" />
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">商家编辑</h1>
+            <p class="description">后台管理商家编辑</p>
+        </div>
+        <div class="breadcrumb-env">
+            <ol class="breadcrumb bc-1">
+                <li> <a href="{:U('Index/index')}"><i class="fa-home"></i>主页</a> </li>
+                <li> 站点设置 </li>
+                <li class="active"> <strong>商家编辑 </strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="col-md-12">
+            <div class="alert alert-success" style="display: none">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">编辑商家(<span style="font-size: 14px;color: red;">红色字体为必填项</span>)</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">&ndash;</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove"> &times; </a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <form role="form" method="post" class="form-horizontal" onsubmit="return check_zhe();"  enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="merchant_name" style="color: red">
+                                商家名称
+                            </label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="merchant_name" name="merchant_name" value="{$list['merchant_name']}" required placeholder="请输入商家名称">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="shop_name" style="color: red">店铺名称</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="shop_name" value="{$list['shop_name']}" name="shop_name" placeholder="请输入商家店铺名称">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <if condition="$data['position_level'] eq 'manager'">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label"  style="color: red">所属部门</label>
+                                <div class="col-sm-10">
+                                    <select name="department_id" id="department_id" class="form-control" style="width: 30%;">
+                                        <option value="0">--请选择所属部门--</option>
+
+                                        <foreach name="data['department']" item="v" key="k">
+                                            <option value="{$k}"
+                                            <if condition="$list['department_id'] eq $k">selected</if>
+                                            >{$v}</option>
+                                        </foreach>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group-separator" ></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" style="color: red">所属员工</label>
+                                <div class="col-sm-10">
+                                    <select name="admin_id" id="admin_id" class="form-control" style="width: 30%;">
+                                        <option value="0" <if condition="$list['admin_id'] neq '' ">selected</if>><if condition="$list['admin_id'] neq ''">{$name} <else/>--请选择员工-- </if></option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group-separator"></div>
+                        </if>
+                        <if condition="$data['position_level'] eq 'middle'">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" style="color: red">所属员工</label>
+                                <div class="col-sm-10">
+                                    <select name="admin_id" id="admin_id" class="form-control" style="width: 30%;">
+                                        <option value="0">请选择所属员工</option>
+                                        <volist name="data['user']" id="vo">
+                                            <option value="{$vo['id']}">
+                                                {$vo['username']}
+                                            </option>
+                                        </volist>
+                                    </select>
+                                </div>
+                            </div>
+                        </if>
+                        <div id="online-merchant" <if condition="$list['merchant_type'] eq 2"> style="display: none;" </if>>
+                            <div class="form-group" id="address_online" style="color:red">
+                                <label class="col-sm-2 control-label" for="shop_url">店铺网址</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="shop_url" value={$list['shop_url']}"" name="shop_url" placeholder="请输入商家店铺网址">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="offline-merchant" <if condition="$list['merchant_type'] eq 1"> style="display: none;" </if>>
+                            <div class="form-group" id="address_offline" style="color:red">
+                                <label class="col-sm-2 control-label" for="address" >
+                                    商家地址
+                                </label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="address" value="{$list['address']}" name="address" placeholder="请输入商家地址">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="contact" style="color: red">联系人</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="contact" value="{$list['contact']}" name="contact" placeholder="请填写联系人信息">
+                                </div>
+                            </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="mobile" style="color: red">联系电话</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="mobile" value="{$list['mobile']}" name="mobile" placeholder="请输入联系电话">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="field-1">商家类型</label>
+                            <div class="col-sm-10">
+                                <div class="radio">
+                                    <label><input type="radio" name="merchant_type" value="1" <if condition="$list['merchant_type'] eq 1"> checked="checked"</if> /> 线上商家 </label>
+                                    <label><input type="radio" name="merchant_type" value="2" <if condition="$list['merchant_type'] eq 2"> checked="checked"</if>>线下商家 </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="weixin">微信</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="weixin" value="{$list['weixin']}" name="weixin" placeholder="请输入商家微信账号">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="qq">QQ</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="qq" value="{$list['qq']}" name="qq" placeholder="请输入商家QQ">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="wangwang">旺旺</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="wangwang" value="{$list['wangwang']}" name="wangwang" placeholder="请输入商家旺旺">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="remark">备注</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="remark" value="{$list['remark']}" name="remark" placeholder="备注信息">
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+
+                        <input type="hidden" name="id" value="{$data['id']}">
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <div class="col-sm-2 "></div>
+                            <div class="col-sm-10">
+                                <input type="submit" class="btn btn-secondary  btn-single" value="保存">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<include file="Public/footer" /> </div>
+<include file="Public/footer_Js" />
+<script type="text/javascript">
+    $("input[name=merchant_type]").click(function(){
+        var id = $(this).val();
+        if (id == 1) {
+            $('#online-merchant').show();
+            $('#offline-merchant').hide();
+        } else {
+            $('#offline-merchant').show();
+            $('#online-merchant').hide();
+        }
+    });
+
+    $("#department_id").change(function(){
+        var id = $(this).val();
+        var get_url = "{:U('Merchant/getDepartmenPersonnel')}";
+        $.get(get_url,{id:id},function(res){
+            var l ="";
+            l +="<option value=''>--请选择--</option>";
+            if(res.code == 0){
+                for (var i = 0; i < res.data.length; i++ ) {
+                    l += "<option value='" + res.data[i].id + "'>" + res.data[i].full_name + "</option>";
+                }
+            }
+            $('#admin_id').html(l);
+        });
+
+    });
+</script>
+
+<script type="text/javascript">
+function check_zhe(){
+    // http正则匹配
+    var reg=/(http|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&:/~\+#]*[\w\-\@?^=%&/~\+#])?/;
+    // 手机号正则匹配
+    var number = /^1[34578]\d{9}$/;
+
+    var merchant_name = $("#merchant_name").val();
+    var weixin = $("#weixin").val();
+    var qq = $("#qq").val();
+    var wangwang = $("#wangwang").val();
+    var contact = $("#contact").val();
+    var mobile = $("#mobile").val();
+    var shop_url = $("#shop_url").val();
+    var merchant_type = $("input[name=merchant_type]:checked").val();
+    var shop_name = $("#shop_name").val();
+    var department_id = $("#department_id").val();
+    var admin_id = $("#admin_id").val();
+
+
+    if (merchant_name == '') {
+        $('.alert-danger strong').text($('#merchant_name').attr('placeholder'));
+        $('.alert-danger').show();
+        setTimeout(function(){
+            $('.alert-danger').hide();
+        },3000);
+        return false;
+    } else if (contact == '') {
+        $('.alert-danger strong').text($('#contact').attr('placeholder'));
+        $('.alert-danger').show();
+        setTimeout(function(){
+            $('.alert-danger').hide();
+        },3000);
+        return false;
+    } else if (shop_name == '') {
+        $('.alert-danger strong').text($('#shop_name').attr('placeholder'));
+        $('.alert-danger').show();
+        setTimeout(function(){
+            $('.alert-danger').hide();
+        },3000);
+        return false;
+    } else if (weixin == '' && qq == '' && wangwang == '' && mobile == '') {
+        $('.alert-danger strong').text($('#weixin').attr('联系方式不能为空！'));
+        $('.alert-danger').show();
+        setTimeout(function(){
+            $('.alert-danger').hide();
+        },3000);
+        return false;
+    } else if (merchant_type == '1' &&　!reg.test(shop_url)) {
+        // 1是线上商家，线上的ｕｒｌ地址不能为空
+        $('.alert-danger strong').text($('#shop_url').attr('placeholder'));
+        $('.alert-danger').show();
+        setTimeout(function(){
+            $('.alert-danger').hide();
+        },3000);
+        return false;
+    } else if (merchant_type == '2' && address == '') {
+        //  ２是线下商家，商铺的具体地址不能为空
+        $('.alert-danger strong').text($('#address').attr('placeholder'));
+        $('.alert-danger').show();
+        setTimeout(function(){
+            $('.alert-danger').hide();
+        },3000);
+        return false;
+    } else if (merchant_type == '0') {
+        $('.alert-danger strong').text($('#merchant_type').attr('请选择商家类型'));
+        $('.alert-danger').show();
+        setTimeout(function(){
+            $('.alert-danger').hide();
+        },3000);
+        return false;
+    } else if (department_id != '' && admin_id == '') {
+        $('.alert-danger strong').text($('#admin_id').attr('请选择所移交的用户'));
+        $('.alert-danger').show();
+        setTimeout(function(){
+            $('.alert-danger').hide();
+        },3000);
+        return false;
+    } else {
+        return true;
+    }
+}
+</script>

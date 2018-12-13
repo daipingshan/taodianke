@@ -1,0 +1,32 @@
+<nav class="navbar user-info-navbar" role="navigation">
+	<ul class="user-info-menu left-links list-inline list-unstyled">
+		<li class="hidden-sm hidden-xs">
+			<a href="#" data-toggle="sidebar">
+				<i class="fa-bars"></i>
+			</a>
+		</li>
+	</ul>
+
+	<ul class="user-info-menu right-links list-inline list-unstyled">
+		<li class="dropdown user-profile">
+			<a href="#" data-toggle="dropdown">
+				<img src="__CSSImg__/user-4.png" alt="user-image" class="img-circle img-inline userpic-32" width="28" />
+				<span>{$username}<i class="fa-angle-down"></i></span>
+			</a>
+
+			<ul class="dropdown-menu user-profile-menu list-unstyled">
+             	<li>
+					<a href="javascript:;" onclick="edit({$uid});" >
+						<i class="fa-info"></i>修改密码
+					</a>
+				</li>
+
+				<li class="last">
+					<a href="/AppAdmin/Auth/logout">
+						<i class="fa-lock"></i>退出登录
+					</a>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</nav>

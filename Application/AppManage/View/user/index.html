@@ -1,0 +1,77 @@
+<include file="Public/header" title="ThinkPHP框架" keywords="开源WEB开发框架" />
+<div class="page-container">
+<include file="Public/nav" />
+<div class="main-content"> 
+  
+  <!-- User Info, Notifications and Menu Bar --> 
+  <include file="Public/user_nav" />
+  <div class="page-title">
+    <div class="title-env">
+      <h1 class="title">用户管理</h1>
+      <p class="description">显示所有用户信息</p>
+    </div>
+    <div class="breadcrumb-env">
+      <ol class="breadcrumb bc-1">
+        <li> <a href="dashboard-1.html"><i class="fa-home"></i>主页</a> </li>
+        <li class="active"> <strong>用户管理 </strong></li>
+    
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">用户管理</h3>
+          <div class="panel-options"> <a href="#"> <i class="linecons-cog"></i> </a> <a href="#" data-toggle="panel"> <span class="collapse-icon">&ndash;</span> <span class="expand-icon">+</span> </a> <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a> <a href="#" data-toggle="remove"> &times; </a> </div>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th data-priority="1">用户昵称</th>
+                  <th data-priority="2">email</th>
+                  <th data-priority="3">QQ</th>
+                  <th data-priority="7">电话号码</th>
+                  <th data-priority="4">认证</th>
+                  <th data-priority="5">消费金额</th>
+                  <th data-priority="6">真实姓名</th>
+                  
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <foreach name="list" item="vo" >
+                  <tr>
+                    <td>{$vo.username}</td>
+                    <th>{$vo.email}</th>
+                    <td>{$vo.qq}</td>
+                    <td>{$vo.mobile}</td>
+                    <td>{$vo.pid}</td>
+                    <td>{$vo.earningTime}</td>
+                    <td>{$vo.real_name}</td>
+                  </tr>
+                </foreach>
+              </tbody>
+            </table>
+            
+          </div>
+          <div class="pagination">{$page}</div>
+          <script type="text/javascript">
+							// This JavaScript Will Replace Checkboxes in dropdown toggles
+							jQuery(document).ready(function($)
+							{
+								setTimeout(function()
+								{
+									$(".checkbox-row input").addClass('cbr');
+									cbr_replace();
+								}, 0);
+							});
+							</script> 
+        </div>
+         </div>
+    </div>
+  </div>
+  <include file="Public/footer" /> </div>
+<include file="Public/footer_Js" />

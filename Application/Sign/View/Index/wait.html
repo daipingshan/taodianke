@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>支付等待</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <link rel="stylesheet" href="__CSS_PATH__/layui.css"  media="all">
+    <script src="__JS_PATH__/jquery-2.1.4.js"></script>
+    <script src="__JS_PATH__/layui.js"></script>
+</head>
+<body>
+<blockquote class="layui-elem-quote layui-quote-nm" style="color:#FF5722;;text-align: center;margin:200px auto;width:80%; ">
+    <span>支付回调验证通过，正在处理中，请稍候......</span>
+</blockquote>
+<script>
+    var id = "{$id}";
+    var url = "{:U('check')}";
+    var param = {id:id};
+    function checkOrder(){
+        $.get(url,param,function(res){
+            if(res.code == 1){
+                location.href = res.url;
+            }
+        },'json');
+    }
+    var time = setInterval(checkOrder,2000);
+</script>
+</body>
+</html>

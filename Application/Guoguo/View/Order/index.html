@@ -1,0 +1,140 @@
+<include file="Common:header" />
+<include file="Common:nav" />
+        <style>
+            #pp p{ margin: 0px; line-height: 15px;font-size: 15px}
+            #ppp p{ margin: 0px; line-height: 18px;font-size: 15px}
+        </style>
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">订单管理</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12 form-group">
+            <div class="row">
+                <h4>{$sdate}前三甲</h4>
+                <p>状元：{$cout[0]['username']} 成绩：{$cout[0]['cout']}
+                榜眼：{$cout[1]['username']} 成绩：{$cout[1]['cout']}
+                探花：{$cout[2]['username']} 成绩：{$cout[2]['cout']}</p>
+                <div>未上榜的同学继续努力，相信下次就是你</div>
+                <p><a href="GetYsdOrder.html" target="_blank" style="color:red; ">查看昨天订单情况</a></p>
+                <h4>{$nwtime}实时前三甲 刷新哦说不定你就上榜了</h4>
+                <p>状元：{$tadaycou[0]['username']} 成绩：{$tadaycou[0]['cout']}
+                榜眼：{$tadaycou[1]['username']} 成绩：{$tadaycou[1]['cout']}
+                探花：{$tadaycou[2]['username']} 成绩：{$tadaycou[2]['cout']}</p>
+            </div>
+            <p style="">
+                {$user['name']}今天订单金额：{$user['money']}
+                本月预估业绩：{$user['mmoney']}
+
+
+                <span style="display: block;"><a href="GetmyOrder.html">查看我的订单</a></span>
+            </p>
+        </div>
+        <if condition="$uid eq '0'">
+          <div id="pp" style="position:absolute; right: 10px; top: 52px; ">
+              <div style="float: left; margin-right:50px;margin-top: 45px;  height: 50px;width: 330px; ">
+                  今天业绩：{$tadaycoutsum}——本月业绩：{$monthcoutsum}
+              </div>
+              <div style="float: left; margin-right:10px;  height: 310px;overflow-y:auto;width: 230px; ">
+                  <volist name="tadaycou" id="dd">
+                      <p>{$dd.username}--成绩--{$dd.cout}</p>
+                  </volist>
+              </div>
+              <div style="float: right;margin-right: 10px; height: 310px;overflow-y:auto;width: 220px;">
+                  <volist name="monthcout" id="ddd">
+                      <p>{$ddd.username}--成绩--{$ddd.cout}</p>
+                  </volist>
+              </div>
+           <div style="clear: both;"></div>
+          </div>
+            <else/>
+            <div id="ppp" style="position:absolute; right: 10px; top: 52px; ">
+                <div style="float: left; margin-right:10px;  height: 310px;overflow-y:auto;width: 230px; ">
+                    <p>{$sdate}排名</p>
+                    <p>{$cout[0]['username']}--成绩--{$cout[0]['cout']}</p>
+                    <p>{$cout[1]['username']}--成绩--{$cout[1]['cout']}</p>
+                    <p>{$cout[2]['username']}--成绩--{$cout[2]['cout']}</p>
+                    <p>{$cout[3]['username']}--成绩--{$cout[3]['cout']}</p>
+                    <p>{$cout[4]['username']}--成绩--{$cout[4]['cout']}</p>
+                    <p>{$cout[5]['username']}--成绩--{$cout[5]['cout']}</p>
+                    <p>{$cout[6]['username']}--成绩--{$cout[6]['cout']}</p>
+                    <p>{$cout[7]['username']}--成绩--{$cout[7]['cout']}</p>
+                    <p>{$cout[8]['username']}--成绩--{$cout[8]['cout']}</p>
+                    <p>{$cout[9]['username']}--成绩--{$cout[9]['cout']}</p>
+                </div>
+                <div style="float: right;margin-right: 10px; height: 310px;overflow-y:auto;width: 220px;">
+                    <p>{$nwtime}排名</p>
+                    <p>{$tadaycou[0]['username']}--成绩--{$tadaycou[0]['cout']}</p>
+                    <p>{$tadaycou[1]['username']}--成绩--{$tadaycou[1]['cout']}</p>
+                    <p>{$tadaycou[2]['username']}--成绩--{$tadaycou[2]['cout']}</p>
+                    <p>{$tadaycou[3]['username']}--成绩--{$tadaycou[3]['cout']}</p>
+                    <p>{$tadaycou[4]['username']}--成绩--{$tadaycou[4]['cout']}</p>
+                    <p>{$tadaycou[5]['username']}--成绩--{$tadaycou[5]['cout']}</p>
+                    <p>{$tadaycou[6]['username']}--成绩--{$tadaycou[6]['cout']}</p>
+                    <p>{$tadaycou[7]['username']}--成绩--{$tadaycou[7]['cout']}</p>
+                    <p>{$tadaycou[8]['username']}--成绩--{$tadaycou[8]['cout']}</p>
+                    <p>{$tadaycou[9]['username']}--成绩--{$tadaycou[9]['cout']}</p>
+                </div>
+                <div style="clear: both;"></div>
+            </div>
+        </if>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <td>创建时间</td>
+                                    <td>点击时间</td>
+                                    <td width="25%">商品信息</td>
+                                    <td>商品数</td>
+                                    <td>商品单价</td>
+                                    <td>订单状态</td>
+                                    <td>收入比率</td>
+                                    <td>付款金额</td>
+                                    <td>预估收入</td>
+                                    <td>订单来源</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="data" id="dd">
+                                <tr>
+                                    <td>{$dd.create_time}</td>
+                                    <td>{$dd.click_time}</td>
+                                    <td><a href="{$dd.auctionurl}" target="_blank">{$dd.title}</a></td>
+                                    <td>{$dd.number}</td>
+                                    <td>{$dd.price}</td>
+                                    <td>{$dd.paystatus}</td>
+                                    <td>{$dd.discount_rate}</td>
+
+                                    <td>{$dd.total_fee}</td>
+                                    <td style="color: red;">{$dd.fee}</td>
+                                    <td>{$dd.username}</td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+
+</div>
+<include file="Common:footer" />
+<script>
+    
+</script>

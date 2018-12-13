@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+   <h2>头条官方高佣金</h2>
+   <p>
+       <span><a href="Getyongji.html?type=女装">女装</a></span>
+       <span><a href="Getyongji.html?type=美妆">美妆</a></span>
+       <span><a href="Getyongji.html?type=户外">户外</a></span>
+       <span><a href="Getyongji.html?type=居家">居家</a></span>
+       <span><a href="Getyongji.html?type=图书">图书</a></span>
+       <span><a href="Getyongji.html?type=男装">男装</a></span>
+   </p>
+   <table>
+       <tr>
+           <td>店铺名称</td>
+           <td>商品标题</td>
+           <td>商品类目</td>
+           <td>佣金比率</td>
+       </tr>
+       <volist name="data" id="dd">
+         <tr>
+             <td>{$dd.partner_name}</td>
+             <td width="30%"><a href="{$dd.shop_url}" target="_blank">{$dd.shop_name}</a></td>
+             <td>{$dd.type}</td>
+             <td style="color: red;"><?php echo ($dd['fee']*100)?>%</td>
+         </tr>
+       </volist>
+   </table>
+</body>
+</html>

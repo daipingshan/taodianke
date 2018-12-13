@@ -1,0 +1,113 @@
+<include file="Public/header" title="员工管理" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">员工管理</h1>
+                <p class="description">设定后台员工管理信息。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li> <a href="{:U('Index/index')}"><i class="fa-home"></i>主页</a> </li>
+                    <li class="active">站点设置</li>
+                    <li class="active"><strong>员工管理</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">快捷操作</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">×</a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="row col-margin">
+                        <div class="col-xs-2">
+                            <a href="{:U('Admin/add')}" class="btn btn-secondary btn-single">
+                                添加员工
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">员工管理</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span>
+                            </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>姓名</th>
+                                        <th>入职日期</th>
+                                        <th>所在部门</th>
+                                        <th>所属岗位</th>
+                                        <th>岗位级别</th>
+                                        <th>在职状态</th>
+                                        <th>关联后台管理账号</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <volist name="list" id="vo">
+                                        <tr>
+                                            <th>{$vo.id}</th>
+                                            <td>{$vo.full_name}</td>
+                                            <td>{$vo.entry_time}</td>
+                                            <td>{$vo.owner_department}</td>
+                                            <td>{$vo.position_owner}</td>
+                                            <td>{$vo.position_level}</td>
+                                            <td>
+                                            <if condition="$vo.on_in eq 0 ">在职
+											    <else /> 离职
+											</if>
+											</td>
+                                            <td>{$vo.associated_admin_account}</td>
+                                            <td>
+                                                <a href="{:U('Admin/edit',array('id'=>$vo['id']))}" class="ibutton">
+                                                <i class="fa-edit"></i>
+                                                </a>|
+                                                <a href="{:U('Admin/del',array('id'=>$vo['id']))}"  onclick="confirm('确定删除{$vo['name']}么？');" class="ibutton">
+                                                    <i class="fa-trash"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </volist>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page"><ul class="pagination">{$page}</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <include file="Public/footer" />
+    </div>
+
+<include file="Public/footer_Js" />

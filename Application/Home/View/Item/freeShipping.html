@@ -1,0 +1,65 @@
+<extend name="Common/common" />
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__CSS__/list.css?{:C('V')}" />
+</block>
+<block name="body">
+    <div class="goods-pages">
+        <span <if condition="$sort eq 0">class="pxclick cur"<else />class="pxclick"</if> data-id="0" data-type="sort"><a href="{:U('Item/freeShipping',array('sort'=>0))}">综合</a></span>
+        <span <if condition="$sort eq 1">class="pxclick cur"<else />class="pxclick"</if> data-id="1" data-type="sort"><a href="{:U('Item/freeShipping',array('sort'=>1))}">最新</a></span>
+        <span <if condition="$sort eq 3">class="pxclick cur"<else />class="pxclick"</if> data-id="3" data-type="sort"><a href="{:U('Item/freeShipping',array('sort'=>3))}">销量</a></span>
+        <span <if condition="$sort eq 2">class="pxclick cur"<else />class="pxclick"</if> data-id="2" data-type="sort"><a href="{:U('Item/freeShipping',array('sort'=>2))}">价格</a></span>
+    </div>
+    <div class="item-list content">
+        <empty name="data">
+            <div class="no-item">
+                <h2>没有找到符合条件商品！</h2>
+            </div>
+            <else />
+            <ul>
+                <volist name="data" id="row" mod="5">
+                    <li
+                    <eq name="mod" value="4">class="item-content-box no-mr"
+                        <else />
+                        class="item-content-box"
+                    </eq>
+                    >
+                    <div class="goods-img">
+                        <a href="{:U('Item/detail',array('num_iid'=>$row['num_iid'],'type'=>$row['goods_type']))}">
+                            <img src="{$row.pic_url}" alt="{$row.title}">
+                        </a>
+                        <div class="shop-type">
+                            {$row['type']}
+                        </div>
+                    </div>
+                    <div class="goods-info">
+                        <a class="goods-tit" href="{:U('Item/detail',array('num_iid'=>$row['num_iid'],'type'=>$row['goods_type']))}">
+                            {$row.title}
+                        </a>
+                        <div class="goods-slider">
+                            <span class="slider"><em data-width="0%" style="width: 0%;"></em></span>
+                        </div>
+                        <div class="goods-price" title="佣金：{$row.commission}元">
+                            <p>券后价</p>
+                            <p><b>￥{$row.coupon_price}</b></p>
+                        </div>
+                        <div class="goods-sale">
+                            <div class="goods-quan fl">
+                                <p>券<b>￥{$row.quan}</b></p>
+                            </div>
+                            <div class="goods-num fr">
+                                <p>销量<b>{$row.volume}</b></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    </li>
+                </volist>
+                <div class="clear"></div>
+            </ul>
+        </empty>
+
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+</block>

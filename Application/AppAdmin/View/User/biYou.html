@@ -1,0 +1,151 @@
+<include file="Public/header" title="用户管理"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">比优用户管理</h1>
+                <p class="description">显示所有用户信息</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>比优用户管理 </strong></li>
+
+                </ol>
+            </div>
+        </div>
+        <include file="Public/biyouuser_search"/>
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">比优用户管理</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="8%">id</th>
+                                    <th width="18%">姓名 / 电话号码 </th>
+                                    <th width="18%">pid </th>
+                                    <th width="20%"> 注册时间 / 用户状态</th>
+                                    <th width="12%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="list" item="vo">
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td>
+                                            姓名：{$vo.username} <br/>
+                                            电话：{$vo.mobile}<br/>
+                                        </td>
+                                        <td>{$vo.pid}</td>
+
+                                        <td>
+                                            注册时间：{$vo.reg_time|date="Y-m-d H:i",###}<br/>
+                                            账号状态：
+                                            <if condition="$vo['status'] eq 1">
+                                                启用
+                                                <else/>
+                                                禁用
+                                            </if>
+
+                                        </td>
+                                        <td>
+                                            <a href="{:U('User/biyouUserEdit',array('id'=>$vo['id']))}" class="btn btn-primary btn-single btn-sm">用户编辑
+                                            </a> |
+                                            <a href="javascript:;" onclick="qr_code_url({$vo.id})"
+                                               class="btn btn-primary btn-single btn-sm" id="wx_qrcode">查看推广位</a>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+
+    <!-- Modal 4 (Confirm)-->
+    <div class="modal fade" id="modal-4" data-backdrop="static">
+        <div class="modal-dialog" style="width: 800px;height: 500px;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">查看用户推广信息</h4>
+                </div>
+                <div class="modal-body" style="height:400px;text-align:center">
+                    <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                        <thead>
+                        <tr>
+                            <th width="8%">id</th>
+                            <th width="18%">推广位名称</th>
+                            <th width="18%">pid</th>
+                            <th width="15%">是否默认</th>
+                        </tr>
+                        </thead>
+                        <tbody id="images">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function qr_code_url(id) {
+            jQuery('#modal-4').modal('show', {backdrop: 'static'});
+            var url = "{:U('User/buZone')}";
+            $.get(url, {id: id}, function (res) {
+                var l = "";
+                if (res.code == 0) {
+                    for(var key in res.data){
+                        l +=  '<tr>';
+                        l +=  '<th> ' + res.data[key]['id'] + ' </th>';
+                        l +=  '<td> ' + res.data[key]['zone_name'] + ' </td>';
+                        l +=  '<td> ' + res.data[key]['pid'] + ' </td>';
+                        if (res.data[key]['is_default'] == '1') {
+                            l +=  '<td>默认</td>';
+                        } else {
+                            l +=  '<td>非默认</td>';
+                        }
+                        l +=  '</tr>';
+                    }
+                    $('#images').html(l);
+                } else if (res.code == -1) {
+                    l += res.msg;
+                    $('#images').html(l);
+                }
+            })
+        }
+    </script>
+
+    <include file="Public/footer_Js"/>

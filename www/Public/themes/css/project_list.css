@@ -1,0 +1,19 @@
+#xiangmu{ background-color: #fcfcfc;
+margin-bottom: -40px;
+padding-bottom: 80px;padding-top: 30px;}
+#filter-wrap{background-color: #fff;
+    height: 185px;
+    border-bottom: 1px solid #f3f3f3;
+    padding: 20px 15px;
+    font-size: 12px;
+}
+#filter-wrap table{ }
+#filter-wrap table td {
+    vertical-align: top;
+}
+#filter-wrap table td { padding: 2px 5px;}
+
+#pro_select{margin-bottom: 18px;
+  margin-left: 14px;}
+
+.uk-pagination{ margin: 20px 0;margin-top: 60px;}

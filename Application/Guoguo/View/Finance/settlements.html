@@ -1,0 +1,68 @@
+<include file="Common:header" />
+
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="col-sm-12">
+          <if condition="$status eq 'bank'">
+            <table class="table table-bordered">
+              <tr>
+                  <th class="text-right" style="width:150px">商家姓名</th><td>{$m_user}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">商家开户行</th><td>{$m_bank_name}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">商家开户帐号</th><td>{$m_bank_no}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">商家开户名</th><td>{$m_bank_user}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">商家结算金额</th><td>{$m_origin}</td>
+              </tr>
+            </table>
+            <else/>
+              <table class="table table-bordered">
+              <tr>
+                  <th class="text-right" style="width:150px">支付宝账号</th><td>{$m_alipay}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">商家结算金额</th><td>{$m_origin}</td>
+              </tr>
+            </table>
+            </if>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <table class="table table-bordered">
+              <tr>
+                  <th class="text-right" style="width:150px">代理姓名</th><td>{$a_user}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">代理开户行</th><td>{$a_bank_name}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">商家开户帐号</th><td>{$a_bank_no}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">代理开户名</th><td>{$a_bank_user}</td>
+              </tr>
+              <tr>
+                  <th class="text-right">代理提成金额</th><td>{$a_ticheng}</td>
+              </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <form action="{:U('Finance/settlements')}" method='post'>
+            <input type="hidden" class="form-control" name='sid' value='{$sid}'>
+            <button type="submit" class="btn btn-info">结算</button>              
+            </form>
+        </div>
+    </div>
+</div>
+
+<include file="Common:footer" />

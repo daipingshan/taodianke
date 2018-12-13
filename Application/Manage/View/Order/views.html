@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:header"/>
+    <link href="{$Think.BASE_URL}/__PLUGINS_PATH__/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <a class="btn btn-primary" href="{:U('saveList')}">入库</a>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <table class="table table-striped table-bordered table-hover " id="editable">
+                        <tbody>
+                            <volist name="list" id="vo">
+                            <tr>
+                                <td>{$key}</td>
+                                <volist name="vo" id="val"><td>{$val}</td></volist>
+                            </tr>
+                        </volist>
+                        </tbody>
+                    </table>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="dataTables_info" id="editable_info" role="alert" aria-live="polite" aria-relevant="all">
+                                {$pages.info}
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="dataTables_paginate paging_simple_numbers" id="editable_paginate">
+                                {$pages.link}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Common:footer"/>
+    <script src="{$Think.BASE_URL}/__PLUGINS_PATH__/jeditable/jquery.jeditable.js"></script>
+    <script src="{$Think.BASE_URL}/__PLUGINS_PATH__/dataTables/jquery.dataTables.js"></script>
+    <script src="{$Think.BASE_URL}/__PLUGINS_PATH__/dataTables/dataTables.bootstrap.js"></script>
+    <script src="{$Think.BASE_URL}/__PLUGINS_PATH__/layer/layer.js"></script>
+    </body>
+</html>

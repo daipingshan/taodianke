@@ -1,0 +1,75 @@
+[ 2018-01-04T14:01:41+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001081s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001067s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001169s ]
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.1624s ]
+SQL: SELECT `dwxk_adsense_id` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0962s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0879s ]
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0902s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_items` LIMIT 1   [ RunTime:0.1028s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000243s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000317s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.048305s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.048401s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001206s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001278s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001434s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001501s ]
+
+[ 2018-01-04T14:01:51+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000910s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000621s ]
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.1039s ]
+SQL: SELECT `dwxk_adsense_id` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0910s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0901s ]
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.2461s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_items` LIMIT 1   [ RunTime:0.1092s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000224s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000291s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035852s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035931s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001022s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001073s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001290s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001352s ]
+
+[ 2018-01-04T14:03:58+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000860s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000740s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000793s ]
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0932s ]
+SQL: SELECT `dwxk_adsense_id` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0852s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.1217s ]
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0917s ]
+SQL: SELECT COUNT(*) AS tp_count FROM `ytt_items` LIMIT 1   [ RunTime:0.1024s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000265s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000337s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044366s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044516s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001320s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001383s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001517s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001590s ]
+

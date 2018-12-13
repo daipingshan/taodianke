@@ -1,0 +1,115 @@
+<include file="Public/header" title="" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">带申请结算列表</h1>
+                <p class="description">显示所有我的已结束订单并在申请结算状态的订单。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li> <a href="/AppAdmin/"><i class="fa-home"></i>主页</a> </li>
+                    <li class="active"> <strong>菜单管理 </strong></li>
+                </ol>
+            </div>
+        </div>
+         <include file="Public/deal_bar" />
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">查看菜单  </h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                     <form action="{:U('Deal/pendingPaid')}" method="post">
+                    <div class="panel-body">
+                      <div class="row">
+                         <div class="col-sm-12 panel ">
+                         	<button class="btn btn-success btn-icon" id="selectAll">
+                            <i class="fa-check"></i>
+                            <span>
+                            全选</span></button>
+                        	<button type="submit" class="btn btn-primary btn-icon btn-icon-standalone">
+                            <i class="fa-plane"></i>
+                            <span>批量结算</span></button>
+           
+          				 </div>
+                        </div>
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                       
+                      
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                 	<th>操作</th>
+                                    <th>大淘客ID</th>
+                                    <th>商品配图</th>
+                                    <th>大淘客链接</th>
+                                    <th>大淘客状态</th>
+                                    <th>佣金比例</th>
+                                    <th>收费类型</th>
+                                    <th>服务费</th>
+                                    <th>文案</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="list" item="vo" >
+                                    <tr>
+                                    <td><input type="checkbox" name="deal_ids[]" value="{$vo.id}" /></td>
+                                        <td>{$vo.dataoke_id}</td>
+                                        <td><img src="{$vo.img_url}"  width="80"/></td>
+                                       
+                                        <td><a href="{$vo.dataoke_url}" target="_blank">点击查看</a></td>
+                                        <td>
+                                        	<switch name="vo.status">
+                                              <case value="ing">进行中</case>
+                                              <case value="finished">已结束</case>
+                                              <case value="reject">拒绝推广</case>
+                                              <case value="bad">赖账</case>
+                                              <case value="apply_settle">已申请结算</case>
+                                              <case value="pending_paid">待确认支付</case>
+                                              <case value="confirmed_paid">已确认支付</case>
+                                              <default />未知状态
+                                            </switch>
+                                        </td>
+                                        <td>{$vo.commission_ratio}</td>
+                                        <td><eq name="$vo.service_fee_type" value='ratio'>百分比<else/>单价</eq></td>
+                                        <td>{$vo.service_fee}</td>
+                                        <td width="120">{$vo.copy_writer}</td>
+                                        
+                                    </tr>
+                                  
+                                </foreach>
+                                </tbody>
+                            </table>
+						
+                        </div>
+                        <div class="page"><ul class="pagination">{$page}</ul></div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" /> </div>
+    <include file="Public/footer_Js" />
+    <script>
+	$(document).ready(function(e) {
+        	$("#selectAll").click(function() {  
+				$("input[name='deal_ids[]']").each(function() {  
+					$(this).attr("checked", true); 
+				}); 
+				return false;
+		}); 
+    });
+
+</script>

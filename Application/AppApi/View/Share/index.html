@@ -1,0 +1,15 @@
+<include file="Public/header"/>
+<div id="content">
+    <foreach name="list" item="vo">
+        <a href="{$vo['item_url']}">
+        <div class="list_box">
+            <div class="content_left"><img src="{$vo.cateimg}" /></div>
+            <div class="content_right">
+                <p class="title">{$vo.name}</p>
+                <p class="desc">{$vo.seo_desc}</p>
+            </div>
+        </div>
+       </a>
+    </foreach>
+</div>
+<include file="Public/footer"/>

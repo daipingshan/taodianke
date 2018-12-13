@@ -1,0 +1,28 @@
+<include file="Common:header" />
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <form role="form" id='check-form' method='post' action="{:U('Area/edit')}">
+                <div class="form-group">
+                    <label>分类名称</label>
+                    <input class="form-control" type="text" name='area[name]' value="{$data.name}">
+                </div>
+                <div class="form-group">
+                    <label>排序</label>
+                    <input class="form-control" type="text" name='area[sort]' value="{$data.sort}">
+                </div>
+                <div class="form-group">
+                    <label>上级分类</label>
+                        <input type='hidden' name='area[fid]' value="{$data.fid|default='0'}"/>
+                        <input class="form-control" type='text' readonlay="readonlay" disabled="disabled" value="{$data.f_name|default='根区域'}"/> 	
+                </div>
+                <div class="form-group">
+                    <input type='hidden' name='aid' value='{$data.id}'/>
+                    <input type="button" onclick="return ajax_check_submit_from_layer(this);" check_url="{:U('Area/check_add_edit_data')}" id="btn-add-edit-goods"  class="btn btn-primary" value="提交"/>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />

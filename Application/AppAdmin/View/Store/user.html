@@ -1,0 +1,114 @@
+<include file="Public/header" title="用户管理"/>
+<link rel="stylesheet" href="__JS__/daterangepicker/daterangepicker-bs3.css">
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">宅猫生活线下店管理</h1>
+                <p class="description">显示公众号会员管理</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>会员管理 </strong></li>
+
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" id="error" style="display:none">
+                    <strong></strong>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <form>
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <input type="text" name="nickname" value="{:I('get.nickname')}"
+                                               class="form-control" placeholder="请输入用户昵称"/>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="time" value="{$time}" id="field-1"
+                                               class="form-control daterange" placeholder="请选择关注时间范围"/>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="uid" class="form-control">
+                                            <option value="">选择门店</option>
+                                            <foreach name="store_data" item="v" key="k">
+                                                <option value="{$v.id}"
+                                                <if condition="I('get.uid') eq $v['id']">selected</if>
+                                                >{$v['name']}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+
+                                    <div class="col-sm-2">
+                                        <button class="btn btn-secondary btn-single" type="submit" name="type"
+                                                value="select" style="margin-bottom: 0">
+                                            <font><font>查询</font></font></button>
+
+                                        <button class="btn btn-warning" type="submit" name="type" value="down"
+                                                style="margin-bottom: 0">
+                                            <font><font>报表下载</font></font></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">id</th>
+                                    <th width="15%">微信头像</th>
+                                    <th width="15%">微信昵称</th>
+                                    <th width="15%">用户信息</th>
+                                    <th width="15%">所属代理</th>
+                                    <th>关注时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td><img src="{$vo.headimgurl}" width="80"/></td>
+                                        <td>{$vo.nickname}</td>
+                                        <td>{$vo.username}<br>{$vo.mobile}</td>
+                                        <td>{$vo.proxy_name}</td>
+                                        <td>{$vo.add_time}</td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+</div>
+<script src="__JS__/moment.min.js"></script>
+<!-- Imported scripts on this page -->
+<script src="__JS__/daterangepicker/daterangepicker.js"></script>
+<include file="Public/footer_Js"/>

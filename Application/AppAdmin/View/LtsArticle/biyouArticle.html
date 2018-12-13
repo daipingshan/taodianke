@@ -1,0 +1,206 @@
+<include file="Public/header" title="文章列表"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">比优文章管理</h1>
+                <p class="description">显示所有文章信息</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+
+                    <li class="active"><strong>比优文章管理 </strong></li>
+
+                </ol>
+            </div>
+        </div>
+        <include file="Public/bu_article_bar"/>
+
+        <div class="col-md-12">
+            <div class="alert alert-success" style="display: none">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">拥有文章 {$count}篇</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+
+
+                    <div class="panel-body">
+                        <div class="btn-toolbar row">
+                            <div class="col-sm-8">
+                                <form action="" class="form-inline " method="get">
+                                    <div class="form-group col-xs-2">
+                                        <select name="cate" class="form-control">
+                                            <foreach name="cate" item="v">
+                                                <option value="{$v['id']}"
+                                                <if condition="I('get.cate') eq $v['id']">selected</if>
+                                                >{$v.name}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-xs-3">
+                                        <input type="text" class="form-control " name="title" placeholder="标题">
+                                    </div>
+
+                                    <div class="form-group col-xs-3">
+                                        <input type="hidden" class=" datepicker" name="status" value='6'>
+                                        <input type="submit" class="btn btn-secondary btn-single" value='查询'>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="col-sm-12 toolbar-r">
+                                <a href="{:U('LtsArticle/biyouAdd')}" class="btn btn-white btn-single">添加文章</a>
+                            </div>
+                        </div>
+
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>标题</th>
+                                    <th>分类</th>
+                                    <th>添加日期</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+
+                                <foreach name="list" item="vo">
+                                    <tr>
+                                        <td>{$vo.id}</td>
+                                        <td><a href="{:U('LtsArticle/biyouEdit',array('id'=>$vo['id']))}">{$vo.title}</a>
+                                        </td>
+                                        <td>{$cate[$vo['cate_id']]['name']}</td>
+                                        <td>{$vo.add_time|date="Y-m-d H:i:s",###}</td>
+                                        <td>
+                                            <if condition="$vo.status eq 1 ">有效
+                                                <else />
+                                                无效
+                                            </if>
+                                        </td>
+                                        <td>
+                                            <a class="ibutton" onclick="del({$vo['id']})">
+                                                <i class="fa-trash"></i>
+                                            </a>|
+                                            <input class="btn" data-clipboard-text="{$vo.url}" value="复制URL"
+                                                   style="background-color: #0fb7b3;color: white;width: 80px"/>
+                                        </td>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <include file="Public/footer"/>
+
+        <include file="Public/footer_Js"/>
+        <!-- Imported styles on this page -->
+        <link rel="stylesheet" href="__JS__/daterangepicker/daterangepicker-bs3.css">
+        <link rel="stylesheet" href="__JS__/select2/select2.css">
+        <link rel="stylesheet" href="__JS__/select2/select2-bootstrap.css">
+        <link rel="stylesheet" href="__JS__/multiselect/css/multi-select.css">
+
+        <!-- Imported scripts on this page -->
+        <script src="__JS__/daterangepicker/daterangepicker.js"></script>
+        <script src="__JS__/datepicker/bootstrap-datepicker.js"></script>
+        <script src="__JS__/timepicker/bootstrap-timepicker.min.js"></script>
+        <script src="__JS__/colorpicker/bootstrap-colorpicker.min.js"></script>
+        <script src="__JS__/select2/select2.min.js"></script>
+        <script src="__JS__/jquery-ui/jquery-ui.min.js"></script>
+        <script src="__JS__/selectboxit/jquery.selectBoxIt.min.js"></script>
+        <script src="__JS__/tagsinput/bootstrap-tagsinput.min.js"></script>
+        <script src="__JS__/typeahead.bundle.js"></script>
+        <script src="__JS__/handlebars.min.js"></script>
+        <script src="__JS__/multiselect/js/jquery.multi-select.js"></script>
+        <script type="text/javascript">
+            function del(id) {
+                var status = confirm('确定删除该广告!');
+                if (status) {
+                    var post_url = "{:U('LtsArticle/biyouDel')}";
+                    var index = "{:U('LtsArticle/biyouArticle')}";
+                    $.post(post_url, {id: id}, function (res) {
+                        if (res.code == 0) {
+                            $('.alert-success strong').text(res.msg);
+                            $('.alert-success').show();
+                            setTimeout(function () {
+                                window.location.href = index;
+                            }, 3000);
+
+                        } else {
+                            $('.alert-danger strong').text(res.msg);
+                            $('.alert-danger').show();
+                            setTimeout(function () {
+                                $('.alert-danger').hide();
+                            }, 3000);
+                        }
+                    });
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+        </script>
+        <script src="__JS__/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script type="text/javascript" charset="utf-8">
+            var btns = document.querySelectorAll('input');
+            var clipboard = new Clipboard(btns);
+
+            clipboard.on('success', function (e) {
+                $('.alert-success strong').text('恭喜您，复制成功！');
+                $('.alert-success').show();
+                setTimeout(function () {
+                    $('.alert-success').hide();
+                }, 3000);
+            });
+
+            clipboard.on('error', function (e) {
+                $('.alert-danger strong').text('复制失败！');
+                $('.alert-danger').show();
+                setTimeout(function () {
+                    $('.alert-danger').hide();
+                }, 3000);
+            });
+        </script>

@@ -1,0 +1,97 @@
+<include file="Common:header" />
+<include file="Common:nav" />
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">财务管理</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12 form-group">
+            <div class="row">
+                <form action="{:U('Finance/index')}" method='get'>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" name='query' value='{$search.query}' placeholder="搜索商户名称,手机号">
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" name='mid' value='{$search.mid}' placeholder="商户id">
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="submit" class="btn btn-default" >搜索</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+
+                                    <th>商户名称</th>
+                                    <th>所在地</th>
+                                    <th>结算金额</th>
+                                    <th>申请时间</th>
+                                    <th>结算时间</th>
+                                    <th>状态</th>
+                                    <th style='width:300px;'><i class="fa fa-gear fa-fw"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            <volist name='list' id='vo'>
+                                <tr>
+
+                                    <td>{$vo.m_name}</td>
+                                    <th>{$vo.city}</th>
+                                    <td>{$vo.origin}</td>
+                                    <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                                    <td>
+                                <if condition="$vo.set_time && $vo.set_time gt 0">
+                                    {$vo.set_time|date="Y-m-d H:i:s",###}
+                                    <else/>
+                                    ----
+                                </if>
+                                </td>
+                                <td>
+                                <if condition="$vo.status eq '1'">
+                                    <span class="label label-success">已结算</span>
+                                    <else/>
+                                    <span class="label label-danger">未结算</span>
+                                </if>
+                                </td>
+                                <td>
+                                    <a data-url="{:U('Finance/info_view',array('sid'=>$vo['id']))}" title='结算详情' data-w='800' data-h='600' href="javascript:void(0);" class='openifram'>详情</a>
+                                 <if condition="!$vo.status || $vo.status eq '0'">
+                                     <a data-url="{:U('Finance/settlements',array('sid'=>$vo['id']))}" title='结算详情' data-w='800' data-h='600' href="javascript:void(0);" class='openifram'>结算详情</a>
+                                </if>
+                                </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="pagination">
+                        {$pages}
+                    </ul>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+
+</div>
+<include file="Common:footer" />
+<script>
+
+</script>

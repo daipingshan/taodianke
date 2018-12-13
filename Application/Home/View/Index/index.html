@@ -1,0 +1,101 @@
+<extend name="Common/common" />
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__CSS__/index.css?{:C('V')}" />
+</block>
+<block name="body">
+    <div class="advert mb50">
+        <div class="cate fl">
+            <ul>
+                <volist name="cate" id="row">
+                    <li onclick="window.location.href=$(this).data('url')" data-url="{:U('Item/index',array('cate_id'=>$row['cate_id']))}">
+                        <i class="icon"><img src="{$row.img}" /></i><a href="{:U('Item/index',array('cate_id'=>$row['cate_id']))}">{$row.name}</a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div class="img fl ml10">
+            <ul>
+                <volist name="ad_img" id="row">
+                    <li>
+                        <a href="{$row.url}">
+                            <img src="{$row.img}" class="pic" title="{$row.desc}">
+                        </a>
+                    </li>
+                </volist>
+            </ul>
+        </div>
+        <div class="code fl ml10">
+            <div class="wechat-code" style="border-bottom: 1px solid #FF420F">
+                <img src="__IMG__/wx_app.png" alt="">
+                <p>扫描下载</p>
+                <p>淘店客手机APP</p>
+            </div>
+            <div class="wechat-code">
+                <img src="__IMG__/wx.png" alt="">
+                <p>扫描关注</p>
+                <p>淘店客公众号</p>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div class="item-list content">
+        <ul>
+            <volist name="data" id="row" mod="5">
+                <li <eq name="mod" value="4">class="item-content-box no-mr"<else />class="item-content-box"</eq>>
+                    <div class="goods-img">
+                        <a href="{:U('Item/detail',array('num_iid'=>$row['num_iid'],'type'=>$row['goods_type']))}">
+                            <img src="{$row.pic_url}" alt="{$row.title}">
+                        </a>
+                        <div class="shop-type">
+                            {$row['type']}
+                        </div>
+                    </div>
+                    <div class="goods-info">
+                        <a class="goods-tit" href="{:U('Item/detail',array('num_iid'=>$row['num_iid'],'type'=>$row['goods_type']))}">
+                            {$row.title}
+                        </a>
+                        <div class="goods-slider">
+                            <span class="slider"><em data-width="0%" style="width: 0%;"></em></span>
+                        </div>
+                        <div class="goods-price" title="佣金：10元">
+                            <p>券后价</p>
+                            <p><b>￥{$row.coupon_price}</b></p>
+                        </div>
+                        <div class="goods-sale">
+                            <div class="goods-quan fl">
+                                <p>券<b>￥{$row.quan}</b></p>
+                            </div>
+                            <div class="goods-num fr">
+                                <p>销量<b>{$row.volume}</b></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </li>
+            </volist>
+            <div class="clear"></div>
+        </ul>
+    </div>
+    <div class="page">
+        {$page}
+    </div>
+</block>
+<block name="script">
+    <script type="text/javascript">
+        $(function () {
+            auto_img();
+            function auto_img() {
+                var index = 0;
+                var len = $('.advert .img ul li').length;
+                setInterval(function () {
+                    if (index == len) {
+                        index = 0;
+                    }
+                    $('.advert .img ul li').siblings().css('z-index', 0);
+                    $('.advert .img ul li').eq(index).css('z-index', 1)
+                    index++;
+                }, 3000);
+            }
+        });
+    </script>
+</block>

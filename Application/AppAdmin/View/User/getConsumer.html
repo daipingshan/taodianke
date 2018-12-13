@@ -1,0 +1,82 @@
+<include file="Public/header" title="意向用户管理"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">意向用户信息管理</h1>
+                <p class="description">显示所有用户信息</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>意向用户信息管理 </strong></li>
+
+                </ol>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">用户管理</h3>
+                        <div class="panel-options">
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="8%">id</th>
+                                    <th width="18%">姓名</th>
+                                    <th width="18%">电话号码</th>
+                                    <th width="15%">报名类型</th>
+                                    <th width="15%">报名时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="consumer" item="vo">
+                                    <tr>
+                                        <th>{$vo.id}</th>
+                                        <td>{$vo.user}</td>
+                                        <td>{$vo.mobile}</td>
+                                        <td>
+                                            <if condition="$vo.type eq '1' ">
+                                                区域合伙人
+                                                <else/>
+                                                单店合伙人
+                                            </if>
+                                        </td>
+                                        <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+
+    <include file="Public/footer_Js"/>

@@ -1,0 +1,179 @@
+<include file="Public/header" title="用户管理" />
+<div class="page-container">
+<include file="Public/nav" />
+<div class="main-content"> 
+  
+  <!-- User Info, Notifications and Menu Bar --> 
+  <include file="Public/user_nav" />
+  <div class="page-title">
+    <div class="title-env">
+      <h1 class="title">财务管理</h1>
+      <p class="description">显示所有代理消费排行信息</p>
+    </div>
+    <div class="breadcrumb-env">
+      <ol class="breadcrumb bc-1">
+        <li> <a href="/Proxy/Finance/ranking"><i class="fa-home"></i>主页</a> </li>
+        <li > 财务管理</li>
+        <li class="active"> <strong>消费排行</strong></li>
+    
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">消费排行</h3>
+          <div class="panel-options"> 
+              <a href="#"> <i class="linecons-cog"></i> </a> 
+              <a href="#" data-toggle="panel"> 
+              <span class="collapse-icon">&ndash;</span> 
+              <span class="expand-icon">+</span> </a> 
+              <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a> 
+              <a href="#" data-toggle="remove"> &times; </a>
+          </div>
+        </div>
+        <div class="panel-body">
+
+           <div class="btn-toolbar row">
+            <div class="col-sm-8">
+              <form action="" class="form-inline "  method="get">
+                <div class="form-group ">
+                  <input type="text" class="form-control datepicker"  name="start"  value="{$start_time}"  placeholder="开始时间">
+                </div>
+                <div class="form-group ">
+                  <input type="text" class="form-control datepicker" name="end" value="{$end_time}" placeholder="结束时间" >
+                </div>
+                <div class="form-group ">
+                  <input type="hidden" class=" datepicker" name="status"  value='6'>
+                  <input type="submit"  class="btn btn-secondary btn-single" value='查询'  >
+                </div>
+              </form>
+            </div>
+          </div>
+
+          <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+              <thead>
+                <tr>
+                  <th >操作</th>
+                   <th data-priority="4">认证</th>
+                  <th data-priority="1">用户昵称</th> 
+                  <th data-priority="6">真实姓名</th>                                   
+                  <th data-priority="7">电话号码</th>
+                  <th data-priority="5">代理流水</th>
+                  <th>分成比例 <i  class="fa-question-circle popover-primary" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="您与下线设置的分成比例，或您的代理与他的下线设置的分成比例" ></i></th>
+                  <th>代理收益<i  class="fa-question-circle popover-primary" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="代理获得的收益。" ></i></th>
+                  <th>从下线获得<i  class="fa-question-circle popover-primary" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="代理从他的下线获得的收益。" ></i></th>
+                  <th >获得收益<i  class="fa-question-circle popover-primary" data-toggle="popover" data-trigger="hover" data-placement="bottom" data-content="你获得的收益。" ></i></th>      
+			 	  <th >代理订单</th>      
+                </tr>
+              </thead>
+              <tbody>
+                <foreach name="list" item="vo" >
+                  <tr>
+                  <td><a href="javascript:;" onclick="showAjaxModal('{$vo.real_name}','{$vo.mobile}',{$uid},{$vo.id});" class="btn btn-primary btn-single btn-sm">设置</a></td>
+                  
+                  	<td><if condition="$vo.pid != '' ">O</if></td>
+                    <td id='username'>{$vo.username}</td>
+                    <td>{$vo.real_name}</td>  
+                    <td>{$vo.mobile}</td>
+                    <td>{$vo.fee}</td>
+                    <td>{$vo.dip}%</td>
+                    <td>{$vo.proxy_income}</td>
+                   	<td>{$vo.my_chil_income}</td>
+                    <td>{$vo.my_income}</td>
+  					<td><a href="/AppAdmin/Order/index/pid/{$vo.pid}/start/{$start}/end/{$end}">订单列表</a></td>          
+                    
+                  </tr>
+                  <foreach name="vo.child" item="co" key="k" >
+                  <tr>
+                  		<td>-</td>
+                        <td><if condition="$vo.pid != '' ">O</if></td>
+                        <td id='username'>{$co.username}</td>
+                        <td>{$co.real_name}</td>  
+                        <td>{$co.mobile}</td>
+                        <td>{$co.fee}</td>
+                        <td>{$co.dip}%</td>
+                        <td>{$co.proxy_income}</td>
+                        <td>-</td>
+                        <td>{$co.my_income}</td>
+                   		<td> - </td>   
+                    </tr>
+                  </foreach>
+                </foreach>
+              </tbody>
+            </table>
+           
+          </div>
+             <div class="page"><ul class="pagination">{$page}</ul></div>
+        
+        </div>
+         </div>
+    </div>
+  </div>
+  
+  <include file="Public/footer" /> 
+  </div>
+<include file="Public/footer_Js" />
+<!-- Imported styles on this page -->
+<link rel="stylesheet" href="__JS__/daterangepicker/daterangepicker-bs3.css">
+<link rel="stylesheet" href="__JS__/select2/select2.css">
+<link rel="stylesheet" href="__JS__/select2/select2-bootstrap.css">
+<link rel="stylesheet" href="__JS__/multiselect/css/multi-select.css">
+
+<!-- Imported scripts on this page --> 
+<script src="__JS__/daterangepicker/daterangepicker.js"></script> 
+<script src="__JS__/datepicker/bootstrap-datepicker.js"></script> 
+<script src="__JS__/timepicker/bootstrap-timepicker.min.js"></script> 
+<script src="__JS__/colorpicker/bootstrap-colorpicker.min.js"></script> 
+<script src="__JS__/select2/select2.min.js"></script> 
+<script src="__JS__/jquery-ui/jquery-ui.min.js"></script> 
+<script src="__JS__/selectboxit/jquery.selectBoxIt.min.js"></script> 
+<script src="__JS__/tagsinput/bootstrap-tagsinput.min.js"></script> 
+<script src="__JS__/typeahead.bundle.js"></script> 
+<script src="__JS__/handlebars.min.js"></script> 
+<script src="__JS__/multiselect/js/jquery.multi-select.js"></script> 
+
+
+		<script type="text/javascript">
+			function showAjaxModal(name,tel,uid,cid)
+			{
+				jQuery('#modal-7').modal('show', {backdrop: 'static'});
+				
+				jQuery.ajax({
+					method: "GET",
+					url: "/Proxy/user/proxy_ratio",
+					data: { real_name:name, tel:tel, uid:uid, cid:cid},
+					success: function(response)
+					{
+						jQuery('#modal-7 .modal-body').html(response);
+					}
+				});
+			}
+			</script>
+	<!-- Modal 6 (Long Modal)-->
+	<div class="modal fade" id="modal-7">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<form action="?action=1" method="post">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h4 class="modal-title">代理设置</h4>
+				</div>
+				
+				<div class="modal-body">
+				
+				
+					
+				</div>
+				
+				<div class="modal-footer">
+                
+					<button type="button" class="btn btn-white" data-dismiss="modal">关闭</button>
+					<button type="submit" class="btn btn-info">保存</button>
+				</div>
+                </form>
+			</div>
+		</div>
+	</div>

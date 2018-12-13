@@ -1,0 +1,122 @@
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">商家名称</label>
+            <input type="text" class="form-control"  value="{$list['merchant_name']}" readonly>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">店铺名称</label>
+            <input type="text" class="form-control"  value="{$list['shop_name']}" readonly>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">所属部门</label>
+            <input type="text" class="form-control"  value="{$list['department_name']}" readonly>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">所属员工</label>
+            <input type="text" class="form-control"  value="{$list['user_name']}" readonly>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">商家类型</label>
+            <input type="text" class="form-control"  <if condition="$list['merchant_type'] eq '1'"> value="线上商家" <elseif condition="$list['merchant_type'] eq '2'"/> value="线下商家" </if>   readonly>
+        </div>
+    </div>
+
+    <if condition="$list['merchant_type'] eq '1'">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">店铺网址</label>
+                <input type="text" class="form-control"  value="{$list['shop_url']}" readonly>
+            </div>
+        </div>
+    <elseif condition="$list['merchant_type'] eq '2'"/>
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">商家地址</label>
+                <input type="text" class="form-control" value="{$list['address']}" readonly>
+            </div>
+        </div>
+    </if>
+
+</div>
+
+
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">联系人</label>
+            <input type="text" class="form-control" value="{$list['contact']}" readonly>
+        </div>
+    </div>
+    <if condition="$list['mobile'] neq ''">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="control-label">联系电话</label>
+                <input type="text" class="form-control" value="{$list['mobile']}" readonly>
+            </div>
+        </div>
+    </if>
+</div>
+
+<div class="row">
+    <if condition="$list['weixin'] neq ''">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">微信</label>
+            <input type="text" class="form-control" value="{$list['weixin']}" readonly>
+        </div>
+    </div>
+    </if>
+    <if condition="$list['qq'] neq ''">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">QQ</label>
+            <input type="text" class="form-control" value="{$list['qq']}" readonly>
+        </div>
+    </div>
+    </if>
+</div>
+
+
+
+<div class="row">
+    <if condition="$list['wangwang'] neq ''">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">旺旺</label>
+            <input type="text" class="form-control" value="{$list['wangwang']}" readonly>
+        </div>
+    </div>
+    </if>
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">启用</label>
+            <input type="text" class="form-control" <if condition="$list['status'] eq '1'"> value="合作中" <elseif condition="$list['status'] eq '0'"/> value="未合作" </if>  readonly>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label class="control-label">备注</label>
+            <input type="text" class="form-control" value="{$list['remark']}" readonly>
+        </div>
+    </div>
+</div>

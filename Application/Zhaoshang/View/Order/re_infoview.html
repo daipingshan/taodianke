@@ -1,0 +1,94 @@
+<include file="Common:header" />
+<div id="page-wrapper" style="margin:0px;">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <dl class="dl-horizontal">
+                        <dt>订单编号</dt>
+                        <dd>{$data.order_no}</dd>
+                        <dt>价格</dt>
+                        <dd>{$data.origin}元</dd>
+                        <dt>状态</dt>
+                        <if condition="$data.status eq 0">
+                           <dd class="text-danger">待付款</dd>
+                            <elseif condition="$data.status eq 1"/>
+                            <dd class="text-danger">待发货</dd>
+                            <elseif condition="$data.status eq 2"/>
+                            <dd class="text-warning">配送中</dd>
+                            <elseif condition="$data.status eq 3"/>
+                            <dd class="text-success">已配送</dd>
+                            <elseif condition="$data.status eq 4"/>
+                             <dd class="text-success">已完成</dd>
+                            <elseif condition="$data.status eq 5"/>
+                            <dd class="text-danger">已拒绝</dd>
+                            <elseif condition="$data.status eq 6"/>
+                            <dd class="text-danger">已取消</dd>
+                            <elseif condition="$data.status eq 7"/>
+                            <dd class="text-danger">退款（退货）中</dd>
+                            <elseif condition="$data.status eq 8"/>
+                            <dd class="text-danger">客户端不显示</dd>
+                            <elseif condition="$data.status eq 9"/>
+                            <dd class="text-danger">待评价</dd>
+                        </if>
+
+                        <dt>用户</dt>
+                        <dd>{$data.user_name}</dd>
+                        <dt>商户</dt>
+                        <dd>{$data.m_name}</dd>
+                        <dt>下单时间</dt>
+                        <dd>{$data.create_time|date="Y-m-d H:i:s",###}</dd>
+                        <dt>送达时间</dt>
+                        <dd>{$data.distribute_time|date="Y-m-d H:i:s",###}</dd>
+                        <dt>运费</dt>
+                        <dd>{$data.freight}</dd>
+                        <dt>收货人</dt>
+                        <dd>{$data.name}</dd>
+                        <dt>收货地址</dt>
+                        <dd>{$data.address}</dd>
+                        <if condition="$data.remark neq ''">
+                        <dt>备注</dt>
+                        <dd><textarea rows="3" style="min-width:320px;min-height:60px;" disabled="disabled">
+                            {$data.remark}
+                            </textarea></dd>
+                        </if>
+                         <if condition="$data.reason neq '' && $data.status egt 3"> 
+                        <dt>拒绝理由</dt>
+                        <dd><textarea rows="3" style="min-width:320px;min-height:60px;" disabled="disabled">
+                            {$data.reason}
+                            </textarea></dd>
+                         </if>
+                        <dt>购买详情</dt>
+                        <div style='margin-left: 20px;'>
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>商品ID</th>
+                                        <th>商品名称</th>
+                                        <th>单价</th>
+                                        <th>数量</th>
+                                        <th>总价</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <if condition="$data.pay_details && !empty($data['pay_details'])">
+                                    <volist name="data.pay_details" id="dd">
+                                        <tr>
+                                            <td>{$dd.goods_id}</td>
+                                            <td>{$dd.goods_name}</td>
+                                            <td>{$dd.sell_price}</td>
+                                            <td>{$dd.num}</td>
+                                            <td>{$dd.total_price}</td>
+                                        </tr>
+                                    </volist>
+                                </if>
+                                </tbody>
+                            </table>
+                        </div>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<include file="Common:footer" />

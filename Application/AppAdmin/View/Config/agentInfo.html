@@ -1,0 +1,120 @@
+<include file="Public/header" title="代理信息"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">代理信息</h1>
+            <p class="description">设定后台代理管理信息。</p>
+        </div>
+        <div class="breadcrumb-env">
+            <ol class="breadcrumb bc-1">
+                <li><a href="{:U('Index/index')}"><i class="fa-home"></i>主页</a></li>
+                <li class="active">站点设置</li>
+                <li class="active"><strong>代理信息</strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" style="display: none" id="success">
+                <strong></strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" id="error" style="display:none">
+                <strong></strong>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="panel panel-default col-sm-12">
+            <div class="panel-heading">
+                <h3 class="panel-title">快捷操作</h3>
+                <div class="panel-options">
+                    <a href="#" data-toggle="panel">
+                        <span class="collapse-icon">–</span>
+                        <span class="expand-icon">+</span>
+                    </a>
+                    <a href="#" data-toggle="remove">×</a>
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="row col-margin">
+                    <div class="col-xs-2">
+                        <a href="{:U('Config/agentAdd')}" class="btn btn-secondary btn-single">
+                            添加代理
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">代理信息</h3>
+                    <div class="panel-options">
+                        <a href="#"> <i class="linecons-cog"></i> </a>
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">&ndash;</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                        <a href="#" data-toggle="remove"> &times; </a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                         data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                        <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                            <thead>
+                            <tr>
+                                <th>id</th>
+                                <th>名称</th>
+                                <th>主pid</th>
+                                <th>时间(更新cookie / 更新迷离token / 更新轻淘客cookie)</th>
+                                <th>代理级别</th>
+                                <th>操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name="list" id="vo">
+                                <tr>
+                                    <th>{$vo.id}</th>
+                                    <th>{$vo.name}</th>
+                                    <th>{$vo.pid}</th>
+                                    <td>
+                                        更新cookie：{$vo.update_cookie_time|date="Y-m-d H:i:s",###}<br>
+                                        更新迷离token：{$vo.update_token_time|date="Y-m-d H:i:s",###}<br>
+                                        更新轻淘客token：{$vo.update_qtkcookie_time|date="Y-m-d H:i:s",###}<br>
+                                    </td>
+                                    <th>{$vo.remark}</th>
+                                    <td>
+                                        <a href="{:U('Config/agentEdit',array('id'=>$vo['id']))}" class="ibutton">
+                                            <i class="fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="page">
+                        <ul class="pagination">{$page}</ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public/footer"/>
+</div>
+</div>
+<include file="Public/footer_Js"/>

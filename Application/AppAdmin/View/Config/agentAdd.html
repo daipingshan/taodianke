@@ -1,0 +1,111 @@
+<include file="Public/header" title="添加代理" keywords="" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+
+    <!-- User Info, Notifications and Menu Bar -->
+    <include file="Public/user_nav" />
+    <div class="page-title">
+        <div class="title-env">
+            <h1 class="title">添加代理</h1>
+            <p class="description">后台管理添加代理</p>
+        </div>
+        <div class="breadcrumb-env">
+            <ol class="breadcrumb bc-1">
+                <li> <a href="{:U('Index/index')}"><i class="fa-home"></i>主页</a> </li>
+                <li> 站点设置 </li>
+                <li class="active"> <strong>添加代理 </strong></li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="alert alert-success" style="display: none" id="success">
+                <strong></strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" id="error" style="display:none">
+                <strong></strong>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">添加新的代理</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">&ndash;</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove"> &times; </a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <form role="form" method="post" class="form-horizontal" action="{:U('Config/agentAdd')}"   enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="name">代理名称</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="name" value="" name="name" placeholder="请输入代理名称">
+                            </div>
+                            <span style="color: red">请慎重填写，一经填写就不能修改了</span>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="pid">代理pid</label>
+                            <div class="col-sm-4">
+                                <input type="text" class="form-control" id="pid" value="" name="pid" placeholder="请输入代理pid">
+                            </div>
+                            <span style="color: red">请慎重填写，一经填写就不能修改了</span>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="cookie">代理淘宝联盟的cookie</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control check" id="cookie" placeholder="请输入代理淘宝联盟的cookie！" name="cookie" rows="10"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="access_token">代理迷离token</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control check" id="access_token" placeholder="请输入代理调用的迷离接口所用的taobao_access_token！" name="taobao_access_token" rows="10"></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="qtk_cookie">代理轻淘客cookie</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control check" id="qtk_cookie" placeholder="请输入代理调用的轻淘客接口所用的qtk_cookie！" name="qtk_cookie" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label" for="remark">备注信息</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control check" id="remark" placeholder="请输入代理备注信息！" name="remark" rows="10"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group-separator"></div>
+                        <div class="form-group">
+                            <div class="col-sm-2 "></div>
+                            <div class="col-sm-10">
+                                <input type="submit" class="btn btn-secondary  btn-single" value="添加新代理">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+<include file="Public/footer" /> </div>
+<include file="Public/footer_Js" />

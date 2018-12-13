@@ -1,0 +1,279 @@
+<include file="Public/header" title="商品管理"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">商品列表</h1>
+                <p class="description">显示所有商品订单列表</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"> 商品管理</li>
+                    <li class="active"><strong>商品列表</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">搜索商品</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">
+                            ×
+                        </a>
+                    </div>
+                </div>
+                <form method="get">
+                    <div class="panel-body">
+                        <div class="row col-margin">
+                            <div class="col-xs-2">
+                                <input type="text" name="title" value="{:I('get.title')}" class="form-control"
+                                       placeholder="商品名称"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" name="num_iid" value="{:I('get.num_iid')}" class="form-control"
+                                       placeholder="商品编号"/>
+                            </div>
+                            <div class="col-sm-2">
+                                <select name="jing" class="form-control">
+                                    <option value="0" <if condition="I('get.jing') eq 0">selected</if>>选择是否精选</option>
+                                    <option value="1" <if condition="I('get.jing') eq 1">selected</if>>精选商品</option>
+                                    <option value="2" <if condition="I('get.jing') eq 2">selected</if>>非精选商品</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-2">
+                                <select name="cate_id" class="form-control">
+                                    <option value="0">选择分类</option>
+                                    <foreach name="cate" item="v" key="k">
+                                        <option value="{$k}"
+                                        <if condition="I('get.cate_id') eq $k">selected</if>
+                                        >{$v}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <select name="shop_type" class="form-control">
+                                    <option value="0">选择商品来源</option>
+                                    <foreach name="shop_type" item="v" key="k">
+                                        <option value="{$k}"
+                                        <if condition="I('get.shop_type') eq $k">selected</if>
+                                        >{$v}</option>
+                                    </foreach>
+                                </select>
+                            </div>
+
+                            <div class="col-xs-1">
+                                <input type="submit" class="btn btn-secondary btn-single" value="搜索"/>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+            <div class="alert alert-success" style="display: none">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">商品列表 - {$count} 件商品</h3>
+                        <div class="panel-options"><a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel"> <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span> </a> <a href="#" data-toggle="reload">
+                                <i class="fa-rotate-right"></i> </a> <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">商品图片</th>
+                                    <th width="6%">商品分类</th>
+                                    <th width="30%">商品名称 / 领券地址 / 月销量 / 来源</th>
+                                    <th width="15%">价格</th>
+                                    <th width="15%">时间</th>
+                                    <th width="10%">计划 / 排序</th>
+                                    <th>操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td><img src="{$vo.pic_url}" width="80" hidden="80" class="goodslist"/></td>
+                                        <td>{$cate[$vo['cate_id']]}</td>
+                                        <td>
+                                            <if condition="$vo.shop_type eq 'J'">
+                                            <a href="{$vo['item_url']}"
+                                               target="_blank" style="color: #00A0E9;">{$vo.title}</a>
+                                            <else/>
+                                                <a href="https://detail.tmall.com/item.htm?id={$vo['num_iid']}"
+                                               target="_blank" style="color: #00A0E9;">{$vo.title}</a>
+                                            </if>
+
+                                            <br/>
+                                            <a href="{$vo['click_url']}" target="_blank"
+                                               style="color: firebrick">领券地址</a><br>
+                                            月销量：{$vo.volume}<br>
+                                            商品来源：
+                                            <switch name="vo.shop_type">
+                                                <case value="B">天猫</case>
+                                                <case value="C">淘宝</case>
+                                                <case value="D">京东</case>
+                                                <case value="J">楚楚街</case>
+                                                <default/>
+                                                未知
+                                            </switch>
+                                        </td>
+
+                                        <td style="color:red;">
+                                            券后价：￥{$vo['coupon_price']}<br/>
+                                            优惠券金额：￥{$vo['quan']}<br/>
+                                            佣金：￥{$vo['commission']}
+                                        </td>
+                                        <td>
+                                            券开始时间：{$vo.starttime}<br>
+                                            券结束时间：{$vo.endtime}<br>
+                                            <if condition="$vo['handpick_time'] gt 0">
+                                                精选时间：{$vo['handpick_time']|date="Y-m-d H:i:s",###}<br/><br/>
+                                            </if>
+                                        </td>
+                                        <td>
+                                            <switch name="vo.uname">
+                                                <case value="wfa">定向</case>
+                                                <case value="tongyong">通用</case>
+                                                <case value="queqiao">鹊桥</case>
+                                                <default/>
+                                                未知
+                                            </switch>
+                                            <br/><br/>{$vo.ordid}
+                                        </td>
+                                        <td>
+                                            <if condition="$vo['handpick_time'] eq 0">
+                                                <a href="javascript:;" onclick="isPush({$vo['id']}, '{$vo[\'title_replace\']}');" >
+                                                    <button class="btn btn-secondary">设置精选</button>
+                                                </a>
+                                                <else/>
+                                                <a href="javascript:;" onclick="isPush({$vo['id']}, '{$vo[\'title_replace\']}');">
+                                                    <button class="btn btn-warning">更新精选</button>
+                                                </a>
+                                                <a href="{:U('Items/setHandpick',array('id'=>$vo['id'],'type'=>'N'))}">
+                                                    <button class="btn " style="background-color: #00A0E9;">取消精选</button>
+                                                </a>
+                                            </if>
+                                            <switch name="vo.shop_type">
+                                                <case value="B">
+                                                    <button class="btn" data-clipboard-text="taodianke://Item/detail?id={$vo['num_iid']}&type=tdk&V=2">复制URL</button>
+                                                </case>
+                                                <case value="C">
+                                                    <button class="btn" data-clipboard-text="taodianke://Item/detail?id={$vo['num_iid']}&type=tdk&V=2">复制URL</button>
+                                                </case>
+                                                <case value="D">
+                                                    <button class="btn" data-clipboard-text="taodianke://Item/detail?id={$vo['num_iid']}&type=jd&V=2">复制URL</button>
+                                                </case>
+                                                <case value="J">
+                                                    <button class="btn" data-clipboard-text="taodianke://Item/detail?id={$vo['num_iid']}&type=chuchujie&V=2">复制URL</button>
+                                                </case>
+                                                <default/>
+                                                未知
+                                            </switch>
+                                            <a href="javascript:;" onclick="delItems({$vo['num_iid']});">
+                                                <button class="btn" style="background-color:#fbc404;margin-left: 0;"><font style="color:white"><font>删除商品</font></font>
+                                                </button>
+                                            </a>
+
+
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+    <include file="Public/footer_Js"/>
+    <script src="__JS__/clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        var btns = document.querySelectorAll('button');
+        var clipboard = new Clipboard(btns);
+
+        clipboard.on('success', function(e) {
+            $('.alert-success strong').text('恭喜您，复制成功！');
+            $('.alert-success').show();
+            setTimeout(function(){
+                $('.alert-success').hide();
+            },3000);
+        });
+
+        clipboard.on('error', function(e) {
+            $('.alert-danger strong').text('复制失败！');
+            $('.alert-danger').show();
+            setTimeout(function(){
+                $('.alert-danger').hide();
+            },3000);
+        });
+
+    </script>
+    <script type="text/javascript">
+        function delItems(num_iid){
+            $res = confirm('确定删除该商品');
+            if ($res) {
+                var post_url = "{:U('Items/delItems')}";
+                var index = "{:U('Items/index')}";
+                $.post(post_url, {'num_iid':num_iid}, function(res){
+                    if(res.status == 1){
+                        $('.alert-success strong').text(res.info);
+                        $('.alert-success').show();
+                        setTimeout(function(){
+                            $('.alert-success').hide();
+                        },3000);
+                        window.location.href = index;
+                    }else{
+                        $('.alert-danger strong').text(res.info);
+                        $('.alert-danger').show();
+                        setTimeout(function(){
+                            $('.alert-danger').hide();
+                        },3000);
+
+                    }
+                })
+                return true;
+            }else{
+                return false;
+            }
+        }
+    </script>

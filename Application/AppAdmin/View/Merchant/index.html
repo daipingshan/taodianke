@@ -1,0 +1,321 @@
+<include file="Public/header" title="商家管理" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">商家管理</h1>
+                <p class="description">设定后台商家管理信息。</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li> <a href="{:U('Index/index')}"><i class="fa-home"></i>主页</a> </li>
+                    <li class="active">站点设置</li>
+                    <li class="active"><strong>商家管理</strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">快捷操作</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">×</a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row col-margin">
+
+                        <div class="col-xs-2">
+                            <a href="{:U('Merchant/add')}" class="btn btn-secondary btn-single">添加商家</a>
+                        </div>
+
+                        <form method="get" action="{:U('Merchant/index')}">
+                            <div class="row col-margin">
+                                <div class="col-xs-2">
+                                  <input type="text" name="merchant_name"  class="form-control" placeholder="请输入商家名称" value="{:I('get.merchant_name')}"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input type="text" name="mobile"  class="form-control" placeholder="请输入商家联系方式" value="{:I('get.mobile')}"/>
+                                </div>
+                                <if condition="$department['position_level'] eq 'manager'">
+                                    <div class="col-xs-2">
+                                        <select name="department_id" id="department_id" class="form-control" style="width: 100%;">
+                                            <option value="0">请选择部门</option>
+                                            <foreach name="department['department']" item="v" key="k">
+                                                <option value="{$k}" <if condition="I('get.department_id') eq $k">selected</if>>{$v}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <select id="admin_id" name="admin_id" class="form-control" style="width: 100%;">
+                                            <option value="0" <if condition="I('get.admin_id') neq '' ">selected</if>><if condition="I('get.admin_id') neq ''">{$name} <else/>--请选择员工-- </if></option>
+                                        </select>
+
+                                    </div>
+
+                                </if>
+                                <if condition="$department['position_level'] eq 'middle'">
+                                <div class="col-xs-2">
+                                    <select name="admin_id" class="form-control" style="width: 100%;">
+                                        <option value="0">请选择员工</option>
+                                        <volist name="department['user']" id="vo">
+                                            <option value="{$vo.id}" <if condition="I('get.admin_id') eq $vo['id'] ">selected</if>>{$vo.full_name}</option>
+                                        </volist>
+                                    </select>
+                                </div>
+                                </if>
+
+                                <div class="col-xs-1">
+                                  <input type="submit"  class="btn btn-secondary btn-single" value="搜索" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-success" style="display: none">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="alert alert-danger" style="display: none;">
+                <button type="button" class="close" data-dismiss="alert">
+                    <span aria-hidden="true">&times;</span>
+                    <span class="sr-only">Close</span>
+                </button>
+                <strong></strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">商家管理</h3>
+                        <div class="panel-options">
+                            <if condition="$department['position_level'] eq 'middle'">
+                            <a class="btn btn-primary change-merchant" style="margin-bottom: 0"><span>商家交接</span></a>
+                            </if>
+                            <a href="#"> <i class="linecons-cog"></i> </a>
+                            <a href="#" data-toggle="panel">
+                                <span class="collapse-icon">&ndash;</span>
+                                <span class="expand-icon">+</span>
+                            </a>
+                            <a href="#" data-toggle="reload"> <i class="fa-rotate-right"></i> </a>
+                            <a href="#" data-toggle="remove"> &times; </a>
+                        </div>
+                    </div>
+
+                    <div class="panel-body">
+                        <form action="{:U('Merchant/changMerchant')}" method="get" name="settle">
+
+                            <if condition="$department['position_level'] eq 'middle'">
+                                <div class="row chose_id" style="float: left;display: none">
+                                    <div class="panel-body" style="margin-left: 15px">
+                                        <button class="btn btn-success btn-icon" id="selectAll">
+                                            <i class="fa-check"></i>
+                                            <span>全选</span>
+                                        </button>
+                                        <input type="submit" class="btn btn-primary" onclick="return make_sure()" value="商家批量交接">
+
+                                    </div>
+                                </div>
+
+                                <div class="row chose_id" style="width: 20%;float: left;margin-left: 31px;margin-top: 20px;display: none">
+                                    <select name="admin_id" id="admin_user" class="form-control" style="width: 100%;">
+                                        <option value="0">请选择员工</option>
+                                        <volist name="department['user']" id="vo">
+                                            <option value="{$vo.id}">{$vo.full_name}</option>
+                                        </volist>
+                                    </select>
+                                </div>
+                            </if>
+                            <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                                <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                    <thead>
+                                    <tr>
+                                        <if condition="$department['position_level'] eq 'middle'">
+                                            <th class="chose_id" style="display: none">选择</th>
+                                        </if>
+                                        <th>id</th>
+                                        <th>商家名称</th>
+                                        <th>联系人</th>
+                                        <th>联系方式</th>
+                                        <th>店铺名称</th>
+                                        <th>客户经理</th>
+                                        <th>所属部门</th>
+                                        <th>备注</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <volist name="list" id="vo">
+                                        <if condition="$department['position_level'] eq 'middle'">
+                                            <td class="chose_id" style="display: none"><input class="checkbox_id" type="checkbox" name="merchant_ids[]" value="{$vo.id}"/></td>
+                                        </if>
+
+                                        <th>{$vo.id}</th>
+                                        <td>
+                                            <a href="javascript:void(0);" style="color: #00A0E9" onclick="read({$vo.id})">
+                                                {$vo.merchant_name}
+                                            </a>
+                                        </td>
+                                        <td>{$vo.contact}</td>
+
+                                        <td>
+                                            <if condition="$vo.mobile neq ''">
+                                                {$vo.mobile}(手机号)<br>
+                                            </if>
+                                            <if condition="$vo.weixin neq ''">
+                                                {$vo.weixin}(微信)<br>
+                                            </if>
+                                            <if condition="$vo.qq neq ''">
+                                                {$vo.qq}(QQ)<br>
+                                            </if>
+                                            <if condition="$vo.wangwang neq ''">
+                                                {$vo.wangwang}(旺旺)
+                                            </if>
+                                        </td>
+
+                                        <td>{$vo.shop_name}</td>
+                                        <td>
+                                            {$admin['user'][$vo['admin_id']]['full_name']}
+                                        </td>
+                                        <td>
+                                            {$admin['department'][$vo['department_id']]['department_name']}
+                                        </td>
+                                        <td>{$vo.remark}</td>
+                                        <td>
+                                            <a href="{:U('Merchant/edit',array('id'=>$vo['id']))}" class="ibutton">
+                                                <i class="fa-edit"></i>
+                                            </a>
+                                            <if condition="$position_level eq 'basic'">
+                                                |
+                                                <a href="javascript:void(0);" class="J_confirmurl" onclick="del({$vo['id']})">
+                                                    <i class="fa-trash"></i>
+                                                </a>
+                                            </if>
+
+                                        </td>
+                                        </tr>
+                                    </volist>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                        <if condition="$list[0] eq ''">
+                            <div style="text-align: center">
+                                没有找到相关内容
+                            </div>
+                        </if>
+                        <div class="page"><ul class="pagination">{$page}</ul></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+</div>
+
+<include file="Public/footer_Js" />
+<script type="text/javascript">
+    $(document).ready(function (e) {
+        $("#selectAll").click(function () {
+            $("input[name='merchant_ids[]']").each(function () {
+                $(this).attr("checked", true);
+            });
+            return false;
+        });
+    });
+    $("#department_id").change(function(){
+        var id = $(this).val();
+        var get_url = "{:U('Merchant/getDepartmenPersonnel')}";
+        $.get(get_url,{id:id},function(res){
+            var l ="";
+            l +="<option value=''>--请选择--</option>";
+            if(res.code == 0){
+                for (var i = 0; i < res.data.length; i++ ) {
+                    l += "<option value='" + res.data[i].id + "'>" + res.data[i].full_name + "</option>";
+                }
+            }
+            $('#admin_id').html(l);
+        });
+
+    });
+</script>
+<script type="text/javascript">
+    $(".change-merchant").click(function () {
+        $('.chose_id').show();
+    });
+
+    function make_sure() {
+        var merchant_val= new Array();
+        var admin_user = $("#admin_user option:selected").text();
+        var admin_val = $("#admin_user option:selected").val();
+        var merchant = document.getElementsByName("merchant_ids[]");
+        for(var i=0; i<merchant.length; i++){
+            if(merchant[i].checked){
+                merchant_val.push(merchant[i].value);
+            }
+        }
+        merchant_val = merchant_val.toString();
+
+
+        if (admin_val == 0) {
+            alert('交接人不能为空');
+            return false;
+        }
+        if (!merchant_val) {
+            alert('请选择需要交接的商家');
+            return false;
+        }
+
+        var gnl = confirm("确定要交接给"+admin_user);
+        if (gnl == true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    function del(id){
+        $res = confirm('确定删除该商家');
+        if ($res) {
+            var post_url = "{:U('Merchant/del')}";
+            var index = "{:U('Merchant/index')}";
+            $.post(post_url, {'id':id}, function(res){
+                if(res.status == 1){
+                    $('.alert-success strong').text(res.info);
+                    $('.alert-success').show();
+                    setTimeout(function(){
+                        $('.alert-success').hide();
+                    },3000);
+                    window.location.href = index;
+                }else{
+                    $('.alert-danger strong').text(res.info);
+                    $('.alert-danger').show();
+                    setTimeout(function(){
+                        $('.alert-danger').hide();
+                    },3000);
+                }
+            })
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>

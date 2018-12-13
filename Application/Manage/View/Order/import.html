@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <include file="Common:header"/>
+    <link href="{$Think.BASE_URL}/__PLUGINS_PATH__/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+</head>
+<body class="gray-bg">
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="ibox float-e-margins">
+                    <form role="form" class="form-inline" method="post" action="{:U('views')}" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <label for="file">选择上传文件</label>
+                            <input type="file" id="file" name="orders">
+                            <p class="help-block">PS: 仅支持utf8编码的csv文件.</p>
+                        </div>
+                        <button type="submit" class="btn btn-primary">上传</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Common:footer"/>
+    <script src="{$Think.BASE_URL}/__PLUGINS_PATH__/jeditable/jquery.jeditable.js"></script>
+    <script src="{$Think.BASE_URL}/__PLUGINS_PATH__/dataTables/jquery.dataTables.js"></script>
+    <script src="{$Think.BASE_URL}/__PLUGINS_PATH__/dataTables/dataTables.bootstrap.js"></script>
+    <script src="{$Think.BASE_URL}/__PLUGINS_PATH__/layer/layer.js"></script>
+    </body>
+</html>

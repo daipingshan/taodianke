@@ -1,0 +1,364 @@
+<extend name="Common/common"/>
+<block name="style">
+    <link rel="stylesheet" type="text/css" href="__CSS__/detail.css?{:C('V')}"/>
+</block>
+<block name="body">
+    <div class="goods-detail">
+        <div class="posi">
+            <if condition="$cate_name">
+                <a href="{:U('Item/index',array('cate_id'=>$info['cate_id']))}">{$cate_name}</a> - &gt; 商品详情
+                <else/>
+                <a href="{:U('Item/index')}">全部</a> - &gt; 商品详情
+            </if>
+        </div>
+        <a href="{$info.url}" target="_blank">
+            <img src="{$info.pic_url}" width="400px" height="400px">
+        </a>
+        <div class="goods-info">
+            <div class="tit">{$info.title}</div>
+            <div class="intro">
+                {$info.intro}
+            </div>
+            <div class="data">
+                <div class="price">
+                    <span class="price_at">￥{$info.coupon_price}</span>
+                    <span class="price_bf">￥{$info.price}</span>
+                </div>
+                <div class="num">
+                    <span><div>{$info['volume']}</div>销量</span>
+                </div>
+            </div>
+            <div class="quan">
+                <a href="{$info.url}" target="_blank">
+                    <div class="quan_value">券 <span>￥{$info.quan}</span></div>
+                    <div class="link">立即领券</div>
+                    <div class="clear"></div>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="goods-share-item content">
+        <div class="goods-share">
+            <div class="promote-top">
+                <div class="promote-tit">
+                    <span><i></i>营销模板</span>
+                    <if condition="$_SESSION['uid'] AND ($row['type'] neq 'chuchujie')">
+                        <button class="mo-ban-btn share-click active">
+                            强烈建议
+                        </button>
+                        <button class="mo-ban-btn share-click">
+                            建议
+                        </button>
+                        <button class="mo-ban-btn share-click">
+                            备选
+                        </button>
+                        <button class="update-mo-ban" id="update-mo-ban">
+                            编辑模板
+                        </button>
+                    </if>
+                </div>
+            </div>
+            <div class="share">
+                <div class="tui-content" id="copy">
+                    <img src="{$info.pic_url|str_ireplace='https','http',###}" width="114"/>
+                    <br>
+                    <if condition="$_SESSION['uid'] AND ($info['type'] neq 'chuchujie')">
+                        <div class="share-mo-ban active">
+                            {$info['template'][0]}
+                        </div>
+                        <div class="share-mo-ban">
+                            {$info['template'][1]}
+                        </div>
+                        <div class="share-mo-ban">
+                            {$info['template'][2]}
+                        </div>
+                        <else/>
+                        {$info.title}<br>
+                        【在售价】{$info.price}<br>
+                        【券后价】{$info.coupon_price}<br>
+                        <eq name="type" value="chuchujie">
+                            领券下单链接<span>【{$info['kou_ling']}】</span>
+                            <else/>
+                            复制这条信息【{$info['kou_ling']}】，打开☞手机淘宝☜即可查看并下单！
+                        </eq>
+                    </if>
+                </div>
+                <!-- qq复制内容区域 -->
+                <div class="copy">一键复制</div>
+                <if condition="$_SESSION['uid'] AND ($info['type'] neq 'chuchujie')">
+                    <div class="zone-box">
+                        <volist name="zone" id="row">
+                            <button data-pid="{$row.pid}"
+                            <eq name="row.is_default" value="1">class="zone active"
+                                <else/>
+                                class="zone"
+                            </eq>
+                            >{$row.zone_name}</button>
+                        </volist>
+                    </div>
+                </if>
+            </div>
+            <div class="share-mask"></div>
+        </div>
+        <div class="item-list goods-item">
+            <div class="promote-top">
+                <div class="promote-tit">
+                    <span><i></i>精品推荐</span>
+                </div>
+                <div class="promote-more">
+                    <a href="{:U('Item/index',array('cate_id'=>$info['cate_id']))}">查看更多&gt;</a>
+                </div>
+            </div>
+            <ul style="margin-top: 50px">
+                <volist name="more_data" id="row" mod="3">
+                    <li
+                    <eq name="mod" value="2">class="item-content-box no-mr"
+                        <else/>
+                        class="item-content-box"
+                    </eq>
+                    >
+                    <div class="goods-img">
+                        <a href="{:U('Item/detail',array('num_iid'=>$row['num_iid'],'type'=>$row['goods_type']))}">
+                            <img src="{$row.pic_url}" alt="{$row.title}">
+                        </a>
+                    </div>
+                    <div class="goods-info">
+                        <a class="goods-tit">
+                            {$row.title}
+                        </a>
+                        <div class="goods-slider">
+                            <span class="slider"><em data-width="0%" style="width: 0%;"></em></span>
+                        </div>
+                        <div class="goods-price" title="{$row.title}">
+                            <p>券后价</p>
+                            <p><b>￥{$row.coupon_price}</b></p>
+                        </div>
+                        <div class="goods-sale">
+                            <div class="goods-quan fl">
+                                <p>券<b>￥{$row.quan}</b></p>
+                            </div>
+                            <div class="goods-num fr">
+                                <p>销量<b>{$row.volume}</b></p>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    </li>
+                </volist>
+                <div class="clear"></div>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    <div id="mask">
+        <div class="content">
+            <div class="close">
+                <img src="__IMG__/close.png" alt="" width="50" style="cursor: pointer;border-radius:50% " id="close">
+            </div>
+            <div class="mo-ban">
+                <div class="mo-ban-left">
+                    <div class="header">
+                        <h3>模板使用说明</h3>
+                        <p>模板：原价<span class="default-color">#原价#</span>元，领券<span
+                                class="default-color">#券金额#</span>元，只要<span class="default-color">#券后价#</span>元</p>
+                        <p>效果：原价<span class="default-color">249</span>元，领券<span class="default-color">50</span>元，只要<span
+                                class="default-color">199</span>元</p>
+                    </div>
+                    <div class="tag">
+                        <h3 class="default-color">标签</h3>
+                        <div class="tag-left">
+                            <p>#标题#</p>
+                            <p>#券后价#</p>
+                            <p>#原价#</p>
+                            <p>#券金额#</p>
+                            <p>#领券链接#</p>
+                            <p>#销量#</p>
+                            <p>#文案#</p>
+                            <p>#淘口令#</p>
+                        </div>
+                        <div class="tag-center">
+                            <p>商品短标题</p>
+                            <p>商品用券后价格</p>
+                            <p>商品原价</p>
+                            <p>优惠券金额</p>
+                            <p>商品领券链接地址</p>
+                            <p>当前累计月销量</p>
+                            <p>商品推广文案</p>
+                            <p>商品淘口令</p>
+                        </div>
+                        <div class="tag-right">
+                            <p>&nbsp;</p>
+                            <p>如：199</p>
+                            <p>如：249</p>
+                            <p>如：50</p>
+                            <p>&nbsp;</p>
+                            <p>如：1000</p>
+                            <p>&nbsp;</p>
+                            <p>&nbsp;</p>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="mo-ban-right">
+                    <div class="header">
+                        <button class="mo-ban-btn active" style="width: 25%;text-align: center">强烈建议</button>
+                        <button class="mo-ban-btn" style="width: 25%;text-align: center">建议</button>
+                        <button class="mo-ban-btn" style="width: 25%;text-align: center">备选</button>
+                    </div>
+                    <div class="save-mo-ban">
+                        <div class="textarea show">
+                            <textarea class="text">{$template[0]}</textarea>
+                        </div>
+                        <div class="textarea">
+                            <textarea class="text">{$template[1]}</textarea>
+                        </div>
+                        <div class="textarea">
+                            <textarea class="text">{$template[2]}</textarea>
+                        </div>
+                        <button class="save-btn">保存</button>
+                    </div>
+                    <p class="default-color error-tip" style="margin-top: 30px;font-size: 14px;"></p>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</block>
+<block name="script">
+    <script src="https://cdn.bootcss.com/clipboard.js/1.7.1/clipboard.min.js" type="text/javascript"
+            charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+            var btn_index = 0;
+            var change_index = 0;
+            var ClipboardSupport = 0;
+            if (typeof Clipboard != "undefined") {
+                ClipboardSupport = 1;
+            } else {
+                ClipboardSupport = 0;
+            }
+            $('.copy').click(function (e) {
+                copyFunction('.copy', "复制成功");
+            });
+            var copyFunction = function (copyBtn, copyMsg) {
+                if (ClipboardSupport == 0) {
+                    $('.copy').css({
+                        'background': '#999',
+                        'font-size': '10px',
+                        'box-shadow': '0.5px 0.5px 7px 0.5px #999'
+                    }).text('浏览器版本过低，请升级或更换浏览器后重新复制');
+                    setTimeout(function () {
+                        $('.copy').css({
+                            'background': '#FF420F',
+                            'font-size': '15px',
+                            'box-shadow': '0.5px 0.5px 7px 0.5px #FF420F'
+                        }).text('一键复制');
+                    }, 5000)
+                } else {
+                    var clipboard = new Clipboard(copyBtn, {
+                        target: function () {
+                            return document.getElementById('copy');
+                        }
+                    });
+                    clipboard.on('success', function (e) {
+                        $('.copy').css({
+                            'background': '#999',
+                            'box-shadow': '0.5px 0.5px 7px 0.5px #999'
+                        }).text(copyMsg);
+                        setTimeout(function () {
+                            $('.copy').css({
+                                'background': '#FF420F',
+                                'box-shadow': '0.5px 0.5px 7px 0.5px #FF420F'
+                            }).text('一键复制');
+                        }, 5000)
+                        e.clearSelection();
+                    });
+                    clipboard.on('error', function (e) {
+                        $('.copy').css({
+                            'background': '#999',
+                            'font-size': '10px',
+                            'box-shadow': '0.5px 0.5px 7px 0.5px #999'
+                        }).text('复制失败，请升级或更换浏览器后重新复制');
+                        setTimeout(function () {
+                            $('.copy').css({
+                                'background': '#FF420F',
+                                'font-size': '15px',
+                                'box-shadow': '0.5px 0.5px 7px 0.5px #FF420F'
+                            }).text('一键复制');
+                        }, 5000)
+                        e.clearSelection();
+                    });
+                }
+            }
+            $('#close').click(function () {
+                $('#mask').hide();
+            });
+            $('#update-mo-ban').click(function () {
+                $('#mask').show();
+            });
+            $('.goods-share .share-click').click(function () {
+                change_index = $(this).index() - 1;
+                $(this).addClass('active').siblings().removeClass('active');
+                $('.share .share-mo-ban').eq(change_index).addClass('active').siblings().removeClass('active');
+            });
+
+            $('#mask .mo-ban-btn').click(function () {
+                btn_index = $(this).index();
+                $(this).addClass('active').siblings().removeClass('active');
+                $('#mask .textarea').eq(btn_index).addClass('show').siblings().removeClass('show');
+            });
+
+            $('.zone').click(function () {
+                var _this = $(this);
+                if ($(this).hasClass('active')) {
+                    return false;
+                }
+                var item_id = "{$info.num_iid}";
+                var type = "{$info.type}";
+                var template_key = change_index;
+                var pid = $(this).data('pid');
+                $('.share-mask').text('正在努力请求中……').show();
+                $.post("{:U('getTemplate')}", {
+                    item_id: item_id,
+                    type: type,
+                    template_key: template_key,
+                    pid: pid
+                }, function (res) {
+                    if (res.status == 1) {
+                        $('.share .share-mo-ban.active').html(res.info);
+                        _this.addClass('active').siblings().removeClass('active');
+                        $('.share-mask').text('请求成功');
+                    } else {
+                        $('.share-mask').text(res.info);
+                    }
+                    setTimeout(function () {
+                        $('.share-mask').hide();
+                    }, 1000)
+                });
+            });
+
+            $('textarea').focus(function () {
+                $('.error-tip').text('');
+            });
+
+            /**
+             * 修改模板信息
+             */
+            $('.save-btn').click(function () {
+                var content = $('#mask .textarea').eq(btn_index).find('textarea').val();
+                if (!content) {
+                    $('.error-tip').text('请输入推广模板内容');
+                    return false;
+                }
+                $.post("{:U('setTemplate')}", {key: btn_index, content: content}, function (res) {
+                    if (res.status == 1) {
+                        window.location.reload();
+                    } else {
+                        $('.error-tip').text(res.info);
+                    }
+                });
+
+            });
+        });
+    </script>
+</block>

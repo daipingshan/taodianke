@@ -1,0 +1,101 @@
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>商品详情</title>
+    <link href="http://oozun.cn//css/main.css?t=20170519001" rel="stylesheet">
+	<link href="http://oozun.cn//css/detail.css?t=20170519001" rel="stylesheet">
+	<link rel="stylesheet" href="http://oozun.cn/js/layer/skin/layer.css" id="layui_layer_skinlayercss">
+</head>
+<body>
+
+<if condition="$data['title'] eq '' ">
+
+    <!--淘口令-->
+    <div class="media-list media-tkl text-center" style="display: block;">
+        <div class="copy-tao-words" >
+            <a class="copy-tao-words-btn" data-taowords="{$data['kou_ling']}" style="background-color: #f8285c;">
+                一键复制下方淘口令
+            </a>
+        </div>
+        <div class="detail-command">
+            <div class="detail-command-box">
+                <span id="code1_ios" style="display: inline;">{$data['kou_ling']}</span>
+                <input type="text" value="{$data['kou_ling']}" onfocus="iptNum(this, true);" oninput="iptNum(this, false);" style="display: none;">
+            </div>
+        </div>
+        <p class="tkl-txt">或长按复制上方淘口令，打开手机淘宝购买</p>
+    </div>
+    
+<else />
+
+<div id="pull" class=" detail-product">
+    <div class="scroll-box">
+        <div class="content detail-product-head">
+            <div class="detail-product-img" onclick="openTips();">
+                <img src="{$data['pic_url']}" alt="{$data['title']}">
+            </div>
+            <!--商品信息-->
+            <div class="media-list line-btm">
+                <div class="media-list-title line-top">{$data['title']}</div>
+
+                <div class="media-list-info flex-center oh">
+                    <div class="flex-col">
+                        <i class="rmb media-arial fl">¥</i>
+                        <span class="media-arial media-price fl"> {$data['coupon_price']}</span>
+                        <div class="fl coupon-txt">
+                            <p class="old-price media-arial"><i class="fl">¥</i> {$data['price']}</p>
+                            <p>券后价</p>
+                        </div>
+                        <span class="fl coupon-price">
+                            <b class="price flex-center">
+                                <i class="media-arial">¥</i>
+                                <i class="media-arial">{$data['quan']}</i></b>
+                            <img src="http://oozun.cn//images/quan_03.png?t=20170519001" alt="">
+                        </span>
+                    </div>
+
+                    <div class="sales">
+                        <img src="http://oozun.cn//images/head_06.png?t=20170519001" alt="">
+                        <i class="media-arial">{$data['volume']}</i> 已买
+                    </div>
+            	</div>
+            </div>
+
+            <!--淘口令-->
+            <div class="media-list media-tkl text-center" style="display: block;">
+                <div class="copy-tao-words" >
+                    <a class="copy-tao-words-btn" data-taowords="{$data['kou_ling']}" style="background-color: #f8285c;">
+                        一键复制下方淘口令
+                    </a>
+                </div>
+                <div class="detail-command">
+                    <div class="detail-command-box">
+                        <span id="code1_ios" style="display: inline;">{$data['kou_ling']}</span>
+                        <input type="text" value="{$data['kou_ling']}" onfocus="iptNum(this, true);" oninput="iptNum(this, false);" style="display: none;">
+                    </div>
+                </div>
+                <p class="tkl-txt">或长按复制上方淘口令，打开手机淘宝购买</p>
+            </div>
+        </div>
+
+
+
+        <!--内容-->
+        <div id="content" class="detail-content line-top line-btm">
+
+        </div>
+        <input id="wxGid" type="hidden" value="550627746731">
+    </div>
+</div>
+
+</if>
+
+<script src="http://oozun.cn//js/jquery.2.1.4.js?t=20170519001"></script>
+<script src="http://oozun.cn//js/layer/layer.js?t=20170519001"></script>
+<script src="http://oozun.cn//js/imgLazy.v1.js?t=20170519001"></script>
+<script src="http://oozun.cn//js/clip-board.min.js?t=20170519001"></script>
+<script src="http://oozun.cn//js/detail.js?t=20170519001"></script>
+
+</body>
+</html>

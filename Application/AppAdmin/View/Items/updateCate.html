@@ -1,0 +1,185 @@
+<include file="Public/header" title="添加新闻" keywords="" />
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">添加商品分类</h1>
+                <p class="description">添加商品分类</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"> 商品管理</li>
+                    <li class="active"><strong>添加商品分类</strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success" style="display: none" id="success">
+                    <strong></strong>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div class="alert alert-danger" id="error" style="display:none">
+                    <strong></strong>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">添加商品分类</h3>
+                    <div class="panel-options"><a href="#" data-toggle="panel">
+                        <span class="collapse-icon">&ndash;</span> <span class="expand-icon">+</span> </a>
+                        <a href="#" data-toggle="remove"> &times; </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="col-sm-12">
+                        <form role="form" method="post" class="form-horizontal">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">分类名称</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="name" name="name" value="{$info.name}" placeholder="请输入分类名称">
+                                </div>
+                            </div>
+                            <div class="form-group-separator"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">分类图标</label>
+                                <div class="col-sm-4">
+                                    <input type="file" class="form-control" id="file_image" name="img">
+                                    <input type="hidden" class="form-control" id="image" name="image" value="{$info.cateimg}">
+                                </div>
+                                <div class="col-sm-2">
+                                    <button type="button" id='coupon_img_url_upd' onclick="ajaxFileUpload('file_image','image','show_img')" class="form-control">上传图片</button>
+                                </div>
+                                <div class="col-sm-4">
+                                    <a id="show_img" href="{$info.cateimg}" target="_blank"><img src="{:getImgUrl($info['cateimg'])}" width="80" /></a>
+                                </div>
+                            </div>
+                            <div class="form-group-separator"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="field-3">排序</label>
+                                <div class="col-sm-10">
+                                    <input type="number" class="form-control" id="field-3" value="{$info.ordid}" name="sort">
+                                </div>
+                            </div>
+                            <div class="form-group-separator"></div>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">状态</label>
+                                <div class="col-sm-10">
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="status"
+                                            <eq name="info.status" value="1">checked</eq>
+                                            value="1" />启用
+                                        </label>
+                                    </div>
+                                    <div class="radio">
+                                        <label>
+                                            <input type="radio" name="status"
+                                            <eq name="info.status" value="0">checked</eq>
+                                            value="0">禁用
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group-separator"></div>
+                            <div class="form-group">
+                                <div class="col-sm-2 "></div>
+                                <div class="col-sm-10">
+                                    <input type="hidden" name="id" value="{$info['id']}" />
+                                    <input type="submit" class="btn btn-secondary  btn-single" value="修改分类">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+</div>
+<script src="__JS__/ajaxfileupload.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $("form").on("submit", function () {
+            var name = $('#name').val();
+            if (!name) {
+                errorInfo('请输入分类名称');
+                return false;
+            }
+            var image = $('#image').val();
+            if (!image) {
+                errorInfo('您未上传图片，请点击上传图片 ');
+                return false;
+            }
+            $('#submit').attr('disabled', true);
+            $.post("{:U('Items/updateCate')}", $('form').serialize(), function (res) {
+                if (res.status == 0) {
+                    $('#submit').removeAttr('disabled');
+                    errorInfo(res.info);
+                } else {
+                    $('#success').find('strong').text(res.info);
+                    $('#success').show();
+                    setTimeout(function () {
+                        window.location.href = res.url;
+                    }, 3000)
+                }
+            })
+            return false;
+        });
+    });
+    //异步上传图片
+    function ajaxFileUpload(name, trueInput, img) {
+        //判断是否有选择上传文件
+        var imgPath = $('#' + name).val();
+        if (!imgPath) {
+            errorInfo("请选择上传图片！");
+            return false;
+        }
+        $.ajaxFileUpload({
+            url: "{:U('Common/uploadImg')}",
+            secureuri: false, //是否需要安全协议，一般设置为false
+            fileElementId: name, //文件上传域的ID
+            dataType: 'json', //返回值类型 一般设置为json
+            success: function (data) {
+                if (data.error == 1) {
+                    errorInfo('上传失败 : ' + data.message);
+                    return false;
+                } else {
+                    $('#' + img).attr({
+                        'href': data.url,
+                        'class': 'upIMG' + name
+                    }).find('img').attr({'src': data.url});
+                    $('#' + trueInput).val(data.url);
+                    successInfo('图片上传成功');
+                }
+            },
+            error: function (e) {
+                errorInfo('通讯失败');
+            }
+        });
+    }
+    //设置表单提醒与错误
+    function errorInfo(msg) {
+        $('#error').find('strong').text(msg);
+        $('#error').show();
+        setTimeout(function () {
+            $('#error').hide();
+        }, 3000)
+    }
+    //设置表单提醒与错误
+    function successInfo(msg) {
+        $('#success').find('strong').text(msg);
+        $('#success').show();
+        setTimeout(function () {
+            $('#success').hide();
+        }, 3000)
+    }
+</script>
+<include file="Public/footer_Js" />

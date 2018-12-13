@@ -1,0 +1,21 @@
+
+
+<div class="row">
+	<div class="col-md-12">		
+		<div class="form-group">
+			<label for="field-3" class="control-label">代理分成（100.00%）</label>			
+			<input type="number" name="dip"  class="form-control" id="dip"  value="{$ratiodata.dip}"  placeholder="0.00" max="100" min="0" name="dip">
+		</div>			
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">		
+		<div class="form-group no-margin">
+			<label for="field-7" class="control-label">备注</label>			
+			<textarea class="form-control autogrow" name="remarks" id="remarks"   placeholder="填写您的代理信息或备注信息">{$ratiodata.remarks}</textarea>
+          	<input type="hidden" value="{$uid}" name="uid">
+		 	<input type="hidden" value="{$cid}" name="cid">
+		</div>			
+	</div>
+</div>

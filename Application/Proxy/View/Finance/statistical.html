@@ -1,0 +1,90 @@
+<include file="Public/header" title="数据统计" keywords="开源WEB开发框架" />
+	<!-- JavaScripts initializations and stuff -->
+
+<div class="page-container">
+<include file="Public/nav" />
+<div class="main-content"> 
+  
+  <!-- User Info, Notifications and Menu Bar --> 
+  <include file="Public/user_nav" />
+  <div class="page-title">
+    <div class="title-env">
+      <h1 class="title">消费统计</h1>
+      <p class="description">查看用户消费订单信息</p>
+    </div>
+    <div class="breadcrumb-env">
+      <ol class="breadcrumb bc-1">
+        <li> <a href="/Proxy/Finance/ranking"><i class="fa-home"></i>主页</a> </li>
+        <li class="active"> 财务管理 </li>
+        <li class="active"> <strong>消费统计</strong> </li>
+      </ol>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+         <div class="panel panel-default">
+            <div class="panel-heading">
+              <h3 class="panel-title">财务统计报表 (开发中)</h3>
+             
+            </div>
+            <div class="panel-body">
+                <div class="col-sm-10">
+					<div id="cpu-usage-chart" style="height: 150px;"></div>
+				</div>
+                <script>
+					$(document).ready(function(e) {
+                        	// Requests per second chart
+					$("#reqs-per-second-chart").dxChart({
+						dataSource: reqs_per_second_data,
+						commonPaneSettings: {
+							border: {
+								visible: true,
+								color: '#f5f5f5'
+							}
+						},
+						commonSeriesSettings: {
+							type: "area",
+							argumentField: "time",
+							border: {
+								color: '#68b828',
+								width: 1,
+								visible: true
+							}
+						},
+						series: [
+							{ valueField: "reqs", name: "Reqs per Second", color: '#68b828', opacity: .5 },
+						],
+						commonAxisSettings: {
+							label: {
+								visible: true
+							},
+							grid: {
+								visible: true,
+								color: '#f5f5f5'
+							}
+						},
+						argumentAxis: {
+							valueMarginsEnabled: false,
+							label: {
+								customizeText: function (arg) {
+									return date('h:i A', arg.value);
+								}
+							},
+						},
+						legend: {
+							visible: false
+						}
+					});	
+                    });
+				</script>
+            </div>
+        </div>
+    </div>
+  </div>
+<include file="Public/footer" /> </div>
+<include file="Public/footer_Js" /></div>
+	<!-- Imported scripts on this page -->
+	<script src="/Public/Assets/js/xenon-widgets.js"></script>
+	<script src="/Public/Assets/js/devexpress-web-14.1/js/knockout-3.1.0.js"></script>
+	<script src="/Public/Assets/js/devexpress-web-14.1/js/globalize.min.js"></script>
+	<script src="/Public/Assets/js/devexpress-web-14.1/js/dx.chartjs.js"></script>

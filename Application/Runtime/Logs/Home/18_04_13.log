@@ -1,0 +1,305 @@
+[ 2018-04-13T19:49:47+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000727s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000878s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000962s ]
+ERR: SQLSTATE[28000] [1045] ip not in whitelist or in blacklist, client ip is 117.35.132.11
+
+[ 2018-04-13T19:55:05+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001296s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001502s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001620s ]
+SQL: SHOW COLUMNS FROM `ytt_items_cate` [ RunTime:0.0331s ]
+SQL: SELECT id as cate_id,`name`,cateimg as img FROM `ytt_items_cate` WHERE `status` = 1 AND `pid` = 18 ORDER BY ordid asc,id desc  [ RunTime:0.0342s ]
+SQL: SHOW COLUMNS FROM `ytt_ad` [ RunTime:0.0321s ]
+SQL: SELECT content as img,`url`,`desc`,`board_id` FROM `ytt_ad` WHERE `status` = 1 AND `start_time` <= 1523620504 AND `end_time` >= 1523620504 ORDER BY ordid asc,id desc  [ RunTime:0.0323s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000681s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.001040s ]
+NOTIC: [8] Undefined variable: keyword D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\f1e9179a098ac27ae96a9e4b1be73824.php 第 50 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.084070s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.084253s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002642s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002790s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.003150s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003538s ]
+
+[ 2018-04-13T19:55:25+08:00 ] 127.0.0.1 /Home/Item/detail/num_iid/557103683985/type/tdk.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000638s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000811s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000871s ]
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0346s ]
+SQL: SELECT * FROM `ytt_items` WHERE `num_iid` = '557103683985' AND `shop_type` IN ('B','C') LIMIT 1   [ RunTime:0.0349s ]
+SQL: SHOW COLUMNS FROM `ytt_proxy` [ RunTime:0.0315s ]
+SQL: SELECT `pid`,taobao_access_token as token,`qtk_cookie` FROM `ytt_proxy`  [ RunTime:0.0379s ]
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0326s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0298s ]
+NOTIC: [8] Undefined index: type D:\www\online_team\www.taodianke.com\Application\Home\Controller\ItemController.class.php 第 408 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000772s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000937s ]
+NOTIC: [8] Undefined variable: keyword D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 50 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined index: uid D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 130 行.
+NOTIC: [8] Undefined index: uid D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 148 行.
+NOTIC: [8] Undefined index: uid D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 167 行.
+NOTIC: [8] Undefined index: type D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 429 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.073038s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.073214s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002237s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002428s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002877s ]
+INFO: [ app_end ] --END-- [ RunTime:0.003098s ]
+
+[ 2018-04-13T19:57:02+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000985s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001143s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001241s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000192s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000275s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.028579s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.028662s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001063s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001132s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001278s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001361s ]
+
+[ 2018-04-13T19:57:16+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000720s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000978s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001058s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000301s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000403s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051309s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051439s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001160s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001239s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001861s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002001s ]
+
+[ 2018-04-13T19:58:04+08:00 ] 127.0.0.1 /Home/Item/search.html?keyword=%E8%A1%A3%E6%9C%8D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000991s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000836s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000903s ]
+SQL: SHOW COLUMNS FROM `ytt_search_list` [ RunTime:0.0333s ]
+SQL: INSERT INTO `ytt_search_list` (`source`,`user_id`,`search_keyword`,`search_keyword_md5`,`segment_words`,`add_time`) VALUES ('user','0','衣服','6e06060b4830dae396881fca9cf4e3eb','衣服','1523620683') [ RunTime:0.0354s ]
+NOTIC: [8] Undefined index: db_id D:\www\online_team\www.taodianke.com\Application\Common\Org\Redis.class.php 第 75 行.
+NOTIC: [8] Undefined index: 16df0e79903b1bda5dda5b9d5aed4257 D:\www\online_team\www.taodianke.com\Application\Common\Org\Redis.class.php 第 83 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0371s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0319s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000522s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000734s ]
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.077541s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.077799s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.004005s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.004215s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002763s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002961s ]
+
+[ 2018-04-13T19:59:02+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000806s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000735s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000795s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000407s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000569s ]
+NOTIC: [8] Undefined variable: keyword D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\f1e9179a098ac27ae96a9e4b1be73824.php 第 50 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.063089s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.063200s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000784s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000829s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000983s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001052s ]
+
+[ 2018-04-13T19:59:11+08:00 ] 127.0.0.1 /Home/Item/search.html?keyword=%E8%A1%A3%E6%9C%8D%E4%B8%BA4324324
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000718s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000702s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000757s ]
+
+[ 2018-04-13T19:59:55+08:00 ] 127.0.0.1 /Home/Item/search.html?keyword=%E8%A1%A3%E6%9C%8D%E4%B8%BA4324324
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000844s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000989s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001076s ]
+SQL: SHOW COLUMNS FROM `ytt_search_list` [ RunTime:0.0331s ]
+SQL: INSERT INTO `ytt_search_list` (`source`,`user_id`,`search_keyword`,`search_keyword_md5`,`segment_words`,`add_time`) VALUES ('user','0','衣服为4324324','0660da4a0684fbd528a5a6730727d446','衣服,4324324','1523620794') [ RunTime:0.0352s ]
+NOTIC: [8] Undefined index: db_id D:\www\online_team\www.taodianke.com\Application\Common\Org\Redis.class.php 第 75 行.
+NOTIC: [8] Undefined index: 16df0e79903b1bda5dda5b9d5aed4257 D:\www\online_team\www.taodianke.com\Application\Common\Org\Redis.class.php 第 83 行.
+NOTIC: [2] Invalid argument supplied for foreach() D:\www\online_team\www.taodianke.com\Application\Common\Org\TaoBaoApi.class.php 第 97 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0351s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0348s ]
+
+[ 2018-04-13T20:00:12+08:00 ] 127.0.0.1 /Home/Item/search.html?keyword=%E8%A1%A3%E6%9C%8D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000025s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000757s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000748s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000809s ]
+SQL: SHOW COLUMNS FROM `ytt_search_list` [ RunTime:0.0314s ]
+SQL: INSERT INTO `ytt_search_list` (`source`,`user_id`,`search_keyword`,`search_keyword_md5`,`segment_words`,`add_time`) VALUES ('user','0','衣服','6e06060b4830dae396881fca9cf4e3eb','衣服','1523620811') [ RunTime:0.0353s ]
+NOTIC: [8] Undefined index: db_id D:\www\online_team\www.taodianke.com\Application\Common\Org\Redis.class.php 第 75 行.
+NOTIC: [8] Undefined index: 16df0e79903b1bda5dda5b9d5aed4257 D:\www\online_team\www.taodianke.com\Application\Common\Org\Redis.class.php 第 83 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0353s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0319s ]
+
+[ 2018-04-13T20:01:08+08:00 ] 127.0.0.1 /Home/Item/search.html?keyword=%E8%A1%A3%E6%9C%8D
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001202s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001873s ]
+SQL: SHOW COLUMNS FROM `ytt_search_list` [ RunTime:0.0375s ]
+SQL: INSERT INTO `ytt_search_list` (`source`,`user_id`,`search_keyword`,`search_keyword_md5`,`segment_words`,`add_time`) VALUES ('user','0','衣服','6e06060b4830dae396881fca9cf4e3eb','衣服','1523620867') [ RunTime:0.0349s ]
+NOTIC: [8] Undefined index: db_id D:\www\online_team\www.taodianke.com\Application\Common\Org\Redis.class.php 第 75 行.
+NOTIC: [8] Undefined index: 16df0e79903b1bda5dda5b9d5aed4257 D:\www\online_team\www.taodianke.com\Application\Common\Org\Redis.class.php 第 83 行.
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0361s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0333s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000257s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000352s ]
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\9ace214da5fb98e6a2ba97286b008782.php 第 83 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.051527s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.051785s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.001826s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002096s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001907s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002018s ]
+
+[ 2018-04-13T20:01:28+08:00 ] 127.0.0.1 /Home/Item/detail/num_iid/548099442143/type/tdk.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001381s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000914s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000979s ]
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0341s ]
+SQL: SELECT * FROM `ytt_items` WHERE `num_iid` = '548099442143' AND `shop_type` IN ('B','C') LIMIT 1   [ RunTime:0.0407s ]
+SQL: DELETE FROM `ytt_items` WHERE `dataoke_id` = 7238720 [ RunTime:0.0342s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000294s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000459s ]
+NOTIC: [8] Undefined variable: keyword D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\99483aa823da43529a5ed1462d832a26.php 第 48 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.044705s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.044898s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002361s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002547s ]
+
+[ 2018-04-13T20:01:35+08:00 ] 127.0.0.1 /Home/Item/detail/num_iid/547067441564/type/tdk.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000017s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000822s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001191s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001273s ]
+SQL: SHOW COLUMNS FROM `ytt_items` [ RunTime:0.0340s ]
+SQL: SELECT * FROM `ytt_items` WHERE `num_iid` = '547067441564' AND `shop_type` IN ('B','C') LIMIT 1   [ RunTime:0.0405s ]
+SQL: SHOW COLUMNS FROM `ytt_user` [ RunTime:0.0332s ]
+SQL: SELECT `ParentID` FROM `ytt_user` WHERE `id` = 0 LIMIT 1   [ RunTime:0.0312s ]
+NOTIC: [8] Undefined index: type D:\www\online_team\www.taodianke.com\Application\Home\Controller\ItemController.class.php 第 408 行.
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000709s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000872s ]
+NOTIC: [8] Undefined variable: keyword D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 50 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined variable: act D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 83 行.
+NOTIC: [8] Undefined index: uid D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 130 行.
+NOTIC: [8] Undefined index: uid D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 148 行.
+NOTIC: [8] Undefined index: uid D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 167 行.
+NOTIC: [8] Undefined index: type D:\www\online_team\www.taodianke.com\Application\Runtime\Cache\Home\c426a06eab54d86e09a06ec296809e4d.php 第 429 行.
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.069850s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.070021s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.002613s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.002820s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.004676s ]
+INFO: [ app_end ] --END-- [ RunTime:0.005044s ]
+
+[ 2018-04-13T20:02:21+08:00 ] 127.0.0.1 /Home/Item/detail/num_iid/547067441564/type/tdk.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.002553s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001511s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001701s ]
+ERR: SQLSTATE[28000] [1045] ip not in whitelist or in blacklist, client ip is 117.35.132.11
+
+[ 2018-04-13T20:03:31+08:00 ] 127.0.0.1 /Home/Item/detail/num_iid/547067441564/type/tdk.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000016s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000883s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001172s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001259s ]
+ERR: SQLSTATE[28000] [1045] ip not in whitelist or in blacklist, client ip is 117.35.132.11
+

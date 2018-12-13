@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文章详情</title>
+    <style type="text/css">
+        a:link, a:visited {
+            text-decoration: none; /*超链接无下划线*/
+        }
+
+        a:hover {
+            text-decoration: underline; /*鼠标放上去有下划线*/
+        }
+    </style>
+</head>
+<body>
+<h2>图集页面地址:<a href="{$location_url}" target="_blank">{$title}</a></h2>
+<hr>
+<volist name="data" id="row">
+    <h3>商品标题：{$row.title}</h3>
+    <p>商品描述：<a href="{$row.url}">{$row.desc}</a></p>
+    <p>商品链接：<a href="{$row.goods_url}">{$row.goods_url}</a></p>
+    <p>商品价格：<span style="color: red;margin-right: 200px">{$row.price}</span> 商品平台：<span style="color: green;">{$row.shop_type_name}</span>
+    </p>
+    <div>
+        <img src="{$row.img}" style="width: 200px"/>
+    </div>
+    <hr>
+</volist>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<notEmpty name="data">
+    <div class="row">
+        <div class="panel-body">
+            <div class="row col-margin">
+                <div class="col-xs-9">
+                    <input type="text" name="keyword" class="form-control" value="{:I('get.keyword')}" placeholder="请输入关键字搜索" />
+                </div>
+                <div class="col-xs-3">
+                    <input type="submit" class="btn btn-secondary btn-single" value="搜索" id="search-merchant" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="panel-body">
+            <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk" data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                    <thead>
+                    <tr>
+                        <th data-priority="1">联系人</th>
+                        <th data-priority="2">商家/店铺名称</th>
+                        <th data-priority="3">联系方式</th>
+                        <th data-priority="4">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <foreach name="data" item="vo">
+                        <tr>
+                            <td>{$vo.contact}</td>
+                            <td>{$vo.merchant_name}<br>{$vo.shop_name}</td>
+                            <td>
+                                <notEmpty name="vo.mobile">手机：{$vo['mobile']}<br /></notEmpty>
+                                <notEmpty name="vo.weixin">微信：{$vo['weixin']}<br /></notEmpty>
+                                <notEmpty name="vo.qq">QQ：{$vo['qq']}<br /></notEmpty>
+                                <notEmpty name="vo.wangwang">旺旺：{$vo['wangwang']}<br /></notEmpty>
+                            </td>
+                            <td>
+                                <button class="btn btn-warning btn-sm select-merchant" data-id="{$vo.id}" data-name="{$vo.merchant_name}">
+                                    <font><font>确定</font></font></button>
+                            </td>
+                        </tr>
+                    </foreach>
+                    </tbody>
+                </table>
+            </div>
+            <div class="page">
+                <ul class="pagination">{$page}</ul>
+            </div>
+        </div>
+    </div>
+    <else />
+    <div class="row">
+        <if condition="I('get.keyword')">
+            <h4 style="margin-left: 15px">很遗憾，未能找到你想查询的商家！<a href="{:U('Merchant/add')}" target="_blank" style="color: #00A0E9">立即添加</a>
+            </h4>
+            <else />
+            <h4 style="margin-left: 15px">您的账号下没有商家，请添加后再来认领商品！<a href="{:U('Merchant/add')}" target="_blank" style="color: #00A0E9">立即添加</a>
+            </h4>
+        </if>
+    </div>
+</notEmpty>

@@ -1,0 +1,171 @@
+<include file="Public/header" title="用户管理"/>
+<link rel="stylesheet" href="__JS__/daterangepicker/daterangepicker-bs3.css">
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">宅猫生活线下店管理</h1>
+                <p class="description">显示公众号抵扣中心</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>抵扣中心 </strong></li>
+
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <form>
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-sm-2">
+                                        <input type="number" name="coupon_sn" value="{:I('get.coupon_sn')}"
+                                               class="form-control" placeholder="请输入券号"/>
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <input type="text" name="time" value="{$time}" id="field-1"
+                                               class="form-control daterange" placeholder="请选择使用时间范围"/>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="text" name="nickname" value="{:I('get.nickname')}"
+                                               class="form-control" placeholder="请输入用户昵称"/>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" step="0.1" name="min" value="{:I('get.min')}"
+                                               class="form-control" placeholder="抵扣金额min"/>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <input type="number" step="0.1" name="max" value="{:I('get.max')}"
+                                               class="form-control" placeholder="抵扣金额max"/>
+                                    </div>
+                                    <br>
+                                    <br>
+                                    <div class="col-sm-2">
+                                        <select name="check_store_uid" id="check_store_uid" class="form-control">
+                                            <option value="">选择门店</option>
+                                            <foreach name="store_data" item="v" key="k">
+                                                <option value="{$v.id}"
+                                                <if condition="I('get.check_store_uid') eq $v['id']">selected</if>
+                                                >{$v['name']}</option>
+                                            </foreach>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="check_cashier_id" id="check_cashier_id" class="form-control">
+                                            <option value="0">选择收银员</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <select name="sort" class="form-control">
+                                            <option value="">选择排序</option>
+                                            <option value="money"
+                                            <if condition="I('get.sort') eq 'money'">selected</if>
+                                            >抵扣金额</option>
+                                            <option value="used_time"
+                                            <if condition="I('get.sort') eq 'used_time'">selected</if>
+                                            >使用时间</option>
+                                            <option value="add_time"
+                                            <if condition="I('get.sort') eq 'add_time'">selected</if>
+                                            >关注时间</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2" style="font-size: 14px;line-height: 32px">总抵扣金额：<span
+                                            style="color: red">{$total_money}</span></div>
+                                    <div class="col-sm-2" style="font-size: 14px;line-height: 32px">实际总消费金额>=：<span
+                                            style="color: red">{$total_limit_money}</span></div>
+                                    <div class="col-sm-2">
+                                        <button class="btn btn-secondary btn-single" type="submit" name="type"
+                                                value="select" style="margin-bottom: 0">
+                                            <font><font>查询</font></font></button>
+
+                                        <button class="btn btn-warning" type="submit" name="type" value="down"
+                                                style="margin-bottom: 0">
+                                            <font><font>报表下载</font></font></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive" data-pattern="priority-columns" data-focus-btn-icon="fa-asterisk"
+                             data-sticky-table-header="true" data-add-display-all-btn="true" data-add-focus-btn="true">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="20%">微信头像</th>
+                                    <th width="10%">微信昵称</th>
+                                    <th width="10%">所属代理</th>
+                                    <th width="10%">抵扣金额</th>
+                                    <th width="10%">实际消费金额>=</th>
+                                    <th width="20%">使用时间</th>
+                                    <th>首次关注时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td><img src="{$vo.headimgurl}" width="80"/></td>
+                                        <td>{$vo.nickname}</td>
+                                        <td>{$vo.proxy_name}</td>
+                                        <td>{$vo.money}</td>
+                                        <td>{$vo.limit_money}</td>
+                                        <td>{$vo.used_time}</td>
+                                        <td>{$vo.add_time}</td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+</div>
+<script src="__JS__/moment.min.js"></script>
+<!-- Imported scripts on this page -->
+<script src="__JS__/daterangepicker/daterangepicker.js"></script>
+<script>
+
+    var store_id = parseInt("{:I('get.check_store_uid',0,'int')}");
+    var cashier_id = parseInt("{:I('get.check_cashier_id',0,'int')}");
+    if (store_id) {
+        getCash(store_id, cashier_id);
+    }
+    $('#check_store_uid').change(function () {
+        getCash($(this).val(), 0);
+    });
+    function getCash(store_id, cashier_id) {
+        var html = ' <option value="0">选择收银员</option>';
+        if (store_id > 0) {
+            $.get("{:U('getCashier')}", {store_id: store_id}, function (res) {
+                var data = res.info.data;
+                if (data.length > 0) {
+                    for (var i = 0; i < data.length; i++) {
+                        if (cashier_id > 0 && cashier_id == data[i].id) {
+                            html += '<option value="' + data[i].id + '" selected>' + data[i].real_name + '</option>'
+                        } else {
+                            html += '<option value="' + data[i].id + '">' + data[i].real_name + '</option>'
+                        }
+                    }
+                    $('#check_cashier_id').html(html);
+                }
+            });
+        } else {
+            $('#check_cashier_id').html(html);
+        }
+    }
+</script>
+<include file="Public/footer_Js"/>

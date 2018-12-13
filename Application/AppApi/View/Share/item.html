@@ -1,0 +1,35 @@
+<include file="Public/header" />
+<div id="list">
+    <foreach name="list" item="vo">
+        <div class="row">
+            <h2><a href="{$vo['item_url']}">{$vo.title}</a></h2>
+            <p>{$vo.add_time}</p>
+        </div>
+    </foreach>
+</div>
+<eq name="next" value="1">
+    <button id="get_more" class="more_button">获取更多</button>
+</eq>
+<script type="text/javascript">
+    $(function () {
+        var page = 1;
+        var url = "{:U('Share/item',array('cid'=>$cate_id))}";
+        $(document).on('click', '#get_more', function () {
+            $.get(url, {page: page}, function (res) {
+                if(res.list){
+                    if (res.next == 0) {
+                        $('#get_more').remove();
+                    }
+                    var html = "";
+                    for (var i= 0;i<res.list.length;i++){
+                        html+="<div class='row'><h2><a href='"+res.list[i].item_url+"'>"+res.list[i].title+"</a></h2><p>"+res.list[i].add_time+"</p></div>"
+                    }
+                    $('#list').append(html);
+                }
+
+            });
+            page++;
+        });
+    });
+</script>
+<include file="Public/footer"/>

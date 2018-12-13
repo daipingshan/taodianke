@@ -1,0 +1,292 @@
+<include file="Public/header" title="客户经理结算申请" />
+<link rel="stylesheet" href="__JS__/daterangepicker/daterangepicker-bs3.css">
+<div class="page-container">
+    <include file="Public/nav" />
+    <div class="main-content" id="content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav" />
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">财务审计 - CRM商品服务费</h1>
+                <p class="description">显示所有招商人员已收到商家服务费打款的记录</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>菜单管理 </strong></li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-heading">
+                    <h3 class="panel-title">快捷操作</h3>
+                    <div class="panel-options">
+                        <a href="#" data-toggle="panel">
+                            <span class="collapse-icon">–</span>
+                            <span class="expand-icon">+</span>
+                        </a>
+                        <a href="#" data-toggle="remove">×</a>
+                    </div>
+                </div>
+
+                <div class="panel-body">
+                    <div class="row col-margin">
+
+                        <form method="get" action="{:U('Deal/dealSettleList')}">
+                            <div class="row col-margin">
+                                <div class="col-xs-2">
+                                    <input type="text" name="full_name"  class="form-control" placeholder="请输入申请人名称" value="{:I('get.full_name')}"/>
+                                    <input type="hidden" name="status" value="confirmed_paid"/>
+                                </div>
+                                <div class="col-sm-4">
+                                    <input type="text" name="time" value="{$time}" id="field-1" class="form-control daterange" placeholder="请选择结算时间范围" />
+                                </div>
+                                <div class="col-xs-1">
+                                    <input type="submit"  class="btn btn-secondary btn-single" value="搜索" />
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <ul class="nav nav-tabs nav-tabs-justified">
+                            <li
+                            <if condition="I('get.status') eq 'pending_paid'"> class="active"</if>
+                            >
+
+                            <a href="{:U('deal/dealSettleList',array('status'=>'pending_paid', 'full_name' => I('get.full_name'), 'time' => urlencode($time) ))}">
+                                <span class="visible-xs"><i class="fa-home"></i></span>
+                                <span class="hidden-xs">未确认({$status_num['pending_paid']|default="0"})</span>
+                            </a>
+                            </li>
+                            <li
+                            <if condition="I('get.status') eq confirmed_paid"> class="active"</if>
+                            >
+                            <a href="{:U('deal/dealSettleList',array('status'=>'confirmed_paid', 'full_name' => I('get.full_name'), 'time' => urlencode($time) ))}">
+                                <span class="visible-xs"><i class="fa-user"></i></span>
+                                <span class="hidden-xs">已确认({$status_num['confirmed_paid']|default="0"})</span>
+                            </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">操作</th>
+                                    <th width="10%">所属部门</th>
+                                    <th width="10%">申请人</th>
+                                    <th width="10%">预估打款金额</th>
+                                    <th width="10%">实际打款金额</th>
+                                    <th width="10%">提供截图</th>
+                                    <th width="10%">相关商品</th>
+                                    <th width="10%">状态</th>
+                                    <th>时间</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td>
+                                            <eq name='vo.status' value="confirmed_paid">已确认收款
+                                                <else />
+                                                <a class="confirmed_paid btn btn-success btn-icon" data-id="{$vo.id}" data-money="{$vo['paid_total_money']}" data-time="{$vo['merchant_payment_day']|date='Y-m-d',###}" data-url="{:U('Deal/doConfirmPaid',array('id' => $vo['id']))}">确认收款</a>
+                                                <br />
+                                                <br />
+                                                <a class="recover_paid btn btn-warning btn-icon" data-url="{:U('Deal/recoverPaid',array('id' => $vo['id']))}">确认打回</a>
+                                            </eq>
+                                        </td>
+                                        <td>{$vo.department_name}</td>
+                                        <td>{$vo.full_name}</td>
+                                        <td>￥{$vo.estimate_paid_total_money}</td>
+                                        <td>
+                                            ￥{$vo.paid_total_money}
+                                            <neq name='vo.remark' value=''>
+                                                <br />备注：{$vo.remark}
+                                            </neq>
+                                        </td>
+                                        <td>
+                                            <a data-url="{:getImgUrl($vo['paid_img_url'])}" href="javascript:;" onclick="showImg($(this).data('url'))"><img src="{:getImgUrl($vo['paid_img_url'])}" width="80" /></a>
+                                        </td>
+                                        <td>
+                                            <a href="{:U('Deal/dealList',array('ids' => $vo['deal_ids']))}" target="_blank">点击查看</a>
+                                        </td>
+                                        <td>
+                                            <switch name="vo.status">
+                                                <case value="pending_paid">未确认收款</case>
+                                                <case value="confirmed_paid">已确认收款</case>
+                                                <default />
+                                                未知状态
+                                            </switch>
+                                        </td>
+                                        <td>
+                                            <gt name='vo.merchant_payment_day' value='0'>
+                                                商家打款时间：{$vo.merchant_payment_day|date="Y-m-d",###}<br />
+                                            </gt>
+                                            提交申请时间：{$vo.apply_settle_time|date="Y-m-d H:i:s",###}<br />
+                                            <gt name='vo.confirmed_settle_time' value='0'>
+                                                财务确认时间：{$vo.confirmed_settle_time|date="Y-m-d H:i:s",###}
+                                            </gt>
+                                        </td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer" />
+    </div>
+    <!-- Modal 6 (Long Modal)-->
+    <div class="modal fade" id="modal-6">
+        <form action="{:U('Deal/updateSettleMoney')}" method="post" name="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title">更新实际结算金额</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="alert alert-success" style="display: none" id="success">
+                                    <strong></strong>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="alert alert-danger" id="error" style="display: none">
+                                    <strong></strong>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">实际打款金额</label>
+                                    <input type="text" class="form-control" id="money" name="money" placeholder="请输入实际打款金额">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="control-label">实际商家打款时间</label>
+                                    <input type="text" class="form-control date-picker" id="merchant_payment_day" name="merchant_payment_day" placeholder="请选择实际商家打款时间">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group no-margin">
+                                    <label for="field-7" class="control-label">备注信息</label>
+                                    <textarea class="form-control" name="remark" placeholder="请输入修改原因" id="remark"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <input type="hidden" name="id" id="settle_id" value="" />
+                        <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                        <button type="button" id="modal-submit" class="btn btn-info">保存</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal fade" id="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">结算图片</h4>
+                </div>
+                <div class="modal-body" id="show-img">
+                    <a href="" target="_blank"><img src="" style="width: 100%" /></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <include file="Public/footer_Js" />
+    <!-- Bottom Scripts -->
+    <script src="__JS__/moment.min.js"></script>
+    <script src="__JS__/datepicker/bootstrap-datepicker.js"></script>
+    <!-- Imported scripts on this page -->
+    <script src="__JS__/datepicker/locales/bootstrap-datepicker.zh-CN.js"></script>
+    <script src="__JS__/daterangepicker/daterangepicker.js"></script>
+    <script>
+        $('.date-picker').datepicker({
+            language: 'zh-CN',
+            autoclose: true,
+            todayHighlight: true,
+        })
+
+        $('.recover_paid').click(function () {
+            var msg = "确认将此结算信息打回吗？";
+            var recover_url = $(this).data('url');
+            if (confirm(msg)) {
+                window.location.href = recover_url;
+            }
+        });
+        $('.confirmed_paid').click(function () {
+            updateData($(this).data('id'), $(this).data('money'), $(this).data('time'));
+        });
+        $('#modal-submit').click(function () {
+            var _this = $(this);
+            var money = $('#money').val();
+            var merchant_payment_day = $('#merchant_payment_day').val();
+            if (!money) {
+                $('#error').find('strong').text('请输入实际打款金额');
+                $('#error').show();
+                setTimeout(function () {
+                    $('#error').hide();
+                }, 3000)
+                return false;
+            }
+            if (!merchant_payment_day) {
+                $('#error').find('strong').text('请选择实际商家打款时间');
+                $('#error').show();
+                setTimeout(function () {
+                    $('#error').hide();
+                }, 3000)
+                return false;
+            }
+            _this.attr('disabled', true);
+            $.post($('form[name=modal]').attr('action'), $('form[name=modal]').serialize(), function (res) {
+                if (res.status == 0) {
+                    _this.removeAttr('disabled');
+                    $('#error').find('strong').text(res.info);
+                    $('#error').show();
+                    $('#submit_button').removeAttr('disabled');
+                    setTimeout(function () {
+                        $('#error').hide();
+                    }, 3000)
+                } else {
+                    $('#success').find('strong').text(res.info);
+                    $('#success').show();
+                    setTimeout(function () {
+                        window.location.href = res.url;
+                    }, 3000)
+                }
+            })
+            return false;
+        })
+        function updateData(id, money, day) {
+            $('#settle_id').val(id);
+            $('#money').val(money);
+            $('#merchant_payment_day').val(day);
+            jQuery('#content').css('display', 'block');
+            jQuery('#modal-6').modal('show', {backdrop: 'static'});
+        } function showImg(url){
+            $('#show-img a img').attr('src',url);
+            $('#show-img a').attr('href',url);
+            jQuery('#modal').modal('show', {backdrop: 'static'});
+        }
+    </script>

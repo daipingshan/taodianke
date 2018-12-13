@@ -1,0 +1,139 @@
+<include file="Common:header" />
+<include file="Common:nav" />
+<div id="page-wrapper">
+    <include file="Common:message_tip" />
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">商品库管理</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            <ol class="breadcrumb">
+                <li><a href="#">商品管理</a></li>
+                <li class="active">库列表</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 form-group">
+            <div class="row">
+                <div class="col-xs-1">
+                    <a  class="btn btn-outline btn-primary openifram" data-w='600' data-h='665' href="javascript:void(0);" data-url="{:U('Goods/goods_set_add')}">新建库图片</a>
+                </div>
+                <form action="{:U('Goods/goods_set_list')}" method='get'>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" name='query' value='{$search.query}' placeholder="搜索名称">
+                    </div>
+                    <div class="col-xs-2">
+                        <select style='display: inline;' id="goods-cate-fid" class="form-control" name='cate_fid' load_href="{:U('Goods/get_c_cate_by_fid')}">
+                            <option value="">请选择一级分类</option>
+                            <volist name="f_cate_list" id="fcl">
+                                <option value="{$fcl.id}" <if condition="$search.cate_fid eq $fcl['id']"> selected='selected' </if> >{$fcl.name}</option>
+                            </volist>
+                        </select>
+                    </div>
+                    <div class="col-xs-2">
+                         <select style='display: inline;' id='goods-cid' class="form-control" name='cid' select_value='{$search.cid}'>
+                            <option value="">请选择二级分类</option>
+                        </select>
+                    </div>
+                     <div class="col-xs-2">
+                         <button type="submit" class="btn btn-default" >搜索</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>标题</th>
+                                    <th>图片</th>
+                                    <th>分类</th>
+                                    <th>创建时间</th>
+                                    <th><i class="fa fa-gear fa-fw"></i></th>
+                                </tr>
+                            </thead>
+                            <tbody data-w="380" data-h="380" title="图库修改/添加" id="opendoc">
+                            <volist name='list' id='vo'>
+                                <tr>
+                                    <td>{$vo.id}</td>
+                                    <td>{$vo.title}</td>
+                                    <td>
+                                <if condition="$vo.pic neq ''">
+                                    <img src='{$vo.pic}' style='height:100px;' />
+                                    <else/>
+                                    无图片
+                                </if>
+                                </td>
+                                <td>{$vo.cate_name}</td>
+                                <td>{$vo.create_time|date="Y-m-d H:i:s",###}</td>
+                                <td>
+                                    <a class='openifram' data-w='600' data-h='665' href="javascript:void(0);"  data-url="{:U('Goods/goods_set_edit',array('gid'=>$vo['id']))}">修改</a> 
+                                    <a href="{:U('Goods/goods_set_delete',array('gid'=>$vo['id']))}" confirm_tip='确定要删除该商品库吗？' onclick='return ajax_operation(this);'>删除</a>
+                                </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="pagination">
+                        {$pages}
+                    </ul>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+
+</div>
+<include file="Common:footer" />
+<script>
+    // 图片上传
+    $(function() {
+        // 商家团单列表 根据选择的城市 返回商家
+        $('#goods-cate-fid').change(function() {
+            var fid = $(this).val();
+            var href = $(this).attr('load_href');
+            var cid_obj = $('#goods-cid');
+            
+            var select_value = cid_obj.attr('select_value');
+
+            if (!fid) {
+                return false;
+            }
+
+            cid_obj.html("<option value=''>--请选择二级分类--</option>");
+            $.post(href, {fid: fid}, function(res) {
+                if (res.code == 0 && res.data) {
+                    var option_arr = [];
+                    option_arr.push("<option value=''>--请选择二级分类--</option>");
+                    for (var i = 0; i < res.data.length; i++) {
+                        var option_str = "<option value='" + res.data[i].id + "'>" + res.data[i].name + "</option>";
+                        if(select_value==res.data[i].id){
+                            option_str = "<option value='" + res.data[i].id + "' selected='selected'>" + res.data[i].name + "</option>";
+                        }
+                        option_arr.push(option_str);
+                    }
+                    cid_obj.html(option_arr.join(''));
+                }
+                return false;
+            }, 'json');
+            return false;
+        });
+        $('#goods-cate-fid').change();
+    })
+</script>

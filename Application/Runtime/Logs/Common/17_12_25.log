@@ -1,0 +1,18 @@
+[ 2017-12-25T11:25:03+08:00 ] 127.0.0.1 /Uploads/wxqrcode_bg.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000495s ]
+ERR: 无法加载模块:Uploads
+
+[ 2017-12-25T11:26:05+08:00 ] 127.0.0.1 /Uploads/wxqrcode_bg.jpg
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000012s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000539s ]
+ERR: 无法加载模块:Uploads
+
+[ 2017-12-25T15:10:05+08:00 ] 127.0.0.1 /Store/index
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000014s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000629s ]
+ERR: 无法加载模块:Store
+

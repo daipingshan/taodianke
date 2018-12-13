@@ -1,0 +1,102 @@
+<include file="Public/header" title="我的推广商品"/>
+<div class="page-container">
+    <include file="Public/nav"/>
+    <div class="main-content">
+        <!-- User Info, Notifications and Menu Bar -->
+        <include file="Public/user_nav"/>
+        <div class="page-title">
+            <div class="title-env">
+                <h1 class="title">我的商品</h1>
+                <p class="description">显示所有我的未认领推广商品</p>
+            </div>
+            <div class="breadcrumb-env">
+                <ol class="breadcrumb bc-1">
+                    <li><a href="/AppAdmin/"><i class="fa-home"></i>主页</a></li>
+                    <li class="active"><strong>菜单管理 </strong></li>
+                </ol>
+            </div>
+        </div>
+        <div class="row">
+            <div class="panel panel-default col-sm-12">
+                <div class="panel-body">
+                    <div class="row col-margin">
+                        <div class="col-md-12">
+                            <a href="{:U('Deal/searchDeal')}" class="btn btn-info btn-single">搜索认领</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table cellspacing="0" class="table table-small-font table-bordered table-striped">
+                                <thead>
+                                <tr>
+                                    <th width="10%">商品配图</th>
+                                    <th width="6%">链接</th>
+                                    <th width="15%">价格</th>
+                                    <th width="15%">文案</th>
+                                    <th width="20%">时间</th>
+                                    <th width="8%">状态</th>
+                                    <th>备注</th>
+                                    <th width="10%">操作</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <foreach name="data" item="vo">
+                                    <tr>
+                                        <td><img src="{$vo.img_url}" width="80"/></td>
+                                        <td>
+                                            <a href="{$vo.dataoke_url}" target="_blank" style="color: #00A0E9">大淘客</a>
+                                            <br/>
+                                            <a href="{$vo.taobao_url}" target="_blank" style="color: #00A0E9">淘宝</a>
+                                        </td>
+                                        <td>
+                                            商品id：{$vo['taobao_item_id']}<br/>
+                                            <span style="color: red">券后价：￥{$vo['coupon_after_price']}元</span><br/>
+                                            <span style="color: red">佣金比例：{$vo['commission_ratio']}%</span><br/>
+                                            <span style="color: red">优惠券价：￥{$vo['coupon_money']}元</span><br/>
+                                        </td>
+                                        <td>{$vo.copy_writer}</td>
+                                        <td>
+                                            提交时间：{$vo.add_time|date='Y-m-d H:i:s',###}<br/>
+                                            开始时间：{$vo.online_time|date='Y-m-d H:i:s',###}<br/>
+                                            券结束时间：{$vo.end_time|date='Y-m-d H:i:s',###}<br/>
+                                        </td>
+                                        <td>
+                                            <span style="color: #00A000" <eq name='vo.status' value='reject'>title="{$vo.status_update_reason}"</eq>><switch name="vo.status">
+                                                <case value="ing">进行中</case>
+                                                <case value="finished">已结束</case>
+                                                <case value="reject">拒绝推广</case>
+                                                <case value="bad">赖账</case>
+                                                <case value="apply_settle">已申请结算</case>
+                                                <case value="pending_paid">待确认支付</case>
+                                                <case value="confirmed_paid">已确认支付</case>
+                                                <default/>
+                                                未知状态
+                                            </switch></span>
+                                        </td>
+                                        <td>
+                                            <span>大淘客备注：{$vo.dataoke_remark}</span><br/>
+                                            <span>管理员备注：{$vo.remark}</span>
+                                        </td>
+                                        <td><a href="{:U('Deal/searchDeal',array('tao_bao_id'=>$vo['taobao_item_id']))}"
+                                               class="btn btn-info btn-single ">立即认领</a></td>
+                                    </tr>
+                                </foreach>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="page">
+                            <ul class="pagination">{$page}</ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <include file="Public/footer"/>
+    </div>
+    <include file="Public/footer_Js"/>

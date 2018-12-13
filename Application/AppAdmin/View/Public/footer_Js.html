@@ -1,0 +1,206 @@
+<script>
+	function edit() {
+        jQuery('#modal_6').modal('show', {backdrop: 'static'});
+    }
+
+    function editPassword() {
+    	var password = $("#password").val();
+        var newpassword = $("#newpassword").val();
+    	var repassword = $("#repassword").val();
+    	if (!newpassword || !repassword) {
+    		alert('密码或重复密码为空');
+    		return false;
+    	} else if ( newpassword != repassword ) {
+    		alert('两次密码不一样，请确认密码！');
+    		return false;
+    	}
+	 	var get_url = "{:U('Auth/revisePassword')}";
+        $.get(get_url,{password:password, newpassword:newpassword, repassword:repassword},function(res){
+            if(res.code == 1){
+                alert(res.msg);
+            	window.location.href = "{:U('Index/index')}";
+            } else if (res.code == 0) {
+                alert(res.msg);
+            	window.location.href = "{:U('Index/index')}";
+            }
+
+        });
+    }
+
+    function read(id) {
+        jQuery('#modal_7').modal('show', {backdrop: 'static'});
+        var url = "{:U('Merchant/read')}";
+        $.get(url, {id:id}, function (res) {
+            jQuery('#modal_7 .modal-body').html(res.html);
+        })
+    }
+
+    function isPush(id, title) {
+        jQuery('#modal_8').modal('show', {backdrop: 'static'});
+        jQuery('#modal_8 #goods_id').val(id);
+        jQuery('#modal_8 #title').val(title);
+    }
+
+    function doSet() {
+        var id = $("#goods_id").val();
+        var type = $("#type").val();
+        var title = $("#title").val();
+        var is_push = $("input[name=is_push]:checked").val();
+
+        var get_url = "{:U('Items/setHandpick')}";
+        $.get(get_url,{id:id, type:type, title:title, is_push:is_push},function(res){
+            if(res.status == 1){
+                alert(res.info);
+                window.location.href = "{:U('Items/index')}";
+            } else if (res.status == 0) {
+                alert(res.info);
+                window.location.href = "{:U('Items/index')}";
+            }
+
+        });
+    }
+
+</script>
+
+<div class="modal fade" id="modal_6">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">修改密码</h4>
+            </div>
+            <form method="get" action="{:U('Auth/revisePassword')}">
+            <div class="modal-body">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="field-1" class="control-label">原始密码</label>
+                            <input type="password" name="password" class="form-control" id="password" placeholder="请输入原始密码">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="field-1" class="control-label">新密码</label>
+                            <input type="password" name="newpassword" class="form-control" id="newpassword" placeholder="请输入新密码">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="field-1" class="control-label">确认密码</label>
+                            <input type="password" name="repassword" class="form-control" id="repassword" placeholder="请输入用户确认密码">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-info" onclick="editPassword()">确认</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_7">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">商家详情</h4>
+            </div>
+            <div class="modal-body">
+                正在加载中...
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal_8">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">设置精选</h4>
+            </div>
+            <form method="get" action="{:U('Items/setHandpick')}">
+                <div class="modal-body">
+                    <input type="hidden" name="id" id="goods_id" value=""/>
+                    <input type="hidden" name="type" id="type" value="Y"/>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label class="control-label">推送标题</label>
+                                <textarea name="title" rows="3" class="form-control" id="title">
+
+                                </textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="status" class="control-label">是否推送</label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="is_push" value="Y" />是
+                            </label>
+                            <label>
+                                <input type="radio" name="is_push" value="N" checked="checked"/>否
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-info" onclick="doSet()">确认</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+	<!-- Bottom Scripts -->
+	<script src="__JS__/bootstrap.min.js"></script>
+	<script src="__JS__/TweenMax.min.js"></script>
+	<script src="__JS__/resizeable.js"></script>
+	<script src="__JS__/joinable.js"></script>
+	<script src="__JS__/xenon-api.js"></script>
+	<script src="__JS__/xenon-toggles.js"></script>
+	<!-- JavaScripts initializations and stuff -->
+	<script src="__JS__/xenon-custom.js"></script>
+    <div id="back-to-top" class="iton-top-index">
+        <a href="#"></a>
+    </div>
+<script type="text/javascript">
+    $(function () {
+        $("#back-to-top").hide();
+        $(window).scroll(function () {
+            if ($(window).scrollTop() > 100) {
+                $("#back-to-top").fadeIn(1500);
+            } else {
+                $("#back-to-top").fadeOut(1500);
+            }
+        });
+        //当点击跳转链接后，回到页面顶部位置
+        $("#back-to-top").click(function () {
+            $('body,html').animate({scrollTop: 0}, 500);
+            return false;
+        });
+    });
+</script>
+</body>
+
+</html>

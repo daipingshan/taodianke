@@ -1,0 +1,263 @@
+<include file="Common:header"/>
+<include file="Common:nav"/>
+
+<div id="page-wrapper">
+    <include file="Common:message_tip"/>
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">头条文章列表</h1>
+        </div>
+        <!-- /.col-lg-12 -->
+    </div>
+    <notEmpty name="user_data">
+        <div class="row" style="margin-bottom: 20px;margin-left: -30px">
+            <div class="col-lg-12">
+                <form>
+                    <div class="col-lg-3">
+                        <select name="user_id" class="form-control">
+                            <option value="">请选择用户</option>
+                            <foreach name="user_data" item="row" key="k">
+                                <option value="{$row.id}"
+                                <if condition="I('get.user_id') eq $row['id']">selected</if>
+                                >{$row.name}</option>
+                            </foreach>
+                        </select>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-danger">查询</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </notEmpty>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="panel panel-default">
+                <!-- /.panel-heading -->
+                <div class="panel-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th width="30%">文章标题</th>
+                                <th width="8%">文章数量</th>
+                                <th width="12%">发布账号</th>
+                                <th width="12%">发布人</th>
+                                <th width="15%">时间</th>
+                                <th><i class="fa fa-gear fa-fw"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <volist name='data' id='vo'>
+                                <tr>
+                                    <td>
+                                        <if condition="($vo['is_send'] eq 0) AND ($vo['is_save'] eq 0)">
+                                            <a href="javascript:;" class="update-news-info" data-id="{$vo.id}" data-info="{$vo.title}">{$vo.title}</a>
+                                            <else />
+                                            <a href="javascript:;" class="news-info" data-url="{:U('newsInfo',array('id'=>$vo['id']))}">{$vo.title}</a>
+                                        </if>
+                                    </td>
+                                    <td>
+                                        <php>echo count(json_decode($vo['content']));</php>
+                                    </td>
+                                    <td>{$account[$vo['account_id']]['username']}</td>
+                                    <td>{$vo.username}</td>
+                                    <td>
+                                        <if condition="$vo['send_time']">
+                                            {$vo.send_time}<br>
+                                            <else/>
+                                            未设置定时发布<br>
+                                        </if>
+                                        {$vo.add_time|date="Y-m-d H:i:s",###}
+                                    </td>
+                                    <td>
+                                        <if condition="$vo['is_send'] eq 0">
+                                            <eq name="vo['is_save']" value="1">
+                                                <a class="btn btn-warning" disabled="disabled">已存稿</a>
+                                                <else/>
+                                                <a class="btn btn-warning figure"
+                                                   data-url="{:U('figure',array('id'=>$vo['id']))}"
+                                                   href="javascript:;">存草稿</a>
+                                            </eq>
+                                        </if>
+                                        <if condition="$vo['is_save'] eq 0">
+                                            <eq name="vo['is_send']" value="1">
+                                                <a class="btn btn-success" disabled="disabled"
+                                                   href="javascript:;">已发表</a>
+                                                <else/>
+                                                <a class="btn btn-success publish" href="javascript:;"
+                                                   data-url="{:U('publish',array('id'=>$vo['id']))}">发表</a>
+                                            </eq>
+                                        </if>
+                                        <a class="btn btn-info news-info" href="javascript:;"
+                                           data-url="{:U('newsInfo',array('id'=>$vo['id']))}">预览</a>
+                                        <if condition="($vo['is_send'] eq 0) AND ($vo['is_save'] eq 0)">
+                                            <a class="btn btn-danger news-del" href="javascript:;"
+                                               data-url="{:U('newsDel',array('id'=>$vo['id']))}">删除</a>
+                                        </if>
+                                    </td>
+                                </tr>
+                            </volist>
+                            </tbody>
+                        </table>
+                    </div>
+                    <ul class="pagination" style="width: 100%">
+                        {$pages}
+                    </ul>
+                    <!-- /.table-responsive -->
+                </div>
+                <!-- /.panel-body -->
+            </div>
+            <!-- /.panel -->
+        </div>
+        <!-- /.col-lg-6 -->
+    </div>
+</div>
+<!-- 按钮触发模态框 -->
+<!-- 按钮触发模态框 -->
+<div class="modal fade" id="update-news-info" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">编辑文章标题</h4>
+            </div>
+            <form class="bs-example bs-example-form" role="form">
+                <div class="modal-body">
+                    <div class="input-group">
+                        <span class="input-group-addon">文章标题</span>
+                        <textarea type="text" class="form-control" name="name" id="update-info"
+                                  placeholder="请输入文章标题" rows="2"></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <input type="hidden" name="update_id" id="update-id"/>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" id="update">修改</button>
+                </div>
+            </form>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<include file="Common:footer"/>
+<script>
+    $(function () {
+        $('.news-info').click(function () {
+            layer.open({
+                title: '预览文章',
+                type: 2,
+                area: ['800px', '670px'],
+                fix: true,
+                content: $(this).data('url'),
+            });
+        });
+
+
+        $('.update-news-info').click(function () {
+            $('#update-info').val($(this).data('info'));
+            $('#update-id').val($(this).data('id'));
+            $('#update-news-info').modal('show');
+        });
+
+        $('#update').click(function () {
+            var _this = $(this);
+            var title = $('#update-info').val();
+            var id = $('#update-id').val();
+            if (!title) {
+                layer.msg('请输入文章标题');
+                return false;
+            }
+            _this.attr('disabled', true);
+            $.post("{:U('updateNews')}", {id: id, title: title}, function (res) {
+                layer.msg(res.info);
+                if (res.status == 1) {
+                    setTimeout(function () {
+                        location.reload();
+                    }, 2000)
+                } else {
+                    _this.removeAttr('disabled');
+                }
+            });
+        })
+        $('.figure').click(function () {
+            var is_click = 1;
+            var _this = $(this);
+            var url = $(this).data('url');
+            layer.confirm('确认要将此文章存草稿吗？', {
+                btn: ['确定', '取消']//按钮
+            }, function () {
+                if (is_click == 0) {
+                    layer.msg('正在请求中……，请勿重复点击！');
+                } else {
+                    is_click = 0;
+                    _this.attr('disabled', true);
+                    $.get(url, {}, function (res) {
+                        layer.msg(res.info);
+                        if (res.status == 1) {
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 3000)
+                        } else {
+                            is_click = 1;
+                            _this.removeAttr('disabled');
+                        }
+                    })
+                }
+            });
+        })
+        $('.publish').click(function () {
+            var is_click = 1;
+            var _this = $(this);
+            var url = $(this).data('url');
+            layer.confirm('确认要将此文章发布吗？', {
+                btn: ['确定', '取消']//按钮
+            }, function () {
+                if (is_click == 0) {
+                    layer.msg('正在请求中……，请勿重复点击！');
+                } else {
+                    is_click = 0;
+                    _this.attr('disabled', true);
+                    $.get(url, {}, function (res) {
+                        layer.msg(res.info);
+                        if (res.status == 1) {
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 3000)
+                        } else {
+                            is_click = 1;
+                            _this.removeAttr('disabled');
+                        }
+                    })
+                }
+            });
+        })
+        $('.news-del').click(function () {
+            var is_click = 1;
+            var _this = $(this);
+            var url = $(this).data('url');
+            layer.confirm('确认要将此文章删除吗？', {
+                btn: ['确定', '取消']//按钮
+            }, function () {
+                if (is_click == 0) {
+                    layer.msg('正在请求中……，请勿重复点击！');
+                    return false;
+                } else {
+                    is_click = 0;
+                    _this.attr('disabled', true);
+                    $.get(url, {}, function (res) {
+                        layer.msg(res.info);
+                        if (res.status == 1) {
+                            setTimeout(function () {
+                                window.location.reload();
+                            }, 3000)
+                        } else {
+                            is_click = 1;
+                            _this.removeAttr('disabled');
+                        }
+                    })
+                }
+            });
+        })
+    })
+</script>
